@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mobile Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    $(document).ready(function () {
+      // ChatServer 연결	
+      var socket = io.connect();
+      
+      // socket에 이벤트 리스너 등록(메시지 수신)
+      socket.on("message", function (data) {
+        var output = "";
+        output += "<li>";
+        output += "    <h3>" + data.name + "</h3>";
+        output += "    <p>" + data.message + "</p>";
+        output += "    <p>" + data.date + "</p>";
+        output += "</li>";
+
+        $(output).prependTo("#content");
+        $("#content").listview("refresh");
+      });
+      
+      
+      // 메시지 전송
+      $("button").click(function () {
+        socket.emit("message", {
+          name: $("#name").val(),
+          message: $("#message").val(),
+          date: new Date().toUTCString()
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  
+  <!-- 첫로그인 화면 -->
+  <div data-role="page">
+    <div data-role="header">
+      <h1>Socket.io Chat</h1>
+    </div>
+    <div data-role="content">
+      <h3>Nick Name</h3>
+      <input id="name" />
+      <a data-role="button" href="#chatpage">Start Chat</a>
+    </div>
+  </div>
+  
+  <!-- 대화방 화면 -->
+  <div data-role="page" id="chatpage">
+    <div data-role="header">
+      <h1>:: 화끈한 대화 나누세요^^ ::</h1>
+    </div>
+    <div data-role="content">
+      <input id="message" />
+      <button>메시지 전송</button>
+      <ul id="content" data-role="listview" data-inset="true"></ul>
+    </div>
+  </div>
+  
+</body>
+</html>

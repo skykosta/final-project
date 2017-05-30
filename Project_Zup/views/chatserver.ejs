@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Stylish Portfolio - Start Bootstrap Theme</title>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="/socket.io/socket.io.js"></script>
+ <script>
+    $(document).ready(function () {
+    	var socket = io.connect();
+
+			$('#talk').bind('keypress', function(e) {
+				var code = (e.keyCode ? e.keyCode : e.which);
+				if (code == 13) {
+					socket.emit('foo', this.value);
+					$('#chatfield').append(this.value + "<br/>");
+					this.value = '';
+				}
+			});
+			socket.on('bar', function(data) {
+				$('#chatfield').append(data.chat + "<br/>");
+			});
+  });
+		</script>
+
+</head>
+
+<body>
+  <h1>Chat Server</h1>
+  <div id="chatfield"></div>
+  <input id="talk">
+
+ 
+</body>
+
+</html>
