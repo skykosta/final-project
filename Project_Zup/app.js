@@ -25,7 +25,12 @@ var express = require('express')
 , pwresult = require('./routes/pwresult')
 , idresult = require('./routes/idresult')
 , regresult = require('./routes/regresult')
-, agree = require('./routes/agree');
+, agree = require('./routes/agree')
+
+/* 관리자 페이지 */
+, user = require('./routes/user')
+, order = require('./routes/order')
+, total = require('./routes/total');
 
 
 var app = express();
@@ -71,6 +76,10 @@ app.get('/pwresult', pwresult.pwresult);
 app.get('/regresult', regresult.regresult);
 app.get('/agree', agree.agree);
 
+/* 관리자 페이지 */
+app.get('/order', order.order);
+app.get('/total', total.total);
+app.get('/user', user.user);
 
 var sio = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
