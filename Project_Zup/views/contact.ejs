@@ -1,0 +1,84 @@
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>HTML Bootstrap Template</title>
+
+<!-- Bootstrap -->
+<link href="stylesheets/css/bootstrap.min.css" rel="stylesheet">
+<link href="stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!-- <link href="stylesheets/css/animate.css" rel="stylesheet"> -->
+<!-- <link href="stylesheets/css/animate.min.css" rel="stylesheet"> -->
+<!-- <link href="stylesheets/css/style.css" rel="stylesheet" /> -->
+
+</head>
+<body>
+
+<br>
+<br>
+<br>
+
+<!-- service 헤어부분 -->
+		<div>
+		<ul class="nav nav-tabs" style="max-height: 49px;">
+			<li role="presentation"><a href="notice">공지사항</a></li>
+			<li role="presentation"><a href="fnq">자주묻는질문</a></li>
+			<li role="presentation"><a href="contact">고객센터</a></li>
+			<ul class="nav nav-tabs pull-right">
+				<li role="presentation"><a href="/about-abby/episodes">메인페이지</a></li>
+				<li role="presentation"><a href="/about-abby/cast">마이페이지</a></li>
+				<li role="presentation"><a href="/about-abby/episodes">로그인</a></li>
+
+			</ul>
+		</ul>
+
+	</div>
+	
+<!-- service헤더부분 끝 -->	
+
+<br>
+<br>
+<br>
+
+
+	<section class="contact-page">
+		<div class="container">
+			<div class="text-center">
+				<h2>Contact Us</h2>
+			</div>
+			<div class="row contact-wrap">
+				<div class="col-md-6 col-md-offset-3">
+					
+
+						<div class="form-group">
+							<input type="text" class="form-control" name="subject"
+								id="subject" placeholder="제목" data-rule="minlen:4"
+								data-msg="Please enter at least 8 chars of subject" />
+							<div class="validation"></div>
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" name="message" rows="15"
+								data-rule="required" data-msg="Please write something for us"
+								placeholder="내용입력" style='resize: none'></textarea>
+							<div class="validation"></div>
+						</div>
+
+						<div class="text-center">
+							<button type="submit" name="submit"
+								class="btn btn-primary btn-lg">전송</button>
+							<button type="cancel" name="cancel"
+								class="btn btn-primary btn-lg">취소</button>
+						</div>
+
+				</div>
+			</div>
+
+			<!--/.row-->
+		</div>
+		<!--/.container-->
+	</section>
+	<!--/#contact-page-->
+
+
+</body>
