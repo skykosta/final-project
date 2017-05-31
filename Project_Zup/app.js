@@ -30,7 +30,11 @@ var express = require('express')
 /* 관리자 페이지 */
 , user = require('./routes/user')
 , order = require('./routes/order')
-, total = require('./routes/total');
+, total = require('./routes/total')
+
+
+/*고객센터 페이지*/
+, ejs = require('ejs');
 
 
 var app = express();
@@ -80,6 +84,41 @@ app.get('/agree', agree.agree);
 app.get('/order', order.order);
 app.get('/total', total.total);
 app.get('/user', user.user);
+
+
+/*고객센터 페이지 총5개*/
+//notice 공지사항(고객센터1)
+app.get('/notice', function(request, response){
+	fs.readFile('views/notice.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//fnq 자주묻는질문(고객센터2)
+app.get('/fnq', function(request, response){
+	fs.readFile('views/fnq.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//contact 문의게시판(고객센터3)
+app.get('/contact', function(request, response){
+	fs.readFile('views/contact.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//게시판 글쓰기 <게시판(notice) 글쓰기 버튼 클릭시 이동하는 화면입니다>
+app.get('/board', function(request, response){
+	fs.readFile('views/board.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//게시글 상세보기 <게시판(notice) 글 클릭시 이동하는 화면입니다> 
+app.get('/boardview', function(request, response){
+	fs.readFile('views/boardview.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+
+
 
 var sio = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
