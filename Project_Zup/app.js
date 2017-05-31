@@ -7,6 +7,10 @@ var express = require('express')
 , user = require('./routes/user')
 , test = require('./routes/test')
 , chatserver = require('./routes/chatserver')
+
+/*마이페이지*/
+, mypage = require('./routes/mypage')
+
 , http = require('http')
 , path = require('path')
 , socketio = require('socket.io')
@@ -41,6 +45,9 @@ app.get('/test', function(request, response) {
 		response.end(data);
 	});
 });
+/*마이페이지*/
+app.get('/mypage', mypage.mypage);
+
 
 var sio = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
