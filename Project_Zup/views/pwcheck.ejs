@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- Bootstrap Core CSS -->
+<link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="/stylesheets/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
+
+<!-- Sweetalert -->
+<script src="/stylesheets/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<br><br><br><br>
+	<div class="container">
+		<div class="row">
+			<div class="wrapper col-md-offset-4 col-md-4">
+				<form class="form-signin" action="/newpw" onsubmit="return pwCheckSubmit(this);">
+					<h2 class="form-signin-heading">비밀번호 찾기</h2>
+					<label for="inputId" class="sr-only">아이디</label> <input id="inputId" class="form-control" placeholder="아이디"><br>
+						 
+						<label for="inputEmail"
+						class="sr-only">이메일</label> <input type="email" id="inputEmail" class="form-control" placeholder="Email">
+					<div class="form-group">
+              <label for=""></label>
+              <div class="input-group">
+                <input  class="form-control" id="numCheck" placeholder="인증번호 입력">
+                <span class="input-group-btn">
+                  <button class="btn btn-success">인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
+                </span>
+              </div>
+            </div>
+					
+					본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.
+					
+					
+					<button class="btn btn-lg btn-primary btn-block" type="submit">확인</button>
+						
+						<hr />
+				    <div style="text-align: center;"><p><a href="/idcheck">아이디찾기</a> | <a href="#">비밀번호 찾기</a> |
+						<a href="/agree">회원가입</a> | <a href="/">고객센터</a></p>
+				    </div> 
+				</form>
+			</div>
+		</div>
+	</div>
+
+<!-- 비밀번호 찾기 유효성 검사 -->
+<script type="text/javascript">
+ function pwCheckSubmit(form){
+	
+	if($("#inputId").val() === ""){
+		swal({
+				  title : '아이디 미입력!',
+				  text : '아이디를 입력해주세요!',
+				  type :'warning',
+				  confirmButtontext : '닫기'
+		})
+		$("#inputId").focus();
+		return false;
+	}
+	
+	if($("#inputEmail").val() === ""){
+		swal({
+				  title : '이메일 미입력!',
+				  text : '이메일을 입력해주세요!',
+				  type :'warning',
+				  confirmButtontext : '닫기'
+		})
+		$("#inputEmail").focus();
+		return false;
+	}
+	
+	if($("#numCheck").val() === ""){
+		swal({
+				  title : '인증번호 미입력!',
+				  text : '인증번호 입력해주세요!',
+				  type :'warning',
+				  confirmButtontext : '닫기'
+		})
+		$("#numCheck").focus();
+		return false;
+	}
+ }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript" ></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js" type="text/javascript"></script>
+</body>
+
+</html>

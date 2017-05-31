@@ -14,8 +14,20 @@ var express = require('express')
 , http = require('http')
 , path = require('path')
 , socketio = require('socket.io')
-, fs = require('fs');
+, fs = require('fs')
  
+/*회원 관련*/
+, login = require('./routes/login')
+, regist = require('./routes/regist')
+, idcheck = require('./routes/idcheck')
+, pwcheck = require('./routes/pwcheck')
+, newpw = require('./routes/newpw')
+, pwresult = require('./routes/pwresult')
+, idresult = require('./routes/idresult')
+, regresult = require('./routes/regresult')
+, agree = require('./routes/agree');
+
+
 var app = express();
 
 // all environments
@@ -47,6 +59,17 @@ app.get('/test', function(request, response) {
 });
 /*마이페이지*/
 app.get('/mypage', mypage.mypage);
+/*회원 관련*/
+app.get('/login', login.login );
+app.get('/regist', regist.regist);
+app.get('/regist', regist.regist);
+app.get('/idcheck', idcheck.idcheck);
+app.get('/pwcheck', pwcheck.pwcheck);
+app.get('/newpw', newpw.newpw);
+app.get('/idresult', idresult.idresult);
+app.get('/pwresult', pwresult.pwresult);
+app.get('/regresult', regresult.regresult);
+app.get('/agree', agree.agree);
 
 
 var sio = http.createServer(app).listen(app.get('port'), function() {
