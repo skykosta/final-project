@@ -2,20 +2,12 @@
  * Module dependencies.
  */
 
-var express = require('express')
-, routes = require('./routes')
-, user = require('./routes/user')
-, test = require('./routes/test')
-, chatserver = require('./routes/chatserver')
-, http = require('http')
-, path = require('path')
-, socketio = require('socket.io')
-, fs = require('fs');
+var express = require('express'), routes = require('./routes'), user = require('./routes/user'), map = require('./routes/maptest7'), chatserver = require('./routes/chatserver'), http = require('http'), path = require('path'), socketio = require('socket.io'), fs = require('fs'), request = require('request'), firebase = require("firebase");
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());
@@ -33,43 +25,59 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/chat', chatserver.chat);
-app.get('/test', function(request, response) {
-	fs.readFile('test.html', function(error, data) {
-		response.writeHead(200, {
-			'Content-Type' : 'Application/json'
-		});
-		response.end(data);
-	});
-});
+app.get('/map', map.map);
 
 var sio = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
-});
 
+});
 
 var chatServer = socketio.listen(sio);
-var chatArray = null;
 
-var chatInfo = null;
-chatServer.sockets.on('connection', function(socket) {
-	// message 이벤트 처리(메시지 수신)
-	socket.on('foo', function(data) {
-		// message 이벤트 발생(메시지 송신)
-		socket.broadcast.emit("bar", data);
-		chatArray = new Array();
+chatServer.sockets
+		.on(
+				'connection',
+				function(socket) {
+					// message 이벤트 처리(메시지 수신)
+					socket
+							.on(
+									'foo',
+									function(data) {
+										// message 이벤트 발생(메시지 송신)
+										socket.broadcast.emit("bar", data);
+										chatInfo = new Object();
 
-		chatInfo = new Object();
-         console.log(data);
-        chatInfo.message = data;
-        chatArray.push(chatInfo);
-        console.log(JSON.stringify(chatArray));
-        
-		fs.appendFile('test.html', JSON.stringify(chatArray), function(err) {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log("성공했어?");
-			}
-		});
+										sendMessageToUser(
+												"ftM37xsE4jU:APA91bEunaSR2DvFloH7sGw6Q5pmdiUfVtmri67t6xaBMYHiYPwA8z4HzX5J66jrBanHmAGyeRl-cXNBX5MDXNMVXXrT9PiEaYp_ygTTvGJq0OlMqoa0nbcUmLAZlIWhIZeNpVCWtTCG",
+												data);
+									});
+				});
+
+function sendMessageToUser(deviceId, message) {
+	console.log(message);
+	console.log(deviceId);
+
+	request({
+		url : 'https://fcm.googleapis.com/fcm/send',
+		method : 'POST',
+		headers : {
+			'Content-Type' : 'application/json',
+			'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
+		},
+		body : JSON.stringify({
+			"data" : {
+				"message" : message
+			},
+			"to" : deviceId
+		})
+	}, function(error, response, body) {
+		if (error) {
+			console.error(error, response, body);
+		} else if (response.statusCode >= 400) {
+			console.error('HTTP Error: ' + response.statusCode + ' - '
+					+ response.statusMessage + '\n' + body);
+		} else {
+			console.log('성공!')
+		}
 	});
-});
+}
