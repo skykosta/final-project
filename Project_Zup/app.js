@@ -49,6 +49,11 @@ var express = require('express')
 /*고객센터 페이지*/
 , ejs = require('ejs');
 
+//데이터 연동
+var bodyParser = require('body-parser');
+
+
+
 /* https프로토콜 생성을 위한 키,인증서 읽어오기*/
 var options = {  
 	    key: fs.readFileSync('key.pem'),
@@ -56,6 +61,12 @@ var options = {
 	};
 
 var app = express();
+
+//바디파서
+app.use(bodyParser.urlencoded({
+	extended:false
+}));
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -92,15 +103,20 @@ app.get('/mypage', mypage.mypage);
 
 /*회원 관련*/
 app.get('/login', login.login );
-app.get('/regist', regist.regist);
-app.get('/regist', regist.regist);
 app.get('/idcheck', idcheck.idcheck);
 app.get('/pwcheck', pwcheck.pwcheck);
 app.get('/newpw', newpw.newpw);
 app.get('/idresult', idresult.idresult);
 app.get('/pwresult', pwresult.pwresult);
-app.get('/regresult', regresult.regresult);
+//약관 동의
 app.get('/agree', agree.agree);
+app.post('/agree', agree.agree2);
+//회원가입
+app.get('/regist', regist.regist);
+app.post('/regist', regist.regist2);
+//가입 확인
+app.get('/regresult', regresult.regresult);
+
 
 /* 관리자 페이지 */
 app.get('/order', order.order);
