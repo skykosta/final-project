@@ -1,0 +1,292 @@
+
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>HTML Bootstrap Template</title>
+
+<!-- Bootstrap -->
+  <link href="stylesheets/css/bootstrap.min.css" rel="stylesheet">
+	<link  href="stylesheets/css/font-awesome.min.css" rel="stylesheet">
+ <link href="stylesheets/css/animate.css" rel="stylesheet" > 
+	<link href="stylesheets/css/animate.min.css" rel="stylesheet"> 
+	<link href="stylesheets/css/style.css" rel="stylesheet" />	
+	
+
+	
+	<style type="text/css">
+	
+	h3 {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 970px;
+        }
+        
+        div[class*='col-'] {
+            padding: 0 30px;
+        }
+        
+        .wrap {
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+        }
+        
+        a:focus,
+        a:hover,
+        a:active {
+            outline: 0;
+            text-decoration: none;
+        }
+        
+        .panel {
+            border-width: 0 0 1px 0;
+            border-style: solid;
+            border-color: #fff;
+            background: none;
+            box-shadow: none;
+        }
+        
+        .panel:last-child {
+            border-bottom: none;
+        }
+        
+        .panel-group > .panel:first-child .panel-heading {
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .panel-group .panel {
+            border-radius: 0;
+        }
+        
+        .panel-group .panel + .panel {
+            margin-top: 0;
+        }
+        
+        .panel-heading {
+            background-color: #0072AE;
+            border-radius: 0;
+            border: none;
+            color: #fff;
+            padding: 0;
+        }
+        
+        .panel-title a {
+            display: block;
+            color: #fff;
+            padding: 15px;
+            position: relative;
+            font-size: 22px;
+            font-weight: 400;
+        }
+        
+        .panel-body {
+            background: #fff;
+        }
+        
+        .panel:last-child .panel-body {
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .panel:last-child .panel-heading {
+            border-radius: 0 0 4px 4px;
+            transition: border-radius 0.3s linear 0.2s;
+        }
+        
+        .panel:last-child .panel-heading.active {
+            border-radius: 0;
+            transition: border-radius linear 0s;
+        }
+        /* #bs-collapse icon scale option */
+        
+        .panel-heading a:before {
+            content: '\e146';
+            position: absolute;
+            font-family: 'Material Icons';
+            right: 5px;
+            top: 10px;
+            font-size: 24px;
+            transition: all 0.5s;
+            transform: scale(1);
+        }
+        
+        .panel-heading.active a:before {
+            content: ' ';
+            transition: all 0.5s;
+            transform: scale(0);
+        }
+        
+        #bs-collapse .panel-heading a:after {
+            content: ' ';
+            font-size: 24px;
+            position: absolute;
+            font-family: 'Material Icons';
+            right: 5px;
+            top: 10px;
+            transform: scale(0);
+            transition: all 0.5s;
+        }
+        
+        #bs-collapse .panel-heading.active a:after {
+            content: '\e909';
+            transform: scale(1);
+            transition: all 0.5s;
+        }
+        /* #accordion rotate icon option */
+        
+        #accordion .panel-heading a:before {
+            content: '\e316';
+            font-size: 24px;
+            position: absolute;
+            font-family: 'Material Icons';
+            right: 5px;
+            top: 10px;
+            transform: rotate(180deg);
+            transition: all 0.5s;
+        }
+        
+        #accordion .panel-heading.active a:before {
+            transform: rotate(0deg);
+            transition: all 0.5s;
+        }
+	
+	
+	</style>
+	
+
+  </head>
+  <body>	
+
+
+
+<!-- service 헤어부분 -->
+		<div>
+		<ul class="nav nav-tabs" style="max-height: 49px;">
+			<li role="presentation"><a href="notice">공지사항</a></li>
+			<li role="presentation"><a href="fnq">자주묻는질문</a></li>
+			<li role="presentation"><a href="contact">고객센터</a></li>
+			<ul class="nav nav-tabs pull-right">
+				<li role="presentation"><a href="/about-abby/episodes">메인페이지</a></li>
+				<li role="presentation"><a href="/about-abby/cast">마이페이지</a></li>
+				<li role="presentation"><a href="/about-abby/episodes">로그인</a></li>
+
+			</ul>
+		</ul>
+
+	</div>
+	
+<!-- service헤더부분 끝 -->	
+
+
+
+
+ <div class="container">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h3>Default collapse with scaling icon</h3>
+            <div class="panel-group wrap" id="bs-collapse">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">자주묻는질문1</a>
+      </h4>
+                    </div>
+                    <div id="one" class="panel-collapse collapse">
+                        <div class="panel-body" style='color:black'>
+									자주묻는질문 대답1
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two"> 자주묻는질문2</a>
+      </h4>
+                    </div>
+                    <div id="two" class="panel-collapse collapse" >
+                        <div class="panel-body" style='color:black'>
+                        자주묻는질문대답2
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
+       자주묻는질문3
+        </a>
+      </h4>
+                    </div>
+                    <div id="three" class="panel-collapse collapse">
+                        <div class="panel-body" style='color:black'>
+자주묻는질문 대답3                        </div>
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
+        자주묻는질문4
+        </a>
+      </h4>
+                    </div>
+                    <div id="four" class="panel-collapse collapse in">
+                        <div class="panel-body" style='color:black'>
+자주묻는질문대답4
+                        </div>
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+            </div>
+            <!-- end of #bs-collapse  -->
+
+        </div>
+
+
+
+    </div>
+    <!-- end of container -->
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+    $('.collapse.in').prev('.panel-heading').addClass('active');
+    $('#accordion, #bs-collapse')
+        .on('show.bs.collapse', function (a) {
+            $(a.target).prev('.panel-heading').addClass('active');
+        });
+        .on('hide.bs.collapse', function (a) {
+            $(a.target).prev('.panel-heading').removeClass('active');
+        });
+});
+
+</script>
+
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="stylesheets/js/jquery.js"></script>		
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="stylesheets/js/bootstrap.min.js"></script>	
+	<script src="stylesheets/js/wow.min.js"></script>
+</body>

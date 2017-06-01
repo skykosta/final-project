@@ -2,7 +2,58 @@
  * Module dependencies.
  */
 
-var express = require('express'), routes = require('./routes'), user = require('./routes/user'), map = require('./routes/maptest7'), chatserver = require('./routes/chatserver'), http = require('http'), path = require('path'), socketio = require('socket.io'), fs = require('fs'), request = require('request'), firebase = require("firebase");
+var express = require('express')
+, routes = require('./routes')
+, user = require('./routes/user')
+, test = require('./routes/test')
+, chatserver = require('./routes/chatserver')
+
+/* FireBase - 동준*/
+, request = require('request')
+, firebase = require("firebase")
+
+/*마이페이지*/
+, mypage = require('./routes/mypage')
+
+, http = require('http')
+
+/* google Map 때문에 필요한 https 모듈 */
+, https = require('https')
+
+/* 접수하기 페이지 */
+, submit = require('./routes/submit')
+, submit2 = require('./routes/submit2')
+, submit3 = require('./routes/submit3')
+
+, path = require('path')
+, socketio = require('socket.io')
+, fs = require('fs')
+ 
+/*회원 관련*/
+, login = require('./routes/login')
+, regist = require('./routes/regist')
+, idcheck = require('./routes/idcheck')
+, pwcheck = require('./routes/pwcheck')
+, newpw = require('./routes/newpw')
+, pwresult = require('./routes/pwresult')
+, idresult = require('./routes/idresult')
+, regresult = require('./routes/regresult')
+, agree = require('./routes/agree')
+
+/* 관리자 페이지 */
+, user = require('./routes/user')
+, order = require('./routes/order')
+, total = require('./routes/total')
+
+
+/*고객센터 페이지*/
+, ejs = require('ejs');
+
+/* https프로토콜 생성을 위한 키,인증서 읽어오기*/
+var options = {  
+	    key: fs.readFileSync('key.pem'),
+	    cert: fs.readFileSync('cert.pem')
+	};
 
 var app = express();
 
@@ -25,9 +76,77 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/chat', chatserver.chat);
-app.get('/map', map.map);
 
-var sio = http.createServer(app).listen(app.get('port'), function() {
+app.get('/test', function(request, response) {
+	fs.readFile('test.html', function(error, data) {
+		response.writeHead(200, {
+			'Content-Type' : 'Application/json'
+		});
+		response.end(data);
+	});
+});
+
+/*마이페이지*/
+app.get('/mypage', mypage.mypage);
+
+
+/*회원 관련*/
+app.get('/login', login.login );
+app.get('/regist', regist.regist);
+app.get('/regist', regist.regist);
+app.get('/idcheck', idcheck.idcheck);
+app.get('/pwcheck', pwcheck.pwcheck);
+app.get('/newpw', newpw.newpw);
+app.get('/idresult', idresult.idresult);
+app.get('/pwresult', pwresult.pwresult);
+app.get('/regresult', regresult.regresult);
+app.get('/agree', agree.agree);
+
+/* 관리자 페이지 */
+app.get('/order', order.order);
+app.get('/total', total.total);
+app.get('/user', user.user);
+
+/*접수 하기 페이지*/
+app.get('/submits', submit.list);
+app.get('/submits2', submit2.list);
+app.get('/submits3', submit3.list);
+
+/*고객센터 페이지 총5개*/
+//notice 공지사항(고객센터1)
+app.get('/notice', function(request, response){
+	fs.readFile('views/notice.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//fnq 자주묻는질문(고객센터2)
+app.get('/fnq', function(request, response){
+	fs.readFile('views/fnq.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//contact 문의게시판(고객센터3)
+app.get('/contact', function(request, response){
+	fs.readFile('views/contact.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//게시판 글쓰기 <게시판(notice) 글쓰기 버튼 클릭시 이동하는 화면입니다>
+app.get('/board', function(request, response){
+	fs.readFile('views/board.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+//게시글 상세보기 <게시판(notice) 글 클릭시 이동하는 화면입니다> 
+app.get('/boardview', function(request, response){
+	fs.readFile('views/boardview.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+
+
+
+var sio = https.createServer(options, app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 
 });

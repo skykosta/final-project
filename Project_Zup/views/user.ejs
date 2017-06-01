@@ -1,0 +1,132 @@
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.logo {
+	width: 10%;
+	height: 10%;
+}
+
+.inner {
+	white-space: nowrap;
+}
+
+img {
+	text-align: left;
+}
+
+.btn-glyphicon {
+	padding: 8px;
+	background: #ffffff;
+	margin-right: 4px;
+}
+
+.icon-btn {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.panel {
+	text-align: center;
+	/* background-color: green; */
+	margin-bottom: 50px;
+}
+
+table {
+	margin-bottom: 50px;
+}
+
+.canceltext {
+	width: 90%;
+}
+thead{
+}
+</style>
+<title>관리자페이지</title>
+</head>
+<body>
+  <div class="container">
+    <img src="/stylesheets/img/logo.png" class="logo">
+    <h2>관리자페이지</h2>
+    <hr>
+
+  </div>
+  <div class="container" style="text-align: center; margin-bottom: 50px">
+    <a class="btn icon-btn btn-info" href="order"><span
+      class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
+    <a class="btn icon-btn btn-warning" href="user"><span
+      class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>회원관리</a>
+    <a class="btn icon-btn btn-danger" href="total"><span
+      class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>회수현황</a>
+  </div>
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>이메일</th>
+          <th>핸드폰번호</th>
+          <th>주소</th>
+          <th>은행명</th>
+          <th>은행계좌</th>
+          <th>회원여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>thdn1234</td>
+          <td>김웅</td>
+          <td>thdn1234@naver.com</td>
+          <td>010-2012-7314</td>
+          <td>서울시 강서구 화곡3동 1017-10</td>
+          <td>신한은행</td>
+          <td>110-123-1234</td>
+          <td>Y</td>
+        </tr>
+  	    <tr>
+          <td>1</td>
+          <td>thdn1234</td>
+          <td>김웅</td>
+          <td>thdn1234@naver.com</td>
+          <td>010-2012-7314</td>
+          <td>서울시 강서구 화곡3동 1017-10</td>
+          <td>신한은행</td>
+          <td>110-123-1234</td>
+          <td>Y</td>
+        </tr>
+        <tr style="margin: 0 auto">
+          <td colspan="12" style="text-align: center;">
+            <ul class="pagination">
+           <li><a href="#"><<</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">>></a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <form name="search" class="form-inline" role="form"
+      style="float: left;">
+      <div class="form-group">
+        <select class="form-control" id="type" name="type">
+          <option value="writer">아이디</option>
+          <option value="subject">이메일</option>
+        </select> <input type="text" class="form-control" id="value" name="value"
+          required>
+      </div>
+      <button type="submit" class="btn btn-primary">검색</button>
+    </form>
+  </div>
+</body>
