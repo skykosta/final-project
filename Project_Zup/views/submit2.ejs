@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>접수하기 페이지</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+<style type="text/css">
+  .breadcrumb {
+    padding: 0px;
+    background: transparent;
+    list-style: none;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.breadcrumb>li {
+    display: table-cell;
+    vertical-align: top;
+    width: 1%;
+}
+
+.breadcrumb>li+li:before {
+    padding: 0;
+}
+
+.breadcrumb li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0 10px 45px;
+    position: relative;
+    display: inline-block;
+    width: calc( 100% - 10px );
+    background-color: hsla(0, 0%, 83%, 1);
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.breadcrumb li.completed a {
+    background: brown;
+    background: hsla(153, 57%, 51%, 1);
+}
+
+.breadcrumb li.completed a:after {
+    border-left: 30px solid hsla(153, 57%, 51%, 1);
+}
+
+.breadcrumb li.active a {
+    background: #ffc107;
+}
+
+.breadcrumb li.active a:after {
+    border-left: 30px solid #ffc107;
+}
+
+.breadcrumb li:first-child a {
+    padding-left: 15px;
+}
+
+.breadcrumb li:last-of-type a {
+    width: calc( 100% - 38px );
+}
+
+.breadcrumb li a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
+
+.breadcrumb li a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid hsla(0, 0%, 83%, 1);
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+
+.green{
+    background-color:green;
+}
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+#map {
+   height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#floating-panel {
+   position: absolute;
+   top: 10px;
+   left: 25%;
+   z-index: 5;
+   background-color: #fff;
+   padding: 5px;
+   border: 1px solid #999;
+   text-align: center;
+   font-family: 'Roboto','sans-serif';
+   line-height: 30px;
+   padding-left: 10px;
+}  
+  
+</style>
+  
+</head>
+  <body>
+  <div class="container">
+
+    <h1><img src="images/zuplogo.png">접수하기</h1>
+	<div class="row">
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+	</div>
+	<div class="row">
+		<ul class="breadcrumb">
+    		<li><a href="javascript:void(0);">주의사항</a></li>
+			<li class="completed"><a href="javascript:void(0);">필수정보입력</a></li>
+			<li><a href="javascript:void(0);">접수완료</a></li>
+		</ul>
+	</div>
+	
+	<table class="table table-bordered">
+	<tr>
+	   <th>이름 : </th>
+	   <td><input type="text"></td>
+	</tr>
+	<tr>
+	   <th>핸드폰 번호 : </th>
+	   <td><input type="text" style="width : 50%"></td>
+	</tr>
+	<tr>
+	   <th>주소 : </th>
+	   <td>
+
+    <div id="map"></div>                         
+           
+        </td>
+	</tr>
+
+    </table>
+
+    <br><br><br>
+  		<div style="text-align: center;">
+  				        
+  				<a href="submits3" class="btn btn-dark btn-lg">확인</a>
+				<a href="#about" class="btn btn-dark btn-lg">취소</a>
+  				        
+  		</div>
+   </div>
+
+<script>
+var map;
+var markers = [];
+var address;
+
+function initMap() {
+
+   //위치따오는 기능 실행!!!
+   getLocation();
+   
+   //사용자의 위치 따오기
+ function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function showPosition(position){      
+                    
+          var xxxx = position.coords.latitude;
+          var yyyy = position.coords.longitude;
+          
+          //따온 위치로 맵생성!!!
+          createMap(xxxx, yyyy);     
+         
+          });
+      }else{
+          alert("지도의 위치를 가져올수 없습니다...");
+      }     
+  }
+      
+  function createMap(xxxx, yyyy){      
+     //지도생성
+     var location = {lat: xxxx, lng: yyyy};      
+
+     map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: location
+       });
+
+        //클릭할때마다 이벤트 발생 addMaker()호출
+     map.addListener('click', function(event) {
+          addMarker(event.latLng);
+          getAddress(event.latLng);
+        });
+        
+      function getAddress(latlng) {
+      
+      console.log("getAddress() 호출됨");
+	   var geocoder = new google.maps.Geocoder();
+	   geocoder.geocode({
+	          latLng: latlng
+	      }, function(results, status) {
+	            console.log(results);
+	             address = results[0].formatted_address.replace(/^日本, /, '');
+             });
+
+       }//getAddress()
+       
+     }//addListener()
+    
+   }//function createMap()
+
+   //맵에 마커 찍어주면서 배열에 넣어주기.
+   function addMarker(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        
+        var infowindow = new google.maps.InfoWindow({
+          content: address
+        });
+        
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+        
+        console.log("맵에 마커가 찍혔숩니다...");
+        
+        //배열에 넣기
+        markers.push(marker);
+    }
+
+   //마커 보여주거나, 숨기거나 기능함수
+   function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+        
+        console.log("setMapOnAll() 작동");
+    }//setMapOnAll(map)
+
+   //모든 마커 숨기기
+   function clearMarkers() {
+        setMapOnAll(null);
+        console.log("clearMarkers() 작동");
+    }
+
+    //숨겨진 마커 보여주기
+    function showMarkers() {
+        setMapOnAll(map);
+        console.log("showMarkers() 작동");
+    }
+
+    //생성된 모든 마커 제거
+    function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+        console.log("deleteMarkers() 작동");
+    }//function deleteMarkers()
+      
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI&callback=initMap"></script>  
+
+
+   
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+   
+
+   
+  </body>
+</html>

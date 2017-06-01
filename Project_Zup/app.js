@@ -12,6 +12,14 @@ var express = require('express')
 , mypage = require('./routes/mypage')
 
 , http = require('http')
+
+/* google Map 때문에 필요한 https 모듈 */
+, https = require('https')
+
+/* 접수하기 페이지 */
+, submit = require('./routes/submit')
+, submit2 = require('./routes/submit2')
+, submit3 = require('./routes/submit3')
 , path = require('path')
 , socketio = require('socket.io')
 , fs = require('fs')
@@ -35,6 +43,12 @@ var express = require('express')
 
 /*고객센터 페이지*/
 , ejs = require('ejs');
+
+/* https프로토콜 생성을 위한 키,인증서 읽어오기*/
+var options = {  
+	    key: fs.readFileSync('key.pem'),
+	    cert: fs.readFileSync('cert.pem')
+	};
 
 
 var app = express();
@@ -68,6 +82,7 @@ app.get('/test', function(request, response) {
 });
 /*마이페이지*/
 app.get('/mypage', mypage.mypage);
+
 /*회원 관련*/
 app.get('/login', login.login );
 app.get('/regist', regist.regist);
@@ -85,6 +100,10 @@ app.get('/order', order.order);
 app.get('/total', total.total);
 app.get('/user', user.user);
 
+/*접수 하기 페이지*/
+app.get('/submits', submit.list);
+app.get('/submits2', submit2.list);
+app.get('/submits3', submit3.list);
 
 /*고객센터 페이지 총5개*/
 //notice 공지사항(고객센터1)
@@ -120,7 +139,7 @@ app.get('/boardview', function(request, response){
 
 
 
-var sio = http.createServer(app).listen(app.get('port'), function() {
+var sio = https.createServer(options, app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 });
 
