@@ -148,6 +148,7 @@
 
 #map {
    height: 100%;
+   width: 100%;
 }
 /* Optional: Makes the sample page fill the window. */
   html, body {
@@ -155,20 +156,6 @@
   margin: 0;
   padding: 0;
 }
-#floating-panel {
-   position: absolute;
-   top: 10px;
-   left: 25%;
-   z-index: 5;
-   background-color: #fff;
-   padding: 5px;
-   border: 1px solid #999;
-   text-align: center;
-   font-family: 'Roboto','sans-serif';
-   line-height: 30px;
-   padding-left: 10px;
-}  
-  
 </style>
   
 </head>
@@ -196,32 +183,40 @@
 		</ul>
 	</div>
 	
-	<table class="table table-bordered">
+	<table class="table table-bordered" style="width: 80%; height: 80%; ">
 	<tr>
 	   <th>이름 : </th>
-	   <td><input type="text"></td>
+	   <td>kosta</td>
 	</tr>
 	<tr>
 	   <th>핸드폰 번호 : </th>
-	   <td><input type="text" style="width : 50%"></td>
+	   <td>010 - 1234 - 5678</td>
 	</tr>
 	<tr>
-	   <th>주소 : </th>
-	   <td>
-
-    <div id="map"></div>                         
-           
+	   <td height="500px" colspan="2">
+      	   <div id="map">
+       	   </div>
         </td>
 	</tr>
-
+	<tr>
+	   <th>선택된 내 위치 : </th>
+	   <td id="mapAddress">
+	   </td>
+	</tr>
+	<tr>
+	   <th>나머지 주소 : </th>
+	   <td>
+	      <input id="detailAddress" type="text" value="" style="width : 50%;" placeholder="나머지 상세주소를 입력하여 주세요">
+	   </td>
+	</tr>
+	
     </table>
+          
 
     <br><br><br>
   		<div style="text-align: center;">
-  				        
   				<a href="submits3" class="btn btn-dark btn-lg">확인</a>
-				<a href="#about" class="btn btn-dark btn-lg">취소</a>
-  				        
+				<a href="#about" class="btn btn-dark btn-lg">취소</a>  				        
   		</div>
    </div>
 
@@ -263,19 +258,51 @@ function initMap() {
 
         //클릭할때마다 이벤트 발생 addMaker()호출
      map.addListener('click', function(event) {
-          addMarker(event.latLng);
+
+     	  if(markers.length > 0){
+              deleteMarkers();
+          }
+
+          console.log(markers.length);
           getAddress(event.latLng);
+          addMarker(event.latLng);
         });
         
       function getAddress(latlng) {
       
+      console.log(latlng.lat());
+      console.log(latlng.lng());
       console.log("getAddress() 호출됨");
 	   var geocoder = new google.maps.Geocoder();
 	   geocoder.geocode({
 	          latLng: latlng
 	      }, function(results, status) {
-	            console.log(results);
-	             address = results[0].formatted_address.replace(/^日本, /, '');
+	      
+	     		 if (status == google.maps.GeocoderStatus.OK) {
+	     		 
+	      		 		if (results[0].geometry) {
+	           				 console.log(results);
+	            	 		address = results[0].formatted_address.replace(/^日本, /, '');
+	             		}else{
+	               			 alert("정확한 위치를 클릭하여 주세요!!");
+	             		}
+	             		
+                } else if (status == google.maps.GeocoderStatus.ERROR) {
+	                alert("ERROR");
+	            } else if (status == google.maps.GeocoderStatus.INVALID_REQUEST) {
+	                alert("INVALID_REQUEST");
+	            } else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+	                alert("내 위치 정보가 너무 많습니다.");
+	            } else if (status == google.maps.GeocoderStatus.REQUEST_DENIED) {
+	                alert("REQUEST_DENIED");
+	            } else if (status == google.maps.GeocoderStatus.UNKNOWN_ERROR) {
+	                alert("UNKNOWN_ERROR");
+	            } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {
+	                alert("ZERO_RESULTS");
+	            } else {
+	                alert(status);
+	            }
+
              });
 
        }//getAddress()
@@ -292,8 +319,13 @@ function initMap() {
         });
         
         var infowindow = new google.maps.InfoWindow({
-          content: address
+          content: "<b>" + address+ "</b>"
         });
+        
+        $("#mapAddress").html(address);
+        
+        //맵에 찍자마자 인포 오픈
+        infowindow.open(map, marker);
         
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -303,7 +335,7 @@ function initMap() {
         
         //배열에 넣기
         markers.push(marker);
-    }
+    }//addMarker()
 
    //마커 보여주거나, 숨기거나 기능함수
    function setMapOnAll(map) {
@@ -314,16 +346,10 @@ function initMap() {
         console.log("setMapOnAll() 작동");
     }//setMapOnAll(map)
 
-   //모든 마커 숨기기
+   //모든 마커 제거하기전에 숨기기
    function clearMarkers() {
         setMapOnAll(null);
         console.log("clearMarkers() 작동");
-    }
-
-    //숨겨진 마커 보여주기
-    function showMarkers() {
-        setMapOnAll(map);
-        console.log("showMarkers() 작동");
     }
 
     //생성된 모든 마커 제거
@@ -339,11 +365,11 @@ function initMap() {
 
 
    
-    <!-- jQuery -->
-    <script src="/stylesheets/js/jquery.js"></script>
+<!-- jQuery -->
+<script src="/stylesheets/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/stylesheets/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/stylesheets/js/bootstrap.min.js"></script>
    
 
    
