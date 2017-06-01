@@ -21,12 +21,15 @@
 				if (code == 13) {
 					socket.emit('foo', this.value);
 					$('#chatfield').append(this.value + "<br/>");
+					
 					this.value = '';
 				}
 			});
 			socket.on('bar', function(data) {
 				$('#chatfield').append(data.chat + "<br/>");
 			});
+			
+			
   });
 		</script>
 
