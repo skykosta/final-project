@@ -20,9 +20,22 @@ exports.list = function(req, res){
 };
 
 exports.user = function(req, res){
-	client.query("select * from user", function(error, results) {
+    var totalStudents = 80,
+    	pageSize = 8,
+    	pageCount = 80/8,
+    	currentPage = 1;
+    
+    if (typeof req.query.page !== 'undefined') {
+        currentPage = +req.query.page;
+    }
+    
+    
+	client.query("select * from user limit 10, 10" ,function(error, results) {
 		res.render('user', {
-			data: results
+			data: results,
+		    pageSize: pageSize,
+		    pageCount: pageCount,
+		    currentPage: currentPage
 			})
 		})
 	};

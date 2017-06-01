@@ -5,14 +5,17 @@
 var mysql = require("mysql")
 var fs = require("fs")
 var ejs = require("ejs")
-
+var countresult;
 var client = mysql.createConnection({
 	user: "root",
 	password: "zx12zx12",
 	database: "zup"
 })
 
+
 exports.order = function(req, res){
+client.query("select count(user_num) counts from user", function(error, countresults) {
+	countresult = countresults[0].counts})
 client.query("select	bl.bottlelist_num,"+ 
 						"u.user_name,"+ 
 						"u.user_phonenum,"+ 
@@ -28,10 +31,9 @@ client.query("select	bl.bottlelist_num,"+
             " and bl.bottle_num=b.bottle_num"+
             " order by bottlelist_num desc"+
             " limit 0, 10", function(error, results) {
-			
 			res.render('order', {
 			data: results,
-			count: client.query("select count(article_num) counts from article", function(error, countresults) {console.log(countresults);})
+			count: countresult
 			})
 		})
 };
