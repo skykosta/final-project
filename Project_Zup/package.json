@@ -7,14 +7,10 @@
   },
   "dependencies": {
     "express": "*",
-    "morgan"  : "*",
-    "cookie-parser" : "*",
-    "body-parser" : "*",
-    "connect-multiparty" : "*",
-    "express-session" : "*",
     "mysql":"*",
     "ejs": "*",
-    "socket.io":"*"
-   
+    "socket.io":"*",
+    "request": "*",
+   "firebase": "*"
   }
 }
