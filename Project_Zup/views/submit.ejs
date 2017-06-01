@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+  <style type="text/css">
+  .breadcrumb {
+    padding: 0px;
+    background: transparent;
+    list-style: none;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.breadcrumb>li {
+    display: table-cell;
+    vertical-align: top;
+    width: 1%;
+}
+
+.breadcrumb>li+li:before {
+    padding: 0;
+}
+
+.breadcrumb li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0 10px 45px;
+    position: relative;
+    display: inline-block;
+    width: calc( 100% - 10px );
+    background-color: hsla(0, 0%, 83%, 1);
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.breadcrumb li.completed a {
+    background: brown;
+    background: hsla(153, 57%, 51%, 1);
+}
+
+.breadcrumb li.completed a:after {
+    border-left: 30px solid hsla(153, 57%, 51%, 1);
+}
+
+.breadcrumb li.active a {
+    background: #ffc107;
+}
+
+.breadcrumb li.active a:after {
+    border-left: 30px solid #ffc107;
+}
+
+.breadcrumb li:first-child a {
+    padding-left: 15px;
+}
+
+.breadcrumb li:last-of-type a {
+    width: calc( 100% - 38px );
+}
+
+.breadcrumb li a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
+
+.breadcrumb li a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid hsla(0, 0%, 83%, 1);
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+
+.green{
+    background-color:green;
+}
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}  
+  
+</style>
+  
+</head>
+<body>
+
+
+  <div class="container">
+
+    <h1><img src="images/zuplogo.png">접수하기</h1>
+	<div class="row">
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+		<div class="col-md-5ths col-sm-5ths green">
+		</div>
+	</div>
+	<div class="row">
+		<ul class="breadcrumb">
+    		<li class="completed"><a href="javascript:void(0);">주의사항</a></li>
+			<li><a href="javascript:void(0);">필수정보입력</a></li>
+			<li><a href="javascript:void(0);">접수완료</a></li>
+		</ul>
+	</div>
+    <br><br><br><br><br>
+  		<div style="text-align: center;">
+  				<img src="images/image_01.png" style="width: 60%; height: 60%;">
+  				<br><br><br><br><br><br><br><br>
+  				<img src="images/image_02.png">
+  				<br><br><br><br><br><br><br><br>
+  				        
+  				<a href="/submits2" class="btn btn-dark btn-lg">확인</a>
+				<a href="#about" class="btn btn-dark btn-lg">취소</a>
+  				        
+  		</div>
+   </div>
+   
+   
+   
+   
+   
+  </body>
+</html>
