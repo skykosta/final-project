@@ -74,30 +74,20 @@ table {
           <th>줍맨번호</th>
           <th>회수정보</th>
           <th>회수현황</th>
-          <th>취소하기</th>
-        </tr>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th>(소주/맥주)</th>
-          <th></th>
-          <th></th>
+          <th>취소하기<%=count.counts.item%></th>
         </tr>
       </thead>
       <tbody>
+       	<% data.forEach(function(item, index){%>
         <tr>
-          <td>1</td>
-          <td>김웅</td>
-          <td>010-2012-7314</td>
-          <td>서울시 화곡동</td>
-          <td>줍줍이</td>
-          <td>010-2012-7314</td>
-          <td>30/30</td>
-          <td>진행중</td>
+          <td><%= item.bottlelist_num%></td>
+          <td><%= item.user_name%></td>
+          <td><%= item.user_phonenum%></td>
+          <td><%= item.user_address%></td>
+          <td><%= item.employee_name%></td>
+          <td><%= item.employee_phonenum%></td>
+          <td><%= item.bottle_name+item.bottle_amount%>병</td>
+          <td><%= item.return_status%></td>
           <td><button type="button" class="btn btn-danger"
               data-toggle="modal" data-target="#myModal">취소하기</button></td>
           <!-- Modal -->
@@ -109,7 +99,7 @@ table {
                 <div class="modal-header">
                   <button type="button" class="close"
                     data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">김웅님의 접수를 취소하시려면 취소사유를
+                  <h4 class="modal-title"><%=item.user_name %>님의 접수를 취소하시려면 취소사유를
                     입력하고 취소버튼을 눌러주세요.</h4>
                 </div>
                 <div class="modal-body">
@@ -122,47 +112,11 @@ table {
                     data-dismiss="modal">Close</button>
                 </div>
               </div>
-
             </div>
           </div>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>김웅</td>
-          <td>010-2012-7314</td>
-          <td>서울시 화곡동</td>
-          <td>줍줍이</td>
-          <td>010-2012-7314</td>
-          <td>30/30</td>
-          <td>진행중</td>
-          <td><button type="button" class="btn btn-danger"
-              data-toggle="modal" data-target="#myModal">취소하기</button></td>
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close"
-                    data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">김웅님의 접수를 취소하시려면 취소사유를
-                    입력하고 취소버튼을 눌러주세요.</h4>
-                </div>
-                <div class="modal-body">
-                  <input type="text" placeholder="취소사유를 입력해주세요."
-                    class="canceltext">
-                  <button type="button" class="btn btn-danger">취소</button>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default"
-                    data-dismiss="modal">Close</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </tr>
+        <% });%>
+        
         <tr style="margin: 0 auto">
           <td colspan="12" style="text-align: center;">
             <ul class="pagination">
