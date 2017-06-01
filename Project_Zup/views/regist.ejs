@@ -102,62 +102,7 @@ body {
 </head>
 
 <body>
-<!-- 페이지내 텝 기능 -->
-	<script>
-		$(document)
-				.ready(
-						function() {
-							var navListItems = $('div.setup-panel div a'), allWells = $('.setup-content'), allNextBtn = $('.nextBtn');
 
-							allWells.hide();
-
-							navListItems
-									.click(function(e) {
-										e.preventDefault();
-										var $target = $($(this).attr('href')), $item = $(this);
-
-										if (!$item.hasClass('disabled')) {
-											navListItems.removeClass(
-													'btn-primary').addClass(
-													'btn-default');
-											$item.addClass('btn-primary');
-											allWells.hide();
-											$target.show();
-											$target.find('input:eq(0)').focus();
-										}
-									});
-
-							allNextBtn
-									.click(function() {
-										var curStep = $(this).closest(
-												".setup-content"), curStepBtn = curStep
-												.attr("id"), nextStepWizard = $(
-												'div.setup-panel div a[href="#'
-														+ curStepBtn + '"]')
-												.parent().next().children("a"), curInputs = curStep
-												.find("input[type='text'],input[type='url']"), isValid = true;
-
-										$(".form-group").removeClass(
-												"has-error");
-										for (var i = 0; i < curInputs.length; i++) {
-											if (!curInputs[i].validity.valid) {
-												isValid = false;
-												$(curInputs[i]).closest(
-														".form-group")
-														.addClass("has-error");
-											}
-										}
-
-										if (isValid)
-											nextStepWizard.removeAttr(
-													'disabled')
-													.trigger('click');
-									});
-
-							$('div.setup-panel div a.btn-primary').trigger(
-									'click');
-						});
-	</script>
 
 <!-- 주소찾기 API 기능 -->
 <script>
@@ -237,12 +182,12 @@ body {
 				<div class="col-md-12">
 					<br>
 					<br>
-					<form class="form-horizontal" method="" action="regresult" onsubmit="return formSubmit(this);">
+					<form class="form-horizontal" method="post" action="regresult" onsubmit="return formSubmit(this);">
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputId">아이디</label>
 							<div class="col-sm-8">
 								<div class="input-group">
-									<input class="form-control" id="inputId" type="id" placeholder="아이디" > 
+									<input class="form-control"  name="inputId" id="inputId" type="id" placeholder="아이디" > 
 									<span class="input-group-btn">
 										<button class="btn btn-success">중복확인<i class="fa fa-mail-forward spaceLeft"></i></button>
 									</span>
@@ -252,7 +197,7 @@ body {
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
 							<div class="col-sm-8">
-								<input class="form-control" id="inputPassword" type="password" placeholder="숫자, 문자포함 6~12자리">
+								<input class="form-control" name="inputPassword" id="inputPassword" type="password" placeholder="숫자, 문자포함 6~12자리">
 								<div id="passwd_display" style="color: RED"></div>
 							</div>
 						</div>
@@ -266,7 +211,7 @@ body {
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputName" >이름</label>
 							<div class="col-sm-8">
-								<input class="form-control" id="inputName" type="text" placeholder="이름" >
+								<input class="form-control" name="inputName" id="inputName" type="text" placeholder="이름" >
 							</div>
 						</div>
 						
@@ -309,7 +254,7 @@ body {
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputBank" >은행명</label>
 							<div class="col-sm-3">
-								<select class="form-control" id="inputBank">
+								<select class="form-control" id="inputBank" name="inputBank">
 								    <option value="">-----</option>
 									<option value="신한은행">신한은행</option>
 									<option value="국민은행">국민은행</option>
