@@ -3,191 +3,491 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+<title>Stylish Portfolio - Start Bootstrap Theme</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- Custom Fonts -->
+<link href="/stylesheets/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
 
-    <style>
-    #order{
-    width : 300px;
-    height : 200px;
-    }
-    </style>
+<style>
+
+/* 모든브라우저에서 통일된 화면 볼 수 있도록 초기화하는 과정 */
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* 
+#order {
+	width: 300px;
+	height: 200px;
+	background-color: rgba(0, 0, 0, 0);
+}*/
+#login {
+	margin-top: -2em
+}
+
+#regist {
+	margin-top: -2em
+}
+
+#logo {
+	width: 1000px;
+	height: 500px;
+	position: relative;
+	left: 10em;
+}
+
+#a {
+	position: relative;
+	left: -1em;
+	top: -5em;
+}
+
+#top2 {
+	position: relative;
+	top: 2em;
+}
+
+/** 메인메뉴 버튼 위치 조정*/
+#mainmenu {
+	margin-top: 5em;
+}
+
+/*메인버튼 스타일*/
+/* .demoPadder {
+	padding-top: 15px;
+}
+ */
+/* .btn-default {
+	color: #007aff;
+	background-color: #fff;
+	border-color: #007aff;
+}
+ */
+/* .btn-default:hover, .btn-default:focus, .btn-default:active,
+	.btn-default.active, .open>.btn-default.dropdown-toggle {
+	color: #fff;
+	background-color: #007aff;
+	border-color: #007aff;
+}
+ */
+/* 버튼 */
+/* body {
+	background: #292929;
+	padding-left: 30px;
+} */
+
+/* sns */
+.social:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+.social {
+	-webkit-transform: scale(0.8);
+	/* Browser Variations: */
+	-moz-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+}
+
+/*
+    sns style
+*/
+#social-fb:hover {
+	color: #3B5998;
+}
+
+#social-tw:hover {
+	color: #4099FF;
+}
+
+#social-gp:hover {
+	color: #d34836;
+}
+
+#social-em:hover {
+	color: #f39c12;
+}
+
+/* sns끝 */
+.row {
+	float: left;
+	width: 100%;
+}
+
+.row .block {
+	float: left;
+	width: 20%;
+	height: 100px;
+}
+
+.hoverbtn {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 60px;
+	/* 	line-height: 90px; */
+	cursor: pointer;
+	margin: 1px;
+	/* 	margin: 10px; */
+	/* margin: 20px; */
+	width: 100%;
+	font-family: "Roboto";
+	height: 70px;
+	/* 	height: 90px; */
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+	color: #fff;
+}
+
+.hoverbtn.small {
+	font-size: 20px;
+	line-height: 45px;
+	width: 100%;
+	height: 45px;
+	margin: 7px;
+}
+
+.hoverbtn.mini {
+	font-size: 15px;
+	line-height: 32px;
+	width: 100%;
+	height: 30px;
+	margin: 7px;
+}
+
+.hoverbtn.auto-width {
+	width: auto;
+	height: auto;
+	padding: 15px;
+}
+
+.hoverbtn:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Effect 6 */
+.hoverbtn.effect-6 {
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+</style>
 
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="top" class="header">
-     <div class="col-md-offset-10">
-        <a href="/login" class="btn btn-dark">로그인</a>
-        <a href="/agree" class="btn btn-dark">회원가입</a>
-        </div>
-        <div class="text-center col-md-12">
-           <img src="/stylesheets/img/portfolio-2.jpg">
-            <h3>공병 수거 접수 APPLICATION</h3>
-       <br>
-        <a href="#" class="btn btn-primary btn-lg">회사소개</a>
-        <a href="#" class="btn btn-primary btn-lg">기부이야기</a>
-        <a href="submits" class="btn btn-success" id="order"><h1>접수하기</h1></a>
-        <a href="mypage" class="btn btn-primary btn-lg">마이페이지</a>
-        <a href="notice" class="btn btn-primary btn-lg">고객센터</a>
-        </div>
-       
-    </header>
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1>2017년 ZUP! 착한목표</h1>
-                    <br>
-                    <div class="col-md-6">
-                     <img src="/stylesheets/img/portfolio-2.jpg" style="height:600px; width:400px;">
-                     </div>
-                     <div class="col-md-6">
-                     <div class="col-md-12">
-                     <p class="lead">Death to the Stock Photo</p>
-                     </div>
-                     <div class="col-md-12">
-                     <p class="lead">Death to the Stock Photo</p>
-                     </div>
-                     <div class="col-md-12">
-                     <p class="lead">Death to the Stock Photo</p>
-                     </div>
-                     </div>
-                    
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <!-- Callout -->
-    <aside class="callout">
-        <div class="text-vertical-center col-md-12" style="margin-top:50px;">
-            <h1> ZUP! 기부이야기 </h1>
-            <p>2000년 우리는 기부를 했다 기부를 했으니까 알아줘라 이게 우리의 스웩이다 알안마렁너가 코스타를 알아 아 졸라 배고파 이제좀 점심 먹으러 가자 제발</p>
-        
-        </div>
-        <div class="text-vertical-center col-md-12" style="margin-top:50px; margin-bottom:40px;">
-        <img src="/stylesheets/img/portfolio-2.jpg" style="width:500px; height:500px;">
-        </div>
-    </aside>
-    
-    <!-- Callout -->
-    <aside class="">
-        <div class="text-vertical-center col-md-12" style="margin-top:40px; margin-bottom:50px;">
-            <h1> 우리 회사를 소개합니다. </h1>
-            <br>
-            <div class="col-md-6">
-            <img src="/stylesheets/img/portfolio-2.jpg" style="width:300px; height:560px;">
-            </div>
-            <div class="col-md-6">
-            <p>2000년 우리는 기부를 했다 기부를 했으니까 알아줘라 이게 우리의 스웩이다 알안마렁너가 코스타를 알아 아 졸라 배고파 이제좀 점심 먹으러 가자 제발</p>
-        </div>
-        </div>
-    </aside>
+	<!-- Header -->
+	<header id="top" class="header">
 
 
-            <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
-    
+		<!-- sns아이콘 시작 -->
 
-    <!-- jQuery -->
-    <script src="/stylesheets/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/stylesheets/js/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
-        }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
-    </script>
+		<div class="text-center center-block; col-sm-offset-5"
+			style="width: 1200px; height: 50px;">
+			<br /> <a href="https://www.facebook.com/bootsnipp"> <i
+				class="fa fa-facebook-square fa-3x social"></i>
+			</a> <a href="https://twitter.com/bootsnipp"> <i
+				class="fa fa-twitter-square fa-3x social"></i>
+			</a> <a href="https://plus.google.com/+Bootsnipp-page"> <i
+				class="fa fa-google-plus-square fa-3x social"></i>
+			</a> <a href="mailto:bootsnipp@gmail.com"> <i
+				class="fa fa-envelope-square fa-3x social"></i>
+			</a>
+			<!-- sns아이콘 끝-->
+			<a href="/login" class="btn btn-dark" id="login">로그인</a> <a
+				href="/agree" class="btn btn-dark" id="regist">회원가입</a>
+		</div>
+
+
+		<br> <br> <br>
+
+
+		<div class="text-center col-md-12">
+			<img src="/stylesheets/img/logo.png" id="logo">
+			<div id="a">
+				<h3></h3>
+			</div>
+			<br>
+
+			<div class="container">
+				<div class="row" id="mainmenu">
+					<div class="row">
+						<div class="block">
+							<i class="hoverbtn effect-6">회사소개</i>
+						</div>
+						<div class="block">
+							<i class="hoverbtn effect-6">기부이야기</i>
+						</div>
+						<div class="block">
+							<a href="submits"><i class="hoverbtn effect-6">접수하기</i></a>
+						</div>
+
+						<div class="block">
+							<a href="mypage"><i class="hoverbtn effect-6">마이페이지</i></a>
+						</div>
+
+						<div class="block">
+							<a href="notice"><i class="hoverbtn effect-6">고객센터</i></a>
+						</div>
+					</div>
+				</div>
+				<!-- <a href="#" class="btn btn-primary btn-lg">기부이야기</a> <a
+				href="submits" class="btn btn-success" id="order"><h1>
+					<img class="btn-img" src="/stylesheets/img/main/reduce_waste.png">접수하기
+				</h1></a> <a href="mypage" class="btn btn-primary btn-lg">마이페이지</a> <a
+				href="notice" class="btn btn-primary btn-lg">고객센터</a>
+ -->
+				<!--   이미지 버튼 만들기 코드  <button class="bnt" id="bnt" type="submit"><img class="btn-img" 
+     src="/stylesheets/img/main/reduce_waste.png"></button> -->
+			</div>
+		</div>
+	</header>
+
+
+	<!-- About -->
+	<section id="about" class="about">
+		<div class="container">
+			<div class="row">
+			<!-- <p style="margin-left: 77em">회사소개</p> -->
+				<div class="text-vertical-center col-md-12"
+					style="margin-top: 70px;">
+					<h1>우리 회사를 소개합니다</h1>
+					<br> <br> <br>
+					<div class="col-md-6"
+						style="margin-top: 100px; margin-bottom: 15px;">
+						<img src="/stylesheets/img/main/about.png"
+							style="height: 600px; width: 400px; margin-bottom: -30px;">
+					</div>
+					<div class="col-md-6"
+						style="margin-top: 100px; margin-left: -40px;">
+						<div class="col-md-12">
+							<p class="lead">Death to the Stock Photdafsdfasdfjkalhkjdfha
+								klsdjhfklajs6hdfkljahslkdjfhafklsjdvhklajsdhflkjahsdjfhkasjd
+								aksdjfhlkasjdhfkasdfsao</p>
+						</div>
+						<div class="col-md-12">
+							<p class="lead">Death to the Stock Photo</p>
+						</div>
+						<div class="col-md-12">
+							<p class="lead">Death to the Stock Photo</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+	<br>
+	<br>
+	<br>
+
+	<section id="about" class="about">
+
+<!-- 기부이야기 -->
+		<!-- Callout -->
+		<aside class="callout">
+			<div class="text-vertical-center col-md-12" style="margin-top: 8em;">
+				<h1>2017년 ZUP 착한 목표</h1>
+
+				<div class="col-md-6">
+					<img src="/stylesheets/img/main/zupbottle.png"
+						style="height: 700px; width: 600px; margin-top: 6em; margin-bottom: 10em; margin-left: 5em">
+				
+		
+				
+				
+				</div>
+				<div class="col-md-6" style="margin-top: 5em; margin-left: -40px;">
+					<div class="col-md-12">
+						<p class="lead">Death to the Stock Photdafsdfasdfjkalhkjdfha
+							klsdjhfklajs6hdfkljahslkdjfhafklsjdvhklajsdhflkjahsdjfhkasjd
+							aksdjfhlkasjdhfkasdfsao</p>
+					</div>
+					<div class="col-md-12">
+						<p class="lead">Death to the Stock Photo</p>
+					</div>
+					<div class="col-md-12">
+						<p class="lead">Death to the Stock Photo</p>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+
+
+
+	</section>
+	<!-- Callout -->
+	<aside class="">
+	
+		<div class="text-vertical-center col-md-12" style="margin-top: 5em; margin-bottom: 50px;">
+		
+			<h1>기부이야기</h1>
+			<br>
+			<div class="col-md-6">
+				<img src="/stylesheets/img/portfolio-2.jpg"
+					style="width: 300px; height: 560px; margin-bottom: 10em;">
+			</div>
+			<div class="col-md-6">
+				<p>2000년 우리는 기부를 했다 기부를 했으니까 알아줘라 이게 우리의 스웩이다 알안마렁너가 코스타를 알아 아
+					졸라 배고파 이제좀 점심 먹으러 가자 제발</p>
+			</div>
+		</div>
+	</aside>
+
+
+	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
+		class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+
+
+	<!-- jQuery -->
+	<script src="/stylesheets/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="/stylesheets/js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script>
+		// Closes the sidebar menu
+		$("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+		// Opens the sidebar menu
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+		// Scrolls to the selected menu item on the page
+		$(function() {
+			$(
+					'a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])')
+					.click(
+							function() {
+								if (location.pathname.replace(/^\//, '') == this.pathname
+										.replace(/^\//, '')
+										|| location.hostname == this.hostname) {
+									var target = $(this.hash);
+									target = target.length ? target
+											: $('[name=' + this.hash.slice(1)
+													+ ']');
+									if (target.length) {
+										$('html,body').animate({
+											scrollTop : target.offset().top
+										}, 1000);
+										return false;
+									}
+								}
+							});
+		});
+		//#to-top button appears after scrolling
+		var fixed = false;
+		$(document).scroll(function() {
+			if ($(this).scrollTop() > 250) {
+				if (!fixed) {
+					fixed = true;
+					// $('#to-top').css({position:'fixed', display:'block'});
+					$('#to-top').show("slow", function() {
+						$('#to-top').css({
+							position : 'fixed',
+							display : 'block'
+						});
+					});
+				}
+			} else {
+				if (fixed) {
+					fixed = false;
+					$('#to-top').hide("slow", function() {
+						$('#to-top').css({
+							display : 'none'
+						});
+					});
+				}
+			}
+		});
+		// Disable Google Maps scrolling
+		// See http://stackoverflow.com/a/25904582/1607849
+		// Disable scroll zooming and bind back the click event
+		var onMapMouseleaveHandler = function(event) {
+			var that = $(this);
+			that.on('click', onMapClickHandler);
+			that.off('mouseleave', onMapMouseleaveHandler);
+			that.find('iframe').css("pointer-events", "none");
+		}
+		var onMapClickHandler = function(event) {
+			var that = $(this);
+			// Disable the click handler until the user leaves the map area
+			that.off('click', onMapClickHandler);
+			// Enable scrolling zoom
+			that.find('iframe').css("pointer-events", "auto");
+			// Handle the mouse leave event
+			that.on('mouseleave', onMapMouseleaveHandler);
+		}
+		// Enable map zooming with mouse scroll when the user clicks the map
+		$('.map').on('click', onMapClickHandler);
+	</script>
 
 </body>
 
