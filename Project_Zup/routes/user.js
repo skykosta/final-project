@@ -8,6 +8,13 @@
 var mysql = require("mysql")
 var fs = require("fs")
 var ejs = require("ejs")
+var countresult
+var pageSize = 20
+var pageCount = 1
+var currentPage = 1;
+
+
+
 
 var client = mysql.createConnection({
 	user: "root",
@@ -20,22 +27,58 @@ exports.list = function(req, res){
 };
 
 exports.user = function(req, res){
-    var totalStudents = 80,
-    	pageSize = 8,
-    	pageCount = 80/8,
-    	currentPage = 1;
-    
+    pageCount = (Math.ceil(countresult/pageSize))
+    client.query("select count(user_num) counts from user", function(error, countresults) {
+    	countresult = countresults[0].counts
+    	})
     if (typeof req.query.page !== 'undefined') {
-        currentPage = +req.query.page;
-    }
-    
-    
-	client.query("select * from user limit 10, 10" ,function(error, results) {
-		res.render('user', {
-			data: results,
-		    pageSize: pageSize,
-		    pageCount: pageCount,
-		    currentPage: currentPage
+            currentPage = +req.query.page;
+        }
+    if (typeof req.query.searchType == "undefined") {
+    	if(typeof req.query.page == 'undefined'){
+			currentPage = 1
+		}
+		client.query("select * from user limit ?,?",[(currentPage*20)-20,pageSize] ,function(error, results) {
+			res.render('user', {
+				data: results,
+			    pageSize: pageSize,
+			    pageCount: pageCount,
+			    currentPage: currentPage,
+			    searchValue: "",
+			    searchType: ""	
+				})
 			})
-		})
+    	}
+    if (typeof req.query.searchType !== 'undefined') {
+    	if(typeof req.query.page == 'undefined'){
+			currentPage = 1
+		}
+    	if(req.query.searchType === 'i'){
+    		client.query("select * from user where user_id = ? limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
+    			console.log("아이디필터");
+        		res.render('user', {
+        			data: results,
+        		    pageSize: pageSize,
+        		    pageCount: pageCount,
+        		    currentPage: currentPage,
+        		    searchValue: req.query.value,
+        		    searchType: req.query.searchType
+        			})
+        		})
+    	}else{
+    		client.query("select * from user where user_email = ? limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
+    			console.log("이메일필터");
+        		res.render('user', {
+        			data: results,
+        		    pageSize: pageSize,
+        		    pageCount: pageCount,
+        		    currentPage: currentPage,
+        		    searchValue: req.query.value,
+        		    searchType: req.query.searchType
+        			})
+        		})
+    	}
+    	
+    	
+        }
 	};

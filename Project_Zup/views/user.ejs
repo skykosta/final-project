@@ -95,10 +95,11 @@ thead{
         <% });%>
         <tr style="margin: 0 auto">
           <td colspan="12" style="text-align: center;">
-         	<% if (pageCount > 1) { %>  
+          <% if (searchType ==""){%>
+          <% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/?page=1">&laquo;</a></li>
+			      <li><a href="/user?page=1">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -111,31 +112,61 @@ thead{
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/?page=<%= i %>"><%= i %></a></li>
+			        <li><a href="/user?page=<%= i %>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/?page=<%= pageCount %>">&raquo;</a></li>
+			      <li><a href="/user?page=<%= pageCount %>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
+          <%}%>
+           <% if (searchType !=""){
+           %>
+         	<% if (pageCount > 1) { %>  
+			<ul class="pagination">  
+			  <% if (currentPage > 1) { %>
+			      <li><a href="/user?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+			  <% } %>
+			  <% var i = 1;
+			  if (currentPage > 5) {
+			  i = +currentPage - 4;
+			  } %>
+			  <% if (i !== 1) { %>
+			      <li class="disabled"><a href="#">...</a></li>
+			  <% } %>
+			  <% for (i; i<=pageCount; i++) { %>
+			    <% if (currentPage == i) { %>
+			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
+			    <% } else { %>
+			        <li><a href="/user?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
+			    <% } %>
+			    <% if (i == (+currentPage + 4)) { %>
+			        <li class="disabled"><a href="#">...</a></li>
+			    <% break; } %>
+			  <% } %>
+			  <% if (currentPage != pageCount) { %>
+			      <li><a href="/user?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+			  <% } %>
+			</ul>  
+			<% } %>  
+			<%}%>
           </td>
         </tr>
       </tbody>
     </table>
-    <form name="search" class="form-inline" role="form"
-      style="float: left;">
+    <form name="search" class="form-inline" role="form" style="float: left;">
       <div class="form-group">
         <select class="form-control" id="type" name="searchType">
           <option value="i">아이디</option>
           <option value="e">이메일</option>
-        </select> <input type="text" name="keyword" id="keywordInput" class="form-control" id="value" name="value"
-          required>
+        </select> 
+        <input type="text" class="form-control" id="value" name="value" value="<%=searchValue%>" required>
       </div>
-      <button id="searchBtn" class="btn btn-primary">검색</button>
+      <button type="submit" id="searchBtn" class="btn btn-primary">검색</button>
     </form>
   </div>
 </body>
