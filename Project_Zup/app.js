@@ -99,6 +99,7 @@ app.get('/test', function(request, response) {
 
 /*마이페이지*/
 app.get('/mypage', mypage.mypage);
+app.post('/mypage', mypage.mypage_change);
 
 
 /*회원 관련*/

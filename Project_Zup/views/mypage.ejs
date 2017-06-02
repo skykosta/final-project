@@ -13,7 +13,7 @@
 <!-- body 시작 -->
   <body class="bootstrap"  >
 		
- 
+ <% data.forEach(function(item, index){ %>
 		
 			<!--#INCLUDE VIRTUAL="TopNavInclude.asp" -->
 			
@@ -82,19 +82,23 @@
                <!-- 프로필 -->
                <div class="col-md-12">
                   <div class="panel panel-danger panel-pricing">
+                  
                      <div class="panel-heading">
                         <i class="fa fa-desktop"></i>
-                            <h3 style="text-align:center">000님</h3>
+                            <h3 style="text-align:center"><%= item.user_name %>님</h3>
                      </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i>현재 적립금 <br /><strong> $1000</strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 : <strong>신한은행</strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong>123-4567-8989</strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i>현재 적립금 <br /><strong> $<%= item.zupmoney %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 : <strong><%= item.user_bankname %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong><%= item.user_banknum %></strong></li>
                         </ul>
                         <div class="panel-footer">
-                            <input type="TEXT" class="form-control" id="withdrawal_amount" placeholder="환전 금액 입력"> <br>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#withdrawal_money" style="margin-left:15px;">현금 환전</button>
+                            <input type="TEXT" class="form-control" id="withdrawal_amount" name="withdrawal_amount" placeholder="환전 금액 입력"> <br>
+                            <div id="display" style="padding-bottom: 20px;"></div>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#withdrawal_money" style="margin-left:15px;" id="moneychangeBTN">현금 환전</button>
                         </div>
+
+
                         
                         
        <!-- Modal -->
@@ -105,14 +109,14 @@
           <div class="modal-content">
             <div class="modal-header">
              <button type="button" class="close" data-dismiss="modal">×</button>
-             <h4 class="modal-title">회원 탈퇴</h4>
+             <h4 class="modal-title">적립금 환전</h4>
             </div>
             
           <div class="modal-body">
           <div class="form-group col-md-8">
-              <label for="withdrawal_money">현금으로 환전할 금액 : 1000원</label> <br/>
-              <label for="user_bank">은행명 : 신한은행</label> <br/>
-              <label for="user_bankNum">계좌번호 : 1010-2020-3030</label> <br/><br/><br/>
+              <label for="withdrawal_money">현금으로 환전할 금액 : <span id='money'></span>원</label> <br/>
+              <label for="user_bank">은행명 : <%= item.user_bankname %></label> <br/>
+              <label for="user_bankNum">계좌번호 : <%= item.user_banknum %></label> <br/><br/><br/>
               
               <p>출금하시겠습니까???</p>
           </div>
@@ -125,7 +129,7 @@
 
        </div>
       </div>
-      <!-- /Modal --> 
+      <!-- /Modal -->  
                     </div>
                 </div>
           <!-- /프로필 -->
@@ -167,12 +171,12 @@
 										<td>
 											<div class="media">
 												<div class="media-body">
-													<span class="media-meta pull-right"><button type="submit" class="btn btn-default">내역삭제</button></span>
+													<span class="media-meta pull-right"><button type="submit" class="btn btn-default" id="deletepointBTN">내역삭제</button></span>
 													<h4 class="title">
 														사용
 														<span class="pull-right use">2017.05.14</span>
 													</h4>
-													<p class="summary">소주 1병, 맥주 3병 : 000원</p>
+													<p class="summary"><%= item.status %> : 000원</p>
 												</div>
 											</div>
 										</td>
@@ -286,65 +290,59 @@
 <!-- /회수 내역 및 적립금 테이블 생성 -->  
 								</FORM>
 								</div>
-							
-								
-                
-                
-                
                 
                 
         <!-- 나의 정보수정 -->			
 				<div class="tab-pane fade" id="modify">
-								 <FORM ACTION="" METHOD="post">
 									<INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
 									<article class="container">
 
         <div class="col-md-6 col-md-offset-3">
-          <form role="form">
-            
+          <form role="form" METHOD="post">
+            <input type="hidden" name="user_num" value="1">
             <div class="form-group col-md-12">
               <label for="user_pw1">비밀번호</label>
-              <input type="password" class="form-control" id="user_pw1" placeholder="*******">
+              <input type="password" class="form-control" id="inputPassword" name="inputPassword" value='<%= item.user_pw %>'>
             </div>
             <div class="form-group col-md-12">
               <label for="user_pw2">비밀번호 확인</label>
-              <input type="password" class="form-control" id="user_pw2" placeholder="*******">
+              <input type="password" class="form-control" id="inputPassword2"  name="inputPassword2" value="<%= item.user_pw %>">
               <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
             </div>
             <div class="form-group col-md-12">
               <label for="user_email">이메일</label>
-              <input type="email" class="form-control" id="user_email" placeholder="happy@happy.net">
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<%= item.user_email %>">
             </div>
             <div class="form-group col-md-8">
               <label for="user_address">주소</label>
-              <input type="text" class="form-control" id="user_address" placeholder="인천광역시 행복동 행복아파트">
+              <input type="text" class="form-control" id="address_base" name="address_base" value="<%= item.user_address %>">
             </div>
             <div class="form-group col-md-4" style="padding-top: 25px;">
              <button type="submit" class="btn btn-default">주소찾기<i class="fa fa-check spaceLeft"></i></button>
             </div>	
             <div class="form-group col-md-12">
-              <input type="text" class="form-control" id="user_addressDetail" placeholder="상세주소 커몬">
+              <input type="text" class="form-control" id="address_detail" name="address_detail" placeholder="상세주소 커몬">
             </div>
             <div class="form-group col-md-12">
               <label for="user_phoneNum">핸드폰 번호</label>
-              <input type="text" class="form-control" id="user_phoneNum" placeholder="010-3333-2222">
+              <input type="text" class="form-control" id="inputNumber" name="inputNumber" value='<%= item.user_phonenum %>'>
             </div>
             <div class="form-group col-md-12">
               <label for="user_bank">은행명</label>
-              <select class="form-control col-md-12" name="" id="user_bank">
-                                <option>신한은행</option>
-                                <option>국민은행</option>
-                                <option>하나은행</option>
+              <select class="form-control col-md-12" id="inputBank" name="inputBank">
+                                <option value='신한은행'>신한은행</option>
+                                <option value='국민은행'>국민은행</option>
+                                <option value='하나은행'>하나은행</option>
                             </select>
             </div>
             <div class="form-group col-md-12">
               <label for="user_bankNum">계좌번호</label>
-              <input type="text" class="form-control" id="user_bankNum" placeholder="93039102958">
+              <input type="text" class="form-control" id="inputAccount" name="inputAccount" value="<%= item.user_banknum %>">
             </div>
          
             <div class="form-group text-center col-md-12">
               <button type="submit" class="btn btn-default">수정완료<i class="fa fa-check spaceLeft"></i></button>
-              <button type="submit" class="btn btn-default">수정취소<i class="fa fa-times spaceLeft"></i></button>
+              <button type="button" class="btn btn-default">수정취소<i class="fa fa-times spaceLeft"></i></button>
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#dropMember">회원탈퇴<i class="fa fa-times spaceLeft"></i></button>
             </div>
             
@@ -372,7 +370,7 @@
             </div>
          </div>
          <div class="modal-footer" style="margin-top: 150px;">
-           <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" id="ok">확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
        </div>
@@ -380,12 +378,11 @@
      </div>
     </div>
     <!-- /Modal --> 
-       
+        <% }); %>
         </form>
           <hr>
         </div>
       </article>
-								</FORM>
 								</div>
 	  <!-- /나의 정보수정 --> 
     
@@ -411,12 +408,12 @@
         <script src="/stylesheets/js/mypage.js"></script>
 				
 				<script>
- 
 $('a.btn.btn-default').hover(function(e) {
 $('a.btn.dropdown-toggle').trigger(e.type);
 })
 				</script>
-				
+        
+        				
 				<script type="text/javascript">
 				$(".display-fade").delay(25).animate({"opacity": "1"}, 800);
 				$(".table-fade").delay(25).animate({"opacity": "1"}, 800);
@@ -438,7 +435,60 @@ $('a.btn.dropdown-toggle').trigger(e.type);
 					});
 				
 				}
+				
+	$(function() {
+					
+					$('#moneychangeBTN').on('click', function() {
+						var change_zupmoney = $('#withdrawal_amount').val();
+						$('#money').html(change_zupmoney);
+					
+					});
+					
+				});
+	
+	//은행 표시 하기
+ 	$('#inputBank').val('<%=data[0].user_bankname%>');
+	 
 				</script>
+        
+        
+        <!-- 유효성 검사 -->
+  <script type="text/javascript">
+
+
+	$(function() {
+		
+		$('#moneychangeBTN').on('click', function() {
+			 if($("#withdrawal_amount").val() === ""){
+				    alert("금액을 입력해주세요.");
+				    return false;
+				  }
+		
+		});
+		
+	});
+            //실시간 이벤트 처리
+      var withdrawal_amount = document.getElementById("withdrawal_amount");
+      withdrawal_amount.onkeyup = function() {
+        valid_withdrawal_amount(withdrawal_amount);
+      }
+
+      // 계좌 번호 유효성 검사
+       function valid_withdrawal_amount(withdrawal_amount) {
+                // 계좌번호 정규표현식 숫자만 입력 가능
+        re = /^[0-9]*$/;
+
+        if (!re.test(withdrawal_amount.value)) {
+          $("#display").html("숫자만 입력해주세요.");
+          return false;
+        } else {
+          $("#display").html("출금가능합니다.");
+          return true;
+        }
+      } 
+      
+      
+</script>
 				
 			</footer>
 
