@@ -44,8 +44,6 @@ table {
 .canceltext {
 	width: 90%;
 }
-thead{
-}
 </style>
 <title>관리자페이지</title>
 </head>
@@ -57,47 +55,70 @@ thead{
 
   </div>
   <div class="container" style="text-align: center; margin-bottom: 50px">
-    <a class="btn icon-btn btn-success" href="order"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
-    <a class="btn icon-btn btn-info" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>회수관리</a>
-    <a class="btn icon-btn btn-warning" href="user"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>회원관리</a>
-    <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>회수현황</a>
+  <a class="btn icon-btn btn-success" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+  <a class="btn icon-btn btn-info" href="order"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
+  <a class="btn icon-btn btn-warning" href="user"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>회원관리</a>
+  <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>회수현황</a>
   </div>
   <div class="container">
     <table class="table table-hover">
       <thead>
         <tr>
           <th>No.</th>
-          <th>아이디</th>
-          <th>이름</th>
-          <th>이메일</th>
-          <th>핸드폰번호</th>
-          <th>주소</th>
-          <th>은행명</th>
-          <th>은행계좌</th>
-          <th>회원여부</th>
+          <th>고객이름</th>
+          <th>전화번호</th>
+          <th>고객주소</th>
+          <th>줍맨이름</th>
+          <th>줍맨번호</th>
+          <th>회수정보</th>
+          <th>회수현황</th>
+          <th>취소하기</th>
         </tr>
       </thead>
       <tbody>
-      	<% data.forEach(function(item, index){%>
+       	<% data.forEach(function(item, index){%>
         <tr>
-          <td><%= item.user_num%></td>
-          <td><%= item.user_id%></td>
+          <td><%= item.bottlelist_num%></td>
           <td><%= item.user_name%></td>
-          <td><%= item.user_email%></td>
           <td><%= item.user_phonenum%></td>
           <td><%= item.user_address%></td>
-          <td><%= item.user_bankname%></td>
-          <td><%= item.user_banknum%></td>
-          <td><%= item.ismember%></td>
+          <td><%= item.employee_name%></td>
+          <td><%= item.employee_phonenum%></td>
+          <td><%= item.bottle_name+item.bottle_amount%>병</td>
+          <td><%= item.return_status%></td>
+          <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<%= index%>">취소하기</button></td>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal<%= index%>" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title"><%=item.user_name %>님의 접수를 취소하시려면 취소사유를
+                    입력하고 취소버튼을 눌러주세요.</h4>
+                </div>
+                <div class="modal-body">
+                  <input type="text" placeholder="취소사유를 입력해주세요." name="cancelreason"class="canceltext">
+                  <button type="submit" class="btn btn-danger">취소</button>
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </tr>
         <% });%>
-        <tr style="margin: 0 auto">
+        
+     <tr style="margin: 0 auto">
           <td colspan="12" style="text-align: center;">
           <% if (searchType ==""){%>
           <% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/user?page=1">&laquo;</a></li>
+			      <li><a href="/order?page=1">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -110,14 +131,14 @@ thead{
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/user?page=<%= i %>"><%= i %></a></li>
+			        <li><a href="/order?page=<%= i %>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/user?page=<%= pageCount %>">&raquo;</a></li>
+			      <li><a href="/order?page=<%= pageCount %>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
@@ -127,7 +148,7 @@ thead{
          	<% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/user?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+			      <li><a href="/order?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -140,14 +161,14 @@ thead{
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/user?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
+			        <li><a href="/order?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/user?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+			      <li><a href="/order?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
@@ -159,8 +180,9 @@ thead{
     <form name="search" class="form-inline" role="form" style="float: left;">
       <div class="form-group">
         <select class="form-control" id="type" name="searchType">
-          <option value="i">아이디</option>
-          <option value="e">이메일</option>
+          <option value="bn">접수번호</option>
+          <option value="un">고객이름</option>
+          <option value="up">고객전화번호</option>
         </select> 
         <input type="text" class="form-control" id="value" name="value" value="<%=searchValue%>" required>
       </div>

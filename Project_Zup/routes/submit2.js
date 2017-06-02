@@ -2,7 +2,8 @@ var mysql = require("mysql");
 
 var client = mysql.createConnection({
 	user: 'root',
-	password: '024931',
+//	password: '024931',
+	password: 'root',
 	database: 'zup'
 });
 
@@ -16,31 +17,38 @@ exports.submit2 = function(req, res){
 exports.call = function(req, res){
   console.log("접수하기 2페이지 post방식 요청");
 
-	/*
+
 	  console.log("20 : " + req.body.name);
 	  console.log("21 : " + req.body.telephone);
 	  console.log("22 : " + req.body.mapAddress);
 	  console.log("23 : " + req.body.detailAddress);
-	*/
+	  console.log("24 : " + req.body.lat);
+	  console.log("25 : " + req.body.lng);
+	  
+	  var user_num = 1;
+	  var employee_num = 1;
+	  var user_id = "dlqudgjs";
+	  
       var name = req.body.name;
       var tel = req.body.telephone;
       var mapAddress = req.body.mapAddress;
       var detailAddress = req.body.detailAddress;
-   
-	  res.render("submit3", {
-		
-		  name : name,
-		  tel : tel,
-		  mapAddress : mapAddress,
-		  detailAddress : detailAddress
-		  
-	    });
-	  
-	  /*
-	  client.query('insert into user (user_id, user_pw, user_name, user_phonenum, user_address, user_email, user_bankname, user_banknum) values(?,?,?,?,?,?,?,?)',
-	  [body.inputId, body.inputPassword, body.inputName, body.inputNumber, body.address_base+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount ], function(){
-	     res.redirect('/regresult/:id='+body.inputId);
-	  });
-	  */
-	
+      var address = mapAddress + detailAddress;
+	 
+	  client.query("insert into orderlist(user_num, employee_num)values(?, ?)",
+		       [user_num, employee_num]);
+      
+	  client.query(
+			  "update user set user_address = ? where user_num = ? AND user_id = ?",
+			  [address, user_num, user_id],
+			  function(){
+//				    res.redirect('/regresult/:id='+body.inputId);
+					res.render("submit3", {
+						name : name,
+						tel : tel,
+						mapAddress : mapAddress,
+						detailAddress : detailAddress						  
+					});			  
+			  });
+
 };

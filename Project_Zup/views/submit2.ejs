@@ -218,8 +218,10 @@
 	</tr>
 	
     </table>
-
-          
+<div>
+<input type="hidden" id="lat" name="lat" style="width: 100%;">
+<input type="hidden" id="lng" name="lng" style="width: 100%;">
+</div>          
 
     <br><br><br>
   		<div style="text-align: center;">
@@ -320,6 +322,9 @@ function initMap() {
 
    //맵에 마커 찍어주면서 배열에 넣어주기.
    function addMarker(latLng) {
+	  
+        var lat = latLng.lat();
+        var lng = latLng.lng();
         var marker = new google.maps.Marker({
           position: latLng,
           map: map
@@ -332,6 +337,8 @@ function initMap() {
         });
         
         $("#mapAddress").val(address);
+        $("#lat").val(lat);
+        $("#lng").val(lng);
         
         //맵에 찍자마자 인포 오픈
         infowindow.open(map, marker);
