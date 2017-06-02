@@ -160,6 +160,7 @@
   
 </head>
   <body>
+<form method="post">
   <div class="container">
 
     <h1><img src="images/zuplogo.png">접수하기</h1>
@@ -182,15 +183,20 @@
 			<li><a href="javascript:void(0);">접수완료</a></li>
 		</ul>
 	</div>
-	
+
 	<table class="table table-bordered" style="width: 80%; height: 80%; ">
 	<tr>
 	   <th>이름 : </th>
-	   <td>kosta</td>
+	   <td>
+        <input id="name" name="name" value="<%= name %>" style="width: 100%; background-color: white; border: none;">
+
+	   </td>
 	</tr>
 	<tr>
 	   <th>핸드폰 번호 : </th>
-	   <td>010 - 1234 - 5678</td>
+	   <td>
+	      <input id="telephone" name="telephone" value="<%= telephone %>" style="width: 100%; background-color: white; border: none;">	      
+	   </td>
 	</tr>
 	<tr>
 	   <td height="500px" colspan="2">
@@ -200,26 +206,28 @@
 	</tr>
 	<tr>
 	   <th>선택된 내 위치 : </th>
-	   <td id="mapAddress">
+	   <td>
+	       <input id="mapAddress" name="mapAddress" style="width: 100%; background-color: white; border: none;">
 	   </td>
 	</tr>
 	<tr>
 	   <th>나머지 주소 : </th>
 	   <td>
-	      <input id="detailAddress" type="text" value="" style="width : 50%;" placeholder="나머지 상세주소를 입력하여 주세요">
+	      <input id="detailAddress" name="detailAddress" style="width : 100%;" placeholder="나머지 상세주소를 입력하여 주세요">
 	   </td>
 	</tr>
 	
     </table>
+
           
 
     <br><br><br>
   		<div style="text-align: center;">
-  				<a href="submits3" class="btn btn-dark btn-lg">확인</a>
+  				<button type="submit" class="btn btn-dark btn-lg">확인</button>
 				<a href="#about" class="btn btn-dark btn-lg">취소</a>  				        
   		</div>
    </div>
-
+</form>
 <script>
 var map;
 var markers = [];
@@ -245,44 +253,46 @@ function initMap() {
       }else{
           alert("지도의 위치를 가져올수 없습니다...");
       }     
-  }
+  }//getLocation()
       
   function createMap(xxxx, yyyy){      
      //지도생성
-     var location = {lat: xxxx, lng: yyyy};      
+     var location = {lat: xxxx, lng: yyyy};
 
-     map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: location
        });
 
         //클릭할때마다 이벤트 발생 addMaker()호출
-     map.addListener('click', function(event) {
+      map.addListener('click', function(event) {
 
      	  if(markers.length > 0){
               deleteMarkers();
           }
 
-          console.log(markers.length);
           getAddress(event.latLng);
-          addMarker(event.latLng);
-        });
+          
+        });//addListener()
         
-      function getAddress(latlng) {
+      function getAddress(latLng) {
       
-      console.log(latlng.lat());
-      console.log(latlng.lng());
-      console.log("getAddress() 호출됨");
+      //console.log(latLng.lat());
+      //console.log(latLng.lng());
+      //console.log("getAddress() 호출됨");
+      
 	   var geocoder = new google.maps.Geocoder();
 	   geocoder.geocode({
-	          latLng: latlng
+	          latLng: latLng
 	      }, function(results, status) {
 	      
 	     		 if (status == google.maps.GeocoderStatus.OK) {
 	     		 
 	      		 		if (results[0].geometry) {
-	           				 console.log(results);
+	           				//console.log(results);
 	            	 		address = results[0].formatted_address.replace(/^日本, /, '');
+	            	 		addMarker(latLng);
+	            	 		
 	             		}else{
 	               			 alert("정확한 위치를 클릭하여 주세요!!");
 	             		}
@@ -303,26 +313,25 @@ function initMap() {
 	                alert(status);
 	            }
 
-             });
-
-       }//getAddress()
-       
-     }//addListener()
-    
-   }//function createMap()
+             });            
+       }//getAddress()      
+     }//createMap()  
+}//function initMap()
 
    //맵에 마커 찍어주면서 배열에 넣어주기.
-   function addMarker(location) {
+   function addMarker(latLng) {
         var marker = new google.maps.Marker({
-          position: location,
+          position: latLng,
           map: map
         });
         
         var infowindow = new google.maps.InfoWindow({
-          content: "<b>" + address+ "</b>"
+          content: "<b>" + address+ "</b><br>"
+                  +"<b>위도 : </b>" + latLng.lat() + "<br>"
+                  +"<b>경도 : </b>" + latLng.lng()
         });
         
-        $("#mapAddress").html(address);
+        $("#mapAddress").val(address);
         
         //맵에 찍자마자 인포 오픈
         infowindow.open(map, marker);
@@ -331,10 +340,11 @@ function initMap() {
           infowindow.open(map, marker);
         });
         
-        console.log("맵에 마커가 찍혔숩니다...");
+        //console.log("맵에 마커가 찍혔숩니다...");
         
         //배열에 넣기
         markers.push(marker);
+
     }//addMarker()
 
    //마커 보여주거나, 숨기거나 기능함수
@@ -343,20 +353,20 @@ function initMap() {
           markers[i].setMap(map);
         }
         
-        console.log("setMapOnAll() 작동");
+        //console.log("setMapOnAll() 작동");
     }//setMapOnAll(map)
 
    //모든 마커 제거하기전에 숨기기
    function clearMarkers() {
         setMapOnAll(null);
-        console.log("clearMarkers() 작동");
+        //console.log("clearMarkers() 작동");
     }
 
     //생성된 모든 마커 제거
     function deleteMarkers() {
         clearMarkers();
         markers = [];
-        console.log("deleteMarkers() 작동");
+        //console.log("deleteMarkers() 작동");
     }//function deleteMarkers()
       
 

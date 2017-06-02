@@ -64,7 +64,7 @@ var app = express();
 
 //바디파서
 app.use(bodyParser.urlencoded({
-	extended:false
+	extended:true
 }));
 
 
@@ -124,9 +124,10 @@ app.get('/total', total.total);
 app.get('/user', user.user);
 
 /*접수 하기 페이지*/
-app.get('/submits', submit.list);
-app.get('/submits2', submit2.list);
-app.get('/submits3', submit3.list);
+app.get('/submit', submit.submit);
+app.get('/submit2', submit2.submit2);
+app.post('/submit2', submit2.call);
+
 
 /*고객센터 페이지 총5개*/
 //notice 공지사항(고객센터1)
