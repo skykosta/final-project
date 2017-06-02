@@ -24,7 +24,7 @@ exports.call = function(req, res){
 	  console.log("23 : " + req.body.detailAddress);
 	  console.log("24 : " + req.body.lat);
 	  console.log("25 : " + req.body.lng);
-
+	  
 	  var user_num = 1;
 	  var employee_num = 1;
 	  var user_id = "dlqudgjs";
