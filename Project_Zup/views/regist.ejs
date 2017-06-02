@@ -182,7 +182,7 @@ body {
 				<div class="col-md-12">
 					<br>
 					<br>
-					<form class="form-horizontal" method="post" onsubmit="return formSubmit(this);" name="login_form">
+					<form class="form-horizontal" method="post" onsubmit="return formSubmit(this);" >
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputId">아이디</label>
 							<div class="col-sm-8">
@@ -218,15 +218,9 @@ body {
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputEmail">이메일</label>
 							<div class="col-sm-8">
-								<div class="input-group">
-								<input type="text" class="form-control" name="inputEmail" id="inputEmail" placeholder="이메일" />
-                                    <span class="input-group-btn">
-										<button class="btn btn-success" id="sendButton">중복확인<i class="fa fa-mail-forward spaceLeft"></i></button>
-									</span>
-									</div>
-								<div id="emailId_display" style="color: RED"></div>
-								
-							</div>
+								   <input type="text" class="form-control" name="inputEmail" id="inputEmail" placeholder="이메일" />
+								   <div id="emailId_display" style="color: RED"></div>
+						    </div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
@@ -287,7 +281,7 @@ body {
 	
 
 <!-- 유효성 검사 -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
 
  function formSubmit(form){
@@ -486,7 +480,7 @@ body {
 			
 </script>
 
-중복 확인
+<!-- 중복 확인 -->
   <script type="text/javascript">
 			window.onload = function() {
 				var button = document.getElementById("sendButton");
@@ -522,7 +516,7 @@ body {
 				emailId_display.innerHTML = message;
 			}
 		</script>
- -->
+ 
 <script src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript" ></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js" type="text/javascript"></script>

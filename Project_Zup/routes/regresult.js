@@ -2,16 +2,22 @@
 /*
  * GET users listing.
  */
+var fs = require('fs');
+var ejs = require('ejs');
+var mysql = require('mysql');
+
+
+var client = mysql.createConnection({
+	user: 'root',
+	password: 'root',
+	database: 'zup'
+});
 
 exports.regresult = function(req, res){
-	console.log(req.params.id);
-  console.log("결과창 겟겟");
-	res.render('regresult');
+	  client.query('select * from user where user_id = ?',[
+			req.query.id
+		], function(error, result){
+			res.render('regresult', {data: result});
+		});
 };
 
-
-//exports.regresult2 =  function(req,res){
-	 //console.log(req);
-	/* console.log("결과창 포스트");
-	 res.render('regresult');
-	};*/

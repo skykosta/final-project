@@ -181,17 +181,17 @@ body {
 
                <div class="col-md-12">
                   <hr style="border: dashed 3px GREEN">
-                  <h3 style="text-align: center">님 가입을 환영합니다 :D</h3>
+                  <h3 style="text-align: center"> <%= data[0].user_id %>님 가입을 환영합니다 :D</h3>
                   <hr style="border: dashed 3px GREEN">
                </div>
 
                <div class="col-md-12">
                   <table style="text-align: left;">
                       <tr>
-                     <td><h3>이메일 : @주소</h3></td>
+                     <td><h3>이메일 : <%= data[0].user_email %></h3></td>
                      </tr>
                      <tr>
-                     <td><h3>핸드폰 번호 : 핸드폰번호~</h3></td>
+                     <td><h3>핸드폰 번호 : <%= data[0].user_phonenum %></h3></td>
                   </tr>
                   </table>
                   <div class="text-center">
