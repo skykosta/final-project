@@ -44,6 +44,7 @@ var express = require('express')
 , user = require('./routes/user')
 , order = require('./routes/order')
 , total = require('./routes/total')
+, orderresult = require('./routes/orderresult')
 
 
 /*고객센터 페이지*/
@@ -122,6 +123,7 @@ app.get('/regresult', regresult.regresult);
 app.get('/order', order.order);
 app.get('/total', total.total);
 app.get('/user', user.user);
+app.get('/orderresult', orderresult.order);
 
 /*접수 하기 페이지*/
 app.get('/submit', submit.submit);
