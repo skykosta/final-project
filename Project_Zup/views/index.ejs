@@ -348,16 +348,22 @@ body {
 </div>
 </div>
 
+				<!-- 로그인시 페이지 변화 -->
 				<nav id=lgbutton>
 				 <%if(sessionId == null){%>
     
                  <a href="login"><button class="button button-neutral" type="button">로그인</button></a>
                  <a href="regist"><button class="button button-primary">회원가입</button></a>
     
-                 <% }else{ %>
-    
-                 <%=sessionId%>님 로그인 | <a href="logout"><button class="button button-primary">로그아웃</button></a>
-    
+                 <% }else if(sessionId == 'admin'){ %>
+                 
+                 <%=sessionId%>님 로그인  <a href="logout"><button class="button button-primary">로그아웃</button></a>
+                 <a href="user"><button class="button button-primary">관리자페이지</button></a>
+                 
+                 <%}else if(sessionId != null && sessionId != 'admin'){%>
+                 
+                 <%=sessionId%>님 로그인  <a href="logout"><button class="button button-primary">로그아웃</button></a>
+                 
                  <%};%>
 				
 				</nav>
