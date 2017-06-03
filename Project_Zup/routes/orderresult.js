@@ -13,7 +13,7 @@ var currentPage = 1;
 
 var client = mysql.createConnection({
 	user: "root",
-	password: "zx12zx12",
+	password: "root",
 	database: "zup"
 })
 

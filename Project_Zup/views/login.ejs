@@ -43,14 +43,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="wrapper col-md-offset-4 col-md-4">
-				<form class="form-signin" action="/" method="" onsubmit="return loginFormSubmit(this);">
+				<form class="form-signin"  method="post" onsubmit="return loginFormSubmit(this);">
 					<h2 class="form-signin-heading">Log In</h2>
 					<label for="inputId" class="sr-only">ID</label> 
-					<input type="id" id="inputId" class="form-control" placeholder="ID" > 
+					<input type="id"  name="inputId" id="inputId" class="form-control" placeholder="ID" > 
 						<br>
 						<label for="inputPassword"
 						class="sr-only">Password</label> <input type="password"
-						id="inputPassword" class="form-control" placeholder="Password"
+						id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
 						>
 					<div class="checkbox">
 						<label> <input type="checkbox" value="remember-me">
@@ -80,7 +80,7 @@
 				  text : '아이디를 입력해주세요!',
 				  type :'warning',
 				  confirmButtontext : '닫기'
-		})
+		});
 		$("#inputId").focus();
 		return false;
 	}
