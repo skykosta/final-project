@@ -2857,27 +2857,27 @@
 				width: 60%;
 			}
 
-			.tiles article:nth-child(6n - 5):before {
+			.tiles article:nth-child(6n - 5):AFTER {
 				background-color: #ffffff;
 			}
 /* 배경색바꾸기 */
-			.tiles article:nth-child(6n - 4):before {
+			.tiles article:nth-child(6n - 4):AFTER {
 				background-color: rgb(105, 192, 175);
 			}
 
-			.tiles article:nth-child(6n - 3):before {
+			.tiles article:nth-child(6n - 3):beAFTERfore {
 				background-color: #ffffff;
 			}
 
-			.tiles article:nth-child(6n - 2):before {
+			.tiles article:nth-child(6n - 2):AFTER {
 				background-color: rgb(87, 162, 214);
 			}
 
-			.tiles article:nth-child(6n - 1):before {
+			.tiles article:nth-child(6n - 1):AFTER {
 				background-color: rgb(255, 214, 107);
 			}
 
-			.tiles article:nth-child(6n):before {
+			.tiles article:nth-child(6n):AFTER {
 				background-color: #87c5a4;
 			}
 

@@ -35,7 +35,7 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <style>
 
@@ -276,6 +276,44 @@ body {
 	opacity: 0.65;
 }
 #preloader {position:fixed; width:100%; height:100%; display:block;}
+
+
+
+/* sns */
+
+.social:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ .social {
+     -webkit-transform: scale(0.8);
+     /* Browser Variations: */
+     
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+ }
+
+/*
+    Multicoloured Hover Variations
+*/
+ 
+ #social-fb:hover {
+     color: #3B5998;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+ }
+ #social-gp:hover {
+     color: #d34836;
+ }
+ #social-em:hover {
+     color: #f39c12;
+ }
+
 </style>
 
 </head>
@@ -288,7 +326,7 @@ body {
 <body>
 	
 
-<img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" />
+<!-- <img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" /> -->
 <!-- //PRELOADER -->v
 	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
 		class="fa fa-chevron-up fa-fw fa-1x"></i></a>
@@ -299,23 +337,16 @@ body {
 		<div id="a">
 			<!-- Header -->
 			<header id="header" class="alt">
-				<hr />
-				<br />
-
-
-				<ul class="icons">
-					<li><a href="#" class="icon alt fa-twitter"><span
-							class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon alt fa-facebook"><span
-							class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon alt fa-instagram"><span
-							class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon alt fa-github"><span
-							class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon alt fa-linkedin"><span
-							class="label">LinkedIn</span></a></li>
-				</ul>
-				<hr />
+<div class="container">
+        <div class="text-center center-block">
+                
+                <a href="https://www.facebook.com/bootsnipp">
+                <i class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+</div>
 
 				<nav id=lgbutton>
 				 <%if(sessionId == null){%>
@@ -350,14 +381,7 @@ body {
 							</div>
 						</div>
 					</header>
-					<div class="content" style="margin-left: -25em; margin-top: 30em;">
-						<p>
-							<!-- 그냥공백 -->
-						</p>
-						<ul class="actions">
-							<li><a href="submits" class="button next scrolly">접수하기</a></li>
-						</ul>
-					</div>
+				
 				</div>
 			</section>
 		</div>
@@ -369,9 +393,7 @@ body {
 				<!-- One -->
 				<section id="one" class="tiles">
 					<article id="article1">
-						<span class="image"> <img
-							src="/stylesheets/img/main/pic01.jpg" alt="" />
-						</span>
+						
 						<header id=z>
 
 
@@ -526,21 +548,6 @@ body {
 							<div class="text-center col-md-12" style="margin-top: -50px">
 								<div class="total">
 									<div class="img ; text-center col-md-12">
-
-										<div id="imgDiv">
-											<img id="serious"
-												src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg">
-											<img id="funny" src="/stylesheets/img/main/bottleMan.jpg">
-
-											<!-- 	<a href="#" id=fb>
-											<h4>
-												<i class="fa fa-book"></i><br>회사소개
-											</h4> <br> <h7>안녕하세요!<br>
-											공병 되살리기 프로젝트에 앞장서는<br>
-											친환경 기업 ZUP 입니다!</h7>
-										</a> -->
-										</div>
-
 
 										<h4 style="height: 90;">
 											<i class="fa fa-book"></i><br>JUP의 기부이야기
