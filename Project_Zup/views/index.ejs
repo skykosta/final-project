@@ -45,14 +45,14 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	height: 600px;
-	z-index: -1;
+	height: 500px;
+	z-index: 1;
 	background-color: #fff6c9;
 }
 
 #b {
-	margin-top: 550px;
-	z-index: -2;
+	margin-top: 450px;
+	z-index: 0;
 }
 
 #c {
@@ -83,9 +83,6 @@
 	-o-transition-duration: 0.5s;
 }
 
-/*
-    Multicoloured Hover Variations
-*/
 #social-fb:hover {
 	color: #3B5998;
 }
@@ -102,6 +99,7 @@
 	color: #f39c12;
 }
 
+/* 각 section 크기, 스타일 정해주기 */
 #article1 {
 	width: 100%;
 	background-color: #F4FFFF;
@@ -134,23 +132,72 @@
 	height: 700px;
 }
 
-#article8 {
-	width: 60%;
-}
-
-#article9 {
-	width: 200px;
-}
-
-#article10 {
-	width: 200px;
-}
-
+/* articl안의 글씨 자유롭게 배치할 수 있는 설정 */
 div {
 	float: left
 }
 
-/* //도넛그래프 */
+/* article배경, 마우스오버시 바뀌도록하는 css */
+#imgDiv {
+	width: 160px;
+	height: 210px;
+	position: absolute;
+	/*             border: 2px solid lightseagreen;
+ */
+	z-index: -10
+}
+
+#imgDiv2 {
+	width: 160px;
+	height: 210px;
+	position: relative;
+	/*             border: 2px solid lightseagreen;
+ */
+	left: 200px;
+}
+
+#imgDiv img {
+	width: 230px;
+	height: 220px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -120px;
+	margin-top: -120px;
+}
+
+#imgDiv2 img {
+	width: 230px;
+	height: 220px;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	margin-left: -75px;
+	margin-top: -100px;
+}
+
+#imgDiv>#funny {
+	opacity: 0;
+	transition: opacity 0.01s
+}
+
+#imgDiv:hover>#funny {
+	opacity: 1;
+}
+
+#serious {
+	z-index: -15;
+}
+
+#funny {
+	z-index: -14;
+}
+
+#fb {
+	z-index: 9;
+}
+
+/* 도넛그래프 css*/
 @import "bourbon";
 
 @import url(//fonts.googleapis.com/css?family=Oswald:400);
@@ -229,12 +276,12 @@ body {
 }
 </style>
 
-
-
-
-
-
 </head>
+
+
+
+
+
 
 <body>
 	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
@@ -246,10 +293,8 @@ body {
 		<div id="a">
 			<!-- Header -->
 			<header id="header" class="alt">
-
 				<hr />
 				<br />
-
 
 
 				<ul class="icons">
@@ -266,39 +311,13 @@ body {
 				</ul>
 				<hr />
 
-
-				<!-- <a href="index.html" class="logo">
-					로고
-				</a> -->
-				<!-- <nav>
-					<a href="#menu">Menu</a>
-				</nav> -->
-
 				<nav id=lgbutton>
 					<a href="login"><button class="button button-neutral"
 							type="button">로그인</button></a> <a href="regist"><button
 							class="button button-primary">회원가입</button></a> <a href="login"><button
 							class="button button-primary">관리자</button></a>
-					<!-- </nav> -->
 				</nav>
-
-
 			</header>
-
-			<!-- Menu -->
-			<!-- <nav id="menu"> -->
-			<!-- 	<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="landing.html">Landing</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-				</ul>
-				<ul class="actions vertical">
-					<li><a href="#" class="button special fit">Get Started</a></li>
-					<li><a href="#" class="button fit">Log In</a></li>
-				</ul> -->
-
-
 
 
 			<!-- Banner -->
@@ -313,7 +332,6 @@ body {
 
 							<div class="total" style="margin-left: -12em; margin-top: 7em">
 								<div class="img ; text-center col-md-12" style="color: white;">
-
 									<h2>재사용률을 높여 아름다운 세상을 만들어요!</h2>
 								</div>
 							</div>
@@ -321,7 +339,7 @@ body {
 					</header>
 					<div class="content" style="margin-left: -25em; margin-top: 30em;">
 						<p>
-						
+							<!-- 그냥공백 -->
 						</p>
 						<ul class="actions">
 							<li><a href="submits" class="button next scrolly">접수하기</a></li>
@@ -335,7 +353,6 @@ body {
 		<div id="b">
 			<!-- Main -->
 			<div id="main">
-
 				<!-- One -->
 				<section id="one" class="tiles">
 					<article id="article1">
@@ -347,68 +364,110 @@ body {
 
 							<div class="text-center col-md-12"
 								style="margin-top: -50px; margin-left: 17em">
-
 								<div class="total">
-
 									<div class="img ; text-center col-md-3">
-										<a href="#">
+										<div id="imgDiv">
+											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
+												style="opacity: 0.2;"> <img id="funny"
+												src="/stylesheets/img/main/vol.jpg"
+												style="background-color: none;">
+
 											<h4>
 												<i class="fa fa-book"></i><br>회사소개
-											</h4> <br> <h7>안녕하세요!<br>
+											</h4>
+											<br>
+											<h7>안녕하세요!<br>
 											공병 되살리기 프로젝트에 앞장서는<br>
 											친환경 기업 ZUP 입니다!</h7>
-										</a>
+										</div>
 									</div>
 
-									<div class="img ; text-center col-md-3">
-										<a href="#">
-											<h4 style="height: 90;">
-												<i class="fa fa-heart-o"></i><br>기부이야기
-											</h4> <br> <h7>ZUP은 매해 수집한 <br>
+
+									<div class="img ; text-center col-md-3"
+										style="margin-left: 20em;">
+										<div id="imgDiv">
+											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
+												style="opacity: 0.2;"> <img id="funny"
+												src="/stylesheets/img/main/vol.jpg"
+												style="background-color: none;">
+
+											<h4>
+												<i class="fa fa-book"></i><br>기부이야기
+											</h4>
+											<br>
+											<h7>ZUP은 매해 수집한 <br>
 											공병 수익의 10%를 <br>
 											사회의 환원하고 있습니다</h7>
-										</a>
+										</div>
 									</div>
 
-									<div class="img ; text-center col-md-3">
-										<a href="mypage">
-											<h4 style="height: 90;">
-												<i class="fa fa-cloud"></i><br>마이페이지
-											</h4> <br> <h7>적립금 내역확인 및 <br>
+
+
+									<div class="img ; text-center col-md-3"
+										style="margin-left: 20em;">
+										<div id="imgDiv">
+											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
+												style="opacity: 0.2;"> <img id="funny"
+												src="/stylesheets/img/main/vol.jpg"
+												style="background-color: none;">
+
+											<h4>
+												<i class="fa fa-book"></i><br>마이페이지
+											</h4>
+											<br>
+											<h7>적립금 내역확인 및 <br>
 											적립금환산내역 공간입니다 <br>
 											회원만 이용가능합니다^^</h7>
-										</a>
+										</div>
+
+
+
+
 									</div>
 
-									<div class="img ; text-center col-md-3">
-										<a href="contact">
-											<h4 style="height: 90;">
-												<i class="fa fa-gear"></i><br>고객센터
-											</h4> <br> <h7>안녕하세요!<br>
+
+
+									<div class="img ; text-center col-md-3"
+										style="margin-left: 20em;">
+										<div id="imgDiv">
+											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
+												style="opacity: 0.2;"> <img id="funny"
+												src="/stylesheets/img/main/vol.jpg"
+												style="background-color: none;">
+
+											<h4>
+												<i class="fa fa-book"></i><br>고객센터
+											</h4>
+											<br>
+											<h7>안녕하세요!<br>
 											공병 되살리기 프로젝트에 앞장서고 있는<br>
 											친환경 기업 ZUP 입니다!</h7>
-										</a>
+										</div>
+
+
+
+
 									</div>
+
+
+
+
 								</div>
-							</div>
-
 						</header>
-
-
-
-
-
-
 					</article>
+
+
+
 					<article id="article2">
 						<span class="image"> <img
 							src="/stylesheets/img/main/pic02.jpg" alt="" />
 						</span>
 						<header class="major">
 
+
+
 							<div class="text-center col-md-12"
 								style="margin-top: -50px; margin-left: 15em">
-
 								<div class="total" style="margin-left: -3em">
 									<div class="img ; text-center col-md-12">
 										<h4 style="height: 90;">
@@ -421,6 +480,7 @@ body {
 									</div>
 								</div>
 							</div>
+
 						</header>
 					</article>
 
@@ -445,17 +505,29 @@ body {
 					</article>
 
 
-
-
-
 					<article id="article4">
 						<span class="image"> <img src="images/pic04.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
-
 								<div class="total">
 									<div class="img ; text-center col-md-12">
+
+										<div id="imgDiv">
+											<img id="serious"
+												src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg">
+											<img id="funny" src="/stylesheets/img/main/bottleMan.jpg">
+
+											<!-- 	<a href="#" id=fb>
+											<h4>
+												<i class="fa fa-book"></i><br>회사소개
+											</h4> <br> <h7>안녕하세요!<br>
+											공병 되살리기 프로젝트에 앞장서는<br>
+											친환경 기업 ZUP 입니다!</h7>
+										</a> -->
+										</div>
+
+
 										<h4 style="height: 90;">
 											<i class="fa fa-book"></i><br>JUP의 기부이야기
 										</h4>
@@ -469,12 +541,14 @@ body {
 							</div>
 						</header>
 					</article>
+
+
+
 					<article id="article5">
 						<span class="image"> <img src="images/pic05.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
-
 								<div class="total">
 									<div class="img ; text-center col-md-12">
 										<h4 style="height: 90;">
@@ -490,12 +564,13 @@ body {
 							</div>
 						</header>
 					</article>
+
+
 					<article id="article6">
 						<span class="image"> <img src="images/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
-
 								<div class="total">
 									<div class="img ; text-center col-md-12">
 										<h4 style="height: 90;">
@@ -513,12 +588,12 @@ body {
 					</article>
 
 
+
 					<article id="article7">
 						<span class="image"> <img src="images/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12">
-
 								<div class="total">
 									<div class="img ; text-center col-md-12"
 										style="margin-top: 8px; margin-left: 50em;">
@@ -526,19 +601,15 @@ body {
 											<!-- 차트 -->
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</header>
 					</article>
-
-
-
-
-
-
-
 				</section>
+
+
+
+
 				<div id="c">
 					<!-- Two -->
 					<section id="two">
@@ -562,71 +633,14 @@ body {
 
 				</div>
 
-				<!-- Contact -->
-				<section id="contact">
-					<div class="inner">
-						<section>
-							<form method="post" action="#">
-								<div class="field half first">
-									<label for="name">Name</label> <input type="text" name="name"
-										id="name" />
-								</div>
-								<div class="field half">
-									<label for="email">Email</label> <input type="text"
-										name="email" id="email" />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="6"></textarea>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message"
-										class="special" /></li>
-									<li><input type="reset" value="Clear" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split">
-							<section>
-								<div class="contact-method">
-									<span class="icon alt fa-envelope"></span>
-									<h3>Email</h3>
-									<a href="#">information@untitled.tld</a>
-								</div>
-							</section>
-							<section>
-								<div class="contact-method">
-									<span class="icon alt fa-phone"></span>
-									<h3>Phone</h3>
-									<span>(000) 000-0000 x12387</span>
-								</div>
-							</section>
-							<section>
-								<div class="contact-method">
-									<span class="icon alt fa-home"></span>
-									<h3>Address</h3>
-									<span>1234 Somewhere Road #5432<br /> Nashville, TN
-										00000<br /> United States of America
-									</span>
-								</div>
-							</section>
-						</section>
-					</div>
-				</section>
-			</div>
-			<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-
-					<ul class="copyright">
-						<li>&copy; Untitled</li>
-						<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
-		</div>
+				
 
 	</div>
+
+
+
+
+
 	<!-- jQuery -->
 	<script src="/stylesheets/js/jquery.js"></script>
 
@@ -715,12 +729,7 @@ body {
 		
 		
 		
-		
-		
-		
-		
-		
-		
+		//도넛그래프설정
 		$(function(){
 			  $("#doughnutChart").drawDoughnutChart([
 			    { title: "Tokyo",         value : 120,  color: "#2C3E50" },
