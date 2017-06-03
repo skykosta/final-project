@@ -145,7 +145,6 @@ app.get('/orderresult', orderresult.order);
 /*접수 하기 페이지*/
 app.get('/submit', submit.submit);
 app.get('/submit2', submit2.submit2);
-app.post('/submit2', submit2.call);
 
 
 /*고객센터 페이지 총5개*/
@@ -186,57 +185,103 @@ app.get('/boardview', function(request, response){
 
 
 
-var sio = https.createServer(options, app).listen(app.get('port'), function() {
+https.createServer(options, app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 
 });
 
-var chatServer = socketio.listen(sio);
-
-chatServer.sockets
-		.on(
-				'connection',
-				function(socket) {
-					// message 이벤트 처리(메시지 수신)
-					socket
-							.on(
-									'foo',
-									function(data) {
-										// message 이벤트 발생(메시지 송신)
-										socket.broadcast.emit("bar", data);
-										chatInfo = new Object();
-
-										sendMessageToUser(
-												"ftM37xsE4jU:APA91bEunaSR2DvFloH7sGw6Q5pmdiUfVtmri67t6xaBMYHiYPwA8z4HzX5J66jrBanHmAGyeRl-cXNBX5MDXNMVXXrT9PiEaYp_ygTTvGJq0OlMqoa0nbcUmLAZlIWhIZeNpVCWtTCG",
-												data);
-									});
-				});
-
-function sendMessageToUser(deviceId, message) {
-	console.log(message);
-	console.log(deviceId);
-
-	request({
-		url : 'https://fcm.googleapis.com/fcm/send',
-		method : 'POST',
-		headers : {
-			'Content-Type' : 'application/json',
-			'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
-		},
-		body : JSON.stringify({
-			"data" : {
-				"message" : message
-			},
-			"to" : deviceId
-		})
-	}, function(error, response, body) {
-		if (error) {
-			console.error(error, response, body);
-		} else if (response.statusCode >= 400) {
-			console.error('HTTP Error: ' + response.statusCode + ' - '
-					+ response.statusMessage + '\n' + body);
-		} else {
-			console.log('성공!')
-		}
+/* 접수하기 페이지 안드로이드와 통신 */
+app.post('/submit2', function(req, res){
+	
+	var mysql = require("mysql");
+	var client = mysql.createConnection({
+		user: 'root',
+		password: '024931',
+//		password: 'root',
+		database: 'zup'
 	});
-}
+	
+	/*
+	  console.log("접수하기 2페이지 post방식 요청");
+	  console.log("name : " + req.body.name);
+	  console.log("tel : " + req.body.telephone);
+	  console.log("mapAddress : " + req.body.mapAddress);
+	  console.log("detailAddress : " + req.body.detailAddress);
+	  console.log("lat : " + req.body.lat);
+	  console.log("lng : " + req.body.lng);
+	 */
+	  
+	  //위도 경도
+	  var lat = req.body.lat;
+	  var lng = req.body.lng;
+	  
+	  //디바이스 키값, 위도 경도 세팅
+	  var latData = lat + "," + lng;
+	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
+	  
+	  //유저 값 세팅
+	  var user_num = 1;
+	  var employee_num = 1;
+	  var user_id = "dlqudgjs";
+	  
+	  //접수하기 페이지 값 세팅
+      var name = req.body.name;
+      var tel = req.body.telephone;
+      var mapAddress = req.body.mapAddress;
+      var detailAddress = req.body.detailAddress;
+      var address = mapAddress + detailAddress;
+      
+      //안드로이드와 통신하기.
+      sendMessageToUser(deviceId, latData);
+
+function sendMessageToUser(deviceId, latData) {
+		console.log(latData);
+		console.log(deviceId);
+
+		request({
+			url : 'https://fcm.googleapis.com/fcm/send',
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+				'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
+			},
+			body : JSON.stringify({
+				"data" : {					
+				    "name" : name,
+				    "tel" : tel,
+					"message" : latData,
+					"address" : address
+				},
+				"to" : deviceId
+			})
+		}, function(error, response, body) {
+			if (error) {
+				console.error(error, response, body);
+			} else if (response.statusCode >= 400) {
+				console.error('HTTP Error: ' + response.statusCode + ' - '
+						+ response.statusMessage + '\n' + body);
+			} else {
+				console.log('성공!')
+			}
+		});
+	}
+	  client.query("insert into userlog(user_num,logtype,status,content) values(?,'대기','회수대기중..','회수예정')",
+	               [user_num]);
+
+	  client.query("insert into orderlist(user_num, employee_num)values(?, ?)",
+		           [user_num, employee_num]);
+     
+	  client.query("update user set user_address = ? where user_num = ? AND user_id = ?",
+			       [address, user_num, user_id],
+			       
+			       function(){
+//				    res.redirect('/regresult/:id='+body.inputId);
+					res.render("submit3", {
+						name : name,
+						tel : tel,
+						mapAddress : mapAddress,
+						detailAddress : detailAddress						  
+					});			  
+			  });
+	  
+});//app.post("submit2");
