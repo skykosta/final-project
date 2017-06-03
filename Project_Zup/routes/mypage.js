@@ -11,7 +11,7 @@ var ejs = require('ejs');
 // 데이터 베이스와 연결
 var client = mysql.createConnection({
 	user: 'root',
-	password: 'root',
+	password: 'zx12zx12',
 	database: 'zup'
 });
 

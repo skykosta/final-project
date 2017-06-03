@@ -11,6 +11,7 @@
     "ejs": "*",
     "socket.io":"*",
     "request": "*",
-   "firebase": "*"
+   "firebase": "*",
+   "moment": "*"
   }
 }

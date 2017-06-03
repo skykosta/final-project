@@ -122,6 +122,7 @@ app.get('/regresult', regresult.regresult);
 
 /* 관리자 페이지 */
 app.get('/order', order.order);
+app.post('/order', order.cancel);
 app.get('/total', total.total);
 app.get('/user', user.user);
 app.get('/orderresult', orderresult.order);

@@ -55,8 +55,8 @@ table {
 
   </div>
   <div class="container" style="text-align: center; margin-bottom: 50px">
-  <a class="btn icon-btn btn-success" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
-  <a class="btn icon-btn btn-info" href="order"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
+  <a class="btn icon-btn btn-success" href="order"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>접수관리</a>
+  <a class="btn icon-btn btn-info" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>회수관리</a>
   <a class="btn icon-btn btn-warning" href="user"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>회원관리</a>
   <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>회수현황</a>
   </div>
@@ -72,7 +72,6 @@ table {
           <th>줍맨번호</th>
           <th>회수정보</th>
           <th>회수현황</th>
-          <th>취소하기</th>
         </tr>
       </thead>
       <tbody>
@@ -86,28 +85,6 @@ table {
           <td><%= item.employee_phonenum%></td>
           <td><%= item.bottle_name+item.bottle_amount%>병</td>
           <td><%= item.return_status%></td>
-          <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<%= index%>">취소하기</button></td>
-          <!-- Modal -->
-          <div class="modal fade" id="myModal<%= index%>" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title"><%=item.user_name %>님의 접수를 취소하시려면 취소사유를
-                    입력하고 취소버튼을 눌러주세요.</h4>
-                </div>
-                <div class="modal-body">
-                  <input type="text" placeholder="취소사유를 입력해주세요." name="cancelreason"class="canceltext">
-                  <button type="submit" class="btn btn-danger">취소</button>
-                </div>
-                
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
           </div>
         </tr>
         <% });%>
@@ -118,7 +95,7 @@ table {
           <% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/order?page=1">&laquo;</a></li>
+			      <li><a href="/orderresult?page=1">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -131,14 +108,14 @@ table {
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/order?page=<%= i %>"><%= i %></a></li>
+			        <li><a href="/orderresult?page=<%= i %>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/order?page=<%= pageCount %>">&raquo;</a></li>
+			      <li><a href="/orderresult?page=<%= pageCount %>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
@@ -148,7 +125,7 @@ table {
          	<% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/order?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+			      <li><a href="/orderresult?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -161,14 +138,14 @@ table {
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/order?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
+			        <li><a href="/orderresult?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/order?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+			      <li><a href="/orderresult?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  

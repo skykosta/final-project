@@ -45,7 +45,7 @@ exports.order = function(req, res){
 	            " and bl.bottle_num=b.bottle_num"+
 	            " order by bottlelist_num desc"+
 	            " limit ?, ?",[(currentPage*20)-20,pageSize], function(error, results) {
-				res.render('order', {
+				res.render('orderresult', {
 				data: results,
 				pageSize: pageSize,
 			    pageCount: pageCount,
@@ -77,7 +77,7 @@ exports.order = function(req, res){
         " order by bottlelist_num desc"+
         " limit ?, ?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
     			console.log("아이디필터");
-        		res.render('order', {
+        		res.render('orderresult', {
         			data: results,
         		    pageSize: pageSize,
         		    pageCount: pageCount,
@@ -104,7 +104,7 @@ exports.order = function(req, res){
         " order by bottlelist_num desc"+
         " limit ?, ?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
     			console.log("아이디필터");
-        		res.render('order', {
+        		res.render('orderresult', {
         			data: results,
         		    pageSize: pageSize,
         		    pageCount: pageCount,
@@ -131,7 +131,7 @@ exports.order = function(req, res){
         " order by bottlelist_num desc"+
         " limit ?, ?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
     			console.log("이메일필터");
-        		res.render('order', {
+        		res.render('orderresult', {
         			data: results,
         		    pageSize: pageSize,
         		    pageCount: pageCount,

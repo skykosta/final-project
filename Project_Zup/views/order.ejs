@@ -64,33 +64,35 @@ table {
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>No.</th>
+          <th>NO.</th>
           <th>고객이름</th>
-          <th>전화번호</th>
+          <th>고객전화번호</th>
           <th>고객주소</th>
           <th>줍맨이름</th>
-          <th>줍맨번호</th>
-          <th>회수정보</th>
-          <th>회수현황</th>
+          <th>줍맨전화번호</th>
+          <th>접수시간</th>
+          <th>접수상태</th>
+          <th>취소사유</th>
           <th>취소하기</th>
         </tr>
       </thead>
       <tbody>
        	<% data.forEach(function(item, index){%>
         <tr>
-          <td><%= item.bottlelist_num%></td>
+          <td><%= item.order_num%></td>
           <td><%= item.user_name%></td>
           <td><%= item.user_phonenum%></td>
           <td><%= item.user_address%></td>
           <td><%= item.employee_name%></td>
           <td><%= item.employee_phonenum%></td>
-          <td><%= item.bottle_name+item.bottle_amount%>병</td>
-          <td><%= item.return_status%></td>
+          <td><%= moment(item.orderdate).format('YYYY-MM-DD hh:mm:ss')%></td>
+          <td><%= item.order_status%></td>
+          <td><%= item.cancelreason%></td>
           <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<%= index%>">취소하기</button></td>
           <!-- Modal -->
           <div class="modal fade" id="myModal<%= index%>" role="dialog">
             <div class="modal-dialog">
-
+            
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
@@ -98,10 +100,13 @@ table {
                   <h4 class="modal-title"><%=item.user_name %>님의 접수를 취소하시려면 취소사유를
                     입력하고 취소버튼을 눌러주세요.</h4>
                 </div>
+                <form method="post">
                 <div class="modal-body">
                   <input type="text" placeholder="취소사유를 입력해주세요." name="cancelreason"class="canceltext">
+                  <input type="hidden" name="order_num" value="<%=item.order_num%>"> 
                   <button type="submit" class="btn btn-danger">취소</button>
                 </div>
+                </form>
                 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -180,7 +185,7 @@ table {
     <form name="search" class="form-inline" role="form" style="float: left;">
       <div class="form-group">
         <select class="form-control" id="type" name="searchType">
-          <option value="bn">접수번호</option>
+          <option value="on">접수번호</option>
           <option value="un">고객이름</option>
           <option value="up">고객전화번호</option>
         </select> 
