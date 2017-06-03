@@ -31,6 +31,7 @@ var express = require('express')
  
 /*회원 관련*/
 , login = require('./routes/login')
+, logout = require('./routes/logout')
 , regist = require('./routes/regist')
 , idcheck = require('./routes/idcheck')
 , pwcheck = require('./routes/pwcheck')
@@ -55,7 +56,9 @@ var express = require('express')
 //데이터 연동
 var bodyParser = require('body-parser');
 
-
+//login 관련 세션
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 /* https프로토콜 생성을 위한 키,인증서 읽어오기*/
 var options = {  
@@ -66,10 +69,14 @@ var options = {
 var app = express();
 
 //바디파서
-app.use(bodyParser.urlencoded({
-	extended:true
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({	extended:true }));
+app.use(bodyParser.json());
+app.use(session({
+	secret : 'enter secret key',
+	resave : false,
+	saveUninitialized : true
 }));
-
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -106,7 +113,13 @@ app.post('/mypage', mypage.mypage_change);
 
 
 /*회원 관련*/
+//로그인
 app.get('/login', login.login );
+app.post('/login', login.login2);
+
+//로그아웃
+app.get('/logout', logout.logout);
+
 app.get('/idcheck', idcheck.idcheck);
 app.get('/pwcheck', pwcheck.pwcheck);
 app.get('/newpw', newpw.newpw);
