@@ -56,6 +56,7 @@
 }
 
 #c {
+background-color: rgb(37, 164, 73);
 	z-index: 10;
 }
 
@@ -274,6 +275,7 @@ body {
 .chart path:hover {
 	opacity: 0.65;
 }
+#preloader {position:fixed; width:100%; height:100%; display:block;}
 </style>
 
 </head>
@@ -284,6 +286,10 @@ body {
 
 
 <body>
+	
+
+<img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" />
+<!-- //PRELOADER -->v
 	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
 		class="fa fa-chevron-up fa-fw fa-1x"></i></a>
 
@@ -363,7 +369,7 @@ body {
 
 
 							<div class="text-center col-md-12"
-								style="margin-top: -50px; margin-left: 17em">
+								style="margin-top: -8em; margin-left: 14em">
 								<div class="total">
 									<div class="img ; text-center col-md-3">
 										<div id="imgDiv">
@@ -384,7 +390,7 @@ body {
 
 
 									<div class="img ; text-center col-md-3"
-										style="margin-left: 20em;">
+										style="margin-left: 15em;">
 										<div id="imgDiv">
 											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
 												style="opacity: 0.2;"> <img id="funny"
@@ -428,7 +434,7 @@ body {
 
 
 									<div class="img ; text-center col-md-3"
-										style="margin-left: 20em;">
+										style="margin-left: 63em;">
 										<div id="imgDiv">
 											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
 												style="opacity: 0.2;"> <img id="funny"
@@ -495,8 +501,9 @@ body {
 								<div class="container">
 									<div class="row">
 										<div style="margin-top: -12px; margin-bottom: 15px;">
-											<img src="/stylesheets/img/main/bottleMan.jpg"
-												style="height: 600px; width: 900px; margin-bottom: -30px; margin-left: -120px; margin-bottom: 20px">
+											<img src="/stylesheets/img/main/zupM.png"
+												style="height: 670px; width: 1000px; margin-bottom: -30px; 
+												margin-left: -120px; margin-top: -10em;">
 										</div>
 									</div>
 								</div>
@@ -506,7 +513,7 @@ body {
 
 
 					<article id="article4">
-						<span class="image"> <img src="images/pic04.jpg" alt="" />
+						<span class="image"> <img src="/stylesheets/img/main/pic04.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
@@ -545,7 +552,7 @@ body {
 
 
 					<article id="article5">
-						<span class="image"> <img src="images/pic05.jpg" alt="" />
+						<span class="image"> <img src="/stylesheets/img/main/pic05.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
@@ -567,7 +574,7 @@ body {
 
 
 					<article id="article6">
-						<span class="image"> <img src="images/pic06.jpg" alt="" />
+						<span class="image"> <img src="/stylesheets/img/main/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
@@ -590,7 +597,7 @@ body {
 
 
 					<article id="article7">
-						<span class="image"> <img src="images/pic06.jpg" alt="" />
+						<span class="image"> <img src="/stylesheets/img/main/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12">
@@ -983,6 +990,20 @@ body {
 			})(jQuery);
 	</script>
 
+<!-- PRELOADER -->
+		<script>
+		$(function(){
+		var count = 0;
+			$('#preloader').show();
+			if(count == 0){
+				setTimeout(function(){
+				$('#preloader').hide();
+				}, 5500);
+				count++;
+			}
+			
+		});
+</script>
 </body>
 
 </html>

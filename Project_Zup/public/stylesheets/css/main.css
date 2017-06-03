@@ -2862,7 +2862,7 @@
 			}
 /* 배경색바꾸기 */
 			.tiles article:nth-child(6n - 4):before {
-				background-color: rgb(23, 165, 67);
+				background-color: rgb(105, 192, 175);
 			}
 
 			.tiles article:nth-child(6n - 3):before {
