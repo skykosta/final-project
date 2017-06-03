@@ -46,6 +46,8 @@ var express = require('express')
 , total = require('./routes/total')
 , orderresult = require('./routes/orderresult')
 
+/* 고객센터 페이지 */
+, notice = require('./routes/notice')
 
 /*고객센터 페이지*/
 , ejs = require('ejs');
@@ -135,6 +137,10 @@ app.post('/submit2', submit2.call);
 
 /*고객센터 페이지 총5개*/
 //notice 공지사항(고객센터1)
+app.get('/notice1', notice.notice);
+app.get('/noticecount', notice.count);//게시판 조회수처리
+app.get('/noticeedit', notice.edit);//게시판 조회수처리
+
 app.get('/notice', function(request, response){
 	fs.readFile('views/notice.ejs', 'utf8', function(error, data){
 		response.send(ejs.render(data));

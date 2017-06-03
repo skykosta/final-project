@@ -80,6 +80,7 @@ thead{
       <tbody>
       	<% data.forEach(function(item, index){%>
         <tr>
+          <a>
           <td><%= item.user_num%></td>
           <td><%= item.user_id%></td>
           <td><%= item.user_name%></td>
@@ -89,6 +90,7 @@ thead{
           <td><%= item.user_bankname%></td>
           <td><%= item.user_banknum%></td>
           <td><%= item.ismember%></td>
+          <a>
         </tr>
         <% });%>
         <tr style="margin: 0 auto">

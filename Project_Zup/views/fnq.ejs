@@ -17,6 +17,43 @@
 
 	
 	<style type="text/css">
+	.logo {
+	width: 10%;
+	height: 10%;
+}
+
+.inner {
+	white-space: nowrap;
+}
+
+img {
+	text-align: left;
+}
+
+.btn-glyphicon {
+	padding: 8px;
+	background: #ffffff;
+	margin-right: 4px;
+}
+
+.icon-btn {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.panel {
+	text-align: center;
+	/* background-color: green; */
+	margin-bottom: 50px;
+}
+
+table {
+	margin-bottom: 50px;
+}
+
+.canceltext {
+	width: 90%;
+}
 	
 	h3 {
             color: #fff;
@@ -170,20 +207,17 @@
 
 
 <!-- service 헤어부분 -->
-		<div>
-		<ul class="nav nav-tabs" style="max-height: 49px;">
-			<li role="presentation"><a href="notice">공지사항</a></li>
-			<li role="presentation"><a href="fnq">자주묻는질문</a></li>
-			<li role="presentation"><a href="contact">고객센터</a></li>
-			<ul class="nav nav-tabs pull-right">
-				<li role="presentation"><a href="/about-abby/episodes">메인페이지</a></li>
-				<li role="presentation"><a href="/about-abby/cast">마이페이지</a></li>
-				<li role="presentation"><a href="/about-abby/episodes">로그인</a></li>
+  <div class="container">
+    <img src="/stylesheets/img/logo.png" class="logo">
+    <h2>고객센터</h2>
+    <hr>
 
-			</ul>
-		</ul>
-
-	</div>
+  </div>
+  <div class="container" style="text-align: center; margin-bottom: 50px">
+  <a class="btn icon-btn btn-info" href="notice1"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
+  <a class="btn icon-btn btn-warning" href="fnq"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는 질문</a>
+  <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact us</a>
+  </div>
 	
 <!-- service헤더부분 끝 -->	
 
