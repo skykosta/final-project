@@ -226,8 +226,9 @@
     <br><br><br>
   		<div style="text-align: center;">
   				<button type="submit" class="btn btn-dark btn-lg">확인</button>
-				<a href="#about" class="btn btn-dark btn-lg">취소</a>  				        
+				<a href="submit" class="btn btn-dark btn-lg">뒤로</a>  				        
   		</div>
+              <br><br><br><br><br><br><br><br>
    </div>
 </form>
 <script>
@@ -235,12 +236,13 @@ var map;
 var markers = [];
 var address;
 
+//구글맵 api 콜백 함수
 function initMap() {
 
    //위치따오는 기능 실행!!!
    getLocation();
    
-   //사용자의 위치 따오기
+ //사용자의 위치 따오기
  function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function showPosition(position){      
@@ -256,19 +258,22 @@ function initMap() {
           alert("지도의 위치를 가져올수 없습니다...");
       }     
   }//getLocation()
-      
+  
+  //지도생성
   function createMap(xxxx, yyyy){      
-     //지도생성
+
      var location = {lat: xxxx, lng: yyyy};
 
+     //지도 세팅
       map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: location
        });
 
-        //클릭할때마다 이벤트 발생 addMaker()호출
+      //클릭할때마다 이벤트 발생 addMaker()호출
       map.addListener('click', function(event) {
 
+    	  //기존에 찍혀있는 마커 삭제
      	  if(markers.length > 0){
               deleteMarkers();
           }
@@ -276,7 +281,8 @@ function initMap() {
           getAddress(event.latLng);
           
         });//addListener()
-        
+      
+      //위도,경도로 실 주소 따오기
       function getAddress(latLng) {
       
       //console.log(latLng.lat());
@@ -315,7 +321,7 @@ function initMap() {
 	                alert(status);
 	            }
 
-             });            
+             });//geocoder.geocode            
        }//getAddress()      
      }//createMap()  
 }//function initMap()
@@ -325,31 +331,35 @@ function initMap() {
 	  
         var lat = latLng.lat();
         var lng = latLng.lng();
+        
+        //마커 세팅
         var marker = new google.maps.Marker({
           position: latLng,
           map: map
         });
         
+        //인포 윈도우 세팅
         var infowindow = new google.maps.InfoWindow({
           content: "<b>" + address+ "</b><br>"
                   +"<b>위도 : </b>" + latLng.lat() + "<br>"
                   +"<b>경도 : </b>" + latLng.lng()
         });
         
-        $("#mapAddress").val(address);
-        $("#lat").val(lat);
-        $("#lng").val(lng);
+        $("#mapAddress").val(address);//클릭할때마다 테이블에 주소 넣기
+        $("#lat").val(lat); //hidden에 위도 값 넣기
+        $("#lng").val(lng); //hidden에 경도 값 넣기
         
         //맵에 찍자마자 인포 오픈
         infowindow.open(map, marker);
         
+        //마커에 인포윈도우를 열 수 있는 클릭이벤트 등록.
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
         
         //console.log("맵에 마커가 찍혔숩니다...");
         
-        //배열에 넣기
+        //마커 배열에 넣기
         markers.push(marker);
 
     }//addMarker()
@@ -361,26 +371,24 @@ function initMap() {
         }
         
         //console.log("setMapOnAll() 작동");
-    }//setMapOnAll(map)
+    }//setMapOnAll()
 
    //모든 마커 제거하기전에 숨기기
    function clearMarkers() {
         setMapOnAll(null);
         //console.log("clearMarkers() 작동");
-    }
+    }//clearMarkers()
 
     //생성된 모든 마커 제거
     function deleteMarkers() {
         clearMarkers();
         markers = [];
         //console.log("deleteMarkers() 작동");
-    }//function deleteMarkers()
+    }//deleteMarkers()
       
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI&callback=initMap"></script>  
-
-
    
 <!-- jQuery -->
 <script src="/stylesheets/js/jquery.js"></script>

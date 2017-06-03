@@ -2,8 +2,8 @@ var mysql = require("mysql");
 
 var client = mysql.createConnection({
 	user: 'root',
-//	password: '024931',
-	password: 'root',
+	password: '024931',
+//	password: 'root',
 	database: 'zup'
 });
 
