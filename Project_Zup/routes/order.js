@@ -81,7 +81,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    moment
         			})
         		})
     	}else if(req.query.searchType === 'un'){
@@ -99,7 +100,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    moment
         			})
         		})	
     		}else{
@@ -116,7 +118,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    moment
         			})
         		})
     		}
