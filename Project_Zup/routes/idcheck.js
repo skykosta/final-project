@@ -60,8 +60,8 @@ exports.idcheck2 = function(req, res){
 		if(bodyNum.numCheck == randomNum){
 		  res.render('idresult');
 		}else{
-//			alter("인증번호가 틀렸습니다.");
-			self.location.href="/idcheck";
+			res.send('<script type="text/javascript">alert("인증번호가 틀렸습니다!");location.href="idcheck"</script>');
+			
 		}
 		};
 	

@@ -39,7 +39,6 @@ var express = require('express')
 , pwcheck = require('./routes/pwcheck')
 , newpw = require('./routes/newpw')
 , pwresult = require('./routes/pwresult')
-, idresult = require('./routes/idresult')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
 /* 인트로 페이지 */
