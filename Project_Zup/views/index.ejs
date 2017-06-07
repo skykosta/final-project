@@ -35,7 +35,24 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+
+
+
+<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet" />
+<script src="http://vjs.zencdn.net/c/video.js"></script>
+
+
+
+
+
+
+
+
+
 
 <style>
 
@@ -45,18 +62,18 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	height: 500px;
+	height: 600px;
 	z-index: 1;
-	background-color: #fff6c9;
+	background-image: url("/stylesheets/img/main/Zz.png");
 }
 
 #b {
-	margin-top: 450px;
+	margin-top: 500px;
 	z-index: 0;
 }
 
 #c {
-background-color: rgb(37, 164, 73);
+	background-color: rgb(37, 164, 73);
 	z-index: 10;
 }
 
@@ -100,6 +117,108 @@ background-color: rgb(37, 164, 73);
 	color: #f39c12;
 }
 
+/**접수하기 버튼*/
+@import
+	url(http://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
+
+html {
+	padding-top: 50px;
+	font-family: 'Open Sans', Helvetica, arial, sans-serif;
+	text-align: center;
+	background-color: #eeeeee;
+}
+
+html *, html *:before, html *:after {
+	box-sizing: border-box;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+html i, html em, html b, html strong, html span {
+	-webkit-transition: none;
+	transition: none;
+}
+
+*:before, *:after {
+	z-index: -1;
+}
+
+h1, h4 {
+	font-family: 'Raleway', 'Open Sans', sans-serif;
+	margin: 0;
+	line-height: 1;
+}
+
+a {
+	text-decoration: none;
+	line-height: 80px;
+	color: black;
+}
+
+.centerer {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.wrap {
+	width: 50%;
+	float: left;
+}
+
+[class^="btn-"] {
+	position: relative;
+	display: block;
+	margin: 20px auto;
+	width: 100%;
+	height: 80px;
+	max-width: 250px;
+	text-transform: uppercase;
+	overflow: hidden;
+	border: 1px solid currentColor;
+}
+
+.btn-9 {
+	color: #55a7cf;
+	/* 	color: #c92750; */
+}
+
+.btn-9:before, .btn-9:after, .btn-9 span:before, .btn-9 span:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 0;
+	background: rgba(33, 91, 119, 0.25);
+	/* background: rgba(115, 1, 29, 0.25); */
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.btn-9:after, .btn-9 span:before {
+	top: auto;
+	bottom: 0;
+}
+
+.btn-9 span:before, .btn-9 span:after {
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+
+.btn-9:hover {
+	color: #cde5f1;
+}
+
+.btn-9:hover:before, .btn-9:hover:after, .btn-9:hover span:before,
+	.btn-9:hover span:after {
+	height: 80px;
+}
+
+.btn-9:active {
+	background: #3798c6;
+}
+
 /* 각 section 크기, 스타일 정해주기 */
 #article1 {
 	width: 100%;
@@ -118,17 +237,30 @@ background-color: rgb(37, 164, 73);
 
 #article4 {
 	width: 33.3%;
+	height: 20px;
 }
 
 #article5 {
 	width: 33.4%;
+	height: 20px;
 }
 
 #article6 {
 	width: 33.3%;
+	height: 20px;
 }
 
 #article7 {
+	width: 100%;
+	height: 1000px;
+}
+
+#article8 {
+	width: 100%;
+	height: 700px;
+}
+
+#article9 {
 	width: 100%;
 	height: 700px;
 }
@@ -275,45 +407,165 @@ body {
 .chart path:hover {
 	opacity: 0.65;
 }
-#preloader {position:fixed; width:100%; height:100%; display:block;}
 
-
+#preloader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
 
 /* sns */
-
 .social:hover {
-     -webkit-transform: scale(1.1);
-     -moz-transform: scale(1.1);
-     -o-transform: scale(1.1);
- }
- .social {
-     -webkit-transform: scale(0.8);
-     /* Browser Variations: */
-     
-     -moz-transform: scale(0.8);
-     -o-transform: scale(0.8);
-     -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-     -o-transition-duration: 0.5s;
- }
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+.social {
+	-webkit-transform: scale(0.8);
+	/* Browser Variations: */
+	-moz-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+}
 
 /*
     Multicoloured Hover Variations
 */
- 
- #social-fb:hover {
-     color: #3B5998;
- }
- #social-tw:hover {
-     color: #4099FF;
- }
- #social-gp:hover {
-     color: #d34836;
- }
- #social-em:hover {
-     color: #f39c12;
- }
+#social-fb:hover {
+	color: #3B5998;
+}
 
+#social-tw:hover {
+	color: #4099FF;
+}
+
+#social-gp:hover {
+	color: #d34836;
+}
+
+#social-em:hover {
+	color: #f39c12;
+}
+
+/* 접수하기 3d버튼 css */
+.button-row {
+	display: -webkit-inline-box;
+	display: -moz-inline-box;
+	display: inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+.button-row>div {
+	position: relative;
+	width: 160px;
+	height: 50px;
+	margin: 0 15px;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.button-row>div>a {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateZ(-25px);
+	-moz-transform: translateZ(-25px);
+	-ms-transform: translateZ(-25px);
+	-o-transform: translateZ(-25px);
+	transform: translateZ(-25px);
+	-webkit-transition: -webkit-transform 0.25s;
+	-moz-transition: -moz-transform 0.25s;
+	transition: transform 0.25s;
+}
+
+.button-row>div>a::before, .button-row>div>a::after {
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 160px;
+	height: 50px;
+	position: absolute;
+	border: 1px solid black;
+	box-sizing: border-box;
+	content: attr(title);
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.button-row>div>a::before {
+	background-color: rgb(105, 192, 175);
+	color: #fff;
+	-webkit-transform: rotateY(0deg) translateZ(25px);
+	-moz-transform: rotateY(0deg) translateZ(25px);
+	-ms-transform: rotateY(0deg) translateZ(25px);
+	-o-transform: rotateY(0deg) translateZ(25px);
+	transform: rotateY(0deg) translateZ(25px);
+}
+
+.button-row>div>a::after {
+	background-color: #fff;
+	border-color: #000;
+	color: #000;
+	-webkit-transform: rotateX(90deg) translateZ(25px);
+	-moz-transform: rotateX(90deg) translateZ(25px);
+	-ms-transform: rotateX(90deg) translateZ(25px);
+	-o-transform: rotateX(90deg) translateZ(25px);
+	transform: rotateX(90deg) translateZ(25px);
+}
+
+.button-row>div>a:hover {
+	-webkit-transform: translateZ(-25px) rotateX(-90deg);
+	-moz-transform: translateZ(-25px) rotateX(-90deg);
+	-ms-transform: translateZ(-25px) rotateX(-90deg);
+	-o-transform: translateZ(-25px) rotateX(-90deg);
+	transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* this is just icing */
+body {
+	font-family: "Oswald", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+}
+
+.main, h1 {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+html, body, .main {
+	height: 100%;
+}
 </style>
 
 </head>
@@ -324,10 +576,11 @@ body {
 
 
 <body>
-	
 
-<!-- <img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" /> -->
-<!-- //PRELOADER -->v
+
+	<img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" />
+	<!-- //PRELOADER -->
+
 	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
 		class="fa fa-chevron-up fa-fw fa-1x"></i></a>
 
@@ -337,58 +590,59 @@ body {
 		<div id="a">
 			<!-- Header -->
 			<header id="header" class="alt">
-<div class="container">
-        <div class="text-center center-block">
-                
-                <a href="https://www.facebook.com/bootsnipp">
-                <i class="fa fa-facebook-square fa-3x social"></i></a>
-	            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social"></i></a>
-	            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
-</div>
-</div>
+				<div class="container">
+					<div class="text-center center-block">
+
+						<a href="https://www.facebook.com/bootsnipp"> <i
+							class="fa fa-facebook-square fa-3x social"></i></a> <a
+							href="https://twitter.com/bootsnipp"><i
+							class="fa fa-twitter-square fa-3x social"></i></a> <a
+							href="https://plus.google.com/+Bootsnipp-page"><i
+							class="fa fa-google-plus-square fa-3x social"></i></a> <a
+							href="mailto:bootsnipp@gmail.com"><i
+							class="fa fa-envelope-square fa-3x social"></i></a>
+					</div>
+				</div>
 
 				<!-- 로그인시 페이지 변화 -->
 				<nav id=lgbutton>
-				 <%if(sessionId == null){%>
-    
-                 <a href="login"><button class="button button-neutral" type="button">로그인</button></a>
-                 <a href="regist"><button class="button button-primary">회원가입</button></a>
-    
-                 <% }else if(sessionId == 'admin'){ %>
-                 
-                 <%=sessionId%>님 로그인  <a href="logout"><button class="button button-primary">로그아웃</button></a>
-                 <a href="user"><button class="button button-primary">관리자페이지</button></a>
-                 
-                 <%}else if(sessionId != null && sessionId != 'admin'){%>
-                 
-                 <%=sessionId%>님 로그인  <a href="logout"><button class="button button-primary">로그아웃</button></a>
-                 
-                 <%};%>
-				
+					<%if(sessionId == null){%> <a href="login"><button
+							class="button button-neutral" type="button">로그인</button></a> <a
+						href="regist"><button class="button button-primary">회원가입</button></a>
+
+					<% }else if(sessionId == 'admin'){ %> <%=sessionId%>님 로그인 <a
+						href="logout"><button class="button button-primary">로그아웃</button></a>
+					<a href="user"><button class="button button-primary">관리자페이지</button></a>
+
+					<%}else if(sessionId != null && sessionId != 'admin'){%>
+
+					<%=sessionId%>님 로그인 <a href="logout"><button
+							class="button button-primary">로그아웃</button></a> <%};%>
+
 				</nav>
 			</header>
 
 
 			<!-- Banner -->
-			<section id="banner" class="major">
+			<section class="major">
 
-				<img src="/stylesheets/img/logoZ.png" style="margin-left: 25em" />
-				<div class="inner">
-					<header class="major">
+				<!-- <img src="/stylesheets/img/logoZ.png" style="margin-left: 25em" /> -->
+				<header class="major"> </header>
 
-						<div class="text-center col-md-12"
-							style="margin-top: -50px; margin-left: -70em">
-
-							<div class="total" style="margin-left: -12em; margin-top: 7em">
-								<div class="img ; text-center col-md-12" style="color: white;">
-									<h2>재사용률을 높여 아름다운 세상을 만들어요!</h2>
-								</div>
-							</div>
+				<!-- 	<div class="centerer" style="margin-left: 46em; margin-top: 28em;">
+						<div class="wrap">
+							<a class="btn-9" href="#"><span>Vertical Overlap</span></a>
 						</div>
-					</header>
-				
-				</div>
+					</div>
+ -->
+				<ul class="actions" style="margin-top: 33em; margin-left: 4em;">
+					<li><p style="font-size: 20px;">
+							<a href="landing.html" class="button next"
+								style="width: 570px; height: 50px; text-align: center;">공병접수
+								바로 가기</a>
+						</p></li>
+				</ul>
+
 			</section>
 		</div>
 
@@ -399,66 +653,82 @@ body {
 				<!-- One -->
 				<section id="one" class="tiles">
 					<article id="article1">
-						
+
 						<header id=z>
 
 
 							<div class="text-center col-md-12"
-								style="margin-top: -8em; margin-left: 14em">
+								style="margin-top: -8em; margin-left: 18em">
 								<div class="total">
 									<div class="img ; text-center col-md-3">
 										<div id="imgDiv">
-											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
-												style="opacity: 0.2;"> <img id="funny"
+											<img id="serious" src="/stylesheets/img/main/intro.png"
+												style="opacity: 0.2; width: 150px; height: 150px;">
+											<!--  <img id="funny"
 												src="/stylesheets/img/main/vol.jpg"
-												style="background-color: none;">
+												style=" opacity: 0.1;"> -->
 
 											<h4>
-												<i class="fa fa-book"></i><br>회사소개
+												<!-- <i class="fa fa-book"></i><br>회사소개 -->
 											</h4>
 											<br>
-											<h7>안녕하세요!<br>
-											공병 되살리기 프로젝트에 앞장서는<br>
-											친환경 기업 ZUP 입니다!</h7>
+											<div class="button-row"
+												style="margin-top: 10em; margin-left: -10em;">
+												<div style="margin-right: 7em;">
+													<a href="contact" title="회사소개 보기"></a>
+												</div>
+											</div>
 										</div>
 									</div>
 
 
 									<div class="img ; text-center col-md-3"
-										style="margin-left: 15em;">
+										style="margin-left: 2em;">
 										<div id="imgDiv">
-											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
-												style="opacity: 0.2;"> <img id="funny"
+											<a href="#"><img id="serious" src="/stylesheets/img/main/vol.png"
+												style="opacity: 0.2; width: 150px; height: 140px; margin-top: -8em;"></a>
+											<!-- <img id="funny"
 												src="/stylesheets/img/main/vol.jpg"
-												style="background-color: none;">
+											> -->
 
-											<h4>
+											<!-- 	<h4>
 												<i class="fa fa-book"></i><br>기부이야기
-											</h4>
+											</h4> -->
 											<br>
-											<h7>ZUP은 매해 수집한 <br>
-											공병 수익의 10%를 <br>
-											사회의 환원하고 있습니다</h7>
+											<div class="button-row"
+												style="margin-top: 82px; margin-left: -9em;">
+												<div style="margin-right: 7em;">
+													<a href="contact" title="기부이야기 보기"></a>
+												</div>
+											</div>
+
 										</div>
 									</div>
 
 
 
 									<div class="img ; text-center col-md-3"
-										style="margin-left: 20em;">
+										style="margin-left: 3em;">
 										<div id="imgDiv">
-											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
-												style="opacity: 0.2;"> <img id="funny"
+											<a href="mypage"><img id="serious" src="/stylesheets/img/main/my2.png"
+												style="opacity: 0.2; width: 150px; height: 150px;"></a>
+											<!-- <img id="funny"
 												src="/stylesheets/img/main/vol.jpg"
-												style="background-color: none;">
+												style="background-color: none;"> -->
 
-											<h4>
+											<!-- <h4>
 												<i class="fa fa-book"></i><br>마이페이지
-											</h4>
+											</h4> -->
 											<br>
-											<h7>적립금 내역확인 및 <br>
+											<div class="button-row"
+												style="margin-top: 82px; margin-left: -10em;">
+												<div style="margin-right: 7em;">
+													<a href="mypage" title="마이페이지 바로가기"></a>
+												</div>
+											</div>
+											<!-- <h7>적립금 내역확인 및 <br>
 											적립금환산내역 공간입니다 <br>
-											회원만 이용가능합니다^^</h7>
+											회원만 이용가능합니다^^</h7> -->
 										</div>
 
 
@@ -469,31 +739,39 @@ body {
 
 
 									<div class="img ; text-center col-md-3"
-										style="margin-left: 63em;">
+										style="margin-left: 60em;">
 										<div id="imgDiv">
-											<img id="serious" src="/stylesheets/img/main/bottleMan.jpg"
-												style="opacity: 0.2;"> <img id="funny"
+											<a href="contact"><img id="serious" src="/stylesheets/img/main/as.png"
+												style="opacity: 0.2; width: 150px; height: 150px;"></a>
+											<!-- <img id="funny"
 												src="/stylesheets/img/main/vol.jpg"
-												style="background-color: none;">
+												style="background-color: none;"> -->
 
-											<h4>
+											<!-- 	<h4>
 												<i class="fa fa-book"></i><br>고객센터
 											</h4>
 											<br>
+											
 											<h7>안녕하세요!<br>
 											공병 되살리기 프로젝트에 앞장서고 있는<br>
-											친환경 기업 ZUP 입니다!</h7>
+											친환경 기업 ZUP 입니다!</h7> -->
+											<div class="button-row"
+												style="margin-top: 160px; margin-left: -9em;">
+												<div style="margin-right: 7em;">
+													<a href="contact" title="고객센터 바로가기"></a>
+												</div>
+											</div>
 										</div>
 
 
 
 
 									</div>
-
 
 
 
 								</div>
+							</div>
 						</header>
 					</article>
 
@@ -508,16 +786,24 @@ body {
 
 
 							<div class="text-center col-md-12"
-								style="margin-top: -50px; margin-left: 15em">
-								<div class="total" style="margin-left: -3em">
+								style="margin-top: -2em; margin-left: 18em">
+								<div class="total" style="margin-left: -13em">
 									<div class="img ; text-center col-md-12">
-										<h4 style="height: 90;">
-											<i class="fa fa-book"></i><br>회사소개
-										</h4>
+
 										<br>
-										<h7>안녕하세요!<br>
-										공병 되살리기 프로젝트에 앞장서고 있는<br>
-										친환경 기업 ZUP 입니다!</h7>
+										<p style="text-align: left; color: white; font-size: 18px;">
+
+											<strong>Welcome to Samsung</strong><br> <br> For
+											over 70 years, Samsung has been <br>dedicated to making
+											<br>a better world <br> through diverse businesses
+											that today <br>span advanced technology, <br>semiconductors,
+											skyscraper and <br>plant construction, <br>petrochemicals,
+											fashion, medicine, <br>finance, hotels, and more. <br>Our
+											flagship company, Samsung Electronics, <br>leads the
+											global market <br>in high-tech electronics manufacturing
+											<br>and digital media.
+										</p>
+
 									</div>
 								</div>
 							</div>
@@ -534,12 +820,24 @@ body {
 						<header class="major">
 							<section id="about" class="about">
 								<div class="container">
-									<div class="row">
-										<div style="margin-top: -12px; margin-bottom: 15px;">
+									<div class="row"
+										style="height: 1000px; width: 1500px; margin-left: -10em; background-color: rgb(105, 192, 175);">
+										<!-- <div style="margin-top: -12px; margin-bottom: 15px;">
 											<img src="/stylesheets/img/main/zupM.png"
 												style="height: 670px; width: 1000px; margin-bottom: -30px; 
 												margin-left: -120px; margin-top: -10em;">
-										</div>
+										</div> -->
+
+										<video width="800" height="400" controls="controls"
+											class="video-js vjs-default-skin" data-setup="{}"
+											autoplay="autoplay" muted="muted"
+											style="margin-top: 20em; margin-left: -5em;">
+											<source src="/stylesheets/img/main/video.mp4"
+												type="video/mp4" />
+										</video>
+
+
+
 									</div>
 								</div>
 							</section>
@@ -548,7 +846,8 @@ body {
 
 
 					<article id="article4">
-						<span class="image"> <img src="/stylesheets/img/main/pic04.jpg" alt="" />
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic04.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
@@ -556,13 +855,10 @@ body {
 									<div class="img ; text-center col-md-12">
 
 										<h4 style="height: 90;">
-											<i class="fa fa-book"></i><br>JUP의 기부이야기
+											<i class="fa fa-book"></i><br>JUP 기부 의의
 										</h4>
 										<br>
-										<h7>2016년 ZUP에서의 달성목표는 000,000,000병입니다. <br>
-										총 회수한 공병의 총 수는 000,000,000,000입니다.<br>
-										달성목표를 넘는부분의 영업이익은 <br>
-										어려운 이웃에게 전부 기부되었습니다.</h7>
+
 									</div>
 								</div>
 							</div>
@@ -572,20 +868,18 @@ body {
 
 
 					<article id="article5">
-						<span class="image"> <img src="/stylesheets/img/main/pic05.jpg" alt="" />
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic05.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
 								<div class="total">
 									<div class="img ; text-center col-md-12">
 										<h4 style="height: 90;">
-											<i class="fa fa-book"></i><br>JUP의 목적
+											<i class="fa fa-book"></i><br>JUP 기부 목표
 										</h4>
 										<br>
-										<h7>2016년 ZUP에서의 달성목표는 000,000,000병입니다. <br>
-										총 회수한 공병의 총 수는 000,000,000,000입니다.<br>
-										달성목표를 넘는부분의 영업이익은 <br>
-										어려운 이웃에게 전부 기부되었습니다.</h7>
+
 									</div>
 								</div>
 							</div>
@@ -594,20 +888,18 @@ body {
 
 
 					<article id="article6">
-						<span class="image"> <img src="/stylesheets/img/main/pic06.jpg" alt="" />
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12" style="margin-top: -50px">
 								<div class="total">
 									<div class="img ; text-center col-md-12">
-										<h4 style="height: 90;">
-											<i class="fa fa-book"></i><br>JUP의 내역
+										<h4 style="height: 90px;">
+											<i class="fa fa-book"></i><br>JUP 기부 내역
 										</h4>
 										<br>
-										<h7>2016년 ZUP에서의 달성목표는 000,000,000병입니다. <br>
-										총 회수한 공병의 총 수는 000,000,000,000입니다.<br>
-										달성목표를 넘는부분의 영업이익은 <br>
-										어려운 이웃에게 전부 기부되었습니다.</h7>
+
 									</div>
 								</div>
 							</div>
@@ -617,21 +909,94 @@ body {
 
 
 					<article id="article7">
-						<span class="image"> <img src="/stylesheets/img/main/pic06.jpg" alt="" />
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic06.jpg" alt="" />
 						</span>
 						<header class="major">
 							<div class="text-center col-md-12">
 								<div class="total">
 									<div class="img ; text-center col-md-12"
-										style="margin-top: 8px; margin-left: 50em;">
-										<div id="doughnutChart" class="chart">
+										style="margin-top: 1em; margin-left: 50em;">
+										<div id="doughnutChart" class="chart"
+											style="margin-left: -80em;">
 											<!-- 차트 -->
+
 										</div>
-									</div>
+									
+									
+									
+										<div style="margin-top: 10em;">
+											
+											<p style="margin-left: 5em; margin-top: -7em; font-size: 20px; text-align: left">
+												<img src="/stylesheets/img/main/plan.png">
+													<span style="font-size: 25px;">
+													2017년 상반기 달성 목표
+													</span>
+													<br>
+													공병 총 수거량  중 10% 기부
+													<br>
+													기부량 약 2만병 추정 
+											</p>
+												 <p style="margin-left: 5em; margin-top: 1em; font-size: 20px; text-align: left">
+													<img src="/stylesheets/img/main/tree.png">
+													<span style="font-size: 25px;">
+													국내 환경발전단체 기부
+													</span>
+													<br>
+													국내 더 나은 
+													<br>
+													기부량 약 2만병 추정 
+												</p>
+												
+												 <p style="margin-left: 5em; margin-top: 1em; font-size: 20px; text-align: left">
+													<img src="/stylesheets/img/main/old.png">
+													<span style="font-size: 25px;">
+													2017년 상반기 달성 목표
+													</span>
+													<br>
+													공병 총 수거량  중 10% 기부
+													<br>
+													기부량 약 2만병 추정 
+												</p>
+											<!--	<p style="margin-left: 10em; margin-top: -7em;">
+													<img src="/stylesheets/img/main/plan.png">fasdfasdfasdfasdf
+												</p> -->
+										</div>
+										</div>
+									
 								</div>
 							</div>
 						</header>
 					</article>
+
+
+
+
+					<article id="article8">
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic06.jpg" alt="" />
+						</span>
+						<header class="major">
+							<div class="text-center col-md-12"></div>
+						</header>
+					</article>
+
+
+					<article id="article9">
+						<span class="image"> <img
+							src="/stylesheets/img/main/pic06.jpg" alt="" />
+						</span>
+						<header class="major">
+							<div class="text-center col-md-12"></div>
+						</header>
+					</article>
+
+
+
+
+
+
+
 				</section>
 
 
@@ -651,31 +1016,28 @@ body {
 								ipsum dolor. Nullam et orci eu lorem consequat tincidunt.
 								Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc
 								rhoncus amet pharetra et feugiat tempus.</p>
-							<ul class="actions">
-								<li><a href="landing.html" class="button next">Get
-										Started</a></li>
-							</ul>
+							
 						</div>
 					</section>
 
 				</div>
 
-				
-
-	</div>
 
 
+			</div>
 
 
 
-	<!-- jQuery -->
-	<script src="/stylesheets/js/jquery.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/stylesheets/js/bootstrap.min.js"></script>
 
-	<!-- Custom Theme JavaScript -->
-	<script>
+			<!-- jQuery -->
+			<script src="/stylesheets/js/jquery.js"></script>
+
+			<!-- Bootstrap Core JavaScript -->
+			<script src="/stylesheets/js/bootstrap.min.js"></script>
+
+			<!-- Custom Theme JavaScript -->
+			<script>
 		// Closes the sidebar menu
 		$("#menu-close").click(function(e) {
 			e.preventDefault();
@@ -753,18 +1115,22 @@ body {
 		}
 		// Enable map zooming with mouse scroll when the user clicks the map
 		$('.map').on('click', onMapClickHandler);
-		
-		
-		
+		</script>
+
+			<script type="text/javascript">
 		//도넛그래프설정
 		$(function(){
 			  $("#doughnutChart").drawDoughnutChart([
-			    { title: "Tokyo",         value : 120,  color: "#2C3E50" },
+			    { title: "Tokyo",         value : 120,  color: "#F7E248" },
+			    { title: "San Francisco", value:  240,   color: "#FC4349" },
+			    { title: "Berlin",        value : 20,   color: "#FFF" } 
+			    
+			  /*   { title: "Tokyo",         value : 120,  color: "#F7E248" },
 			    { title: "San Francisco", value:  80,   color: "#FC4349" },
-			    { title: "New York",      value:  70,   color: "#6DBCDB" },
-			    { title: "London",        value : 50,   color: "#F7E248" },
-			    { title: "Sydney",        value : 40,   color: "#D7DADB" },
-			    { title: "Berlin",        value : 20,   color: "#FFF" }
+			    { title: "New York",      value:  70,   color: "#FC4349" },
+			    { title: "London",        value : 50,   color: "#FC4349" },
+			    { title: "Sydney",        value : 40,   color: "#FC4349" },
+			    { title: "Berlin",        value : 20,   color: "#FFF" } */
 			  ]);
 			});
 			/*!
@@ -1010,8 +1376,8 @@ body {
 			})(jQuery);
 	</script>
 
-<!-- PRELOADER -->
-		<script>
+			<!-- PRELOADER -->
+			<script>
 		$(function(){
 		var count = 0;
 			$('#preloader').show();

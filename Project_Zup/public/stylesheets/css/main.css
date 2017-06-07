@@ -2857,7 +2857,12 @@
 				width: 60%;
 			}
 
-			.tiles article:nth-child(6n - 5):AFTER {
+
+/* .tiles article:nth-child(6n - 6):after {
+				background-color:rgb(105, 192, 175);
+			} */
+
+			.tiles article:nth-child(6n - 5):BEFORE {
 				background-color: #ffffff;
 			}
 /* 배경색바꾸기 */
@@ -2866,18 +2871,18 @@
 			}
 
 			.tiles article:nth-child(6n - 3):beAFTERfore {
-				background-color: #ffffff;
+				background-color: rgb(105, 192, 175);
 			}
 
-			.tiles article:nth-child(6n - 2):AFTER {
+			.tiles article:nth-child(6n - 2):BEFORE {
 				background-color: rgb(87, 162, 214);
 			}
 
-			.tiles article:nth-child(6n - 1):AFTER {
+			.tiles article:nth-child(6n - 1):BEFORE {
 				background-color: rgb(255, 214, 107);
 			}
 
-			.tiles article:nth-child(6n):AFTER {
+			.tiles article:nth-child(6n):BEFORE {
 				background-color: #87c5a4;
 			}
 
