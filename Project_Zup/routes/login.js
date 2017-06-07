@@ -50,8 +50,8 @@ exports.login2 = function(req, res){
 		}else{
 			//res.json({result:'fail'});
 			console.log('로그인 실패');
-			res.send('<script type="text/javascript">alert("로그인 실패..");location.href="/login"</script>');
-			res.render('login');
+			res.send('<script type="text/javascript">alert("로그인 실패..");location.href="login"</script>');
+			//res.render('login');
 		
 		}
 		
