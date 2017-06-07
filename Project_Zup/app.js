@@ -40,6 +40,8 @@ var express = require('express')
 , idresult = require('./routes/idresult')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
+/* 인트로 페이지 */
+, intro = require('./routes/intro')
 
 /* 관리자 페이지 */
 , user = require('./routes/user')
@@ -110,8 +112,8 @@ app.get('/test', function(request, response) {
 /*마이페이지*/
 app.get('/mypage', mypage.mypage);
 app.post('/mypage', mypage.mypage_change);
-
-
+/* 인트로 화면 */
+app.get('/intro',intro.intro);
 /*회원 관련*/
 //로그인
 app.get('/login', login.login );
