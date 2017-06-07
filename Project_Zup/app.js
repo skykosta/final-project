@@ -151,19 +151,14 @@ app.get('/submit2', submit2.submit2);
 
 /*고객센터 페이지 총5개*/
 //notice 공지사항(고객센터1)
-app.get('/notice1', notice.notice);
-app.post('/notice1', notice.noticeadd);//게시판 등록처리
+app.get('/notice', notice.notice);
+app.post('/notice', notice.noticeadd);//게시판 등록처리
 app.get('/noticecount', notice.count);//게시판 조회수처리
 app.get('/noticeedit', notice.edit);//게시판 수정페이지
 app.post('/noticeedit', notice.editresult);//게시판 수정처리
 app.get('/noticedelete', notice.delete);//게시판 조회수처리
  
 
-app.get('/notice', function(request, response){
-	fs.readFile('views/notice.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
 //fnq 자주묻는질문(고객센터2)
 app.get('/fnq', function(request, response){
 	fs.readFile('views/fnq.ejs', 'utf8', function(error, data){
@@ -173,18 +168,6 @@ app.get('/fnq', function(request, response){
 //contact 문의게시판(고객센터3)
 app.get('/contact', function(request, response){
 	fs.readFile('views/contact.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
-//게시판 글쓰기 <게시판(notice) 글쓰기 버튼 클릭시 이동하는 화면입니다>
-app.get('/board', function(request, response){
-	fs.readFile('views/board.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
-//게시글 상세보기 <게시판(notice) 글 클릭시 이동하는 화면입니다> 
-app.get('/boardview', function(request, response){
-	fs.readFile('views/boardview.ejs', 'utf8', function(error, data){
 		response.send(ejs.render(data));
 	});
 });
