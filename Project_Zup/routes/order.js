@@ -36,9 +36,7 @@ exports.cancel = function(req, res){
 
 exports.order = function(req, res){
 	pageCount = (Math.ceil(countresult/pageSize))
-	client.query("select count(order_num) counts from orderlist", function(error, countresults) {
-		countresult = countresults[0].counts
-		})
+	
 		if (typeof req.query.page !== 'undefined') {
             currentPage = +req.query.page;
         }
@@ -46,6 +44,9 @@ exports.order = function(req, res){
     	if(typeof req.query.page == 'undefined'){
 			currentPage = 1
 		}
+    	client.query("select count(order_num) counts from orderlist", function(error, countresults) {
+    		countresult = countresults[0].counts
+    		})
 	client.query("select *" +
 			" from user u, orderlist o, employee e" +
 			" where o.user_num=u.user_num" +
@@ -67,6 +68,9 @@ exports.order = function(req, res){
 			currentPage = 1
 		}
     	if(req.query.searchType === 'on'){
+        	client.query("select count(order_num) counts from orderlist where order_num=?",[req.query.value], function(error, countresults) {
+        		countresult = countresults[0].counts
+        		})
     		client.query("select *" +
     				" from user u, orderlist o, employee e" +
     				" where o.user_num=u.user_num" +
@@ -84,6 +88,9 @@ exports.order = function(req, res){
         			})
         		})
     	}else if(req.query.searchType === 'un'){
+        	client.query("select count(order_num) counts from orderlist where user_num=?",[req.query.value], function(error, countresults) {
+        		countresult = countresults[0].counts
+        		})
     		client.query("select *" +
     				" from user u, orderlist o, employee e" +
     				" where o.user_num=u.user_num" +
@@ -101,6 +108,9 @@ exports.order = function(req, res){
         			})
         		})	
     		}else{
+            client.query("select count(order_num) counts from orderlist where user_phonenum=?",[req.query.value], function(error, countresults) {
+            	countresult = countresults[0].counts
+            	})
     		client.query("select *" +
     				" from user u, orderlist o, employee e" +
     				" where o.user_num=u.user_num" +

@@ -48,7 +48,41 @@ exports.edit = function(req, res){
 				data: results
 				})
 			})
-}
+		}
+
+
+
+
+exports.editresult = function(req, res){
+	var body = req.body
+	client.query("update article" +
+				" set article_title=? , article_content=? where article_num=?",[body.title,body.content,req.query.article_num], function(error, results) {
+				res.redirect('notice1');
+			})
+		}
+
+exports.noticeadd = function(req, res){
+	console.log("noticeadd들어옴");
+	var body = req.body
+	client.query("insert into article(board_num, article_writer, article_title, article_content, employee_num)" +
+				" values(1,?,?,?,1) ",['관리자',body.title, body.content], function(error, results) {
+				res.redirect('notice1');
+			})
+		}
+
+exports.delete = function(req, res){
+	client.query("delete from article" +
+				" where article_num=?",[req.query.article_num], function(error, results) {
+				res.redirect('notice1');
+			})
+		}
+
+
+
+
+
+
+
 
 
 exports.notice = function(req, res){

@@ -44,6 +44,9 @@ table {
 .canceltext {
 	width: 90%;
 }
+.modal-title{
+	width: 100%;
+}
 </style>
 <title>관리자페이지</title>
 </head>
@@ -55,12 +58,36 @@ table {
 
   </div>
   <div class="container" style="text-align: center; margin-bottom: 50px">
-  <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>공지사항등록</a>
+  <button type="button" class="btn icon-btn btn-success" data-toggle="modal" data-target="#noticeadd"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success" ></span>공지사항등록</button>
   <a class="btn icon-btn btn-info" href="notice1"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
   <a class="btn icon-btn btn-warning" href="fnq"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는 질문</a>
   <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact us</a>
   </div>
   <div class="container">
+          <!-- Article Add Modal -->
+          <div class="modal fade" id="noticeadd" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Article Add Modal content-->
+              <form method="post">
+              <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3>공지사항등록</h3>
+                  <input type="text" class="modal-title" name="title" placeholder="제목을 입력해주세요">
+                </div>
+                <div class="modal-body">
+                  <textarea class="modal-title" name="content" placeholder="내용을 입력해주세요" rows="10"></textarea>
+                </div>
+                </form>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary" >등록</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -95,7 +122,7 @@ table {
                   <h4 class="modal-title"><%=item.article_content %></h4>
                   <input type="hidden" name="article_num" value="<%=item.article_num%>"> 
                   <button type="button" class="btn btn-primary" onclick="location.href='noticeedit?article_num=<%=item.article_num%>'">수정</button>
-                  <button type="submit" class="btn btn-danger">삭제</button>
+                  <button type="button" class="btn btn-danger" onclick="location.href='noticedelete?article_num=<%=item.article_num%>'">삭제</button>
                 </div>
                 </form>
                 <div class="modal-footer">
@@ -173,6 +200,7 @@ table {
       </tbody>
     </table>
     <form name="search" class="form-inline" role="form" style="float: left;">
+    
       <div class="form-group">
         <select class="form-control" id="type" name="searchType">
           <option value="writer">작성자</option>
