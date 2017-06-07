@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>ZUP 회원 비밀번호 찾기</title>
 <!-- Bootstrap Core CSS -->
 <link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -35,32 +35,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="wrapper col-md-offset-4 col-md-4">
-				<form class="form-signin" action="/newpw" onsubmit="return pwCheckSubmit(this);">
+				<form class="form-signin" action="/pwcheck" method="post" onsubmit="return pwCheckSubmit(this);">
 					<h2 class="form-signin-heading">비밀번호 찾기</h2>
-					<label for="inputId" class="sr-only">아이디</label> <input id="inputId" class="form-control" placeholder="아이디"><br>
-						 
+					 <br/>
+					<label for="inputId" class="sr-only">아이디</label> <input id="inputId" name = "inputId" class="form-control" placeholder="아이디"><br>
+						 <div class="form-group">
 						<label for="inputEmail"
-						class="sr-only">이메일</label> <input type="email" id="inputEmail" class="form-control" placeholder="Email">
-					<div class="form-group">
-              <label for=""></label>
-              <div class="input-group">
-                <input  class="form-control" id="numCheck" placeholder="인증번호 입력">
-                <span class="input-group-btn">
+						class="sr-only">이메일</label> <div class="input-group"><input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email">
+					<span class="input-group-btn">
                   <button class="btn btn-success">인증번호 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
                 </span>
               </div>
-            </div>
+					</div>
+					</form>
+					<form action="/newpw" method="post">
+              <label for=""></label>
+              
+                <input  class="form-control" id="numCheck" name="numCheck" placeholder="인증번호 입력">
+                <br/>
+            
 					
-					본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.
+					본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다. <br/> <br/>
 					
 					
 					<button class="btn btn-lg btn-primary btn-block" type="submit">확인</button>
-						
+						</form>
 						<hr />
 				    <div style="text-align: center;"><p><a href="/idcheck">아이디찾기</a> | <a href="#">비밀번호 찾기</a> |
 						<a href="/agree">회원가입</a> | <a href="/">고객센터</a></p>
 				    </div> 
-				</form>
+				
 			</div>
 		</div>
 	</div>
@@ -91,16 +95,7 @@
 		return false;
 	}
 	
-	if($("#numCheck").val() === ""){
-		swal({
-				  title : '인증번호 미입력!',
-				  text : '인증번호 입력해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#numCheck").focus();
-		return false;
-	}
+	
  }
 
 </script>

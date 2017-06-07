@@ -38,7 +38,6 @@ var express = require('express')
 , idcheck = require('./routes/idcheck')
 , pwcheck = require('./routes/pwcheck')
 , newpw = require('./routes/newpw')
-, pwresult = require('./routes/pwresult')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
 /* 인트로 페이지 */
@@ -126,9 +125,10 @@ app.get('/logout', logout.logout);
 app.get('/idcheck', idcheck.idcheck);
 app.post('/idcheck', idcheck.idcheck2);
 app.get('/pwcheck', pwcheck.pwcheck);
-app.get('/newpw', newpw.newpw);
+app.post('/pwcheck', pwcheck.pwcheck2);
+app.post('/newpw', newpw.newpw);
 app.post('/idresult', idcheck.idresult);
-app.get('/pwresult', pwresult.pwresult);
+app.post('/pwresult', pwcheck.pwresult);
 //약관 동의
 app.get('/agree', agree.agree);
 app.post('/agree', agree.agree2);
