@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 
 var client = mysql.createConnection({
 	user: "root",
-	password: "zx12zx12",
+	password: "root",
 	database: "zup"
 })
 

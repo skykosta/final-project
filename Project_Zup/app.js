@@ -150,8 +150,12 @@ app.get('/submit2', submit2.submit2);
 /*고객센터 페이지 총5개*/
 //notice 공지사항(고객센터1)
 app.get('/notice1', notice.notice);
+app.post('/notice1', notice.noticeadd);//게시판 등록처리
 app.get('/noticecount', notice.count);//게시판 조회수처리
-app.get('/noticeedit', notice.edit);//게시판 조회수처리
+app.get('/noticeedit', notice.edit);//게시판 수정페이지
+app.post('/noticeedit', notice.editresult);//게시판 수정처리
+app.get('/noticedelete', notice.delete);//게시판 조회수처리
+ 
 
 app.get('/notice', function(request, response){
 	fs.readFile('views/notice.ejs', 'utf8', function(error, data){
