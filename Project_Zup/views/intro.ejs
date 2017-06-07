@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>ZUP입니다^^</title>
+<style>
+#preloader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+</style>
+
+</head>
+<body>
+
+
+	<img id="preloader" src="/stylesheets/img/Intro.gif"  alt="" style="z-index:999" />
+	<!-- //PRELOADER -->
+
+
+			<!-- jQuery -->
+			<script src="/stylesheets/js/jquery.js"></script>
+
+			<!-- PRELOADER -->
+			<script>
+		$(function(){
+		var count = 0;
+			$('#preloader').show();
+			if(count == 0){
+				setTimeout(function(){
+				$('#preloader').hide();
+				self.location.href="/";
+				}, 5500);
+				count++;
+			}
+			
+		});
+</script>
+</body>
+
+</html>
