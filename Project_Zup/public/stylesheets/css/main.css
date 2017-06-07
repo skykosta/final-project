@@ -2874,15 +2874,15 @@
 				background-color: rgb(105, 192, 175);
 			}
 
-			.tiles article:nth-child(6n - 2):BEFORE {
+			.tiles article:nth-child(6n - 2):AFTER {
 				background-color: rgb(87, 162, 214);
 			}
 
-			.tiles article:nth-child(6n - 1):BEFORE {
+			.tiles article:nth-child(6n - 1):AFTER {
 				background-color: rgb(255, 214, 107);
 			}
 
-			.tiles article:nth-child(6n):BEFORE {
+			.tiles article:nth-child(6n):AFTER {
 				background-color: #87c5a4;
 			}
 
