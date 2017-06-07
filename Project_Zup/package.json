@@ -12,6 +12,7 @@
     "socket.io":"*",
     "request": "*",
    "firebase": "*",
-   "moment": "*"
+   "moment": "*",
+   "nodemailer":"*"
   }
 }
