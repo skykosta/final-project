@@ -125,9 +125,10 @@ app.post('/login', login.login2);
 app.get('/logout', logout.logout);
 
 app.get('/idcheck', idcheck.idcheck);
+app.post('/idcheck', idcheck.idcheck2);
 app.get('/pwcheck', pwcheck.pwcheck);
 app.get('/newpw', newpw.newpw);
-app.get('/idresult', idresult.idresult);
+app.post('/idresult', idcheck.idresult);
 app.get('/pwresult', pwresult.pwresult);
 //약관 동의
 app.get('/agree', agree.agree);
