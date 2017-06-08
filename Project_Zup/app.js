@@ -7,7 +7,7 @@ var express = require('express')
 , user = require('./routes/user')
 , test = require('./routes/test')
 , chatserver = require('./routes/chatserver')
-, header = require('/routes/header')
+, header = require('./routes/header')
 
 /* FireBase - 동준*/
 , request = require('request')
