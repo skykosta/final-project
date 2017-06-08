@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet"
@@ -51,8 +53,9 @@ table {
 <title>ZUP_관리자페이지</title>
 </head>
 <body>
-  <div class="container">
-    <img src="/stylesheets/img/logo.png" class="logo">
+<% include header.ejs %>
+  <div class="container" style="margin-top:100px;">
+   
     <h2>고객센터</h2>
     <hr>
 
@@ -205,4 +208,6 @@ table {
       </tbody>
     </table>
   </div>
+  <% include footer.ejs %>
 </body>
+</html>
