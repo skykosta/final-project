@@ -29,6 +29,12 @@ var client = mysql.createConnection({
 
 exports.cancel = function(req, res){
 	var body = req.body;
+	client.query("select orderdate DATE_FORMAT(NOW(),'%b %d %Y %h:%i %p') from orderlist where order_num=?", [body.order_num], function(err, result) {
+		console.log(result);
+	});
+	client.query("select ", function(err, result) {
+		res.redirect('order');
+	});
 	client.query("update orderlist set order_status=?, cancelreason=? where order_num=?", ['취소완료', body.cancelreason, body.order_num],function(err, result) {
 			res.redirect('order');
 	});
