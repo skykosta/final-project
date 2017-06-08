@@ -182,6 +182,17 @@ app.get('/contact', function(request, response){
 });
 
 
+/**헤더*/
+app.get('/header', function(request, response){
+	fs.readFile('views/header.ejs', 'utf8', function(error, data){
+		response.send(ejs.render(data));
+	});
+});
+
+
+
+
+
 
 https.createServer(options, app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
