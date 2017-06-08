@@ -1,18 +1,8 @@
-  
-<head>
-  
-  <title>ZUP_마이페이지</title>
-    <!-- Text encoded as UTF-8 -->
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
-  <!-- bootstrap -->
-  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" id="default">
-  <link href="/stylesheets/css/mypage.css" rel="stylesheet" id="default">
-</head>
-
+ <body class="bootstrap"  >
+<% include header.ejs %>
 <!-- body 시작 -->
   <body class="bootstrap"  >
-    
+      
       
       <div class="container">
       
@@ -58,10 +48,6 @@
                                 
               <div class="tab-content">
               
-              
-              
-            
-
     
                <div class="tab-pane fade in active" id="point">
                  <FORM ACTION="" METHOD="post">
@@ -304,7 +290,6 @@
       
 
       
-      <footer>
       
         <!--#INCLUDE VIRTUAL="FooterInclude.asp"--> 
         
@@ -415,7 +400,4 @@ var user_pw1 = $('#user_pw1').val();
       
 </script>
         
-      </footer>
-
-    </body>
-    
+<% include footer.ejs %>
