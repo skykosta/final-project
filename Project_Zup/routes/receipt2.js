@@ -12,12 +12,15 @@ var client = mysql.createConnection({
 exports.receipt2 = function(req, res){
   console.log("접수하기 2페이지 get방식 요청");
   
-  var user_id = req.session.user_id;
-//  var user_id = "dlqudgjs";
+//  var user_id = req.session.user_id;
+  var user_id = "dlqudgjs";
 
   if(user_id == null){
-	  alert("로그인 후 이용 가능합니다.");
+//	  alert("로그인 후 이용 가능합니다.");
+	  console.log("로그인 후 이용 가능합니다.");
   }else{
+	  
+//	  console.log("else문 실행됨");
       client.query("select user_name, user_phonenum from user where user_id = ?", [user_id], function(error, results){
     	  
 //    	  console.log(results[0].user_name)
@@ -32,9 +35,6 @@ exports.receipt2 = function(req, res){
 			});
       });
   }
-
-  
-//  res.render("receipt2", {name: "곽", telephone: "010-1234-5678"});
 };
 
 //post 방식
@@ -48,6 +48,7 @@ exports.send = function(req, res){
 	  //디바이스 키값, 위도 경도 세팅
 	  var latData = lat + "," + lng;
 	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
+//	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
 	
 	  //유저 값 세팅
 	  var user_num = 1;
@@ -92,7 +93,7 @@ exports.send = function(req, res){
   				console.error('HTTP Error: ' + response.statusCode + ' - '
   						+ response.statusMessage + '\n' + body);
   			} else {
-  				console.log('성공!')
+  				console.log('전송 성공!')
   			}
   		});
   	}//sendMessageToUser()
@@ -113,7 +114,7 @@ exports.send = function(req, res){
 					name : name,
 					tel : tel,
 					mapAddress : mapAddress,
-					detailAddress : detailAddress			0			  
+					detailAddress : detailAddress						  
 				});			  
 		  });
 		  */
