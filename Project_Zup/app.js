@@ -166,20 +166,9 @@ app.get('/noticecount', notice.count);//게시판 조회수처리
 app.get('/noticeedit', notice.edit);//게시판 수정페이지
 app.post('/noticeedit', notice.editresult);//게시판 수정처리
 app.get('/noticedelete', notice.delete);//게시판 조회수처리
+app.get('/fnq', notice.fnq)//자주묻는질문
+app.get('/contact', notice.contact)//Contact us
  
-
-//fnq 자주묻는질문(고객센터2)
-app.get('/fnq', function(request, response){
-	fs.readFile('views/fnq.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
-//contact 문의게시판(고객센터3)
-app.get('/contact', function(request, response){
-	fs.readFile('views/contact.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
 
 
 /**헤더*/

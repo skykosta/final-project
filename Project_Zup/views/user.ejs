@@ -50,12 +50,9 @@ thead{
 <title>ZUP_관리자페이지</title>
 </head>
 <body>
-  <div class="container">
-    <img src="/stylesheets/img/logo.png" class="logo">
-    <h2>관리자페이지</h2>
-    <hr>
 
-  </div>
+<% include header.ejs %>
+
   <div class="container" style="text-align: center; margin-bottom: 50px">
     <a class="btn icon-btn btn-success" href="order"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
     <a class="btn icon-btn btn-info" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>회수관리</a>
@@ -169,4 +166,5 @@ thead{
       <button type="submit" id="searchBtn" class="btn btn-primary">검색</button>
     </form>
   </div>
+  <% include footer.ejs %>
 </body>

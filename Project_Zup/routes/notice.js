@@ -27,6 +27,16 @@ var client = mysql.createConnection({
 });
 
 
+exports.fnq = function(req, res){
+	res.render('fnq');
+}
+
+exports.contact = function(req, res){
+	res.render('contact');
+}
+
+
+
 exports.cancel = function(req, res){
 	var body = req.body
 	client.query("update orderlist set order_status=?, cancelreason=? where order_num=?", ['취소완료', body.cancelreason, body.order_num],function(err, result) {

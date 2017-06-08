@@ -63,7 +63,7 @@
 
 	
       var options = {
-        sizeAxis: { minValue: 0, maxValue: 30 },
+        sizeAxis: { minValue: 0, maxValue: 100 },
         region: 'KR', // Western Europe
         displayMode: 'markers',
         colorAxis: {colors: ['#4ef442', '#f44242']} // orange to blue
@@ -71,8 +71,10 @@
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
       chart.draw(data, options);
-    };
+   	  };
     </script>
+    
+    
     <style>
   thead{
       background-color: lightcoral;
@@ -81,8 +83,16 @@
   float: left;
   }
     </style>
+    
+    
   </head>
+  
+  
+  
+  
+  
   <body>
+  <% include header.ejs %>
     <div id="chart_div" style="height: 400px;" class="container"></div>
     <div id="content" class="container">
  <table class="table table-hover">
@@ -116,8 +126,12 @@
       </tbody>
       </table>
     </div>
+    
     <div id="donut_single" style="width: 900px; height: 500px;"></div>
-    연간목표회수량
+	
+	<% include footer.ejs %>
+
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI"></script>
        
   </body>
