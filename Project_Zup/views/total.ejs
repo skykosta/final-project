@@ -1,38 +1,125 @@
 <html>
   <head>
+  <meta charset="UTF-8">
+  <title>ZUP_관리자 페이지</title>
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    
+        <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Effort', 'Amount given'],
+          ['연간 목표 회수량 달성률',     40],
+        ]);
+
+        var options = {
+          pieHole: 0.5,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+        chart.draw(data, options);
+      }
+      
+      	
+    </script>
+    
+    
+    
     <script type='text/javascript'>
      google.charts.load('current', {'packages': ['geochart']});
      google.charts.setOnLoadCallback(drawMarkersMap);
 
+	
+		
+		
       function drawMarkersMap() {
       var data = google.visualization.arrayToDataTable([
-        ['Country',   'Population', 'Area Percentage'],
-        ['France',  65700000, 50],
-        ['Germany', 81890000, 27],
-        ['Poland',  38540000, 23],
-        ['Oaska',  38540000, 23],
-        ['Masan',  38540000, 23],
-        ['China',  38540000, 23],
-        ['China',  38540000, 23]
+        ['Country',   'Population'],
+        ['Gangnam-Ku',  150000],
+        ['YOSU',  30000],
+        ['HANAM',  20000],
+        ['KANGNUNG',  50000],
+        ['CHUNCHEON',  25000],
+        ['CHUNGJU',  45000],
+        ['Masan',  60000],
+        ['Wonju',  43000],
+        ['ANDONG',  15000]
         
       ]);
 
+
+	
       var options = {
-        sizeAxis: { minValue: 0, maxValue: 100 },
-        region: '155', // Western Europe
+        sizeAxis: { minValue: 0, maxValue: 30 },
+        region: 'KR', // Western Europe
         displayMode: 'markers',
-        colorAxis: {colors: ['#e7711c', '#4374e0']} // orange to blue
+        colorAxis: {colors: ['#4ef442', '#f44242']} // orange to blue
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
       chart.draw(data, options);
     };
     </script>
+    <style>
+  thead{
+      background-color: lightcoral;
+	}
+  #donut_single{
+  float: left;
+  }
+    </style>
   </head>
   <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="height: 400px;" class="container"></div>
+    <div id="content" class="container">
+ <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>지역</th>
+          <th>회수목표량</th>
+          <th>총 회수량</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+      	<td>1</td>
+      	<td>강남구</td>
+      	<td>1000000</td>
+      	<td>150000</td>
+      </tr>
+            <tr>
+      	<td>1</td>
+      	<td>강남구</td>
+      	<td>1000000</td>
+      	<td>150000</td>
+      </tr>
+            <tr>
+      	<td>1</td>
+      	<td>강남구</td>
+      	<td>1000000</td>
+      	<td>150000</td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+    <div id="donut_single" style="width: 900px; height: 500px;"></div>
+    연간목표회수량
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI"></script>
+       
   </body>
 </html>
 

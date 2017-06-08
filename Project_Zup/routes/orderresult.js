@@ -2,33 +2,34 @@
 /*
  * GET users listing.
  */
-var mysql = require("mysql")
-var fs = require("fs")
-var ejs = require("ejs")
+var mysql = require("mysql");
+var fs = require("fs");
+var ejs = require("ejs");
 var countresult;
-var pageSize = 20
-var pageCount = 1
+var pageSize = 20;
+var pageCount = 1;
 var currentPage = 1;
 
 
 var client = mysql.createConnection({
+	host: '192.168.0.67',
 	user: "root",
 	password: "root",
 	database: "zup"
-})
+});
 
 
 exports.order = function(req, res){
-	pageCount = (Math.ceil(countresult/pageSize))
+	pageCount = (Math.ceil(countresult/pageSize));
 	client.query("select count(bottlelist_num) counts from bottle_list", function(error, countresults) {
-		countresult = countresults[0].counts
-		})
+		countresult = countresults[0].counts;
+		});
 		if (typeof req.query.page !== 'undefined') {
             currentPage = +req.query.page;
         }
     if (typeof req.query.searchType == "undefined") {
     	if(typeof req.query.page == 'undefined'){
-			currentPage = 1
+			currentPage = 1;
 		}
 	client.query("select	bl.bottlelist_num,"+ 
 							"u.user_name,"+ 
@@ -52,12 +53,12 @@ exports.order = function(req, res){
 			    currentPage: currentPage,
 			    searchValue: "",
 			    searchType: ""
-				})
-			})
+				});
+			});
     	}
     if (typeof req.query.searchType !== 'undefined') {
     	if(typeof req.query.page == 'undefined'){
-			currentPage = 1
+			currentPage = 1;
 		}
     	if(req.query.searchType === 'bn'){
     		client.query("select	bl.bottlelist_num,"+ 
@@ -84,8 +85,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType
-        			})
-        		})
+        			});
+        		});
     	}else if(req.query.searchType === 'un'){
     		client.query("select	bl.bottlelist_num,"+ 
 					"u.user_name,"+ 
@@ -111,8 +112,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType
-        			})
-        		})	
+        			});
+        		});	
     		}else{
     		client.query("select	bl.bottlelist_num,"+ 
 					"u.user_name,"+ 
@@ -138,8 +139,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType
-        			})
-        		})
+        			});
+        		});
     		}
         }
 };

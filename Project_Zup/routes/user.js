@@ -5,38 +5,39 @@
 /*
  * GET users listing.
  */
-var mysql = require("mysql")
-var fs = require("fs")
-var ejs = require("ejs")
-var countresult
-var pageSize = 20
-var pageCount = 1
+var mysql = require("mysql");
+var fs = require("fs");
+var ejs = require("ejs");
+var countresult;
+var pageSize = 20;
+var pageCount = 1;
 var currentPage = 1;
 
 
 
 
 var client = mysql.createConnection({
+	host: '192.168.0.67',
 	user: "root",
 	password: "root",
 	database: "zup"
-})
+});
 
 exports.list = function(req, res){
   res.send("respond with a resource");
 };
 
 exports.user = function(req, res){
-    pageCount = (Math.ceil(countresult/pageSize))
+    pageCount = (Math.ceil(countresult/pageSize));
     client.query("select count(user_num) counts from user", function(error, countresults) {
-    	countresult = countresults[0].counts
-    	})
+    	countresult = countresults[0].counts;
+    	});
     if (typeof req.query.page !== 'undefined') {
             currentPage = +req.query.page;
         }
     if (typeof req.query.searchType == "undefined") {
     	if(typeof req.query.page == 'undefined'){
-			currentPage = 1
+			currentPage = 1;
 		}
 		client.query("select * from user limit ?,?",[(currentPage*20)-20,pageSize] ,function(error, results) {
 			res.render('user', {
@@ -46,12 +47,12 @@ exports.user = function(req, res){
 			    currentPage: currentPage,
 			    searchValue: "",
 			    searchType: ""	
-				})
-			})
+				});
+			});
     	}
     if (typeof req.query.searchType !== 'undefined') {
     	if(typeof req.query.page == 'undefined'){
-			currentPage = 1
+			currentPage = 1;
 		}
     	if(req.query.searchType === 'i'){
     		client.query("select * from user where user_id = ? limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
@@ -63,8 +64,8 @@ exports.user = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType
-        			})
-        		})
+        			});
+        		});
     	}else{
     		client.query("select * from user where user_email = ? limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
     			console.log("이메일필터");
@@ -75,8 +76,8 @@ exports.user = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType
-        			})
-        		})
+        			});
+        		});
     	}
     	
     	

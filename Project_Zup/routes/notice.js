@@ -2,41 +2,42 @@
 /*
  * GET users listing.
  */
-var mysql = require("mysql")
-var fs = require("fs")
-var ejs = require("ejs")
-var moment = require("moment")
-var express = require("express")
-var bodyParser = require("body-Parser")
+var mysql = require("mysql");
+var fs = require("fs");
+var ejs = require("ejs");
+var moment = require("moment");
+var express = require("express");
+var bodyParser = require("body-Parser");
 var countresult;
-var pageSize = 20
-var pageCount = 1
+var pageSize = 20;
+var pageCount = 1;
 var currentPage = 1;
 
-var app = express()
+var app = express();
 app.use(bodyParser.urlencoded({
 	extended: false
-}))
+}));
 
 
 var client = mysql.createConnection({
+	host: '192.168.0.67',
 	user: "root",
 	password: "root",
 	database: "zup"
-})
+});
 
 
 exports.cancel = function(req, res){
 	var body = req.body
 	client.query("update orderlist set order_status=?, cancelreason=? where order_num=?", ['취소완료', body.cancelreason, body.order_num],function(err, result) {
 			res.redirect('order');
-	})
-}
+	});
+};
 
 exports.count = function(req, res){
 	client.query("update article set article_viewpoint = article_viewpoint+1 where article_num=?", [req.query.article_num],function(err, result) {
 			res.redirect('notice');
-	})
+	});
 }
 
 exports.edit = function(req, res){
@@ -46,58 +47,46 @@ exports.edit = function(req, res){
 				console.log(results);
 				res.render('noticeedit', {
 				data: results
-				})
-			})
-		}
-
-
-
+				});
+			});
+		};
 
 exports.editresult = function(req, res){
 	var body = req.body
 	client.query("update article" +
 				" set article_title=? , article_content=? where article_num=?",[body.title,body.content,req.query.article_num], function(error, results) {
 				res.redirect('notice');
-			})
-		}
+			});
+		};
 
 exports.noticeadd = function(req, res){
 	console.log("noticeadd들어옴");
-	var body = req.body
+	var body = req.body;
 	client.query("insert into article(board_num, article_writer, article_title, article_content, employee_num)" +
 				" values(1,?,?,?,1) ",['관리자',body.title, body.content], function(error, results) {
 				res.redirect('notice');
-			})
-		}
+			});
+		};
 
 exports.delete = function(req, res){
 	client.query("delete from article" +
 				" where article_num=?",[req.query.article_num], function(error, results) {
 				res.redirect('notice');
-			})
-		}
-
-
-
-
-
-
-
-
-
+			});
+		};
 exports.notice = function(req, res){
 	console.log(req.session.user_id);
 	
-	pageCount = (Math.ceil(countresult/pageSize))
+	pageCount = (Math.ceil(countresult/pageSize));
 	client.query("select count(article_num) counts from article", function(error, countresults) {
-		countresult = countresults[0].counts
-		})
+		countresult = countresults[0].counts;
+		});
 		if (typeof req.query.page !== 'undefined') {
             currentPage = +req.query.page;
         }
     if (typeof req.query.searchType == "undefined") {
     	if(typeof req.query.page == 'undefined'){
-			currentPage = 1
+			currentPage = 1;
 		}
 	client.query("select *" +
 			" from article "+
@@ -113,8 +102,8 @@ exports.notice = function(req, res){
 			    searchType: "",
 			    userid: req.session.user_id,
 			    moment
-				})
-			})
+				});
+			});
     	}
     if (typeof req.query.searchType !== 'undefined') {
     	if(typeof req.query.page == 'undefined'){
@@ -136,8 +125,8 @@ exports.notice = function(req, res){
         		    searchType: req.query.searchType,
         		    userid: req.session.user_id,
         		    moment
-        			})
-        		})
+        			});
+        		});
     	}else if(req.query.searchType === 'un'){
     		client.query("select *" +
     				" from user u, orderlist o, employee e" +
@@ -154,8 +143,8 @@ exports.notice = function(req, res){
         		    searchType: req.query.searchType,
         		    userid: req.session.user_id,
         		    moment
-        			})
-        		})	
+        			});
+        		})	;
     		}else{
     		client.query("select *" +
     				" from user u, orderlist o, employee e" +
@@ -172,11 +161,14 @@ exports.notice = function(req, res){
         		    searchType: req.query.searchType,
         		    userid: req.session.user_id,
         		    moment
-        			})
-        		})
+        			});
+        		});
     		}
         }
 };
+
+
+
 
 
 
