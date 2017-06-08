@@ -8,7 +8,6 @@ var client = mysql.createConnection({
 	database: 'zup'
 });
 
-
 exports.lsj2 = function(req, res){
 	
 	var user_num;
@@ -30,7 +29,7 @@ exports.lsj2 = function(req, res){
 	
 	
 	console.log("lsj GET 호출됨.");
-	    
+	        
     /*
 	  client.query("insert into userlog(user_num,logtype,status,content) values(?,'대기','회수대기중..','회수예정')",
                 [user_num]);
@@ -51,12 +50,12 @@ exports.lsj2 = function(req, res){
 				});			  
 		  });
 	   */
-	   client.query("select * from user", function(error, results){
+//	   client.query("select * from user where user_id = ?", [user_id], function(error, results){
+       client.query("select * from user", function(error, results){
     	  
 //    	  console.log(results[0].user_name)
 //    	  console.log(results[0].user_phonenum)
-		  data = results;
-    	  console.log(data);
+//    	  console.log(results);
 //    	  console.log(results[0].user_name);
 //    	  console.log(results[0].user_phonenum);
     	
@@ -66,16 +65,11 @@ exports.lsj2 = function(req, res){
 			tel : results[0].user_phonenum
 			});
 		*/
-        });
-	
-	   
-	   
+
 	    //안드로이드와 통신하기.
 	    sendMessageToUser(deviceId);
 
 	    function sendMessageToUser(deviceId) {
-	    	
-			console.log(deviceId);
 
 			request({
 				url : 'https://fcm.googleapis.com/fcm/send',
@@ -87,7 +81,7 @@ exports.lsj2 = function(req, res){
 				body : JSON.stringify({
 					"data" : {					
 					     
-						"data" : data
+						"data" : results
 						
 						/*
 						"name" : name,
@@ -105,13 +99,13 @@ exports.lsj2 = function(req, res){
 					console.error('HTTP Error: ' + response.statusCode + ' - '
 							+ response.statusMessage + '\n' + body);
 				} else {
-					console.log('전송 성공!')
+					console.log('JSON 메세지 전송 성공!')
 				}
 			});
 		}//sendMessageToUser()
 		  
+       });//client.query 
+	   
+	 res.render("lsj", {message: "이승진 몽춍이 ㅗ"});
 		  
-		res.render("lsj", {message: "이승진 몽춍이 ㅗ"});
-		  
-
 };//exports.lsj2 = function(req, res)
