@@ -42,6 +42,10 @@
 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet" />
 <script src="http://vjs.zencdn.net/c/video.js"></script>
 
+<!-- Sweetalert -->
+<script src="/stylesheets/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
+
 <style>
 
 /* 1. 전체페이지 */
@@ -661,7 +665,7 @@ html, body, .main {
 
 				<ul class="actions" style="margin-top: 15em; margin-left: 25em;">
 					<li><p style="font-size: 20px;text-align: center;">
-							<a href="receipt" class="button next"
+							<a id="orderButton" class="button next"
 								style="width: 570px; height: 50px; ">공병접수
 								바로 가기</a>
 						</p></li>
@@ -725,13 +729,13 @@ html, body, .main {
 								<div class="img ; text-center col-md-3"
 									style="margin-left: 3em;">
 									<div id="imgDiv">
-										<a href="mypage"><img id="serious"
+										<a href=""><img id="serious"
 											src="/stylesheets/img/main/my2.png"
 											style="opacity: 0.2; width: 150px; height: 150px;"></a> <br>
 										<div class="button-row"
 											style="margin-top: 82px; margin-left: -10em;">
 											<div style="margin-right: 7em;">
-												<a href="mypage" title="마이페이지 바로가기"></a>
+												<a id="myButton" title="마이페이지 바로가기"></a>
 											</div>
 										</div>
 
@@ -1472,6 +1476,52 @@ function rotate(e){
 }
 	
 	</script>
+	
+	<!--  로그인시 마이페이지 가기 -->
+<script type="text/javascript">
+window.onload = function() { 
+	var button = document.getElementById('myButton');
+	var button2 = document.getElementById('orderButton');
+
+//마이페이지	
+button.onclick = function() {
+	var id = "<%= sessionId%>";
+
+	if(id == ""){
+		swal({
+			  title : '잠시만!',
+			  text : '먼저 로그인을 해주세요!',
+			  type :'warning'
+	})
+		
+	}else{
+		location.href="mypage"
+	}
+	
+	}
+//접수하기
+button2.onclick = function() {
+	var id = "<%= sessionId%>";
+
+	if(id == ""){
+		swal({
+			  title : '잠깐!',
+			  text : '로그인 후 접수하실 수 있습니다.!',
+			  type :'warning'
+	})
+		
+	}else{
+		location.href="receipt"
+	}
+	
+	}
+
+
+}; 
+</script>
+	
+	
+	
 </body>
 
 </html>
