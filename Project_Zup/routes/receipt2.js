@@ -94,7 +94,7 @@ exports.send = function(req, res){
     	  
     	  var user_num = results[0].user_num;
     	  
-    	  client.query("insert into userlog(user_num, logtype, status, content) values(?,'대기', '회수예정', '회수예정')",
+    	  client.query("insert into userlog(user_num, logtype, status) values(?,'대기', '회수예정')",
                   [user_num]);
       
     	  client.query("insert into orderlist(user_num, employee_num)values(?, ?)",
