@@ -207,7 +207,7 @@
 	<tr>
 	   <th>선택된 내 위치 : </th>
 	   <td>
-	       <input id="mapAddress" name="mapAddress" style="width: 100%; background-color: white; border: none;" readonly="readonly">
+	       <input id="mapAddress" name="mapAddress" value="" style="width: 100%; background-color: white; border: none;" readonly="readonly">
 	   </td>
 	</tr>
 	<tr>
@@ -221,6 +221,7 @@
 <div>
 <input type="hidden" id="lat" name="lat" style="width: 100%;">
 <input type="hidden" id="lng" name="lng" style="width: 100%;">
+<input type="hidden" id="address2" name="address2" value="<%= address %>" style="width: 100%;">
 </div>          
 
     <br><br><br>
@@ -235,18 +236,34 @@
 var map;
 var markers = [];
 var address;
-
+//  var address2 = document.getElementById("address2").value;
+    var address2 = "서울특별시 중구 태평로1가 35, 104동 407호";
+    
+//주소를 따와서 먼저 주소로 위도경도를 알아내고 마커를 찍어주고 스플릿을 해준다음에 주소와 상세주소에 넣어준다.
+   
 //구글맵 api 콜백 함수
 function initMap() {
 
    //위치따오는 기능 실행!!!
    getLocation();
    
+   //주소로 좌표값 알아 내기
+    new google.maps.Geocoder().geocode({address : address2}, function(results, status){
+    
+    		if (status == google.maps.GeocoderStatus.OK) {
+    		
+    		    address2 = results[0].geometry.location;  
+	            console.log(address2);         	 		
+    
+            }
+    });   
+   
  //사용자의 위치 따오기
  function getLocation() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function showPosition(position){      
-                    
+          
+          var setAddress = $("");          
           var xxxx = position.coords.latitude;
           var yyyy = position.coords.longitude;
           
@@ -291,7 +308,9 @@ function initMap() {
       
 	   var geocoder = new google.maps.Geocoder();
 	   geocoder.geocode({
-	          latLng: latLng
+
+             latLng : latLng
+	      
 	      }, function(results, status) {
 	      
 	     		 if (status == google.maps.GeocoderStatus.OK) {
