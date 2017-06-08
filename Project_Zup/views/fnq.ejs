@@ -132,6 +132,8 @@ a:hover {text-decoration:none; color:#fff;}
 </style>
 </head>
 <body>
+
+<% include header.ejs %>
 <div class="well text-center">
 			<button type="button" class="btn btn-hot text-uppercase"><a href="/notice">공지사항</a></button>
             <button type="button" class="btn btn-sunny text-uppercase"><a href="/fnq">자주 묻는 질문</a></button>
@@ -384,4 +386,5 @@ $(document).ready(function () {
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="stylesheets/js/bootstrap.min.js"></script>
   <script src="stylesheets/js/wow.min.js"></script>
+  <% include footer.ejs %>
 </body>
