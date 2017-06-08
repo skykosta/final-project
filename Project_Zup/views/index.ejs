@@ -69,32 +69,7 @@
                         <a href="notice">고객센터</a>
                     </li>
 					<li>
-					<% }else if(sessionId == 'admin'){ %>
-					</li>
-					<li>
-					<a> 
-					<%=sessionId%>님 로그인
-					</a>
-					</li>
-					<li>
-					<a href="logout">로그아웃</a>
-					</li>
-					<li>
-					<a href="user">관리자페이지</a>
-                    </li>
-                    <li>
-					<%}else if(sessionId != null && sessionId != 'admin'){%>
-					<li>
-					<a><%=sessionId%>님 로그인중...</a>
-					</li>
-					<li>
-					<a href="logout">로그아웃</a>
-					</li>
-					<li>
-                        <a href="mypage">마이페이지</a>
-                    </li> 
-					<%};%>
-                </ul>
+					</ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -113,6 +88,70 @@
             </div>
         </div>
     </header>
+					<% }else if(sessionId == 'admin'){ %>
+					</li>
+					<li>
+					<a> 
+					<%=sessionId%>님 로그인
+					</a>
+					</li>
+					<li>
+					<a href="logout">로그아웃</a>
+					</li>
+					<li>
+					<a href="user">관리자페이지</a>
+                    </li>
+                    <li>
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To ZUP!</div>
+                <div class="intro-heading"><span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+</div>
+                <a href="#" id="orderButton" class="page-scroll btn btn-xl"
+								style="width: 400px; height: 70px; ">공병접수
+								바로 가기</a>
+            </div>
+        </div>
+    </header>
+					<%}else if(sessionId != null && sessionId != 'admin'){%>
+					<li>
+					<a><%=sessionId%>님 로그인중...</a>
+					</li>
+					<li>
+					<a href="logout">로그아웃</a>
+					</li>
+					<li>
+                        <a href="mypage">마이페이지</a>
+                    </li> 
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To ZUP!</div>
+                <div class="intro-heading"><span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+</div>
+                <a href="receipt" id="orderButton" class="page-scroll btn btn-xl"
+								style="width: 400px; height: 70px; ">공병접수
+								바로 가기</a>
+            </div>
+        </div>
+    </header>
+					<%};%>
+                
 
 
 
@@ -681,6 +720,7 @@ button.onclick = function() {
 	}
 //접수하기
 button2.onclick = function() {
+	console.log("들어와111111111111");
 	var id = "<%= sessionId%>";
 
 	if(id == ""){
@@ -693,7 +733,8 @@ button2.onclick = function() {
 	}) 
 		
 	}else{
-		location.href="receipt"
+		console.log("들어와");
+		self.location.href="/receipt";
 	}
 	
 	}
