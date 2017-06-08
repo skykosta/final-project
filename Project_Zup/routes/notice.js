@@ -37,6 +37,8 @@ exports.contact = function(req, res){
 
 
 
+
+
 exports.count = function(req, res){
 	client.query("update article set article_viewpoint = article_viewpoint+1 where article_num=?", [req.query.article_num],function(err, result) {
 			res.redirect('notice');
