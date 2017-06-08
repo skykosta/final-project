@@ -7,6 +7,7 @@ var fs = require('fs');
 var ejs = require('ejs');
 
 var client = mysql.createConnection({
+	host: '192.168.0.67',
 	user: 'root',
 	password: 'root',
 	database: 'zup'
