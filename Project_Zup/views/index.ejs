@@ -3,798 +3,144 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
- -->
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>ZUP입니다^^</title>
-<link rel="stylesheet" href="/stylesheets/css/main.css" />
-<!-- Bootstrap Core CSS -->
-<link href="/stylesheets/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link href="/stylesheets/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css">
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-	crossorigin="anonymous">
-
-
-<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet" />
-<script src="http://vjs.zencdn.net/c/video.js"></script>
-
-<!-- Sweetalert -->
-<script src="/stylesheets/js/sweetalert2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
-
-<style>
-
-/* 1. 전체페이지 */
-#a {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	height: 600px;
-	z-index: 1;
-	background-image: url("/stylesheets/img/main/back2.png");
-}
-
-#b {
-	margin-top: 500px;
-	z-index: 0;
-}
-
-#c {
-	background-color: rgb(37, 164, 73);
-	z-index: 10;
-}
-
-.container {
-	/* width: 970px; */
-	/* max-width: none !important; */
-	
-}
-
-
-
-/**접수하기 버튼*/
-@import
-	url(http://fonts.googleapis.com/css?family=Open+Sans:400|Raleway:300);
-
-html {
-	padding-top: 50px;
-	font-family: 'Open Sans', Helvetica, arial, sans-serif;
-	text-align: center;
-	background-color: #eeeeee;
-}
-
-html *, html *:before, html *:after {
-	box-sizing: border-box;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-}
-
-html i, html em, html b, html strong, html span {
-	-webkit-transition: none;
-	transition: none;
-}
-
-*:before, *:after {
-	z-index: -1;
-}
-
-h1, h4 {
-	font-family: 'Raleway', 'Open Sans', sans-serif;
-	margin: 0;
-	line-height: 1;
-}
-
-a {
-	text-decoration: none;
-	line-height: 80px;
-	color: black;
-}
-
-[class^="btn-"] {
-	position: relative;
-	display: block;
-	margin: 20px auto;
-	width: 100%;
-	height: 80px;
-	max-width: 250px;
-	text-transform: uppercase;
-	overflow: hidden;
-	border: 1px solid currentColor;
-}
-
-.btn-9 {
-	color: #55a7cf;
-	/* 	color: #c92750; */
-}
-
-.btn-9:before, .btn-9:after, .btn-9 span:before, .btn-9 span:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 250px;
-	height: 0;
-	background: rgba(33, 91, 119, 0.25);
-	/* background: rgba(115, 1, 29, 0.25); */
-	-webkit-transition: 0.4s;
-	transition: 0.4s;
-}
-
-.btn-9:after, .btn-9 span:before {
-	top: auto;
-	bottom: 0;
-}
-
-.btn-9 span:before, .btn-9 span:after {
-	-webkit-transition-delay: 0.4s;
-	transition-delay: 0.4s;
-}
-
-.btn-9:hover {
-	color: #cde5f1;
-}
-
-.btn-9:hover:before, .btn-9:hover:after, .btn-9:hover span:before,
-	.btn-9:hover span:after {
-	height: 80px;
-}
-
-.btn-9:active {
-	background: #3798c6;
-}
-
-/* 각 section 크기, 스타일 정해주기 */
-#article1 {
-	width: 100%;
-	background-color: #F4FFFF;
-}
-
-#article2 {
-	width: 100%;
-	height: 1000px;
-	max-height: 800px;
-}
-
-#article3 {
-	width: 33.3%;
-	height: 20px;
-	min-height: 200px;
-}
-
-#article4 {
-	width: 33.4%;
-	height: 20px;
-	min-height: 200px;
-}
-
-#article5 {
-	width: 33.3%;
-	height: 20px;
-	min-height: 200px;
-}
-
-#article6 {
-	width: 100%;
-	height: 1000px;
-	max-height: 870px;
-}
-
-#article7 {
-	width: 100%;
-	height: 1200px;
-	max-height: 950px;
-}
-
-#article8 {
-	width: 100%;
-	height: 700px;
-	max-height: 800px;
-}
-
-#article9 {
-	width: 100%;
-	height: 700px;
-}
-
-/* articl안의 글씨 자유롭게 배치할 수 있는 설정 */
-div {
-	float: left
-}
-
-/* article배경, 마우스오버시 바뀌도록하는 css */
-#imgDiv {
-	width: 160px;
-	height: 210px;
-	position: absolute;
-	/*             border: 2px solid lightseagreen;
- */
-	z-index: -10
-}
-
-#imgDiv2 {
-	width: 160px;
-	height: 210px;
-	position: relative;
-	/*             border: 2px solid lightseagreen;
- */
-	left: 200px;
-}
-
-#imgDiv img {
-	width: 230px;
-	height: 220px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -120px;
-	margin-top: -120px;
-}
-
-#imgDiv2 img {
-	width: 230px;
-	height: 220px;
-	position: relative;
-	left: 50%;
-	top: 50%;
-	margin-left: -75px;
-	margin-top: -100px;
-}
-
-#imgDiv>#funny {
-	opacity: 0;
-	transition: opacity 0.01s
-}
-
-#imgDiv:hover>#funny {
-	opacity: 1;
-}
-
-#serious {
-	z-index: -15;
-}
-
-#funny {
-	z-index: -14;
-}
-
-#fb {
-	z-index: 9;
-}
-
-/* 도넛그래프 css*/
-@import "bourbon";
-
-@import url(//fonts.googleapis.com/css?family=Oswald:400);
-
-body {
-	background: #222428;
-	font-family: "Oswald", sans-serif;
-}
-
-.chart {
-	position: absolute;
-	width: 450px;
-	height: 450px;
-	top: 50%;
-	left: 50%;
-	margin: -225px 0 0 -225px;
-}
-
-.doughnutTip {
-	position: absolute;
-	min-width: 30px;
-	max-width: 300px;
-	padding: 5px 15px;
-	border-radius: 1px;
-	background: rgba(0, 0, 0, .8);
-	color: #ddd;
-	font-size: 17px;
-	text-shadow: 0 1px 0 #000;
-	text-transform: uppercase;
-	text-align: center;
-	line-height: 1.3;
-	letter-spacing: .06em;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-	pointer-events: none; &:: after { position : absolute;
-	left: 50%;
-	bottom: -6px;
-	content: "";
-	height: 0;
-	margin: 0 0 0 -6px;
-	border-right: 5px solid transparent;
-	border-left: 5px solid transparent;
-	border-top: 6px solid rgba(0, 0, 0, .7);
-	line-height: 0;
-}
-
-}
-.doughnutSummary {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: #d5d5d5;
-	text-align: center;
-	text-shadow: 0 -1px 0 #111;
-	cursor: default;
-}
-
-.doughnutSummaryTitle {
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	margin-top: -27%;
-	font-size: 22px;
-	letter-spacing: .06em;
-}
-
-.doughnutSummaryNumber {
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	margin-top: -15%;
-	font-size: 55px;
-}
-
-.chart path:hover {
-	opacity: 0.65;
-}
-
-/* 접수하기 3d버튼 css */
-.button-row {
-	display: -webkit-inline-box;
-	display: -moz-inline-box;
-	display: inline-box;
-	display: -webkit-inline-flex;
-	display: -moz-inline-flex;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-}
-
-.button-row>div {
-	position: relative;
-	width: 160px;
-	height: 50px;
-	margin: 0 15px;
-	-webkit-perspective: 1000px;
-	-moz-perspective: 1000px;
-	perspective: 1000px;
-}
-
-.button-row>div>a {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	-o-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform: translateZ(-25px);
-	-moz-transform: translateZ(-25px);
-	-ms-transform: translateZ(-25px);
-	-o-transform: translateZ(-25px);
-	transform: translateZ(-25px);
-	-webkit-transition: -webkit-transform 0.25s;
-	-moz-transition: -moz-transform 0.25s;
-	transition: transform 0.25s;
-}
-
-.button-row>div>a::before, .button-row>div>a::after {
-	justify-content: center;
-	align-items: center;
-	margin: 0;
-	width: 160px;
-	height: 50px;
-	position: absolute;
-	border: 1px solid black;
-	box-sizing: border-box;
-	content: attr(title);
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.button-row>div>a::before {
-	background-color: rgb(105, 192, 175);
-	color: #fff;
-	-webkit-transform: rotateY(0deg) translateZ(25px);
-	-moz-transform: rotateY(0deg) translateZ(25px);
-	-ms-transform: rotateY(0deg) translateZ(25px);
-	-o-transform: rotateY(0deg) translateZ(25px);
-	transform: rotateY(0deg) translateZ(25px);
-}
-
-.button-row>div>a::after {
-	background-color: #fff;
-	border-color: #000;
-	color: #000;
-	-webkit-transform: rotateX(90deg) translateZ(25px);
-	-moz-transform: rotateX(90deg) translateZ(25px);
-	-ms-transform: rotateX(90deg) translateZ(25px);
-	-o-transform: rotateX(90deg) translateZ(25px);
-	transform: rotateX(90deg) translateZ(25px);
-}
-
-.button-row>div>a:hover {
-	-webkit-transform: translateZ(-25px) rotateX(-90deg);
-	-moz-transform: translateZ(-25px) rotateX(-90deg);
-	-ms-transform: translateZ(-25px) rotateX(-90deg);
-	-o-transform: translateZ(-25px) rotateX(-90deg);
-	transform: translateZ(-25px) rotateX(-90deg);
-}
-
-/* this is just icing */
-body {
-	font-family: "Oswald", Helvetica, Arial, sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
-	padding: 0;
-	margin: 0;
-}
-
-.main, h1 {
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-html, body, .main {
-	height: 100%;
-}
-
-/* 3d 슬라이더 */
-@import url(http://fonts.googleapis.com/css?family=Anaheim);
-
-.container {
-	margin: 4% auto;
-	width: 210px;
-	height: 140px;
-	position: relative;
-	perspective: 1000px;
-	margin-left: 42em;
-}
-
-/* 3d */
-.carousel {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	transform-style: preserve-3d;
-	transition: transform 1s;
-}
-
-.item {
-	display: block;
-	position: absolute;
-	background: #000;
-	width: 250px;
-	height: 200px;
-	line-height: 200px;
-	font-size: 5em;
-	text-align: center;
-	color: #FFF;
-	opacity: 0.95;
-	border-radius: 10px;
-}
-
-.a {
-	transform: rotateY(0deg) translateZ(250px);
-	background: #ed1c24;
-}
-
-.b {
-	transform: rotateY(60deg) translateZ(250px);
-	background: #0072bc;
-}
-
-.c {
-	transform: rotateY(120deg) translateZ(250px);
-	background: #39b54a;
-}
-
-.d {
-	transform: rotateY(180deg) translateZ(250px);
-	background: #f26522;
-}
-
-.e {
-	transform: rotateY(240deg) translateZ(250px);
-	background: #630460;
-}
-
-.f {
-	transform: rotateY(300deg) translateZ(250px);
-	background: #8c6239;
-}
-
-.next, .prev {
-	color: #444;
-	position: absolute;
-	top: 100px;
-	padding: 1em 2em;
-	cursor: pointer;
-	background: #CCC;
-	border-radius: 5px;
-	border-top: 1px solid #FFF;
-	box-shadow: 0 5px 0 #999;
-	transition: box-shadow 0.1s, top 0.1s;
-	margin-left: 16em;
-	margin-top: 5em;
-}
-
-.next:hover, .prev:hover {
-	color: #000;
-}
-
-.next:active, .prev:active {
-	top: 104px;
-	box-shadow: 0 1px 0 #999;
-}
-
-.next {
-	right: 5em;
-}
-
-.prev {
-	left: 5em;
-}
-
-/* social */
-.fa {
-	padding: 10px;
-	font-size: 12px;
-	width: 29px;
-	height: 29px;
-	text-align: center;
-	text-decoration: none;
-	margin: 2px 1px;
-}
-
-.fa:hover {
-	opacity: 0.7;
-}
-
-.fa-facebook {
-	background: #3B5998;
-	color: white;
-}
-
-.fa-twitter {
-	background: #55ACEE;
-	color: white;
-}
-
-.fa-google {
-	background: #dd4b39;
-	color: white;
-}
-
-.fa-youtube {
-	background: #bb0000;
-	color: white;
-}
-
-
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Z U P </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="page-top" class="index">
 
-	<a id="to-top" href="#top" class="btn btn-dark btn-lg"><i
-		class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">접수하기</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">마이페이지</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">고객센터</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">로그인</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">로그아웃</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
-		<div id="a">
-			<!-- Header -->
-			<header id="header" class="alt">
-				<div class="container" style="margin-top: 1em; margin-left: 1em;">
-			
-
-					<a href="#" class="fa fa-facebook"></a> 
-					<a href="#" class="fa fa-twitter"></a> 
-					<a href="#" class="fa fa-google"></a> 
-					<a href="#" class="fa fa-youtube"></a> 
-
-				</div>
-
-				<!-- 로그인시 페이지 변화 -->
-				<nav style="margin-top: 1em;">
-					<%if(sessionId == null){%> <a href="login"><button
-							class="button button-neutral" type="button">로그인</button></a> <a
-						href="agree"><button class="button button-primary">회원가입</button></a>
-
-					<% }else if(sessionId == 'admin'){ %> <%=sessionId%>님 로그인 <a
-						href="logout"><button class="button button-primary">로그아웃</button></a>
-					<a href="user"><button class="button button-primary">관리자페이지</button></a>
-
-					<%}else if(sessionId != null && sessionId != 'admin'){%>
-
-					<%=sessionId%>님 로그인 <a href="logout"><button
-							class="button button-primary">로그아웃</button></a> <%};%>
-
-				</nav>
-			</header>
-
-
-			<!-- Banner -->
-			<section class="major">
-
-				<!-- <img src="/stylesheets/img/logoZ.png" style="margin-left: 25em" /> -->
-				<header class="major"> 
-
-				<ul class="actions" style="margin-top: 15em; margin-left: 25em;">
-					<li><p style="font-size: 20px;text-align: center;">
-							<a id="orderButton" class="button next"
-								style="width: 570px; height: 50px; ">공병접수
-								바로 가기</a>
-						</p></li>
-				</ul>
-</header>
-			</section>
-		</div>
-	</div>
-
-	<div id="b">
-		<!-- Main -->
-		<div id="main">
-			<!-- One -->
-			<section id="one" class="tiles">
-				<article id="article1">
-
-					<header id=z>
-
-
-						<div class="text-center col-md-12"
-							style="margin-top: -8em; margin-left: 18em">
-							<div class="total">
-								<div class="img ; text-center col-md-3">
-									<div id="imgDiv">
-										<img id="serious" src="/stylesheets/img/main/intro.png"
-											style="opacity: 0.2; width: 150px; height: 150px;">
-
-
-										<h4></h4>
-										<br>
-										<div class="button-row"
-											style="margin-top: 10em; margin-left: -10em;">
-											<div style="margin-right: 7em;">
-												<a href="contact" title="회사소개 보기"></a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-
-								<div class="img ; text-center col-md-3"
-									style="margin-left: 2em;">
-									<div id="imgDiv">
-										<a href="#"><img id="serious"
-											src="/stylesheets/img/main/vol.png"
-											style="opacity: 0.2; width: 150px; height: 140px; margin-top: -8em;"></a>
-
-										<br>
-										<div class="button-row"
-											style="margin-top: 82px; margin-left: -9em;">
-											<div style="margin-right: 7em;">
-												<a href="contact" title="기부이야기 보기"></a>
-											</div>
-										</div>
-
-									</div>
-								</div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To ZUP!</div>
+                <div class="intro-heading"><span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+</div>
+                <a href="#services" class="page-scroll btn btn-xl">접수 바로가기</a>
+            </div>
+        </div>
+    </header>
 
 
 
-								<div class="img ; text-center col-md-3"
-									style="margin-left: 3em;">
-									<div id="imgDiv">
-										<a href=""><img id="serious"
-											src="/stylesheets/img/main/my2.png"
-											style="opacity: 0.2; width: 150px; height: 150px;"></a> <br>
-										<div class="button-row"
-											style="margin-top: 82px; margin-left: -10em;">
-											<div style="margin-right: 7em;">
-												<a id="myButton" title="마이페이지 바로가기"></a>
-											</div>
-										</div>
-
-									</div>
-
-
-
-
-								</div>
-
-
-
-								<div class="img ; text-center col-md-3"
-									style="margin-left: 60em;">
-									<div id="imgDiv">
-										<a href="contact"><img id="serious"
-											src="/stylesheets/img/main/as.png"
-											style="opacity: 0.2; width: 150px; height: 150px;"></a>
-
-										<div class="button-row"
-											style="margin-top: 160px; margin-left: -9em;">
-											<div style="margin-right: 7em;">
-												<a href="contact" title="고객센터 바로가기"></a>
-											</div>
-										</div>
-									</div>
-
-
-
-
-								</div>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">회사소개</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">사회적 역할로서의 ZUP</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">ZUP 2017년 기부 목표</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">ZUP 기부 내역</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-
-							</div>
-						</div>
-					</header>
-				</article>
-
-
-
-				<article id="article2">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic02.jpg" alt="" />
-					</span>
-					<header class="major">
-
-
-
-						<div class="text-center col-md-12"
+ <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">사회적 역할로서의 ZUP</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+            
+            
+						<!-- <div class="text-center col-md-12"
 							style="margin-top: -5em; margin-left: 18em">
-							<div class="total" style="margin-left: -13em">
-								<div class="img ; text-center col-md-12"
-									style="margin-top: 10em;">
-									<div style="margin-top: -8em; margin-left: 28em;">
-										<p style="font-size: 30px;">
-											<span style="font-size: 35px; color: white;"> ■ </span><br><br>
-											WELCOME ZUP WORLD<br>
-											<span style="font-size: 18px; color: rgb(31, 52, 128);">
-											#공병재활용  #환경보호  #소소한용돈벌이  #새로운기부문화 #ZUP 문화</span>
-										</p>
-									</div>
-									<br>
-									<p
+							<div class="total" style="margin-left: -13em"> -->
+								<!-- <div class="img ; text-center col-md-12"
+									style="margin-top: 10em;"> -->
+									<!-- <p
 										style="text-align: left; color: white; font-size: 18px; margin-top: 7em; margin-left: 3em;">
 
 										<span style="font-size: 30px;">Company ZUP</span><br> <br> For
@@ -805,9 +151,9 @@ html, body, .main {
 										hotels, and more. <br>Our flagship company, Samsung
 										Electronics, <br>leads the global market
 									</p>
-
-									<div style="margin-top: -25em; margin-left: 42em;">
-										<video width="750" height="350" controls="controls"
+ -->
+									<div style="margin-top: -2em; margin-left: 17em;">
+										<video width="700" height="500" controls="controls"
 											class="video-js vjs-default-skin" data-setup="{}"
 											autoplay="autoplay" muted="muted" loop="loop">
 
@@ -815,708 +161,555 @@ html, body, .main {
 												type="video/mp4" />
 										</video>
 									</div>
-
-
-								</div>
-							</div>
-						</div>
-
-					</header>
-				</article>
-
-
-
-
-
-
-				<article id="article3">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic04.jpg" alt="" />
-					</span>
-					<header class="major">
-						<div class="text-center col-md-4" style="margin-top: -50px">
-							<div class="total">
-								<div class="img ; text-center col-md-12">
-
-									<h4 style="height: 90;">
-										<i class="fa fa-book"></i><br>JUP 기부 의의
-									</h4>
-									<br>
-
-								</div>
-							</div>
-						</div>
-					</header>
-				</article>
-
-
-
-				<article id="article4">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic05.jpg" alt="" />
-					</span>
-					<header class="major">
-						<div class="text-center col-md-4" style="margin-top: -50px">
-							<div class="total">
-								<div class="img ; text-center col-md-12">
-									<h4 style="height: 90;">
-										<i class="fa fa-book"></i><br>JUP 기부 목표
-									</h4>
-									<br>
-
-								</div>
-							</div>
-						</div>
-					</header>
-				</article>
-
-
-				<article id="article5">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic06.jpg" alt="" />
-					</span>
-					<header class="major">
-						<div class="text-center col-md-4" style="margin-top: -50px">
-							<div class="total">
-								<div class="img ; text-center col-md-12">
-									<h4 style="height: 90px;">
-										<i class="fa fa-book"></i><br>JUP 기부 내역
-									</h4>
-									<br>
-
-								</div>
-							</div>
-						</div>
-					</header>
-				</article>
-
-
-
-
-
-				<article id="article6">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic06.jpg" alt="" />
-					</span>
-
-					<header class="major">
-						<div>
-						
-						<div style="margin-top: 3em; margin-left: 30em;">
-										<p style="font-size: 30px;">
-											<span style="font-size: 35px; color: white; margin-left: 8em;"> ■ </span><br><br>
-											 ZUP은 새로운 재활용 문화에 앞장섭니다<br>
-											<span style="font-size: 18px; color: rgb(31, 52, 128);">
-											#공병재활용  #환경보호  #소소한용돈벌이  #새로운기부문화 #ZUP 문화</span>
-										</p>
-									</div>
-						
-							<img src="/stylesheets/img/main/vol4.png"
-								style="margin-left: -70em; margin-top: 23em; height: 500px; width: 600px;">
-
-
-						</div>
-					</header>
-
-				</article>
-
-
-
-
-
-
-				<article id="article7">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic06.jpg" alt="" />
-					</span>
-					<header class="major">
-
-						
-						<div style="margin-top: -17em; margin-left: 10em;">
-										<p style="font-size: 30px;">
-											<span style="font-size: 35px; margin-left: 3em; margin-bottom: 2em;"> ■ </span><br><br>
-											 상반기 기부목표<br>
-											<span style="font-size: 18px; color: rgb(31, 52, 128); margin-left: -9em;">
-											#공병재활용  #환경보호  #소소한용돈벌이  #새로운기부문화 #ZUP 문화</span>
-										</p>
-									</div>
-
-
-						<div id="doughnutChart" class="chart"
-							style="margin-top: -7em; margin-left: -20em; margin-right: 3em;">
-
-							<!-- </div>  -->
-						</div>
-
-						<div style="margin-top: 1em; margin-left: 30em;">
-
-							<p style="font-size: 15px; text-align: left">
-								<img src="/stylesheets/img/main/plan.png"> <span
-									style="font-size: 20px;"> 2017년 상반기 달성 목표 </span> <br> 공병
-								총 수거량 중 10% 기부 <br> 기부량 약 2만병 추정
-							</p>
-							<br>
-							<p style="font-size: 15px; text-align: left">
-								<img src="/stylesheets/img/main/tree.png"> <span
-									style="font-size: 20px;"> 기부목표1. 국내 NGO 환경재단 </span> <br>
-								국내 더 나은 환경보전에 기여하기 위해 <br> 올해 2000그루의 나무를 기부할 예정입니다
-							</p>
-							<br>
-							<p style="font-size: 15px; text-align: left">
-								<img src="/stylesheets/img/main/old.png"> <span
-									style="font-size: 20px;"> 기부목표2. 저소득층 독거 노인 </span> <br>
-								ZUP은 20X6년부터 도우미재단과의 협연을 맺어왔습니다 <br> 올해 100톤의 쌀과 100kg의
-								연탄기부를 목표하고 있습니다
-
-							</p>
-
-
-						</div>
-						<br>
-
-						<!-- 
-							<div style="margin-top: 3em; margin-left: 10em;">
-
-							
-								
-								<p style="font-size: 12px; text-align: left;">
-									<span style="font-size: 35px;"> ■ </span> 2017년 상반기
-									기부목표<br>
-									<span style="font-size: 35px;"> ■ </span> 2017년 상반기
-									기부목표
-									<span style="font-size: 35px;"> ■ </span> 2017년 상반기
-									기부목표
-
-								</p>
-	<div>
-								
 									
-
-								</div> 
-
-								
-
+									<br>
+									<br>
+									<br>
 
 
-							</div>-->
-
-					</header>
-				</article>
-
-
-
-
-				<article id="article8">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic06.jpg" alt="" />
-					</span>
-					<header class="major">
-
-						<div style="margin-top: -11em; margin-left: 9em;">
-							<p style="font-size: 30px;">
-								<span style="font-size: 35px;"> ■ </span><br> ZUP 기부내역 발자취
-
-							</p>
-						</div>
-
-
-						<div class="container" style="margin-top: 7em;">
-							<div class="carousel">
-								<div class="item a">
-									<a href="#"> <img src="/stylesheets/img/main/Zz.png"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-								<div class="item b">
-									<a href="#"> <img src="/stylesheets/img/main/vol10.jpg"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-								<div class="item c">
-									<a href="#"> <img src="/stylesheets/img/main/vol11.jpg"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-								<div class="item d">
-									<a href="#"> <img src="/stylesheets/img/main/vol12.jpg"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-								<div class="item e">
-									<a href="#"> <img src="/stylesheets/img/main/vol13.jpg"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-								<div class="item f">
-									<a href="#"> <img src="/stylesheets/img/main/vol14.jpg"
-										style="height: 180px; width: 240px;"></a>
-								</div>
-							</div>
-						</div>
-						<div class="next" style="margin-left: 100em;">Next</div>
-						<div class="prev">Prev</div>
-
-
-					</header>
-				</article>
-
-
-				<article id="article9">
-					<span class="image"> <img
-						src="/stylesheets/img/main/pic06.jpg" alt="" />
-					</span>
-					<header class="major">
-						<div class="text-center col-md-12"></div>
-					</header>
-				</article>
-			</section>
-		</div>
+								<!-- </div> -->
+						<!-- 	</div>
+						</div> -->
+                <!-- <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Kay Garland</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Larry Parker</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
-		<div id="c">
-			<!-- Two -->
-			<section id="two">
-				<div class="inner">
-					<header class="major">
-						<h2>Massa libero</h2>
-					</header>
-					<p>Nullam et orci eu lorem consequat tincidunt vivamus et
-						sagittis libero. Mauris aliquet magna magna sed nunc rhoncus
-						pharetra. Pellentesque condimentum sem. In efficitur ligula tate
-						urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum
-						dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et
-						sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet
-						pharetra et feugiat tempus.</p>
+<!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">ZUP 착한 목표</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="/stylesheets/img/main/plan.png" style="height: 5em; width: 5em; 
+                                margin-left: 3em;	margin-top: 3em;">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>착한 목표 1</h4>
+                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                    공병 총 수거량 2천만병 달성 그 중 10% 기부 <br>약 2만병 기부 목표</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>착한 목표 2</h4>
+                                    <h4 class="subheading">An Agency is Born</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>착한 목표 3</h4>
+                                    <h4 class="subheading">Transition to Full Service</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>착한 목표 4</h4>
+                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>지금 바로
+                                    <br>ZUP과 함께
+                                    <br>기부해요!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				</div>
-			</section>
+   
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">ZUP 기부내역</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Round Icons</h4>
+                        <p class="text-muted">Graphic Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Startup Framework</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                       <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Treehouse</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Golden</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Escape</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <!-- <img src="/img/portfolio/dreams.png" class="img-responsive" alt=""> -->
+                        <img src="/stylesheets/img/main/vol10.jpg" class="img-responsive" alt="" style="width:400; height: 289px;">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dreams</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		</div>
+    
 
+    <!-- Clients Aside -->
+    <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
 
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <p>
+                                    <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                                <ul class="list-inline">
+                                    <li>Date: July 2014</li>
+                                    <li>Client: Round Icons</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>Project Heading</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.png" alt="">
+                                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                                <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
+                                <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- jQuery -->
-	<script src="/stylesheets/js/jquery.js"></script>
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
+                                <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/stylesheets/js/bootstrap.min.js"></script>
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/escape-preview.png" alt="">
+                                <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Custom Theme JavaScript -->
-	<script>
-		// Closes the sidebar menu
-		$("#menu-close").click(function(e) {
-			e.preventDefault();
-			$("#sidebar-wrapper").toggleClass("active");
-		});
-		// Opens the sidebar menu
-		$("#menu-toggle").click(function(e) {
-			e.preventDefault();
-			$("#sidebar-wrapper").toggleClass("active");
-		});
-		// Scrolls to the selected menu item on the page
-		$(function() {
-			$(
-					'a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])')
-					.click(
-							function() {
-								if (location.pathname.replace(/^\//, '') == this.pathname
-										.replace(/^\//, '')
-										|| location.hostname == this.hostname) {
-									var target = $(this.hash);
-									target = target.length ? target
-											: $('[name=' + this.hash.slice(1)
-													+ ']');
-									if (target.length) {
-										$('html,body').animate({
-											scrollTop : target.offset().top
-										}, 1000);
-										return false;
-									}
-								}
-							});
-		});
-		//#to-top button appears after scrolling
-		var fixed = false;
-		$(document).scroll(function() {
-			if ($(this).scrollTop() > 250) {
-				if (!fixed) {
-					fixed = true;
-					// $('#to-top').css({position:'fixed', display:'block'});
-					$('#to-top').show("slow", function() {
-						$('#to-top').css({
-							position : 'fixed',
-							display : 'block'
-						});
-					});
-				}
-			} else {
-				if (fixed) {
-					fixed = false;
-					$('#to-top').hide("slow", function() {
-						$('#to-top').css({
-							display : 'none'
-						});
-					});
-				}
-			}
-		});
-		// Disable Google Maps scrolling
-		// See http://stackoverflow.com/a/25904582/1607849
-		// Disable scroll zooming and bind back the click event
-		var onMapMouseleaveHandler = function(event) {
-			var that = $(this);
-			that.on('click', onMapClickHandler);
-			that.off('mouseleave', onMapMouseleaveHandler);
-			that.find('iframe').css("pointer-events", "none");
-		}
-		var onMapClickHandler = function(event) {
-			var that = $(this);
-			// Disable the click handler until the user leaves the map area
-			that.off('click', onMapClickHandler);
-			// Enable scrolling zoom
-			that.find('iframe').css("pointer-events", "auto");
-			// Handle the mouse leave event
-			that.on('mouseleave', onMapMouseleaveHandler);
-		}
-		// Enable map zooming with mouse scroll when the user clicks the map
-		$('.map').on('click', onMapClickHandler);
-		</script>
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
+                                <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<script type="text/javascript">
-		//도넛그래프설정
-		$(function(){
-			  $("#doughnutChart").drawDoughnutChart([
-			    { title: "Tokyo",         value : 120,  color: "#F7E248" },
-			    { title: "San Francisco", value:  240,   color: "#FC4349" },
-			    { title: "Berlin",        value : 20,   color: "#FFF" } 
-			    
-			  /*   { title: "Tokyo",         value : 120,  color: "#F7E248" },
-			    { title: "San Francisco", value:  80,   color: "#FC4349" },
-			    { title: "New York",      value:  70,   color: "#FC4349" },
-			    { title: "London",        value : 50,   color: "#FC4349" },
-			    { title: "Sydney",        value : 40,   color: "#FC4349" },
-			    { title: "Berlin",        value : 20,   color: "#FFF" } */
-			  ]);
-			});
-			/*!
-			 * jquery.drawDoughnutChart.js
-			 * Version: 0.4.1(Beta)
-			 * Inspired by Chart.js(http://www.chartjs.org/)
-			 *
-			 * Copyright 2014 hiro
-			 * https://github.com/githiro/drawDoughnutChart
-			 * Released under the MIT license.
-			 * 
-			 */
-			;(function($, undefined) {
-			  $.fn.drawDoughnutChart = function(data, options) {
-			    var $this = this,
-			      W = $this.width(),
-			      H = $this.height(),
-			      centerX = W/2,
-			      centerY = H/2,
-			      cos = Math.cos,
-			      sin = Math.sin,
-			      PI = Math.PI,
-			      settings = $.extend({
-			        segmentShowStroke : true,
-			        segmentStrokeColor : "#0C1013",
-			        segmentStrokeWidth : 1,
-			        baseColor: "rgba(0,0,0,0.5)",
-			        baseOffset: 4,
-			        edgeOffset : 10,//offset from edge of $this
-			        percentageInnerCutout : 75,
-			        animation : true,
-			        animationSteps : 90,
-			        animationEasing : "easeInOutExpo",
-			        animateRotate : true,
-			        tipOffsetX: -8,
-			        tipOffsetY: -45,
-			        tipClass: "doughnutTip",
-			        summaryClass: "doughnutSummary",
-			        summaryTitle: "TOTAL:",
-			        summaryTitleClass: "doughnutSummaryTitle",
-			        summaryNumberClass: "doughnutSummaryNumber",
-			        beforeDraw: function() {  },
-			        afterDrawed : function() {  },
-			        onPathEnter : function(e,data) {  },
-			        onPathLeave : function(e,data) {  }
-			      }, options),
-			      animationOptions = {
-			        linear : function (t) {
-			          return t;
-			        },
-			        easeInOutExpo: function (t) {
-			          var v = t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
-			          return (v>1) ? 1 : v;
-			        }
-			      },
-			      requestAnimFrame = function() {
-			        return window.requestAnimationFrame ||
-			          window.webkitRequestAnimationFrame ||
-			          window.mozRequestAnimationFrame ||
-			          window.oRequestAnimationFrame ||
-			          window.msRequestAnimationFrame ||
-			          function(callback) {
-			            window.setTimeout(callback, 1000 / 60);
-			          };
-			      }();
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
-			    settings.beforeDraw.call($this);
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-			    var $svg = $('<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>').appendTo($this),
-			        $paths = [],
-			        easingFunction = animationOptions[settings.animationEasing],
-			        doughnutRadius = Min([H / 2,W / 2]) - settings.edgeOffset,
-			        cutoutRadius = doughnutRadius * (settings.percentageInnerCutout / 100),
-			        segmentTotal = 0;
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
-			    //Draw base doughnut
-			    var baseDoughnutRadius = doughnutRadius + settings.baseOffset,
-			        baseCutoutRadius = cutoutRadius - settings.baseOffset;
-			    $(document.createElementNS('http://www.w3.org/2000/svg', 'path'))
-			      .attr({
-			        "d": getHollowCirclePath(baseDoughnutRadius, baseCutoutRadius),
-			        "fill": settings.baseColor
-			      })
-			      .appendTo($svg);
+    <!-- Contact Form JavaScript -->
+    <script src="/js/jqBootstrapValidation.js"></script>
+    <script src="/js/contact_me.js"></script>
 
-			    //Set up pie segments wrapper
-			    var $pathGroup = $(document.createElementNS('http://www.w3.org/2000/svg', 'g'));
-			    $pathGroup.attr({opacity: 0}).appendTo($svg);
+    <!-- Theme JavaScript -->
+    <script src="/js/agency.min.js"></script>
 
-			    //Set up tooltip
-			    var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('body').hide(),
-			        tipW = $tip.width(),
-			        tipH = $tip.height();
-
-			    //Set up center text area
-			    var summarySize = (cutoutRadius - (doughnutRadius - cutoutRadius)) * 2,
-			        $summary = $('<div class="' + settings.summaryClass + '" />')
-			                   .appendTo($this)
-			                   .css({ 
-			                     width: summarySize + "px",
-			                     height: summarySize + "px",
-			                     "margin-left": -(summarySize / 2) + "px",
-			                     "margin-top": -(summarySize / 2) + "px"
-			                   });
-			    var $summaryTitle = $('<p class="' + settings.summaryTitleClass + '">' + settings.summaryTitle + '</p>').appendTo($summary);
-			    var $summaryNumber = $('<p class="' + settings.summaryNumberClass + '"></p>').appendTo($summary).css({opacity: 0});
-
-			    for (var i = 0, len = data.length; i < len; i++) {
-			      segmentTotal += data[i].value;
-			      $paths[i] = $(document.createElementNS('http://www.w3.org/2000/svg', 'path'))
-			        .attr({
-			          "stroke-width": settings.segmentStrokeWidth,
-			          "stroke": settings.segmentStrokeColor,
-			          "fill": data[i].color,
-			          "data-order": i
-			        })
-			        .appendTo($pathGroup)
-			        .on("mouseenter", pathMouseEnter)
-			        .on("mouseleave", pathMouseLeave)
-			        .on("mousemove", pathMouseMove);
-			    }
-
-			    //Animation start
-			    animationLoop(drawPieSegments);
-
-			    //Functions
-			    function getHollowCirclePath(doughnutRadius, cutoutRadius) {
-			        //Calculate values for the path.
-			        //We needn't calculate startRadius, segmentAngle and endRadius, because base doughnut doesn't animate.
-			        var startRadius = -1.570,// -Math.PI/2
-			            segmentAngle = 6.2831,// 1 * ((99.9999/100) * (PI*2)),
-			            endRadius = 4.7131,// startRadius + segmentAngle
-			            startX = centerX + cos(startRadius) * doughnutRadius,
-			            startY = centerY + sin(startRadius) * doughnutRadius,
-			            endX2 = centerX + cos(startRadius) * cutoutRadius,
-			            endY2 = centerY + sin(startRadius) * cutoutRadius,
-			            endX = centerX + cos(endRadius) * doughnutRadius,
-			            endY = centerY + sin(endRadius) * doughnutRadius,
-			            startX2 = centerX + cos(endRadius) * cutoutRadius,
-			            startY2 = centerY + sin(endRadius) * cutoutRadius;
-			        var cmd = [
-			          'M', startX, startY,
-			          'A', doughnutRadius, doughnutRadius, 0, 1, 1, endX, endY,//Draw outer circle
-			          'Z',//Close path
-			          'M', startX2, startY2,//Move pointer
-			          'A', cutoutRadius, cutoutRadius, 0, 1, 0, endX2, endY2,//Draw inner circle
-			          'Z'
-			        ];
-			        cmd = cmd.join(' ');
-			        return cmd;
-			    };
-			    function pathMouseEnter(e) {
-			      var order = $(this).data().order;
-			      $tip.text(data[order].title + ": " + data[order].value)
-			          .fadeIn(200);
-			      settings.onPathEnter.apply($(this),[e,data]);
-			    }
-			    function pathMouseLeave(e) {
-			      $tip.hide();
-			      settings.onPathLeave.apply($(this),[e,data]);
-			    }
-			    function pathMouseMove(e) {
-			      $tip.css({
-			        top: e.pageY + settings.tipOffsetY,
-			        left: e.pageX - $tip.width() / 2 + settings.tipOffsetX
-			      });
-			    }
-			    function drawPieSegments (animationDecimal) {
-			      var startRadius = -PI / 2,//-90 degree
-			          rotateAnimation = 1;
-			      if (settings.animation && settings.animateRotate) rotateAnimation = animationDecimal;//count up between0~1
-
-			      drawDoughnutText(animationDecimal, segmentTotal);
-
-			      $pathGroup.attr("opacity", animationDecimal);
-
-			      //If data have only one value, we draw hollow circle(#1).
-			      if (data.length === 1 && (4.7122 < (rotateAnimation * ((data[0].value / segmentTotal) * (PI * 2)) + startRadius))) {
-			        $paths[0].attr("d", getHollowCirclePath(doughnutRadius, cutoutRadius));
-			        return;
-			      }
-			      for (var i = 0, len = data.length; i < len; i++) {
-			        var segmentAngle = rotateAnimation * ((data[i].value / segmentTotal) * (PI * 2)),
-			            endRadius = startRadius + segmentAngle,
-			            largeArc = ((endRadius - startRadius) % (PI * 2)) > PI ? 1 : 0,
-			            startX = centerX + cos(startRadius) * doughnutRadius,
-			            startY = centerY + sin(startRadius) * doughnutRadius,
-			            endX2 = centerX + cos(startRadius) * cutoutRadius,
-			            endY2 = centerY + sin(startRadius) * cutoutRadius,
-			            endX = centerX + cos(endRadius) * doughnutRadius,
-			            endY = centerY + sin(endRadius) * doughnutRadius,
-			            startX2 = centerX + cos(endRadius) * cutoutRadius,
-			            startY2 = centerY + sin(endRadius) * cutoutRadius;
-			        var cmd = [
-			          'M', startX, startY,//Move pointer
-			          'A', doughnutRadius, doughnutRadius, 0, largeArc, 1, endX, endY,//Draw outer arc path
-			          'L', startX2, startY2,//Draw line path(this line connects outer and innner arc paths)
-			          'A', cutoutRadius, cutoutRadius, 0, largeArc, 0, endX2, endY2,//Draw inner arc path
-			          'Z'//Cloth path
-			        ];
-			        $paths[i].attr("d", cmd.join(' '));
-			        startRadius += segmentAngle;
-			      }
-			    }
-			    function drawDoughnutText(animationDecimal, segmentTotal) {
-			      $summaryNumber
-			        .css({opacity: animationDecimal})
-			        .text((segmentTotal * animationDecimal).toFixed(1));
-			    }
-			    function animateFrame(cnt, drawData) {
-			      var easeAdjustedAnimationPercent =(settings.animation)? CapValue(easingFunction(cnt), null, 0) : 1;
-			      drawData(easeAdjustedAnimationPercent);
-			    }
-			    function animationLoop(drawData) {
-			      var animFrameAmount = (settings.animation)? 1 / CapValue(settings.animationSteps, Number.MAX_VALUE, 1) : 1,
-			          cnt =(settings.animation)? 0 : 1;
-			      requestAnimFrame(function() {
-			          cnt += animFrameAmount;
-			          animateFrame(cnt, drawData);
-			          if (cnt <= 1) {
-			            requestAnimFrame(arguments.callee);
-			          } else {
-			            settings.afterDrawed.call($this);
-			          }
-			      });
-			    }
-			    function Max(arr) {
-			      return Math.max.apply(null, arr);
-			    }
-			    function Min(arr) {
-			      return Math.min.apply(null, arr);
-			    }
-			    function isNumber(n) {
-			      return !isNaN(parseFloat(n)) && isFinite(n);
-			    }
-			    function CapValue(valueToCap, maxValue, minValue) {
-			      if (isNumber(maxValue) && valueToCap > maxValue) return maxValue;
-			      if (isNumber(minValue) && valueToCap < minValue) return minValue;
-			      return valueToCap;
-			    }
-			    return $this;
-			  };
-			})(jQuery);
-	</script>
-
-
-
-
-	<!-- 3d 제이쿼리 -->
-	<script type="text/javascript">
-	
-	var carousel = $(".carousel"),
-    currdeg  = 0;
-
-$(".next").on("click", { d: "n" }, rotate);
-$(".prev").on("click", { d: "p" }, rotate);
-
-function rotate(e){
-  if(e.data.d=="n"){
-    currdeg = currdeg - 60;
-  }
-  if(e.data.d=="p"){
-    currdeg = currdeg + 60;
-  }
-  carousel.css({
-    "-webkit-transform": "rotateY("+currdeg+"deg)",
-    "-moz-transform": "rotateY("+currdeg+"deg)",
-    "-o-transform": "rotateY("+currdeg+"deg)",
-    "transform": "rotateY("+currdeg+"deg)"
-  });
-}
-	
-	</script>
-	
-	<!--  로그인시 마이페이지 가기 -->
-<script type="text/javascript">
-window.onload = function() { 
-	var button = document.getElementById('myButton');
-	var button2 = document.getElementById('orderButton');
-
-//마이페이지	
-button.onclick = function() {
-	var id = "<%= sessionId%>";
-
-	if(id == ""){
-		swal({
-			  title : '잠시만!',
-			  text : '먼저 로그인을 해주세요!',
-			  type :'warning'
-	})
-		
-	}else{
-		location.href="mypage"
-	}
-	
-	}
-//접수하기
-button2.onclick = function() {
-	var id = "<%= sessionId%>";
-
-	if(id == ""){
-		swal({
-			  title : '잠깐!',
-			  text : '로그인 후 접수하실 수 있습니다.!',
-			  type :'warning'
-	})
-		
-	}else{
-		location.href="receipt"
-	}
-	
-	}
-
-
-}; 
-</script>
-	
-	
-	
 </body>
 
 </html>
