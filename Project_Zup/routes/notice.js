@@ -50,9 +50,6 @@ exports.edit = function(req, res){
 			})
 		}
 
-
-
-
 exports.editresult = function(req, res){
 	var body = req.body
 	client.query("update article" +
@@ -76,15 +73,6 @@ exports.delete = function(req, res){
 				res.redirect('notice');
 			})
 		}
-
-
-
-
-
-
-
-
-
 exports.notice = function(req, res){
 	console.log(req.session.user_id);
 	
@@ -177,6 +165,9 @@ exports.notice = function(req, res){
     		}
         }
 };
+
+
+
 
 
 

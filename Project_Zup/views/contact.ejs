@@ -3,264 +3,169 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>HTML Bootstrap Template</title>
-
+<title>Z U P : Contact us</title>
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- Bootstrap -->
 <link href="stylesheets/css/bootstrap.min.css" rel="stylesheet">
 <link href="stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<!-- <link href="stylesheets/css/animate.css" rel="stylesheet"> -->
-<!-- <link href="stylesheets/css/animate.min.css" rel="stylesheet"> -->
-<!-- <link href="stylesheets/css/style.css" rel="stylesheet" /> -->
 
-<style type="text/css">
-.logo {
-	width: 10%;
-	height: 10%;
+
+<style>
+body{
+    font-family: 'Oswald', sans-serif;
 }
 
-.inner {
-	white-space: nowrap;
+h2{
+    display:inline-block;
+}
+.btn{
+    margin: 4px;
+    box-shadow: 1px 1px 5px #888888;
 }
 
-img {
-	text-align: left;
+.btn-xs{
+    font-weight: 300;
+}
+   
+.btn-hot {
+color: #fff;
+background-color: #db5566;
+border-bottom:2px solid #af4451;
 }
 
-.btn-glyphicon {
-	padding: 8px;
-	background: #ffffff;
-	margin-right: 4px;
+.btn-hot:hover, .btn-sky.active:focus, .btn-hot:focus, .open>.dropdown-toggle.btn-hot {
+color: #fff;
+background-color: #df6a78;
+border-bottom:2px solid #b25560;
+outline: none;}
+
+
+.btn-hot:active, .btn-hot.active {
+color: #fff;
+background-color: #c04b59;
+border-top:2px solid #9a3c47;
+margin-top: 2px;
 }
 
-.icon-btn {
-	padding: 1px 15px 3px 2px;
-	border-radius: 50px;
+.btn-sunny {
+color: #fff;
+background-color: #f4ad49;
+border-bottom:2px solid #c38a3a;
 }
 
-.panel {
-	text-align: center;
-	/* background-color: green; */
-	margin-bottom: 50px;
+.btn-sunny:hover, .btn-sky.active:focus, .btn-sunny:focus, .open>.dropdown-toggle.btn-sunny {
+color: #fff;
+background-color: #f5b75f;
+border-bottom:2px solid #c4924c;
+outline: none;
 }
 
-table {
-	margin-bottom: 50px;
+
+.btn-sunny:active, .btn-sunny.active {
+color: #fff;
+background-color: #d69840;
+border-top:2px solid #ab7a33;
+margin-top: 2px;
 }
 
-.canceltext {
-	width: 90%;
+.btn-fresh {
+color: #fff;
+background-color: #51bf87;
+border-bottom:2px solid #41996c;
 }
 
-h3 {
-	color: #fff;
-	font-size: 24px;
-	text-align: center;
-	margin-top: 30px;
-	padding-bottom: 30px;
-	border-bottom: 1px solid #eee;
-	margin-bottom: 30px;
-	font-weight: 300;
+.btn-fresh:hover, .btn-sky.active:focus, .btn-fresh:focus, .open>.dropdown-toggle.btn-fresh {
+color: #fff;
+background-color: #66c796;
+border-bottom:2px solid #529f78;
+outline: none;
 }
 
-.container {
-	max-width: 970px;
+
+.btn-fresh:active, .btn-fresh.active {
+color: #fff;
+background-color: #47a877;
+border-top:2px solid #39865f;
+outline: none;
+outline-offset: none;
+margin-top: 2px;
 }
 
-div[class*='col-'] {
-	padding: 0 30px;
+.btn-sky {
+color: #fff;
+background-color: #0bacd3;
+border-bottom:2px solid #098aa9;
 }
 
-.wrap {
-	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px
-		rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-	border-radius: 4px;
+.btn-sky:hover,.btn-sky.active:focus, .btn-sky:focus, .open>.dropdown-toggle.btn-sky {
+color: #fff;
+background-color: #29b6d8;
+border-bottom:2px solid #2192ad;
+outline: none;
 }
 
-a:focus, a:hover, a:active {
-	outline: 0;
-	text-decoration: none;
+.btn-sky:active, .btn-sky.active {
+color: #fff;
+background-color: #0a97b9;
+border-top:2px solid #087994;
+outline-offset: none;
+margin-top: 2px;
 }
 
-.panel {
-	border-width: 0 0 1px 0;
-	border-style: solid;
-	border-color: #fff;
-	background: none;
-	box-shadow: none;
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+    outline: none;
+    outline-offset: 0px;
 }
 
-.panel:last-child {
-	border-bottom: none;
-}
+a {color:#fff;}
+a:hover {text-decoration:none; color:#fff;}
 
-.panel-group>.panel:first-child .panel-heading {
-	border-radius: 4px 4px 0 0;
-}
 
-.panel-group .panel {
-	border-radius: 0;
-}
 
-.panel-group .panel+.panel {
-	margin-top: 0;
-}
-
-.panel-heading {
-	background-color: #0072AE;
-	border-radius: 0;
-	border: none;
-	color: #fff;
-	padding: 0;
-}
-
-.panel-title a {
-	display: block;
-	color: #fff;
-	padding: 15px;
-	position: relative;
-	font-size: 22px;
-	font-weight: 400;
-}
-
-.panel-body {
-	background: #fff;
-}
-
-.panel:last-child .panel-body {
-	border-radius: 0 0 4px 4px;
-}
-
-.panel:last-child .panel-heading {
-	border-radius: 0 0 4px 4px;
-	transition: border-radius 0.3s linear 0.2s;
-}
-
-.panel:last-child .panel-heading.active {
-	border-radius: 0;
-	transition: border-radius linear 0s;
-}
-/* #bs-collapse icon scale option */
-.panel-heading a:before {
-	content: '\e146';
-	position: absolute;
-	font-family: 'Material Icons';
-	right: 5px;
-	top: 10px;
-	font-size: 24px;
-	transition: all 0.5s;
-	transform: scale(1);
-}
-
-.panel-heading.active a:before {
-	content: ' ';
-	transition: all 0.5s;
-	transform: scale(0);
-}
-
-#bs-collapse .panel-heading a:after {
-	content: ' ';
-	font-size: 24px;
-	position: absolute;
-	font-family: 'Material Icons';
-	right: 5px;
-	top: 10px;
-	transform: scale(0);
-	transition: all 0.5s;
-}
-
-#bs-collapse .panel-heading.active a:after {
-	content: '\e909';
-	transform: scale(1);
-	transition: all 0.5s;
-}
-/* #accordion rotate icon option */
-#accordion .panel-heading a:before {
-	content: '\e316';
-	font-size: 24px;
-	position: absolute;
-	font-family: 'Material Icons';
-	right: 5px;
-	top: 10px;
-	transform: rotate(180deg);
-	transition: all 0.5s;
-}
-
-#accordion .panel-heading.active a:before {
-	transform: rotate(0deg);
-	transition: all 0.5s;
 }
 </style>
 </head>
 <body>
+<div class="well text-center">
+			<button type="button" class="btn btn-hot text-uppercase"><a href="/notice">공지사항</a></button>
+            <button type="button" class="btn btn-sunny text-uppercase"><a href="/fnq">자주 묻는 질문</a></button>
+            <button type="button" class="btn btn-fresh text-uppercase"><a href="/contact">Contact us</a></button>
+            <button type="button" class="btn btn-sky text-uppercase"><a href="http://www.positiwitty.com/">Sky button</a></button>
+        </div>
 
-<br>
-<br>
-<br>
+<section id="contact" class="content-section text-center">
+        <div class="contact-section">
+            <div class="container">
+              <h2>Contact Us</h2>
+              <p>Feel free to shout us by feeling the contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="exampleInputName2">Name</label>
+                      <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail2">Email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                    </div>
+                    <div class="form-group ">
+                      <label for="exampleInputText">Your Message</label>
+                     <textarea  class="form-control" placeholder="Description" style="height:200px;"></textarea> 
+                    </div>
+                    <button type="submit" class="btn btn-default">Send Message</button>
+                  </form>
 
-<!-- service 헤어부분 -->
- 
-  <div class="container">
-    <img src="/stylesheets/img/logo.png" class="logo">
-    <h2>고객센터</h2>
-    <hr>
-<!-- service헤더부분 끝 -->	
-
-<br>
-
-<div class="container" style="text-align: center; margin-bottom: 50px">
-    <a class="btn icon-btn btn-info" href="notice"><span
-      class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
-    <a class="btn icon-btn btn-warning" href="fnq"><span
-      class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는
-      질문</a> <a class="btn icon-btn btn-danger" href="contact"><span
-      class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact
-      us</a>
-  </div>
-  
-  
-<br>
-<br>
-
-
-
-
-	<section class="contact-page">
-		<div class="container">
-			<div class="text-center">
-				<h2>Contact Us</h2>
-			</div>
-			<div class="row contact-wrap">
-				<div class="col-md-6 col-md-offset-3">
-					
-
-						<div class="form-group">
-							<input type="text" class="form-control" name="subject"
-								id="subject" placeholder="제목" data-rule="minlen:4"
-								data-msg="Please enter at least 8 chars of subject" />
-							<div class="validation"></div>
-						</div>
-						<div class="form-group">
-							<textarea class="form-control" name="message" rows="15"
-								data-rule="required" data-msg="Please write something for us"
-								placeholder="내용입력" style='resize: none'></textarea>
-							<div class="validation"></div>
-						</div>
-
-						<div class="text-center">
-							<button type="submit" name="submit"
-								class="btn btn-primary btn-lg">전송</button>
-							<button type="cancel" name="cancel"
-								class="btn btn-primary btn-lg">취소</button>
-						</div>
-
-				</div>
-			</div>
-
-			<!--/.row-->
-		</div>
-		<!--/.container-->
-	</section>
-	<!--/#contact-page-->
+                  <hr>
+                   
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
 
 
 </body>
