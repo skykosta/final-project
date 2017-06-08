@@ -1,76 +1,71 @@
   
 <head>
-	
-	<title>마이페이지</title>
-  	<!-- Text encoded as UTF-8 -->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		
-	<!-- bootstrap -->
-	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" id="default">
+  
+  <title>마이페이지</title>
+    <!-- Text encoded as UTF-8 -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+  <!-- bootstrap -->
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" id="default">
   <link href="/stylesheets/css/mypage.css" rel="stylesheet" id="default">
 </head>
 
 <!-- body 시작 -->
   <body class="bootstrap"  >
-		
- <% data.forEach(function(item, index){ %>
-		
-			<!--#INCLUDE VIRTUAL="TopNavInclude.asp" -->
-			
+    
+      
+      <div class="container">
+      
+        <div class="col-md-12"> 
+            
+          <div class="panel panel-default panel-fade">
+          
+            <div class="panel-heading">
+             
+              <span class="panel-title">
+              
+                <div class="pull-left">
+                
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#point" data-toggle="tab"><i class="glyphicon glyphicon-print"></i> 회수내역 및 적립금 관리</a></li>
+                  <li><a href="#modify" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> 나의 정보수정</a></li>
+                </ul>
+                  
+                </div>
+                
+                <div class="btn-group pull-right">
+                  <div class="btn-group">
+                    <a href="#" class="btn  dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action 1</a></li>
+                      <li><a href="#">Action 2</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Another Action</a></li>
+                    </ul>
+                  </div>
+                </div>
 
-			
-			<div class="container">
-			
-				<div class="col-md-12"> 
-						
-					<div class="panel panel-default panel-fade">
-					
-						<div class="panel-heading">
-					   
-							<span class="panel-title">
-							
-								<div class="pull-left">
-								
-								<ul class="nav nav-tabs">
-									<li class="active"><a href="#point" data-toggle="tab"><i class="glyphicon glyphicon-print"></i> 회수내역 및 적립금 관리</a></li>
-									<li><a href="#modify" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> 나의 정보수정</a></li>
-								</ul>
-									
-								</div>
-								
-								<div class="btn-group pull-right">
-									<div class="btn-group">
-										<a href="#" class="btn  dropdown-toggle" data-toggle="dropdown">
-											<span class="glyphicon glyphicon-cog"></span>
-										</a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="#">Action 1</a></li>
-											<li><a href="#">Action 2</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Another Action</a></li>
-										</ul>
-									</div>
-								</div>
+                <div class="clearfix"></div>
 
-								<div class="clearfix"></div>
+              </span>
+              
+            </div>
 
-							</span>
-							
-						</div>
-
-						<div class="panel-body">
+            <div class="panel-body">
                         
-                            		
-							<div class="tab-content">
-							
-							
-							
-						
+                                
+              <div class="tab-content">
+              
+              
+              
+            
 
-		
+    
                <div class="tab-pane fade in active" id="point">
-								 <FORM ACTION="" METHOD="post">
-									<INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
+                 <FORM ACTION="" METHOD="post">
+                  <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
                   
          <!-- 사이드 메뉴 -->      
           <div class="col-md-2 sidebar">
@@ -85,12 +80,12 @@
                   
                      <div class="panel-heading">
                         <i class="fa fa-desktop"></i>
-                            <h3 style="text-align:center"><%= item.user_name %>님</h3>
+                            <h3 style="text-align:center"><%= user[0].user_name %>님</h3>
                      </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i>현재 적립금 <br /><strong> $<%= item.zupmoney %></strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 : <strong><%= item.user_bankname %></strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong><%= item.user_banknum %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i>현재 적립금 <br /><strong> $<%= user[0].zupmoney %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 : <strong><%= user[0].user_bankname %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong><%= user[0].user_banknum %></strong></li>
                         </ul>
                         <div class="panel-footer">
                             <input type="TEXT" class="form-control" id="withdrawal_amount" name="withdrawal_amount" placeholder="환전 금액 입력"> <br>
@@ -115,8 +110,8 @@
           <div class="modal-body">
           <div class="form-group col-md-8">
               <label for="withdrawal_money">현금으로 환전할 금액 : <span id='money'></span>원</label> <br/>
-              <label for="user_bank">은행명 : <%= item.user_bankname %></label> <br/>
-              <label for="user_bankNum">계좌번호 : <%= item.user_banknum %></label> <br/><br/><br/>
+              <label for="user_bank">은행명 : <%= user[0].user_bankname %></label> <br/>
+              <label for="user_bankNum">계좌번호 : <%= user[0].user_banknum %></label> <br/><br/><br/>
               
               <p>출금하시겠습니까???</p>
           </div>
@@ -142,190 +137,99 @@
                   
 <!-- 회수 내역 및 적립금 테이블 생성 -->
   <div class="col-md-10">
-      	<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="pull-right">
-							<div class="btn-group">
-							    <button type="button" class="btn btn-default btn-filter" data-target="all">ALL</button>
-								<button type="button" class="btn btn-success btn-filter" data-target="use">사용</button>
-								<button type="button" class="btn btn-warning btn-filter" data-target="get">적립</button>
-								<button type="button" class="btn btn-danger btn-filter" data-target="wait">대기</button>
-								
-							</div>
-						</div>
-						<div class="table-container">
-							<table class="table table-filter">
-								<tbody>
-									<tr data-status="use">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox1">
-												<label for="checkbox1"></label>
-											</div>
-										</td>
-										<td>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="pull-right">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-filter" data-target="all">ALL</button>
+                <button type="button" class="btn btn-success btn-filter" data-target="사용">사용</button>
+                <button type="button" class="btn btn-warning btn-filter" data-target="적립">적립</button>
+                <button type="button" class="btn btn-danger btn-filter" data-target="대기">대기</button>
+                
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="table table-filter">
+                <tbody>
+                  <% log.forEach(function(item, index){%>
+                  <tr data-status="<%=log[index].logtype%>">
+                    <td>
+                      <div class="ckbox">
+                        <input type="checkbox" id="checkbox1">
+                        <label for="checkbox1"></label>
+                      </div>
+                    </td>
+                    <td>
                     <a href="javascript:;" class="star">
                         <i class="glyphicon glyphicon-star"></i>
                       </a>
-										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<span class="media-meta pull-right"><button type="submit" class="btn btn-default" id="deletepointBTN">내역삭제</button></span>
-													<h4 class="title">
-														사용
-														<span class="pull-right use">2017.05.14</span>
-													</h4>
-													<p class="summary"><%= item.status %> : 000원</p>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="get">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox3">
-												<label for="checkbox3"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-                          <span class="media-meta pull-right"><button type="submit" class="btn btn-default">내역삭제</button></span>
-													<h4 class="title">
-													   적립
-														<span class="pull-right get">2017.05.14</span>
-													</h4>
-													<p class="summary">소주 1병, 맥주 3병 : 000원</p>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="wait">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox2">
-												<label for="checkbox2"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<span class="media-meta pull-right"><button type="submit" class="btn btn-default">내역삭제</button></span>
-													<h4 class="title">
-														대기
-														<span class="pull-right wait">2017.05.14</span>
-													</h4>
-													<p class="summary">소주 1병, 맥주 3병 : 000원</p>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="use" class="selected">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox4" checked>
-												<label for="checkbox4"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star star-checked">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<span class="media-meta pull-right"><button type="submit" class="btn btn-default">내역삭제</button></span>
-													<h4 class="title">
-														사용
-														<span class="pull-right use">2017.05.14</span>
-													</h4>
-													<p class="summary">소주 1병, 맥주 3병 : 000원</p>
-												</div>
-											</div>
-										</td>
-									</tr>
-									<tr data-status="get">
-										<td>
-											<div class="ckbox">
-												<input type="checkbox" id="checkbox5">
-												<label for="checkbox5"></label>
-											</div>
-										</td>
-										<td>
-											<a href="javascript:;" class="star">
-												<i class="glyphicon glyphicon-star"></i>
-											</a>
-										</td>
-										<td>
-											<div class="media">
-												<div class="media-body">
-													<span class="media-meta pull-right"><button type="submit" class="btn btn-default">내역삭제</button></span>
-													<h4 class="title">
-														적립
-														<span class="pull-right get">2017.05.14</span>
-													</h4>
-													<p class="summary">소주 1병, 맥주 3병 : 000원</p>
-												</div>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+                    </td>
+                    <td>
+                      <div class="media">
+                        <div class="media-body">
+                          <span class="media-meta pull-right"><button type="submit" class="btn btn-default" id="deletepointBTN">내역삭제</button></span>
+                          <h4 class="title">
+                            <%=log[index].logtype%>
+                            <span class="pull-right use"><%=log[index].logdata%></span>
+                          </h4>
+                          <p class="summary"><%= log[index].status %> : 
+                          <% if(log[index].content != '회수예정'){%>
+                          <%= log[index].content %>
+                          <%} else {%>
+                          <%= log[index].content%>
+                          <%}%>
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <%});%>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
   </div>
 <!-- /회수 내역 및 적립금 테이블 생성 -->  
-								</FORM>
-								</div>
+                </FORM>
+                </div>
                 
                 
-        <!-- 나의 정보수정 -->			
-				<div class="tab-pane fade" id="modify">
-									<INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
-									<article class="container">
+        <!-- 나의 정보수정 -->      
+        <div class="tab-pane fade" id="modify">
+                  <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
+                  <article class="container">
 
         <div class="col-md-6 col-md-offset-3">
           <form role="form" METHOD="post">
-            <input type="hidden" name="user_num" value="1">
+            <input type="hidden" name="user_num" value="2">
             <div class="form-group col-md-12">
               <label for="user_pw1">비밀번호</label>
-              <input type="password" class="form-control" id="inputPassword" name="inputPassword" value='<%= item.user_pw %>'>
+              <input type="password" class="form-control" id="inputPassword" name="inputPassword" value='<%= user[0].user_pw %>'>
             </div>
             <div class="form-group col-md-12">
               <label for="user_pw2">비밀번호 확인</label>
-              <input type="password" class="form-control" id="inputPassword2"  name="inputPassword2" value="<%= item.user_pw %>">
+              <input type="password" class="form-control" id="inputPassword2"  name="inputPassword2" value="<%= user[0].user_pw %>">
               <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
             </div>
             <div class="form-group col-md-12">
               <label for="user_email">이메일</label>
-              <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<%= item.user_email %>">
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<%= user[0].user_email %>">
             </div>
             <div class="form-group col-md-8">
               <label for="user_address">주소</label>
-              <input type="text" class="form-control" id="address_base" name="address_base" value="<%= item.user_address %>">
+              <input type="text" class="form-control" id="address_base" name="address_base" value="<%= user[0].user_address %>">
             </div>
             <div class="form-group col-md-4" style="padding-top: 25px;">
              <button type="submit" class="btn btn-default">주소찾기<i class="fa fa-check spaceLeft"></i></button>
-            </div>	
+            </div>  
             <div class="form-group col-md-12">
               <input type="text" class="form-control" id="address_detail" name="address_detail" placeholder="상세주소 커몬">
             </div>
             <div class="form-group col-md-12">
               <label for="user_phoneNum">핸드폰 번호</label>
-              <input type="text" class="form-control" id="inputNumber" name="inputNumber" value='<%= item.user_phonenum %>'>
+              <input type="text" class="form-control" id="inputNumber" name="inputNumber" value='<%= user[0].user_phonenum %>'>
             </div>
             <div class="form-group col-md-12">
               <label for="user_bank">은행명</label>
@@ -337,7 +241,7 @@
             </div>
             <div class="form-group col-md-12">
               <label for="user_bankNum">계좌번호</label>
-              <input type="text" class="form-control" id="inputAccount" name="inputAccount" value="<%= item.user_banknum %>">
+              <input type="text" class="form-control" id="inputAccount" name="inputAccount" value="<%= user[0].user_banknum %>">
             </div>
          
             <div class="form-group text-center col-md-12">
@@ -345,7 +249,7 @@
               <button type="button" class="btn btn-default">수정취소<i class="fa fa-times spaceLeft"></i></button>
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#dropMember">회원탈퇴<i class="fa fa-times spaceLeft"></i></button>
             </div>
-            
+             </form>
       <!-- Modal -->
       <div id="dropMember" class="modal fade" role="dialog">
        <div class="modal-dialog">
@@ -356,117 +260,121 @@
            <button type="button" class="close" data-dismiss="modal">×</button>
            <h4 class="modal-title">회원 탈퇴</h4>
           </div>
+          <form action="/drop" method="get" >
           <div class="modal-body">
-      	   <p>정말로 탈퇴하시겠습니까?</p>
+           <p>정말로 탈퇴하시겠습니까?</p>
         
             <div class="form-group col-md-8">
               <label for="user_pw1">비밀번호</label>
-              <input type="password" class="form-control" id="user_pw1" placeholder="*******">
+              <input type="password" class="form-control" id="user_pw1" name="user_pw1" placeholder="숫자, 문자포함 6~12자리">
+              <div id="passwd_display" style="color: RED"></div>
             </div>
             <div class="form-group col-md-8">
               <label for="user_pw2">비밀번호 확인</label>
-              <input type="password" class="form-control" id="user_pw2" placeholder="*******">
-              <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+              <input type="password" class="form-control" id="user_pw2" name="user_pw2" placeholder="비밀번호를 한번 더 입력해주세요.">
+              <div id="passwdCheck_display" style="color: RED"></div>
             </div>
          </div>
          <div class="modal-footer" style="margin-top: 150px;">
-           <button type="button" class="btn btn-default" data-dismiss="modal" id="ok">확인</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal" >확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
+         </form>
        </div>
 
      </div>
-    </div>
+    </div> 
     <!-- /Modal --> 
-        <% }); %>
-        </form>
+       
           <hr>
         </div>
       </article>
-								</div>
-	  <!-- /나의 정보수정 --> 
+                </div>
+    <!-- /나의 정보수정 --> 
     
-							</div>
-							
-						</div>
+              </div>
+              
+            </div>
 
-					</div>
-						
-				</div>
-						
-			</div>
-			
+          </div>
+            
+        </div>
+            
+      </div>
+      
 
-			
-			<footer>
-			
-				<!--#INCLUDE VIRTUAL="FooterInclude.asp"--> 
-				
-				<script src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript" ></script>
-				<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-				<script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js" type="text/javascript"></script>
+      
+      <footer>
+      
+        <!--#INCLUDE VIRTUAL="FooterInclude.asp"--> 
+        
+        <script src="https://code.jquery.com/jquery-1.9.1.js" ></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
         <script src="/stylesheets/js/mypage.js"></script>
-				
-				<script>
+        
+        <script>
 $('a.btn.btn-default').hover(function(e) {
 $('a.btn.dropdown-toggle').trigger(e.type);
 })
-				</script>
+
+var user_pw1 = $('#user_pw1').val();
+        </script>
         
-        				
-				<script type="text/javascript">
-				$(".display-fade").delay(25).animate({"opacity": "1"}, 800);
-				$(".table-fade").delay(25).animate({"opacity": "1"}, 800);
-				</script>
-				
-				<script type="text/javascript">
-				var def="black";
-				function showNotification(color)
-				{
-					$( "#notification" ).removeClass(def);
-					$( "#notification" ).addClass(color);
-					def=color;
-					$( "#notification" ).fadeIn( "slow" );
-					//alert('hi');
-					$(".win8-notif-button").click(function()
-					{
-					//alert('hi');
-					$(".notification").fadeOut("slow");
-					});
-				
-				}
-				
-	$(function() {
-					
-					$('#moneychangeBTN').on('click', function() {
-						var change_zupmoney = $('#withdrawal_amount').val();
-						$('#money').html(change_zupmoney);
-					
-					});
-					
-				});
-	
-	//은행 표시 하기
- 	$('#inputBank').val('<%=data[0].user_bankname%>');
-	 
-				</script>
+                
+        <script type="text/javascript">
+        $(".display-fade").delay(25).animate({"opacity": "1"}, 800);
+        $(".table-fade").delay(25).animate({"opacity": "1"}, 800);
+        </script>
+        
+        <script type="text/javascript">
+        var def="black";
+        function showNotification(color)
+        {
+          $( "#notification" ).removeClass(def);
+          $( "#notification" ).addClass(color);
+          def=color;
+          $( "#notification" ).fadeIn( "slow" );
+          //alert('hi');
+          $(".win8-notif-button").click(function()
+          {
+          //alert('hi');
+          $(".notification").fadeOut("slow");
+          });
+        
+        }
+        
+  $(function() {
+          
+          $('#moneychangeBTN').on('click', function() {
+            var change_zupmoney = $('#withdrawal_amount').val();
+            $('#money').html(change_zupmoney);
+          
+          });
+          
+        });
+  
+  //은행 표시 하기
+  $('#inputBank').val('<%=user[0].user_bankname%>');
+  
+        </script>
         
         
         <!-- 유효성 검사 -->
   <script type="text/javascript">
 
 
-	$(function() {
-		
-		$('#moneychangeBTN').on('click', function() {
-			 if($("#withdrawal_amount").val() === ""){
-				    alert("금액을 입력해주세요.");
-				    return false;
-				  }
-		
-		});
-		
-	});
+  $(function() {
+    
+    $('#moneychangeBTN').on('click', function() {
+       if($("#withdrawal_amount").val() === ""){
+            alert("금액을 입력해주세요.");
+            return false;
+          }
+    
+    });
+    
+  });
             //실시간 이벤트 처리
       var withdrawal_amount = document.getElementById("withdrawal_amount");
       withdrawal_amount.onkeyup = function() {
@@ -487,10 +395,27 @@ $('a.btn.dropdown-toggle').trigger(e.type);
         }
       } 
       
+    var pw = document.getElementById("user_pw1");
+		var pwCheck = document.getElementById("user_pw2");
+		pwCheck.onkeyup = function() {
+			valid_passwdCheck(pw, pwCheck);
+		}
+   
+		// 비밀번호가 동일한지 검사
+		function valid_passwdCheck(pw, pwCheck) {
+
+			if (pw.value != pwCheck.value) {
+				$("#passwdCheck_display").html("Password가 서로 다릅니다.");
+				return false;
+			} else {
+				$("#passwdCheck_display").html("Password가 동일합니다..");
+				return true;
+			}
+		}   
       
 </script>
-				
-			</footer>
+        
+      </footer>
 
-		</body>
-		
+    </body>
+    
