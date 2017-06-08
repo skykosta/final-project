@@ -55,38 +55,46 @@ exports.mypage_change = function(req, res){
 
 	};
 	
-exports.drop = function(req, res){
-	var bodyff = req.body;
-	 console.log("========회원 탈퇴 바디========");
-	 console.log(bodyff);
-	 console.log("========회원 탈퇴 비밀번호========");
-	 console.log(bodyff.user_pw1);
-	
-	var user_id = req.session.user_id;
-	var user_pw = bodyff.user_pw1;
-	 
-	 console.log("========회원 탈퇴 요청 정보========");
-	 console.log(user_id);
-	 console.log(user_pw);
-	 
-	 client.query('select count(*) cnt from user where user_id=? and user_pw=?', [req.params.user_id, user_pw], function(err, result){
-			//res.render('index', {data: result});
-			console.log('탈퇴 결과값');
-			console.log(result);
-			console.log('카운터값! ');
-			var cnt = result[0].cnt;
-			
-			console.log(cnt);
-			
-			if(cnt === 1){
-				console.log(req.session.user_id);
-				console.log('탈퇴 완료');
-			}else{
-				console.log('탈퇴 실패');
-			}
-			
+	exports.delete = function (req, res){
+		console.log('===================================');
+		client.query('delete from userlog where userlog_num = ?', [req.params.userlog_num], function(){
+			res.redirect('/mypage');
 		});
-};
+		
+	};
+		
+	exports.drop = function(req, res){
+		 console.log("========회원 탈퇴 바디========");
+		 console.log("========회원 탈퇴 비밀번호========");
+		
+		 var user_id = req.session.user_id;
+		 var user_pw = req.params.user;
+		 console.log("========회원 탈퇴 요청 정보========");
+		 console.log(user_id);
+		 console.log(req.params.user);
+		 
+		 client.query('select count(*) cnt from user where user_id=? and user_pw=?', [user_id, user_pw], function(err, result){
+				//res.render('index', {data: result});
+				console.log('탈퇴 결과값');
+				console.log(result);
+				console.log('카운터값! ');
+				var cnt = result[0].cnt;
+				
+				console.log(cnt);
+				
+				if(cnt === 1){
+					client.query('update user set ismember = "N" where user_id=? and user_pw=?', [user_id, user_pw]);
+					console.log(req.session.user_id);
+					console.log('탈퇴 완료');
+				}else{
+					console.log('탈퇴 실패');
+				}
+				
+			});
+		 
+		 res.redirect('/');
+		 
+	};
 	
 	
 	
