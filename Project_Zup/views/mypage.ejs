@@ -2,7 +2,7 @@
 <!-- body 시작 -->
       
       
-      <div class="container">
+      <div class="container" style="margin-top:130px">
       
         <div class="col-md-12"> 
             
@@ -244,7 +244,6 @@
            <button type="button" class="close" data-dismiss="modal">×</button>
            <h4 class="modal-title">회원 탈퇴</h4>
           </div>
-          <form action="/drop" method="get" >
           <div class="modal-body">
            <p>정말로 탈퇴하시겠습니까?</p>
         
@@ -260,10 +259,9 @@
             </div>
          </div>
          <div class="modal-footer" style="margin-top: 150px;">
-           <button type="button" class="btn btn-default" data-dismiss="modal" >확인</button>
+           <button type="button" class="btn btn-default Unregist">확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
-         </form>
        </div>
 
      </div>
@@ -302,6 +300,14 @@ $('a.btn.dropdown-toggle').trigger(e.type);
 })
 
 var user_pw1 = $('#user_pw1').val();
+
+				$('.Unregist').on('click', function(){
+					var user = $('#user_pw1').val();
+					$('#user_pw1').val('');
+					$('#user_pw2').val('');
+					$('#dropMember').modal('hide');
+					location.href = "/drop/"+user;
+				});
         </script>
         
                 
