@@ -1,7 +1,69 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.logo {
+	width: 10%;
+	height: 10%;
+}
 
+.inner {
+	white-space: nowrap;
+}
+
+img {
+	text-align: left;
+}
+
+.btn-glyphicon {
+	padding: 8px;
+	background: #ffffff;
+	margin-right: 4px;
+}
+
+.icon-btn {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.panel {
+	text-align: center;
+	/* background-color: green; */
+	margin-bottom: 50px;
+}
+
+table {
+	margin-bottom: 50px;
+}
+
+.canceltext {
+	width: 90%;
+}
+.modal-title{
+	width: 100%;
+}
+</style>
+<title>ZUP_관리자페이지</title>
+</head>
+<body>
     <% include header.ejs %>
-
+  <div class="container" style="text-align: center; margin-bottom: 50px">
+  <%if(userid=="admin"){%>
+  	<button type="button" class="btn icon-btn btn-success" data-toggle="modal" data-target="#noticeadd"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success" ></span>공지사항등록</button>
+  <%}%>
+  
+  <a class="btn icon-btn btn-info" href="notice"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
+  <a class="btn icon-btn btn-warning" href="fnq"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는 질문</a>
+  <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact us</a>
+  </div>
 <!-- Contact Section -->
     <section id="contact">
         <div class="container">
