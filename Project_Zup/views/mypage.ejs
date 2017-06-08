@@ -151,7 +151,7 @@
                     <td>
                       <div class="media">
                         <div class="media-body">
-                          <span class="media-meta pull-right"><button type="submit" class="btn btn-default" id="deletepointBTN">내역삭제</button></span>
+                          <span class="media-meta pull-right"><button type="submit" class="btn btn-default" id="deletepointBTN" onclick = "location.href = '/delete/<%=log[index].userlog_num %>' ">내역삭제</button></span>
                           <h4 class="title">
                             <%=log[index].logtype%>
                             <span class="pull-right use"><%=log[index].logdata%></span>
@@ -244,7 +244,6 @@
            <button type="button" class="close" data-dismiss="modal">×</button>
            <h4 class="modal-title">회원 탈퇴</h4>
           </div>
-          <form action="/drop" method="get" >
           <div class="modal-body">
            <p>정말로 탈퇴하시겠습니까?</p>
         
@@ -260,10 +259,9 @@
             </div>
          </div>
          <div class="modal-footer" style="margin-top: 150px;">
-           <button type="button" class="btn btn-default" data-dismiss="modal" >확인</button>
+           <button type="button" class="btn btn-default Unregist">확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
-         </form>
        </div>
 
      </div>
@@ -302,6 +300,14 @@ $('a.btn.dropdown-toggle').trigger(e.type);
 })
 
 var user_pw1 = $('#user_pw1').val();
+
+				$('.Unregist').on('click', function(){
+					var user = $('#user_pw1').val();
+					$('#user_pw1').val('');
+					$('#user_pw2').val('');
+					$('#dropMember').modal('hide');
+					location.href = "/drop/"+user;
+				});
         </script>
         
                 

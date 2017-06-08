@@ -113,6 +113,8 @@ app.get('/test', function(request, response) {
 /*마이페이지*/
 app.get('/mypage', mypage.mypage);
 app.post('/mypage', mypage.mypage_change);
+app.get('/drop/:user', mypage.drop);
+app.get('/delete/:userlog_num', mypage.delete);
 /* 인트로 화면 */
 app.get('/intro',intro.intro);
 /*회원 관련*/
