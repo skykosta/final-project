@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>ZUP_메인</title>
-
+ <!-- Text encoded as UTF-8 -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ZUP - 빈병수거접수</title>
     <!-- Bootstrap Core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,13 +22,13 @@
 
     <!-- Theme CSS -->
     <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
-
 </head>
 
 
+
+
 <body id="page-top" class="index">
-<div style="margin-top:150px;">
-		<!-- Navigation -->
+    <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,7 +36,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/" style="font-size: 50px;"> Z U P </a>
+                <a class="navbar-brand page-scroll" href="/" style="font-size: 70px;"> Z U P </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,25 +45,83 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#introduce">회사소개</a>
+                    
+<!-- 로그인시 페이지 변화 -->
+				    
+				    <li>
+				    <%if(sessionId == null){%>
+				    </li>
+				    <li>
+                        <a class="page-scroll" href="/#introduce">회사소개</a>
+                    </li>
+				    <li>
+					    <a href="login">로그인</a> 
+				    </li>
+				    <li>  
+				        <a href="agree">회원가입</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/mypage">마이페이지</a>
+                        <a href="#" id="myButton">마이페이지</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/notice">고객센터</a>
+                        <a href="notice">고객센터</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/regist">회원가입</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/login">로그인</a>
-                    </li>
-                </ul>
+					<li>
+					</ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    </div>
+
+                  
+					<% }else if(sessionId == 'admin'){ %>
+					<li>
+					<a> 
+					<%=sessionId%>님 로그인
+					</a>
+					</li>
+  <li><a class="page-scroll" href="/#introduce">회사소개</a></li>
+  <li>
+					<a href="user">관리자페이지</a>
+                    </li>
+                   
+                    <li>
+                        <a href="notice">고객센터</a>
+                    </li>
+					<li>
+					<a href="logout">로그아웃</a>
+					</li>
+					
+                    
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+ 
+					<%}else if(sessionId != null && sessionId != 'admin'){%>
+					<li>
+					<a><%=sessionId%>님 로그인중...</a>
+					</li>
+					<li>
+                        <a href="mypage">마이페이지</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#introduce">회사소개</a>
+                    </li>
+                    <li>
+                        <a href="notice">고객센터</a>
+                    </li>
+                    <li>
+					<a href="logout">로그아웃</a>
+					</li> 
+                    </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+   
+					<%};%>

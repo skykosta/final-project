@@ -33,7 +33,8 @@ exports.mypage = function(req, res){
 			  }else{
 				  res.render('mypage', {
 					  user : user,
-					  log : log
+					  log : log,
+					  sessionId: req.session.user_id
 				  });
 			  }
 		  });

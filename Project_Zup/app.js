@@ -7,6 +7,7 @@ var express = require('express')
 , user = require('./routes/user')
 , test = require('./routes/test')
 , chatserver = require('./routes/chatserver')
+, header = require('./routes/header')
 
 /* FireBase - 동준*/
 , request = require('request')
@@ -172,11 +173,7 @@ app.get('/contact', notice.contact)//Contact us
 
 
 /**헤더*/
-app.get('/header', function(request, response){
-	fs.readFile('views/header.ejs', 'utf8', function(error, data){
-		response.send(ejs.render(data));
-	});
-});
+app.get('/header', header.header);
 
 
 
