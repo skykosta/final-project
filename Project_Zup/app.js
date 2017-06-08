@@ -127,6 +127,8 @@ app.post('/idcheck', idcheck.idcheck2);
 app.get('/pwcheck', pwcheck.pwcheck);
 app.post('/pwcheck', pwcheck.pwcheck2);
 app.post('/newpw', newpw.newpw);
+app.get('/idCheckConfirm', regist.idCheckConfirm);
+app.post('/idCheckConfirm', regist.idCheckConfirm2);
 app.post('/idresult', idcheck.idresult);
 app.post('/pwresult', pwcheck.pwresult);
 //약관 동의

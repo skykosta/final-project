@@ -1,104 +1,38 @@
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  
-  <script src="/stylesheets/js/morris.js"></script>
-  <script src="/stylesheets/js/sample.js"></script>
-  <link rel="stylesheet" href="/stylesheets/css/example.css">
-  <link rel="stylesheet" href="/stylesheets/css/morris.css">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
-  
-  <style type="text/css">
-  .logo {
-  width: 10%;
-  height: 10%;
-}
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {'packages': ['geochart']});
+     google.charts.setOnLoadCallback(drawMarkersMap);
 
-.inner {
-  white-space: nowrap;
-}
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country',   'Population', 'Area Percentage'],
+        ['France',  65700000, 50],
+        ['Germany', 81890000, 27],
+        ['Poland',  38540000, 23],
+        ['Oaska',  38540000, 23],
+        ['Masan',  38540000, 23],
+        ['China',  38540000, 23],
+        ['China',  38540000, 23]
+        
+      ]);
 
-img {
-  text-align: left;
-}
+      var options = {
+        sizeAxis: { minValue: 0, maxValue: 100 },
+        region: '155', // Western Europe
+        displayMode: 'markers',
+        colorAxis: {colors: ['#e7711c', '#4374e0']} // orange to blue
+      };
 
-.btn-glyphicon {
-  padding: 8px;
-  background: #ffffff;
-  margin-right: 4px;
-}
-
-.icon-btn {
-  padding: 1px 15px 3px 2px;
-  border-radius: 50px;
-}
-
-.panel {
-  text-align: center;
-  /* background-color: green; */
-  margin-bottom: 50px;
-}
-
-table {
-  margin-bottom: 50px;
-}
-
-.canceltext {
-  width: 90%;
-}
-  #code{
-    display: none;
-  }
-
-  </style>
-</head>
-<body>
-
-<div class="container">
-    <img src="/stylesheets/img/logo.png" class="logo">
-    <h2>관리자페이지</h2>
-    <hr>
-
-</div>
-<div class="container" style="text-align: center; margin-bottom: 50px">
-    <a class="btn icon-btn btn-success" href="order"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>접수관리</a>
-    <a class="btn icon-btn btn-info" href="orderresult"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>회수관리</a>
-    <a class="btn icon-btn btn-warning" href="user"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>회원관리</a>
-    <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>회수현황</a>
-</div>
-
-
-  <div class="container">
-    <div id="graph"></div>
-<pre id="code" class="prettyprint linenums">
-<!-- // Use Morris.Bar -->
-Morris.Bar({
-  element: 'graph',
-  data: [
-    {x: '동작구', 음료수: 1000, 맥주: 2000, 소주: 7000},
-    {x: '금천구', 음료수: 1500, 맥주: 5000, 소주: 8000},
-    {x: '사상구', 음료수: 1000, 맥주: 2000, 소주: 9000},
-    {x: '그리구', 음료수: 2000, 맥주: 2000, 소주: 12000}
-  ],
-  xkey: 'x',
-  ykeys: ['음료수', '맥주', '소주'],
-  labels: ['음료수', '맥주', '소주'],
-  stacked: true
-});
-</pre>
-  </div>
-
-
-
-</body>
-
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI"></script>
+  </body>
+</html>
 

@@ -29,5 +29,28 @@ exports.regist2 = function(req, res){
   });
 };
 
+exports.idCheckConfirm = function(req, res){
+	res.render('idCheckConfirm');
+};
+
+exports.idCheckConfirm2 = function(req, res){
+	var id = req.param.id;
+	
+	  client.query('select user_id from user where user_id = ?',[id],
+			   function(error, results){
+		  if(results){
+			  res.rander('idCheckConfirm', {
+					data: "입력"
+			  });
+		  }else{
+			  res.rander('idCheckConfirm', {
+					data: "꺼져"
+			  });
+		  }
+		  
+		  
+	  });
+	};
+
 
 

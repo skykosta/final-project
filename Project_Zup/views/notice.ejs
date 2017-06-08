@@ -58,7 +58,10 @@ table {
 
   </div>
   <div class="container" style="text-align: center; margin-bottom: 50px">
-  <button type="button" class="btn icon-btn btn-success" data-toggle="modal" data-target="#noticeadd"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success" ></span>공지사항등록</button>
+  <%if(userid=="admin"){%>
+  	<button type="button" class="btn icon-btn btn-success" data-toggle="modal" data-target="#noticeadd"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success" ></span>공지사항등록</button>
+  <%}%>
+  
   <a class="btn icon-btn btn-info" href="notice"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
   <a class="btn icon-btn btn-warning" href="fnq"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는 질문</a>
   <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact us</a>
@@ -119,10 +122,12 @@ table {
                 </div>
                 <form method="post">
                 <div class="modal-body">
-                  <h4 class="modal-title"><%=item.article_content %></h4>
-                  <input type="hidden" name="article_num" value="<%=item.article_num%>"> 
+                  <pre class="modal-title"><%=item.article_content %></pre>
+                  <input type="hidden" name="article_num" value="<%=item.article_num%>">
+                  <%if(userid=="admin"){%> 
                   <button type="button" class="btn btn-primary" onclick="location.href='noticeedit?article_num=<%=item.article_num%>'">수정</button>
                   <button type="button" class="btn btn-danger" onclick="location.href='noticedelete?article_num=<%=item.article_num%>'">삭제</button>
+                  <%}%>
                 </div>
                 </form>
                 <div class="modal-footer">
@@ -140,7 +145,7 @@ table {
           <% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/notice1?page=1">&laquo;</a></li>
+			      <li><a href="/notice?page=1">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -153,14 +158,14 @@ table {
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/notice1?page=<%= i %>"><%= i %></a></li>
+			        <li><a href="/notice?page=<%= i %>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/notice1?page=<%= pageCount %>">&raquo;</a></li>
+			      <li><a href="/notice?page=<%= pageCount %>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
@@ -170,7 +175,7 @@ table {
          	<% if (pageCount > 1) { %>  
 			<ul class="pagination">  
 			  <% if (currentPage > 1) { %>
-			      <li><a href="/notice1?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+			      <li><a href="/notice?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
 			  <% } %>
 			  <% var i = 1;
 			  if (currentPage > 5) {
@@ -183,14 +188,14 @@ table {
 			    <% if (currentPage == i) { %>
 			        <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
 			    <% } else { %>
-			        <li><a href="/notice1?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
+			        <li><a href="/notice?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%= i %></a></li>
 			    <% } %>
 			    <% if (i == (+currentPage + 4)) { %>
 			        <li class="disabled"><a href="#">...</a></li>
 			    <% break; } %>
 			  <% } %>
 			  <% if (currentPage != pageCount) { %>
-			      <li><a href="/notice1?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+			      <li><a href="/notice?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
 			  <% } %>
 			</ul>  
 			<% } %>  
@@ -199,17 +204,5 @@ table {
         </tr>
       </tbody>
     </table>
-    <form name="search" class="form-inline" role="form" style="float: left;">
-    
-      <div class="form-group">
-        <select class="form-control" id="type" name="searchType">
-          <option value="writer">작성자</option>
-          <option value="title">제목</option>
-          <option value="content">글내용</option>
-        </select> 
-        <input type="text" class="form-control" id="value" name="value" value="<%=searchValue%>" required>
-      </div>
-      <button type="submit" id="searchBtn" class="btn btn-primary">검색</button>
-    </form>
   </div>
 </body>

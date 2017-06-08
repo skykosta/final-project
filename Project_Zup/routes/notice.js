@@ -35,7 +35,7 @@ exports.cancel = function(req, res){
 
 exports.count = function(req, res){
 	client.query("update article set article_viewpoint = article_viewpoint+1 where article_num=?", [req.query.article_num],function(err, result) {
-			res.redirect('notice1');
+			res.redirect('notice');
 	})
 }
 
@@ -57,7 +57,7 @@ exports.editresult = function(req, res){
 	var body = req.body
 	client.query("update article" +
 				" set article_title=? , article_content=? where article_num=?",[body.title,body.content,req.query.article_num], function(error, results) {
-				res.redirect('notice1');
+				res.redirect('notice');
 			})
 		}
 
@@ -66,14 +66,14 @@ exports.noticeadd = function(req, res){
 	var body = req.body
 	client.query("insert into article(board_num, article_writer, article_title, article_content, employee_num)" +
 				" values(1,?,?,?,1) ",['관리자',body.title, body.content], function(error, results) {
-				res.redirect('notice1');
+				res.redirect('notice');
 			})
 		}
 
 exports.delete = function(req, res){
 	client.query("delete from article" +
 				" where article_num=?",[req.query.article_num], function(error, results) {
-				res.redirect('notice1');
+				res.redirect('notice');
 			})
 		}
 
@@ -86,6 +86,8 @@ exports.delete = function(req, res){
 
 
 exports.notice = function(req, res){
+	console.log(req.session.user_id);
+	
 	pageCount = (Math.ceil(countresult/pageSize))
 	client.query("select count(article_num) counts from article", function(error, countresults) {
 		countresult = countresults[0].counts
@@ -109,6 +111,7 @@ exports.notice = function(req, res){
 			    currentPage: currentPage,
 			    searchValue: "",
 			    searchType: "",
+			    userid: req.session.user_id,
 			    moment
 				})
 			})
@@ -131,6 +134,7 @@ exports.notice = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
+        		    userid: req.session.user_id,
         		    moment
         			})
         		})
@@ -148,6 +152,7 @@ exports.notice = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
+        		    userid: req.session.user_id,
         		    moment
         			})
         		})	
@@ -165,6 +170,7 @@ exports.notice = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
+        		    userid: req.session.user_id,
         		    moment
         			})
         		})

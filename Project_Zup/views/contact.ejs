@@ -12,6 +12,184 @@
 <!-- <link href="stylesheets/css/animate.min.css" rel="stylesheet"> -->
 <!-- <link href="stylesheets/css/style.css" rel="stylesheet" /> -->
 
+<style type="text/css">
+.logo {
+	width: 10%;
+	height: 10%;
+}
+
+.inner {
+	white-space: nowrap;
+}
+
+img {
+	text-align: left;
+}
+
+.btn-glyphicon {
+	padding: 8px;
+	background: #ffffff;
+	margin-right: 4px;
+}
+
+.icon-btn {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.panel {
+	text-align: center;
+	/* background-color: green; */
+	margin-bottom: 50px;
+}
+
+table {
+	margin-bottom: 50px;
+}
+
+.canceltext {
+	width: 90%;
+}
+
+h3 {
+	color: #fff;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 30px;
+	font-weight: 300;
+}
+
+.container {
+	max-width: 970px;
+}
+
+div[class*='col-'] {
+	padding: 0 30px;
+}
+
+.wrap {
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px
+		rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+	border-radius: 4px;
+}
+
+a:focus, a:hover, a:active {
+	outline: 0;
+	text-decoration: none;
+}
+
+.panel {
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #fff;
+	background: none;
+	box-shadow: none;
+}
+
+.panel:last-child {
+	border-bottom: none;
+}
+
+.panel-group>.panel:first-child .panel-heading {
+	border-radius: 4px 4px 0 0;
+}
+
+.panel-group .panel {
+	border-radius: 0;
+}
+
+.panel-group .panel+.panel {
+	margin-top: 0;
+}
+
+.panel-heading {
+	background-color: #0072AE;
+	border-radius: 0;
+	border: none;
+	color: #fff;
+	padding: 0;
+}
+
+.panel-title a {
+	display: block;
+	color: #fff;
+	padding: 15px;
+	position: relative;
+	font-size: 22px;
+	font-weight: 400;
+}
+
+.panel-body {
+	background: #fff;
+}
+
+.panel:last-child .panel-body {
+	border-radius: 0 0 4px 4px;
+}
+
+.panel:last-child .panel-heading {
+	border-radius: 0 0 4px 4px;
+	transition: border-radius 0.3s linear 0.2s;
+}
+
+.panel:last-child .panel-heading.active {
+	border-radius: 0;
+	transition: border-radius linear 0s;
+}
+/* #bs-collapse icon scale option */
+.panel-heading a:before {
+	content: '\e146';
+	position: absolute;
+	font-family: 'Material Icons';
+	right: 5px;
+	top: 10px;
+	font-size: 24px;
+	transition: all 0.5s;
+	transform: scale(1);
+}
+
+.panel-heading.active a:before {
+	content: ' ';
+	transition: all 0.5s;
+	transform: scale(0);
+}
+
+#bs-collapse .panel-heading a:after {
+	content: ' ';
+	font-size: 24px;
+	position: absolute;
+	font-family: 'Material Icons';
+	right: 5px;
+	top: 10px;
+	transform: scale(0);
+	transition: all 0.5s;
+}
+
+#bs-collapse .panel-heading.active a:after {
+	content: '\e909';
+	transform: scale(1);
+	transition: all 0.5s;
+}
+/* #accordion rotate icon option */
+#accordion .panel-heading a:before {
+	content: '\e316';
+	font-size: 24px;
+	position: absolute;
+	font-family: 'Material Icons';
+	right: 5px;
+	top: 10px;
+	transform: rotate(180deg);
+	transition: all 0.5s;
+}
+
+#accordion .panel-heading.active a:before {
+	transform: rotate(0deg);
+	transition: all 0.5s;
+}
+</style>
 </head>
 <body>
 
@@ -20,26 +198,30 @@
 <br>
 
 <!-- service 헤어부분 -->
-		<div>
-		<ul class="nav nav-tabs" style="max-height: 49px;">
-			<li role="presentation"><a href="notice">공지사항</a></li>
-			<li role="presentation"><a href="fnq">자주묻는질문</a></li>
-			<li role="presentation"><a href="contact">고객센터</a></li>
-			<ul class="nav nav-tabs pull-right">
-				<li role="presentation"><a href="/about-abby/episodes">메인페이지</a></li>
-				<li role="presentation"><a href="/about-abby/cast">마이페이지</a></li>
-				<li role="presentation"><a href="/about-abby/episodes">로그인</a></li>
-
-			</ul>
-		</ul>
-
-	</div>
-	
+ 
+  <div class="container">
+    <img src="/stylesheets/img/logo.png" class="logo">
+    <h2>고객센터</h2>
+    <hr>
 <!-- service헤더부분 끝 -->	
 
 <br>
+
+<div class="container" style="text-align: center; margin-bottom: 50px">
+    <a class="btn icon-btn btn-info" href="notice"><span
+      class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
+    <a class="btn icon-btn btn-warning" href="fnq"><span
+      class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는
+      질문</a> <a class="btn icon-btn btn-danger" href="contact"><span
+      class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact
+      us</a>
+  </div>
+  
+  
 <br>
 <br>
+
+
 
 
 	<section class="contact-page">

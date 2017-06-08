@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Stylish Portfolio - Start Bootstrap Theme</title>
+<title>Z U P 회원가입</title>
 
 <!-- jQuery -->
 <script src="/stylesheets/js/jquery.js"></script>
@@ -21,11 +21,11 @@
 <link href="/stylesheets/css/stylish-portfolio.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="/stylesheets/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+  type="text/css">
 <link
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css">
+  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+  rel="stylesheet" type="text/css">
 <!-- Sweetalert -->
 <script src="/stylesheets/js/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
@@ -104,279 +104,290 @@ body {
 <body>
 
 
-<!-- 주소찾기 API 기능 -->
-<script>
-	function sample6_execDaumPostcode() {
-		new daum.Postcode(
-				{
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+  <!-- 주소찾기 API 기능 -->
+  <script>
+			function sample6_execDaumPostcode() {
+				new daum.Postcode(
+						{
+							oncomplete : function(data) {
+								// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-						var fullAddr = ''; // 최종 주소 변수
-						var extraAddr = ''; // 조합형 주소 변수
+								// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+								// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+								var fullAddr = ''; // 최종 주소 변수
+								var extraAddr = ''; // 조합형 주소 변수
 
-						// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-							fullAddr = data.roadAddress;
+								// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+								if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+									fullAddr = data.roadAddress;
 
-						} else { // 사용자가 지번 주소를 선택했을 경우(J)
-							fullAddr = data.jibunAddress;
-						}
+								} else { // 사용자가 지번 주소를 선택했을 경우(J)
+									fullAddr = data.jibunAddress;
+								}
 
-						// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-						if (data.userSelectedType === 'R') {
-							//법정동명이 있을 경우 추가한다.
-							if (data.bname !== '') {
-								extraAddr += data.bname;
+								// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+								if (data.userSelectedType === 'R') {
+									//법정동명이 있을 경우 추가한다.
+									if (data.bname !== '') {
+										extraAddr += data.bname;
+									}
+									// 건물명이 있을 경우 추가한다.
+									if (data.buildingName !== '') {
+										extraAddr += (extraAddr !== '' ? ', '
+												+ data.buildingName
+												: data.buildingName);
+									}
+									// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+									fullAddr += (extraAddr !== '' ? ' ('
+											+ extraAddr + ')' : '');
+								}
+
+								// 우편번호와 주소 정보를 해당 필드에 넣는다.
+								document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+								document.getElementById('sample6_address').value = fullAddr;
+
+								// 커서를 상세주소 필드로 이동한다.
+								document.getElementById('sample6_address2')
+										.focus();
 							}
-							// 건물명이 있을 경우 추가한다.
-							if (data.buildingName !== '') {
-								extraAddr += (extraAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-							// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-							fullAddr += (extraAddr !== '' ? ' (' + extraAddr
-									+ ')' : '');
-						}
-
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-						document.getElementById('sample6_address').value = fullAddr;
-
-						// 커서를 상세주소 필드로 이동한다.
-						document.getElementById('sample6_address2').focus();
-					}
-				}).open();
-	}
-</script>
+						}).open();
+			}
+		</script>
 
 
-<!-- 회원가입 상단 메뉴 -->
-	<div class="container">
+  <!-- 회원가입 상단 메뉴 -->
+  <div class="container">
 
-		<div class="stepwizard col-md-offset-3">
-			<div class="stepwizard-row setup-panel">
-				<div class="stepwizard-step">
-					<a href="#step-1" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
-					<p>이용 약관</p>
-				</div>
-				<div class="stepwizard-step">
-					<a href="#step-2" type="button" class="btn btn-primary btn-circle" >2</a>
-					<p>회원 가입</p>
-				</div>
-                 <div class="stepwizard-step">
-					<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-					<p>가입 완료</p>
-				</div>
-			</div>
-		</div>
+    <div class="stepwizard col-md-offset-3">
+      <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+          <a href="#step-1" type="button" class="btn btn-default btn-circle"
+            disabled="disabled">1</a>
+          <p>이용 약관</p>
+        </div>
+        <div class="stepwizard-step">
+          <a href="#step-2" type="button" class="btn btn-primary btn-circle">2</a>
+          <p>회원 가입</p>
+        </div>
+        <div class="stepwizard-step">
+          <a href="#step-3" type="button" class="btn btn-default btn-circle"
+            disabled="disabled">3</a>
+          <p>가입 완료</p>
+        </div>
+      </div>
+    </div>
 
 
 
-<!-- 회원가입 폼 -->
+    <!-- 회원가입 폼 -->
 
-			<div class="col-xs-9 col-md-offset-1">
-
-				<div class="col-md-12">
-					<br>
-					<br>
-					<form class="form-horizontal" method="post" onsubmit="return formSubmit(this);" >
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputId">아이디</label>
-							<div class="col-sm-8">
-								<div class="input-group">
-									<input class="form-control"  name="inputId" id="inputId" type="id" placeholder="아이디" > 
-									<span class="input-group-btn">
-										<button class="btn btn-success">중복확인<i class="fa fa-mail-forward spaceLeft"></i></button>
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
-							<div class="col-sm-8">
-								<input class="form-control" name="inputPassword" id="inputPassword" type="password" placeholder="숫자, 문자포함 6~12자리">
-								<div id="passwd_display" style="color: RED"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
-							<div class="col-sm-8">
-								<input class="form-control" id="inputPasswordCheck" type="password" placeholder="비밀번호를 한번 더 입력해주세요." >
-								<div id="passwdCheck_display" style="color: RED"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputName" >이름</label>
-							<div class="col-sm-8">
-								<input class="form-control" name="inputName" id="inputName" type="text" placeholder="이름" >
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputEmail">이메일</label>
-							<div class="col-sm-8">
-								   <input type="text" class="form-control" name="inputEmail" id="inputEmail" placeholder="이메일" />
-								   <div id="emailId_display" style="color: RED"></div>
-						    </div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
-							<div class="col-sm-8">
-								<input type="tel" class="form-control" name="inputNumber" id="inputNumber" placeholder="- 없이 입력해 주세요" >
-								<div id="phone_num_display" style="color: RED"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputAddress">주소(선택)</label>
-							<div class="col-sm-8">
-								<div class="input-group">
-								    <span class="input-group-btn">
-                                        <input style="width: 300px" class="form-control" type="text" id="sample6_address" name="address_base" placeholder="주소">
-									    <input style="width: 95px" type="button" class="btn btn-success" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br> 
-									    <input class="form-control" type="text" id="sample6_address2" name="address_detail" placeholder="상세주소">
-									</span>
-								</div>
-							</div>
-						</div>
-
-<!-- 우편번호 값 받는 히든 창 -->
-          <input type="hidden" id="sample6_postcode"name="zip_code" placeholder="우편번호"> 
-						
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputBank" >은행명</label>
-							<div class="col-sm-3">
-								<select class="form-control" id="inputBank" name="inputBank">
-								    <option value="">-----</option>
-									<option value="신한은행">신한은행</option>
-									<option value="국민은행">국민은행</option>
-									<option value="IBK기업은행">IBK기업은행</option>
-									<option value="하나은행">하나은행</option>
-									<option value="농협">농협</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label" for="inputAccount">입금계좌</label>
-							<div class="col-sm-8">
-								<input class="form-control" name="inputAccount" id="inputAccount" type="text" placeholder="- 없이 입력해 주세요"  >
-								<div id="account_display" style="color: RED"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-12 text-center">
-								<button class="btn btn-primary" type="submit" id="join">회원가입<i class="fa fa-check spaceLeft"></i></button>
-								<button class="btn btn-danger" type="reset">다시쓰기<i class="fa fa-times spaceLeft"></i></button>
-							</div>
-						</div>
-					</form>
-					<hr />
-				</div>
-			</div>
-		
-	</div>
-
-	
-
-<!-- 유효성 검사 -->
-<script type="text/javascript">
+    <div class="col-xs-9 col-md-offset-1">
 
 
- function formSubmit(form){
-	
-	if($("#inputId").val() === ""){
-		swal({
-				  title : '아이디 미입력!',
-				  text : '아이디를 입력해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputId").focus();
-		return false;
-	}
-	
-	if($("#inputPassword").val() === ""){
-		swal({
-				  title : '비밀번호 미입력!',
-				  text : '비밀번호를 입력해주세요!(숫자,문자포함 6~12자리)',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputPassword").focus();
-		return false;
-	}
-	
-	if($("#inputPasswordCheck").val() != $("#inputPassword").val() ){
-		swal({
-				  title : '비밀번호 오류!',
-				  text : '비밀번호를 재확인 해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputPasswordCheck").focus();
-		return false;
-	}
-	
-	if($("#inputName").val() === ""){
-		swal({
-				  title : '이름 미입력!',
-				  text : '이름을 입력해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputName").focus();
-		return false;
-	}
-	
-	if($("#inputEmail").val() === ""){
-		swal({
-				  title : '이메일 미입력!',
-				  text : '이메일을 입력해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputEmail").focus();
-		return false;
-	}
-	
-	if($("#inputNumber").val() === ""){
-		swal({
-				  title : '휴대폰 번호 미입력!',
-				  text : '휴대폰 번호를 입력해주세요! (-없이 입력해주세요)',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputNumber").focus();
-		return false;
-	}
+      <br> <br>
+      <form class="form-horizontal" method="post" onsubmit="return formSubmit(this);">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="inputId">아이디</label>
+            <div class="col-sm-8">
+              <div class="input-group">
+                <input class="form-control" name="inputId" id="inputId" type="id"
+                  placeholder="아이디"> <span class="input-group-btn"> <a
+                  class="btn btn-success" href="javascript:;"
+                  onclick="window.open('/idCheckConfirm','아이디 중복확인','resizable=no width=400 height=330 scrollbars=no');return false">중복확인<i
+                    class="fa fa-mail-forward spaceLeft"></i></a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputPassword">비밀번호</label>
+          <div class="col-sm-8">
+            <input class="form-control" name="inputPassword" id="inputPassword"
+              type="password" placeholder="숫자, 문자포함 6~12자리">
+            <div id="passwd_display" style="color: RED"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputPasswordCheck">비밀번호 확인</label>
+          <div class="col-sm-8">
+            <input class="form-control" id="inputPasswordCheck" type="password"
+              placeholder="비밀번호를 한번 더 입력해주세요.">
+            <div id="passwdCheck_display" style="color: RED"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputName">이름</label>
+          <div class="col-sm-8">
+            <input class="form-control" name="inputName" id="inputName" type="text"
+              placeholder="이름">
+          </div>
+        </div>
 
-	if($("#inputBank").val() === ""){
-		swal({
-				  title : '입금은행 미선택!',
-				  text : '입금은행을 선택 해주세요!',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputBank").focus();
-		return false;
-	} 
-	
-	if($("#inputAccount").val() === ""){
-		swal({
-				  title : '계좌번호 미입력!',
-				  text : '계좌번호를 입력해주세요! (-없이 입력해주세요',
-				  type :'warning',
-				  confirmButtontext : '닫기'
-		})
-		$("#inputAccount").focus();
-		return false;
-	}
-	
-} 
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputEmail">이메일</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="inputEmail" id="inputEmail"
+              placeholder="이메일" />
+            <div id="emailId_display" style="color: RED"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputNumber">휴대폰번호</label>
+          <div class="col-sm-8">
+            <input type="tel" class="form-control" name="inputNumber" id="inputNumber"
+              placeholder="- 없이 입력해 주세요">
+            <div id="phone_num_display" style="color: RED"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputAddress">주소(선택)</label>
+          <div class="col-sm-8">
+            <div class="input-group">
+              <span class="input-group-btn"> <input style="width: 300px"
+                class="form-control" type="text" id="sample6_address" name="address_base"
+                placeholder="주소"> <input style="width: 95px" type="button"
+                class="btn btn-success" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
+                <input class="form-control" type="text" id="sample6_address2"
+                name="address_detail" placeholder="상세주소">
+              </span>
+            </div>
+          </div>
+        </div>
 
-            //실시간 이벤트 처리
+        <!-- 우편번호 값 받는 히든 창 -->
+        <input type="hidden" id="sample6_postcode" name="zip_code" placeholder="우편번호">
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputBank">은행명</label>
+          <div class="col-sm-3">
+            <select class="form-control" id="inputBank" name="inputBank">
+              <option value="">-----</option>
+              <option value="신한은행">신한은행</option>
+              <option value="국민은행">국민은행</option>
+              <option value="IBK기업은행">IBK기업은행</option>
+              <option value="하나은행">하나은행</option>
+              <option value="농협">농협</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label" for="inputAccount">입금계좌</label>
+          <div class="col-sm-8">
+            <input class="form-control" name="inputAccount" id="inputAccount" type="text"
+              placeholder="- 없이 입력해 주세요">
+            <div id="account_display" style="color: RED"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12 text-center">
+            <button class="btn btn-primary" type="submit" id="join">
+              회원가입<i class="fa fa-check spaceLeft"></i>
+            </button>
+            <button class="btn btn-danger" type="reset">
+              다시쓰기<i class="fa fa-times spaceLeft"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <hr />
+    </div>
+  </div>
+  <!-- 유효성 검사 -->
+  <script type="text/javascript">
+			function formSubmit(form) {
+
+				if ($("#inputId").val() === "") {
+					swal({
+						title : '아이디 미입력!',
+						text : '아이디를 입력해주세요!',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputId").focus();
+					return false;
+				}
+
+				if ($("#inputPassword").val() === "") {
+					swal({
+						title : '비밀번호 미입력!',
+						text : '비밀번호를 입력해주세요!(숫자,문자포함 6~12자리)',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputPassword").focus();
+					return false;
+				}
+
+				if ($("#inputPasswordCheck").val() != $("#inputPassword").val()) {
+					swal({
+						title : '비밀번호 오류!',
+						text : '비밀번호를 재확인 해주세요!',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputPasswordCheck").focus();
+					return false;
+				}
+
+				if ($("#inputName").val() === "") {
+					swal({
+						title : '이름 미입력!',
+						text : '이름을 입력해주세요!',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputName").focus();
+					return false;
+				}
+
+				if ($("#inputEmail").val() === "") {
+					swal({
+						title : '이메일 미입력!',
+						text : '이메일을 입력해주세요!',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputEmail").focus();
+					return false;
+				}
+
+				if ($("#inputNumber").val() === "") {
+					swal({
+						title : '휴대폰 번호 미입력!',
+						text : '휴대폰 번호를 입력해주세요! (-없이 입력해주세요)',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputNumber").focus();
+					return false;
+				}
+
+				if ($("#inputBank").val() === "") {
+					swal({
+						title : '입금은행 미선택!',
+						text : '입금은행을 선택 해주세요!',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputBank").focus();
+					return false;
+				}
+
+				if ($("#inputAccount").val() === "") {
+					swal({
+						title : '계좌번호 미입력!',
+						text : '계좌번호를 입력해주세요! (-없이 입력해주세요',
+						type : 'warning',
+						confirmButtontext : '닫기'
+					})
+					$("#inputAccount").focus();
+					return false;
+				}
+
+			}
+
+			//실시간 이벤트 처리
 			var id = document.getElementById("inputId");
 			var pw = document.getElementById("inputPassword");
 			var pwCheck = document.getElementById("inputPasswordCheck");
@@ -404,7 +415,7 @@ body {
 			account.onkeyup = function() {
 				valid_account(account);
 			}
-			 
+
 			// 이메일 유효성 검사
 			function valid_email(email) {
 
@@ -448,7 +459,7 @@ body {
 			}
 
 			// 휴대폰 번호 유효성 검사
-			 function valid_phoneNum(phone) {
+			function valid_phoneNum(phone) {
 
 				//    휴대폰 번호 정규표현식(숫자만 20자리 이내)
 				//re = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
@@ -461,11 +472,11 @@ body {
 					$("#phone_num_display").html("사용가능한 핸드폰 번호입니다.");
 					return true;
 				}
-			} 
+			}
 
 			// 계좌 번호 유효성 검사
-			 function valid_account(account) {
-                // 계좌번호 정규표현식 숫자만 입력 가능
+			function valid_account(account) {
+				// 계좌번호 정규표현식 숫자만 입력 가능
 				re = /^[0-9]*$/;
 
 				if (!re.test(account.value)) {
@@ -475,51 +486,15 @@ body {
 					$("#account_display").html("사용가능한 계좌 번호입니다.");
 					return true;
 				}
-			} 
-			
-			
-</script>
-
-<!-- 중복 확인 -->
-  <script type="text/javascript">
-			window.onload = function() {
-				var button = document.getElementById("sendButton");
-
-				button.onclick = function() {
-					sendServer();
-
-				}
-
-			}
-
-			function sendServer() {
-				var id = document.getElementById("email_id").value;
-
-				ajax({
-					method : "GET",
-					url : "idDup.jsp",
-					param : "email_id=" + id,
-					callback : receiveMassage
-
-				});
-
-			}
-
-			function receiveMassage(request) {
-				displayMessage(request.responseText);
-
-			}
-
-			function displayMessage(message) {
-				var emailId_display = document
-						.getElementById("emailId_display");
-				emailId_display.innerHTML = message;
 			}
 		</script>
- 
-<script src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript" ></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js" type="text/javascript"></script>
+
+  
+
+  <script src="https://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js"
+    type="text/javascript"></script>
 
 </body>
 
