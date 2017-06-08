@@ -22,6 +22,10 @@
 
     <!-- Theme CSS -->
     <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
+    
+    <!-- Sweetalert -->
+<script src="/stylesheets/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
 
 </head>
 
@@ -35,7 +39,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top" style="font-size: 50px;"> Z U P </a>
+                <a class="navbar-brand page-scroll" href="#page-top" style="font-size: 70px;"> Z U P </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,18 +51,49 @@
                     <li>
                         <a class="page-scroll" href="#introduce">회사소개</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/mypage">마이페이지</a>
+<!-- 로그인시 페이지 변화 -->
+				    
+				    <li>
+				    <%if(sessionId == null){%>
+				    </li>
+				    <li>
+					    <a href="login">로그인</a> 
+				    </li>
+				    <li>  
+				        <a href="agree">회원가입</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/notice">고객센터</a>
+                        <a id="myButton">마이페이지</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/regist">회원가입</a>
+                        <a href="notice">고객센터</a>
+                    </li>
+					<li>
+					<% }else if(sessionId == 'admin'){ %>
+					</li>
+					<li>
+					<a> 
+					<%=sessionId%>님 로그인
+					</a>
+					</li>
+					<li>
+					<a href="logout">로그아웃</a>
+					</li>
+					<li>
+					<a href="user">관리자페이지</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/login">로그인</a>
-                    </li>
+					<%}else if(sessionId != null && sessionId != 'admin'){%>
+					<li>
+					<a><%=sessionId%>님 로그인중...</a>
+					</li>
+					<li>
+					<a href="logout">로그아웃</a>
+					</li>
+					<li>
+                        <a href="mypage">마이페이지</a>
+                    </li> 
+					<%};%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -72,7 +107,9 @@
                 <div class="intro-lead-in">Welcome To ZUP!</div>
                 <div class="intro-heading"><span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
 </div>
-                <a href="#services" class="page-scroll btn btn-xl">접수 바로가기</a>
+                <a id="orderButton" class="page-scroll btn btn-xl"
+								style="width: 400px; height: 70px; ">공병접수
+								바로 가기</a>
             </div>
         </div>
     </header>
@@ -619,5 +656,52 @@
             </div>
         </div>
     </div>
+    
+    <!--  로그인시 마이페이지 가기 -->
+<script type="text/javascript">
+window.onload = function() { 
+	var button = document.getElementById('myButton');
+	var button2 = document.getElementById('orderButton');
+
+//마이페이지	
+button.onclick = function() {
+	var id = "<%= sessionId%>";
+
+	if(id == ""){
+		swal({
+			  title : '잠시만!',
+			  text : '먼저 로그인을 해주세요!',
+			  type :'warning'
+	})
+		
+	}else{
+		location.href="mypage"
+	}
+	
+	}
+//접수하기
+button2.onclick = function() {
+	var id = "<%= sessionId%>";
+
+	if(id == ""){
+		
+		
+		 swal({
+			  title : '잠깐!',
+			  text : '로그인 후 접수하실 수 있습니다.!',
+			  type :'warning'
+	}) 
+		
+	}else{
+		location.href="receipt"
+	}
+	
+	}
+
+
+}; 
+</script>
+	
+    
 <% include footer.ejs %>
     
