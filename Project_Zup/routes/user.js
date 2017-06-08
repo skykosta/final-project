@@ -24,10 +24,14 @@ var client = mysql.createConnection({
 });
 
 exports.list = function(req, res){
-  res.send("respond with a resource");
+	var sessionUserId = req.session.user_id;
+	res.render('user', {
+		  sessionId: sessionUserId
+	  });
 };
 
 exports.user = function(req, res){
+	var sessionUserId = req.session.user_id;
     pageCount = (Math.ceil(countresult/pageSize));
     client.query("select count(user_num) counts from user", function(error, countresults) {
     	countresult = countresults[0].counts;
@@ -46,7 +50,8 @@ exports.user = function(req, res){
 			    pageCount: pageCount,
 			    currentPage: currentPage,
 			    searchValue: "",
-			    searchType: ""	
+			    searchType: "",
+			    sessionId: sessionUserId
 				});
 			});
     	}
@@ -63,7 +68,8 @@ exports.user = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    sessionId: sessionUserId
         			});
         		});
     	}else{
@@ -75,7 +81,8 @@ exports.user = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    sessionId: sessionUserId
         			});
         		});
     	}
