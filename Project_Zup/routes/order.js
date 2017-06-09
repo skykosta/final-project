@@ -39,6 +39,7 @@ exports.cancel = function(req, res){
 };
 
 exports.order = function(req, res){
+	var sessionUserId = req.session.user_id;
 	pageCount = (Math.ceil(countresult/pageSize));
 	
 		if (typeof req.query.page !== 'undefined') {
@@ -63,7 +64,8 @@ exports.order = function(req, res){
 			    currentPage: currentPage,
 			    searchValue: "",
 			    searchType: "",
-			    moment
+			    moment,
+			    sessionId: sessionUserId
 				});
 			});
     	}
@@ -88,7 +90,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
-        		    moment
+        		    moment,
+        		    sessionId: sessionUserId
         			});
         		});
     	}else if(req.query.searchType === 'un'){
@@ -108,7 +111,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
-        		    moment
+        		    moment,
+        		    sessionId: sessionUserId
         			});
         		})	;
     		}else{
@@ -128,7 +132,8 @@ exports.order = function(req, res){
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
         		    searchType: req.query.searchType,
-        		    moment
+        		    moment,
+        		    sessionId: sessionUserId
         			});
         		});
     		}

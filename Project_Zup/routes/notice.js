@@ -46,12 +46,14 @@ exports.count = function(req, res){
 }
 
 exports.edit = function(req, res){
+	var sessionUserId = req.session.user_id;
 	client.query("select *" +
 			" from article "+
 			" where article_num > 0 and article_num=?",[req.query.article_num], function(error, results) {
 				console.log(results);
 				res.render('noticeedit', {
-				data: results
+				data: results,
+				sessionId: sessionUserId
 				});
 			});
 		};
@@ -80,8 +82,7 @@ exports.delete = function(req, res){
 			});
 		};
 exports.notice = function(req, res){
-	console.log(req.session.user_id);
-	
+	var sessionUserId = req.session.user_id;
 	pageCount = (Math.ceil(countresult/pageSize));
 	client.query("select count(article_num) counts from article", function(error, countresults) {
 		countresult = countresults[0].counts;
@@ -106,7 +107,8 @@ exports.notice = function(req, res){
 			    searchValue: "",
 			    searchType: "",
 			    userid: req.session.user_id,
-			    moment
+			    moment,
+			    sessionId: sessionUserId
 				});
 			});
     	}
@@ -114,62 +116,7 @@ exports.notice = function(req, res){
     	if(typeof req.query.page == 'undefined'){
 			currentPage = 1
 		}
-    	if(req.query.searchType === 'on'){
-    		client.query("select *" +
-    				" from user u, orderlist o, employee e" +
-    				" where o.user_num=u.user_num" +
-    				" and o.employee_num=e.employee_num" +
-    				" and o.order_num=?"+
-    				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
-        		res.render('order', {
-        			data: results,
-        		    pageSize: pageSize,
-        		    pageCount: pageCount,
-        		    currentPage: currentPage,
-        		    searchValue: req.query.value,
-        		    searchType: req.query.searchType,
-        		    userid: req.session.user_id,
-        		    moment
-        			});
-        		});
-    	}else if(req.query.searchType === 'un'){
-    		client.query("select *" +
-    				" from user u, orderlist o, employee e" +
-    				" where o.user_num=u.user_num" +
-    				" and o.employee_num=e.employee_num" +
-    				" and u.user_name=?"+
-    				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
-        		res.render('order', {
-        			data: results,
-        		    pageSize: pageSize,
-        		    pageCount: pageCount,
-        		    currentPage: currentPage,
-        		    searchValue: req.query.value,
-        		    searchType: req.query.searchType,
-        		    userid: req.session.user_id,
-        		    moment
-        			});
-        		})	;
-    		}else{
-    		client.query("select *" +
-    				" from user u, orderlist o, employee e" +
-    				" where o.user_num=u.user_num" +
-    				" and o.employee_num=e.employee_num" +
-    				" and u.user_phonenum=?"+
-    				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
-        		res.render('order', {
-        			data: results,
-        		    pageSize: pageSize,
-        		    pageCount: pageCount,
-        		    currentPage: currentPage,
-        		    searchValue: req.query.value,
-        		    searchType: req.query.searchType,
-        		    userid: req.session.user_id,
-        		    moment
-        			});
-        		});
-    		}
-        }
+     }
 };
 
 

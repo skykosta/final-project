@@ -4,6 +4,9 @@
  */
 
 exports.total = function(req, res){
-  res.render("total");
+	var sessionUserId = req.session.user_id;
+  res.render("total",{
+	  sessionId: sessionUserId
+  });
 };
 

@@ -20,6 +20,7 @@ var client = mysql.createConnection({
 
 
 exports.order = function(req, res){
+	var sessionUserId = req.session.user_id;
 	pageCount = (Math.ceil(countresult/pageSize));
 	client.query("select count(bottlelist_num) counts from bottle_list", function(error, countresults) {
 		countresult = countresults[0].counts;
@@ -52,7 +53,8 @@ exports.order = function(req, res){
 			    pageCount: pageCount,
 			    currentPage: currentPage,
 			    searchValue: "",
-			    searchType: ""
+			    searchType: "",
+			    sessionId: sessionUserId
 				});
 			});
     	}
@@ -84,7 +86,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    sessionId: sessionUserId
         			});
         		});
     	}else if(req.query.searchType === 'un'){
@@ -111,7 +114,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    sessionId: sessionUserId
         			});
         		});	
     		}else{
@@ -138,7 +142,8 @@ exports.order = function(req, res){
         		    pageCount: pageCount,
         		    currentPage: currentPage,
         		    searchValue: req.query.value,
-        		    searchType: req.query.searchType
+        		    searchType: req.query.searchType,
+        		    sessionId: sessionUserId
         			});
         		});
     		}

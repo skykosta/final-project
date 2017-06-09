@@ -23,12 +23,7 @@ var client = mysql.createConnection({
 	database: "zup"
 });
 
-exports.list = function(req, res){
-	var sessionUserId = req.session.user_id;
-	res.render('user', {
-		  sessionId: sessionUserId
-	  });
-};
+
 
 exports.user = function(req, res){
 	var sessionUserId = req.session.user_id;
