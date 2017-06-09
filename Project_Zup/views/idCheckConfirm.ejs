@@ -158,7 +158,16 @@
 				
 				}
 			}
-			
+			function receiveMassage(request){
+				displayMessage(request.responseText);
+				
+			}
+
+			function displayMessage(message){
+				var display = document.getElementById("display");
+				
+				display.innerHTML = message;
+			}
 			
 			});
 		</script>
