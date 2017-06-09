@@ -56,6 +56,7 @@ exports.order = function(req, res){
 			" from user u, orderlist o, employee e" +
 			" where o.user_num=u.user_num" +
 			" and o.employee_num=e.employee_num" +
+			" order by order_num desc"+
 			" limit ?,?",[(currentPage*20)-20,pageSize], function(error, results) {
 				res.render('order', {
 				data: results,
@@ -82,6 +83,7 @@ exports.order = function(req, res){
     				" where o.user_num=u.user_num" +
     				" and o.employee_num=e.employee_num" +
     				" and o.order_num=?"+
+    				" order by order_num desc"+
     				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
         		res.render('order', {
         			data: results,
@@ -103,6 +105,7 @@ exports.order = function(req, res){
     				" where o.user_num=u.user_num" +
     				" and o.employee_num=e.employee_num" +
     				" and u.user_name=?"+
+    				" order by order_num desc"+
     				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
         		res.render('order', {
         			data: results,
@@ -124,6 +127,7 @@ exports.order = function(req, res){
     				" where o.user_num=u.user_num" +
     				" and o.employee_num=e.employee_num" +
     				" and u.user_phonenum=?"+
+    				" order by order_num desc"+
     				" limit ?,?",[req.query.value,(currentPage*20)-20,pageSize] ,function(error, results) {
         		res.render('order', {
         			data: results,
