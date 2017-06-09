@@ -22,11 +22,9 @@
 
     <!-- Theme CSS -->
     <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
+      <script src="/stylesheets/js/sweetalert2.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
 </head>
-
-
-
-
 <body id="page-top" class="index">
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -61,7 +59,7 @@
 				        <a href="agree">회원가입</a>
                     </li>
                     <li>
-                        <a href="#" id="myButton">마이페이지</a>
+                        <a href="#" id="myButton2">마이페이지</a>
                     </li>
                     <li>
                         <a href="notice">고객센터</a>
@@ -125,3 +123,26 @@
     </nav>
    
 					<%};%>
+           <script type="text/javascript">
+     
+        var button55 = document.getElementById('myButton2');
+console.log("동준");
+        //마이페이지 
+        button55.onclick = function() {
+          var id = "<%= sessionId%>";
+
+          if (id == "") {
+            swal({
+              title : '잠시만!',
+              text : '먼저 로그인을 해주세요!',
+              type : 'warning'
+            })
+
+          } else {
+            location.href = "mypage"
+          }
+
+        }
+
+   
+    </script>

@@ -7,6 +7,7 @@
 var mysql = require('mysql');
 var fs = require('fs');
 var ejs = require('ejs');
+var moment = require("moment");
 
 // 데이터 베이스와 연결
 var client = mysql.createConnection({
@@ -20,6 +21,19 @@ client.connect();
 
 
 exports.mypage = function(req, res){
+	var User_address;
+	var User_address_base;
+	var User_address_detail;
+	
+	client.query('select user_address from user where user_id=?',[req.session.user_id], function(err, user_address){
+		var user_address = user_address[0].user_address;
+		console.log(user_address);
+		User_address= user_address.split("*");
+		User_address_base = User_address[0];
+		User_address_detail = User_address[1];
+	});
+	
+	
 	console.log("======마이페이지 로그인한 아이디 ========");
 	console.log(req.session.user_id);
 	  client.query('select * from user where user_id=?',[req.session.user_id], function(error0, user){
@@ -34,6 +48,9 @@ exports.mypage = function(req, res){
 				  res.render('mypage', {
 					  user : user,
 					  log : log,
+					  moment,
+					  User_address_base : User_address_base,
+					  User_address_detail : User_address_detail,
 					  sessionId: req.session.user_id
 				  });
 			  }
@@ -48,7 +65,7 @@ exports.mypage_change = function(req, res){
 	 console.log("========바디========");
 	 console.log(body);
 	 client.query('update user set user_pw=?, user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
-			  [body.inputPassword, body.inputNumber, body.address_base + body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
+			  [body.inputPassword, body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
 		 
 		 res.redirect('/mypage');
 	  });
