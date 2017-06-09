@@ -192,7 +192,7 @@ body {
             <div class="col-sm-8">
               <div class="input-group">
                 <input class="form-control" name="inputId" id="inputId" type="text"
-                  placeholder="아이디" style="margin-left:-8px;"> <span class="input-group-btn"> <a
+                  placeholder="아이디" style="margin-left:-8px;"onclick="window.open('/idCheckConfirm','아이디 중복확인','resizable=no width=400 height=330 scrollbars=no');return false"> <span class="input-group-btn"> <a
                   class="btn btn-success" href="javascript:;"
                   onclick="window.open('/idCheckConfirm','아이디 중복확인','resizable=no width=400 height=330 scrollbars=no');return false" style="margin-left:10px; margin-right:-12px;">중복확인<i
                     class="fa fa-mail-forward spaceLeft"></i></a></span>
@@ -244,9 +244,9 @@ body {
           <label class="col-sm-3 control-label" for="inputAddress">주소(선택)</label>
           <div class="col-sm-8">
             <div class="input-group">
-              <span class="input-group-btn"> <input style="width: 300px"
+              <span class="input-group-btn"> <input style="width: 435px"
                 class="form-control" type="text" id="sample6_address" name="address_base"
-                placeholder="주소"> <input style="width: 95px" type="button"
+                placeholder="주소" > <input style="width: 95px; margin-left:10px;" type="button"
                 class="btn btn-success" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
                 <input class="form-control" type="text" id="sample6_address2"
                 name="address_detail" placeholder="상세주소">
@@ -311,7 +311,7 @@ body {
 				if ($("#inputPassword").val() === "") {
 					swal({
 						title : '비밀번호 미입력!',
-						text : '비밀번호를 입력해주세요!(숫자,문자포함 6~12자리)',
+						text : '비밀번호를 입력해주세요!(숫자,문자조합 6~12자리)',
 						type : 'warning',
 						confirmButtontext : '닫기'
 					})
@@ -388,7 +388,6 @@ body {
 			}
 
 			//실시간 이벤트 처리
-			var id = document.getElementById("inputId");
 			var pw = document.getElementById("inputPassword");
 			var pwCheck = document.getElementById("inputPasswordCheck");
 			var name = document.getElementById("inputName");
@@ -397,9 +396,7 @@ body {
 			var account = document.getElementById("inputAccount");
 
 			// 키보드 이벤트
-			id.onkeyup = function() {
-				valid_id(id);
-			}
+			
 			email.onkeyup = function() {
 				valid_email(email);
 			}
@@ -423,10 +420,10 @@ body {
 				re = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
 				if (!re.test(email.value)) {
-					displayMessage("메일 형식이 맞지 않습니다. 다시 입력해주세요.");
+					$("#emailId_display").html("메일 형식이 맞지 않습니다. (aaa@aaa.com)");
 					return false;
 				} else {
-					displayMessage("사용가능한 메일입니다.");
+					$("#emailId_display").html("사용가능한 메일입니다.");
 					return true;
 				}
 			}
@@ -436,9 +433,9 @@ body {
 
 				//    비밀번호 정규표현식(알파벳과 숫자 각각 최소 1개 이상으로 구성, 6~12자리)
 				re = /^(?=([a-zA-Z]+[0-9]+[a-zA-Z0-9]*|[0-9]+[a-zA-Z]+[a-zA-Z0-9]*)$).{6,12}$/i;
-
+				
 				if (!re.test(pw.value)) {
-					$("#passwd_display").html("비밀번호를 다시 입력해주세요.");
+					$("#passwd_display").html("비밀번호를 다시 입력해주세요.(숫자,문자조합 6~12자리)");
 					return false;
 				} else {
 					$("#passwd_display").html("사용가능한 비밀번호입니다.");
