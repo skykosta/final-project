@@ -1,5 +1,7 @@
 exports.receipt = function(req, res){
-	
-	res.render('receipt');
+	var sessionUserId = req.session.user_id;
+	res.render('receipt', {
+		sessionId: sessionUserId
+	});
 	
 };

@@ -24,7 +24,8 @@ exports.receipt2 = function(req, res){
   		res.render('receipt2', {
 			name: results[0].user_name,
 			tel : results[0].user_phonenum,
-			address: results[0].user_address
+			address: results[0].user_address,
+			sessionId: user_id
 			});
       });
   }
@@ -108,7 +109,8 @@ exports.send = function(req, res){
     		  			name : name,
     		  			tel : tel,
     		  			mapAddress : mapAddress,
-    		  			detailAddress : detailAddress						  
+    		  			detailAddress : detailAddress,
+    		  			sessionId: user_id
     		  		});			  
     	  });
       });     
