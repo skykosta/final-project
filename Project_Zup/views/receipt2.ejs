@@ -160,10 +160,9 @@
   
 </head>
   <body>
+
 <form method="post">
   <div class="container">
-
-    <h1><img src="images/zuplogo.png">접수하기</h1>
 	<div class="row">
 		<div class="col-md-5ths col-sm-5ths green">
 		</div>
@@ -235,11 +234,10 @@
 <script>
 var map;
 var markers = [];
-var address;
-//  var address2 = document.getElementById("address2").value;
-    var address2 = "서울특별시 중구 태평로1가 35, 104동 407호";
-    
-//주소를 따와서 먼저 주소로 위도경도를 알아내고 마커를 찍어주고 스플릿을 해준다음에 주소와 상세주소에 넣어준다.
+var token = document.getElementById("address2").value.split(",");
+var address = token[0];
+//var address = "대한민국 서울특별시 금천구 가산디지털1로 151";
+var address2;
    
 //구글맵 api 콜백 함수
 function initMap() {
@@ -248,13 +246,13 @@ function initMap() {
    getLocation();
    
    //주소로 좌표값 알아 내기
-    new google.maps.Geocoder().geocode({address : address2}, function(results, status){
+    new google.maps.Geocoder().geocode({address : address}, function(results, status){
     
-    		if (status == google.maps.GeocoderStatus.OK) {
+    		if (status == google.maps.GeocoderStatus.OK) {    		
     		
     		    address2 = results[0].geometry.location;  
-	            console.log(address2);         	 		
-    
+ 	            addMarker(address2);
+ 	            $("#detailAddress").val(token[1]);
             }
     });   
    
@@ -263,7 +261,6 @@ function initMap() {
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function showPosition(position){      
           
-          var setAddress = $("");          
           var xxxx = position.coords.latitude;
           var yyyy = position.coords.longitude;
           

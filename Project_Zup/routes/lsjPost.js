@@ -31,6 +31,8 @@ exports.lsj1 = function(req, res){
 	
 	
 	console.log("lsj POST 호출됨.");
+	console.log(req.body.id);
+	console.log(req.body.password);
 	    
     /*
 	  client.query("insert into userlog(user_num,logtype,status,content) values(?,'대기','회수대기중..','회수예정')",
