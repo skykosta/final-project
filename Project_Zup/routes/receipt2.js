@@ -57,9 +57,9 @@ exports.send = function(req, res){
 	  var employee_num = 2; // 잦됨
     
       //안드로이드와 통신하기.
-      sendMessageToUser(deviceId, latData);
+      sendMessageToUser(deviceId, lat, lng);
 
-      function sendMessageToUser(deviceId, latData) {
+      function sendMessageToUser(deviceId, lat, lng) {
     	  
   		request({
   			url : 'https://fcm.googleapis.com/fcm/send',
