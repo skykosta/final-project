@@ -150,10 +150,11 @@
                     <td>
                       <div class="media">
                         <div class="media-body">
+                        
                           <span class="media-meta pull-right"><button type="button" class="btn btn-default" id="deletepointBTN" onclick = "location.href = '/delete/<%=log[index].userlog_num %>' ">내역삭제</button></span>
                           <h4 class="title">
                             <%=log[index].logtype%>
-                            <span class="pull-right use"><%=log[index].logdata%></span>
+                            <span class="pull-right use"><%= moment(log[index].logdata).format('YYYY-MM-DD hh:mm:ss')%>&nbsp;&nbsp;</span>
                           </h4>
                           <p class="summary"><%= log[index].status %> : 
                           <% if(log[index].content != '회수예정'){%>

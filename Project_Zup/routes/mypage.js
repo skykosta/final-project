@@ -7,6 +7,7 @@
 var mysql = require('mysql');
 var fs = require('fs');
 var ejs = require('ejs');
+var moment = require("moment");
 
 // 데이터 베이스와 연결
 var client = mysql.createConnection({
@@ -34,6 +35,7 @@ exports.mypage = function(req, res){
 				  res.render('mypage', {
 					  user : user,
 					  log : log,
+					  moment,
 					  sessionId: req.session.user_id
 				  });
 			  }
