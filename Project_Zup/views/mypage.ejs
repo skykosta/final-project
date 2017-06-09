@@ -63,12 +63,11 @@
                   <div class="panel panel-danger panel-pricing">
                   
                      <div class="panel-heading">
-                        <i class="fa fa-desktop"></i>
                             <h3 style="text-align:center"><%= user[0].user_name %>님</h3>
                      </div>
                         <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i>현재 적립금 <br /><strong> $<%= user[0].zupmoney %></strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 : <strong><%= user[0].user_bankname %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 현재 적립금 <br /><strong> $<%= user[0].zupmoney %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 <br /> <strong><%= user[0].user_bankname %></strong></li>
                             <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong><%= user[0].user_banknum %></strong></li>
                         </ul>
                         <div class="panel-footer">
@@ -130,7 +129,7 @@
                 <button type="button" class="btn btn-warning btn-filter" data-target="적립">적립</button>
                 <button type="button" class="btn btn-danger btn-filter" data-target="대기">대기</button>
                 
-              </div>
+              </div> <br /><br />
             </div>
             <div class="table-container">
               <table class="table table-filter">
@@ -147,7 +146,7 @@
                     <a href="javascript:;" class="star">
                         <i class="glyphicon glyphicon-star"></i>
                       </a>
-                    </td>
+                    </td> 
                     <td>
                       <div class="media">
                         <div class="media-body">
