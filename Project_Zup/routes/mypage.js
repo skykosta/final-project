@@ -28,7 +28,7 @@ exports.mypage = function(req, res){
 	client.query('select user_address from user where user_id=?',[req.session.user_id], function(err, user_address){
 		var user_address = user_address[0].user_address;
 		console.log(user_address);
-		User_address= user_address.split(",");
+		User_address= user_address.split("*");
 		User_address_base = User_address[0];
 		User_address_detail = User_address[1];
 	});
@@ -65,7 +65,7 @@ exports.mypage_change = function(req, res){
 	 console.log("========바디========");
 	 console.log(body);
 	 client.query('update user set user_pw=?, user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
-			  [body.inputPassword, body.inputNumber, body.address_base+","+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
+			  [body.inputPassword, body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
 		 
 		 res.redirect('/mypage');
 	  });
