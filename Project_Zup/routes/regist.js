@@ -25,7 +25,7 @@ exports.regist2 = function(req, res){
  var body = req.body;
  
   client.query('insert into user (user_id, user_pw, user_name, user_phonenum, user_address, user_email, user_bankname, user_banknum) values(?,?,?,?,?,?,?,?)',
-		  [body.inputId, body.inputPassword, body.inputName, body.inputNumber, body.address_base+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount ], function(){
+		  [body.inputId, body.inputPassword, body.inputName, body.inputNumber, body.address_base+","+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount ], function(){
 	  res.redirect('/regresult?id='+body.inputId);
   });
 };
