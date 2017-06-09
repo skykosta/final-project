@@ -46,7 +46,7 @@ exports.login2 = function(req, res){
 			console.log('정상 로그인');
 			//res.send('<!-- Sweetalert --><script src="/stylesheets/js/sweetalert2.min.js"></script><link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css"><script type="text/javascript">swal({title : "비밀번호 미입력!",text : "비밀번호를 입력해주세요!",type :"warning"});location.href="/"</script>');
 			
-			res.send('<script type="text/javascript">alert("로그인 성공!!");location.href="/"</script>');
+			res.send('<script type="text/javascript">location.href="/"</script>');
 			//res.render('index');
 		}else{
 			//res.json({result:'fail'});
