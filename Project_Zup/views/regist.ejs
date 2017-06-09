@@ -311,7 +311,7 @@ body {
 				if ($("#inputPassword").val() === "") {
 					swal({
 						title : '비밀번호 미입력!',
-						text : '비밀번호를 입력해주세요!(숫자,문자포함 6~12자리)',
+						text : '비밀번호를 입력해주세요!(숫자,문자조합 6~12자리)',
 						type : 'warning',
 						confirmButtontext : '닫기'
 					})
@@ -438,7 +438,7 @@ body {
 				re = /^(?=([a-zA-Z]+[0-9]+[a-zA-Z0-9]*|[0-9]+[a-zA-Z]+[a-zA-Z0-9]*)$).{6,12}$/i;
 
 				if (!re.test(pw.value)) {
-					$("#passwd_display").html("비밀번호를 다시 입력해주세요.");
+					$("#passwd_display").html("비밀번호를 다시 입력해주세요.(숫자,문자조합 6~12자리)");
 					return false;
 				} else {
 					$("#passwd_display").html("사용가능한 비밀번호입니다.");
