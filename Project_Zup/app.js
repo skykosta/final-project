@@ -98,7 +98,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/chat', chatserver.chat);
 
 app.get('/test', function(request, response) {
