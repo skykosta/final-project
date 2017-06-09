@@ -388,7 +388,6 @@ body {
 			}
 
 			//실시간 이벤트 처리
-			var id = document.getElementById("inputId");
 			var pw = document.getElementById("inputPassword");
 			var pwCheck = document.getElementById("inputPasswordCheck");
 			var name = document.getElementById("inputName");
@@ -397,9 +396,7 @@ body {
 			var account = document.getElementById("inputAccount");
 
 			// 키보드 이벤트
-			id.onkeyup = function() {
-				valid_id(id);
-			}
+			
 			email.onkeyup = function() {
 				valid_email(email);
 			}
@@ -423,10 +420,10 @@ body {
 				re = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
 				if (!re.test(email.value)) {
-					displayMessage("메일 형식이 맞지 않습니다. 다시 입력해주세요.");
+					$("#emailId_display").html("메일 형식이 맞지 않습니다. (aaa@aaa.com)");
 					return false;
 				} else {
-					displayMessage("사용가능한 메일입니다.");
+					$("#emailId_display").html("사용가능한 메일입니다.");
 					return true;
 				}
 			}
@@ -436,7 +433,7 @@ body {
 
 				//    비밀번호 정규표현식(알파벳과 숫자 각각 최소 1개 이상으로 구성, 6~12자리)
 				re = /^(?=([a-zA-Z]+[0-9]+[a-zA-Z0-9]*|[0-9]+[a-zA-Z]+[a-zA-Z0-9]*)$).{6,12}$/i;
-
+				
 				if (!re.test(pw.value)) {
 					$("#passwd_display").html("비밀번호를 다시 입력해주세요.(숫자,문자조합 6~12자리)");
 					return false;
