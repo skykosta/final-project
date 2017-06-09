@@ -44,13 +44,12 @@ exports.send = function(req, res){
       var tel = req.body.telephone;
       var mapAddress = req.body.mapAddress;
       var detailAddress = req.body.detailAddress;
-      var address = mapAddress + ", " +detailAddress;
+      var address = mapAddress + "*" +detailAddress;
       
 	  //유저 값 세팅
 	  var user_id = req.session.user_id;
 	  
 	  //디바이스 키값, 위도 경도 세팅
-	  var latData = lat + "," + lng;
 	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
 //	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
 	
@@ -72,10 +71,11 @@ exports.send = function(req, res){
   			body : JSON.stringify({
   				"data" : { "rorder" :
   				                   {					
-  						   "name" : name,
-  						   "tel" : tel,
-  						   "message" : latData,
-  						   "address" : address
+  						   "user_name" : name,
+  						   "user_phonenum" : tel,
+  						   "lat" : lat,
+  						   "lng" : lng,
+  						   "user_address" : address
   				                   }
   			  },
   				"to" : deviceId
