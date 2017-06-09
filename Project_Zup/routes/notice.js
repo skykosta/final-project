@@ -28,11 +28,17 @@ var client = mysql.createConnection({
 
 
 exports.fnq = function(req, res){
-	res.render('fnq');
+	var sessionUserId = req.session.user_id;
+	res.render('fnq',{
+		sessionId: sessionUserId
+	});
 }
 
 exports.contact = function(req, res){
-	res.render('contact');
+	var sessionUserId = req.session.user_id;
+	res.render('contact',{
+		sessionId: sessionUserId
+	});
 }
 
 
