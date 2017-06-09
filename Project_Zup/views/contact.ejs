@@ -1,18 +1,18 @@
 
-<body>
-	<br><br><br><br><br><br><br>
+<body style="margin-top:130px;">
+	
     <% include header.ejs %>
-  <div class="container" style="text-align: center; margin-bottom: 10px;">
+  <div class="container" style="text-align: center; margin-bottom:40px;">
   
   <a class="btn icon-btn btn-info" href="notice"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>공지사항</a>
   <a class="btn icon-btn btn-warning" href="fnq"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>자주묻는 질문</a>
   <a class="btn icon-btn btn-danger" href="total"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>contact us</a>
   </div>
 <!-- Contact Section -->
-    <section id="contact" style="background-color: rgb(175, 207, 167); width: 90em; height:50em; margin-left: 12em; margin-top: 1.5em;">
-        <div class="container" style="margin-left: 4em; margin-top: -6em;">
+    <section id="contact" style="background-color: rgb(175, 207, 167); width: 90em; height:55em; margin: auto">
+        <div class="container" style=" margin: auto">
             <div class="row">
-                <div class="col-lg-12 text-center" style="margin-left: -1em;">
+                <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
                     <h3 class="section-subheading text-muted" style="color: grey;">궁금하신 모든 사항에 대해 질문해주세요:-)</h3>
                 </div>
@@ -21,8 +21,8 @@
                 <div class="col-lg-12">
                     <form name="sentMessage" id="contactForm" novalidate >
                         <div class="row">
-                            <div class="col-md-6" style="margin-left: 20em; margin-top: -2em;">
-                                <div class="form-group"">
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <input type="tel" class="form-control" placeholder="what's the question?*" 
                                     id="phone" required data-validation-required-message="Please enter a title.">
                                     <p class="help-block text-danger"></p>
@@ -35,10 +35,11 @@
                             </div>
                             
                             <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center" style="margin-left: -1em;">
+                            <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl" style="height: 70px; width: 269px; margin-right: 0.5em;">전송</button>
-                                <button type="submit" class="btn btn-xl"  style="height: 70px; width: 269px;">취소</button>
+                                <button type="submit" class="btn btn-lg btn-primary" style="width:200px;">
+                               <span> 전송</span></button>
+                                <button type="submit" class="btn btn-lg btn-primary" style="width:200px;"><span>취소</span></button>
                             </div>
                         </div>
                     </form>
