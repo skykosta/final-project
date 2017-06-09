@@ -70,12 +70,14 @@ exports.send = function(req, res){
   				'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
   			},
   			body : JSON.stringify({
-  				"data" : {					
-  				    "name" : name,
-  				    "tel" : tel,
-  					"message" : latData,
-  					"address" : address
-  				},
+  				"data" : { "rorder" :
+  				                   {					
+  						   "name" : name,
+  						   "tel" : tel,
+  						   "message" : latData,
+  						   "address" : address
+  				                   }
+  			  },
   				"to" : deviceId
   			})
   		}, function(error, response, body) {

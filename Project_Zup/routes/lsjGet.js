@@ -82,7 +82,7 @@ exports.lsj2 = function(req, res){
 				body : JSON.stringify({
 					"data" : {					
 					     
-						"data" : results
+						"order" : results
 						
 						/*
 						"name" : name,
