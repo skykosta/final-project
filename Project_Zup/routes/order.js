@@ -29,7 +29,7 @@ var client = mysql.createConnection({
 
 exports.cancel = function(req, res){
 	var body = req.body;
-		client.query("update userlog set logtype=?, status=?, content=? where user_num=? and content=?  ", ['취소', '취소완료', '취소완료', body.user_num, '회수예정' ], function(err, result) {
+		client.query("update userlog set logtype=?, status=?, content=? where user_num=? and logtype=?  ", ['취소', '취소완료', '취소완료', body.user_num, '대기' ], function(err, result) {
 	});
 	
 	client.query("update orderlist set order_status=?, cancelreason=? where order_num=?", ['취소완료', body.cancelreason, body.order_num],function(err, result) {
