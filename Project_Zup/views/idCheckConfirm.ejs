@@ -148,12 +148,25 @@
 			
 			function sendServer(){
 				var id = $("#login_username").val();
-				
+				if(id!= null){
 				ajax({
 					type : "post",
 					url : "/idCheckConfirm",
 					param : "id = " + id,
+					callback : receiveMassage
 				});
+				
+				}
+			}
+			function receiveMassage(request){
+				displayMessage(request.responseText);
+				
+			}
+
+			function displayMessage(message){
+				var display = document.getElementById("display");
+				
+				display.innerHTML = message;
 			}
 			
 			});

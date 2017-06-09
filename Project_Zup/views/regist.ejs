@@ -192,7 +192,7 @@ body {
             <div class="col-sm-8">
               <div class="input-group">
                 <input class="form-control" name="inputId" id="inputId" type="text"
-                  placeholder="아이디" style="margin-left:-8px;"> <span class="input-group-btn"> <a
+                  placeholder="아이디" style="margin-left:-8px;"onclick="window.open('/idCheckConfirm','아이디 중복확인','resizable=no width=400 height=330 scrollbars=no');return false"> <span class="input-group-btn"> <a
                   class="btn btn-success" href="javascript:;"
                   onclick="window.open('/idCheckConfirm','아이디 중복확인','resizable=no width=400 height=330 scrollbars=no');return false" style="margin-left:10px; margin-right:-12px;">중복확인<i
                     class="fa fa-mail-forward spaceLeft"></i></a></span>
@@ -244,9 +244,9 @@ body {
           <label class="col-sm-3 control-label" for="inputAddress">주소(선택)</label>
           <div class="col-sm-8">
             <div class="input-group">
-              <span class="input-group-btn"> <input style="width: 300px"
+              <span class="input-group-btn"> <input style="width: 435px"
                 class="form-control" type="text" id="sample6_address" name="address_base"
-                placeholder="주소"> <input style="width: 95px" type="button"
+                placeholder="주소" > <input style="width: 95px; margin-left:10px;" type="button"
                 class="btn btn-success" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
                 <input class="form-control" type="text" id="sample6_address2"
                 name="address_detail" placeholder="상세주소">
