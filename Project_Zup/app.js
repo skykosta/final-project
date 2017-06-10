@@ -47,10 +47,7 @@ var express = require('express')
 , intro = require('./routes/intro')
 
 /* 관리자 페이지 */
-, user = require('./routes/user')
-, order = require('./routes/order')
-, total = require('./routes/total')
-, orderresult = require('./routes/orderresult')
+, manager = require('./routes/manager')
 
 /* 고객센터 페이지 */
 , notice = require('./routes/notice')
@@ -149,11 +146,11 @@ app.get('/regresult', regresult.regresult);
 
 
 /* 관리자 페이지 */
-app.get('/order', order.order);
-app.post('/order', order.cancel);
-app.get('/total', total.total);
-app.get('/user', user.user);
-app.get('/orderresult', orderresult.order);
+app.get('/order', manager.order);
+app.post('/order', manager.cancel);
+app.get('/total', manager.total);
+app.get('/user', manager.user);
+app.get('/orderresult', manager.orderresult);
 
 /*접수 하기 페이지*/
 app.get('/receipt', receipt.receipt);

@@ -19,7 +19,7 @@ var client = mysql.createConnection({
 });
 
 
-exports.order = function(req, res){
+exports.orderresult = function(req, res){
 	var sessionUserId = req.session.user_id;
 	pageCount = (Math.ceil(countresult/pageSize));
 	client.query("select count(bottlelist_num) counts from bottle_list", function(error, countresults) {
