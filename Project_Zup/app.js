@@ -4,7 +4,6 @@
 
 var express = require('express')
 , routes = require('./routes')
-, user = require('./routes/user')
 , test = require('./routes/test')
 , chatserver = require('./routes/chatserver')
 , header = require('./routes/header')

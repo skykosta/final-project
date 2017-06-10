@@ -35,7 +35,6 @@ exports.cancel = function(req, res){
 	client.query("update orderlist set order_status=?, cancelreason=? where order_num=?", ['취소완료', body.cancelreason, body.order_num],function(err, result) {
 			res.redirect('order');
 	});
-	
 };
 
 /**
@@ -148,7 +147,7 @@ exports.order = function(req, res){
 };
 
 /**
- * orderresult
+ * orderresult요청시
  */
 exports.orderresult = function(req, res){
 	var sessionUserId = req.session.user_id;
@@ -283,7 +282,7 @@ exports.orderresult = function(req, res){
 
 
 /**
- * user
+ * user요청시
  */
 
 exports.user = function(req, res){
@@ -347,16 +346,16 @@ exports.user = function(req, res){
         }
 	};
 	
-	/**
-	 * total
-	 */
+/**
+* total요청시
+*/
 	
-	exports.total = function(req, res){
-		var sessionUserId = req.session.user_id;
-	  res.render("total",{
-		  sessionId: sessionUserId
-	  });
-	};
+exports.total = function(req, res){
+	var sessionUserId = req.session.user_id;
+		res.render("total",{
+			sessionId: sessionUserId
+	});
+};
 
 
 
