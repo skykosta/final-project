@@ -43,13 +43,13 @@ exports.pwcheck2 = function(req, res){
 			var transporter = nodemailer.createTransport({
 				  service: 'gmail',
 				  auth: {
-				    user: 'qoehd0@gmail.com',
-				    pass: 'ghkwjd3ehd!'
+				    user: 'zupkosta@gmail.com',
+				    pass: 'zup12345!'
 				  }
 				});
 			
 			var mailOptions = {
-					  from: 'qoehd0@gmail.com',
+					  from: 'zupkosta@gmail.com',
 					  to: body.inputEmail,
 					  subject: '[ZUP] 줍계정 비밀번호 찾기 인증번호',
 					  text: "안녕하세요. ZUP 입니다. \r\n" +

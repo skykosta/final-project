@@ -62,14 +62,14 @@ exports.contact2 = function(req, res){
 				var transporter = nodemailer.createTransport({
 					  service: 'gmail',
 					  auth: {
-					    user: 'qoehd0@gmail.com',
-					    pass: 'ghkwjd3ehd!'
+					    user: 'zupkosta@gmail.com',
+					    pass: 'zup12345'
 					  }
 					});
 				
 				var mailOptions = {
 						  from: email,
-						  to: 'qoehd0@gmail.com',
+						  to: 'zupkosta@gmail.com',
 						  subject: '[ZUP] 고객으로 부터 질문이 도착하였습니다.' + title,
 						  text: message
 						  		
