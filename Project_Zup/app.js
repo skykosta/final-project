@@ -41,6 +41,8 @@ var express = require('express')
 , newpw = require('./routes/newpw')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
+, gologin = require('./routes/gologin')
+
 /* 인트로 페이지 */
 , intro = require('./routes/intro')
 
@@ -123,6 +125,9 @@ app.post('/login', login.login2);
 
 //로그아웃
 app.get('/logout', logout.logout);
+
+//아이디 찾기 세션날리기
+app.get('/gologin', gologin.gologin);
 
 app.get('/idcheck', idcheck.idcheck);
 app.post('/idcheck', idcheck.idcheck2);
