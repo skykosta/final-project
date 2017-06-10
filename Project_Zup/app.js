@@ -177,9 +177,9 @@ app.get('/noticecount', notice.count);//게시판 조회수처리
 app.get('/noticeedit', notice.edit);//게시판 수정페이지
 app.post('/noticeedit', notice.editresult);//게시판 수정처리
 app.get('/noticedelete', notice.delete);//게시판 조회수처리
-app.get('/fnq', notice.fnq)//자주묻는질문
-app.get('/contact', notice.contact)//Contact us
- 
+app.get('/fnq', notice.fnq);//자주묻는질문
+app.get('/contact', notice.contact);//Contact us
+app.post('/contact', notice.contact2);//메일발송 관련
 
 
 /**헤더*/

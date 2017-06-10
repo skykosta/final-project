@@ -12,12 +12,11 @@ var countresult;
 var pageSize = 20;
 var pageCount = 1;
 var currentPage = 1;
-
+var nodemailer = require('nodemailer');
 var app = express();
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
-
 
 var client = mysql.createConnection({
 	host: '192.168.0.67',
@@ -32,16 +31,68 @@ exports.fnq = function(req, res){
 	res.render('fnq',{
 		sessionId: sessionUserId
 	});
-}
+};
 
 exports.contact = function(req, res){
 	var sessionUserId = req.session.user_id;
 	res.render('contact',{
 		sessionId: sessionUserId
 	});
-}
+};
 
 
+//post	
+exports.contact2 = function(req, res){
+	var sessionUserId = req.session.user_id;
+	var body =  req.body;
+	var title = body.title;
+	var message = body.message;
+	console.log(title);
+	console.log(message);
+		
+		
+		client.query('select user_email from user where user_id=?', [sessionUserId], function(err, result){
+			//res.render('index', {data: result});
+			console.log('메일을 보내자');
+			console.log(result);
+			var email = result[0].user_email;
+			console.log("보내는 이메일 :"+email);
+			
+//인증번호 보내기
+				var transporter = nodemailer.createTransport({
+					  service: 'gmail',
+					  auth: {
+					    user: 'qoehd0@gmail.com',
+					    pass: 'ghkwjd3ehd!'
+					  }
+					});
+				
+				var mailOptions = {
+						  from: email,
+						  to: 'qoehd0@gmail.com',
+						  subject: '[ZUP] 고객으로 부터 질문이 도착하였습니다.' + title,
+						  text: message
+						  		
+						  		
+						  		
+						};
+				
+				transporter.sendMail(mailOptions, function(error, info){
+					  if (error) {
+					    console.log(error);
+					  } else {
+					    console.log('Email sent: ' + info.response);
+					  }
+					});
+				
+				
+				
+				
+				res.send('<script type="text/javascript">alert("메일이 전송되었습니다. 빠른시일내에 답변 드리겠습니다.");location.href="/"</script>');
+			
+			
+		}); 
+	};
 
 
 
