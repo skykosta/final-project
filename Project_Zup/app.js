@@ -37,10 +37,11 @@ var express = require('express')
 , regist = require('./routes/regist')
 , idcheck = require('./routes/idcheck')
 , pwcheck = require('./routes/pwcheck')
-, newpw = require('./routes/newpw')
+//, newpw = require('./routes/newpw')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
 , gologin = require('./routes/gologin')
+, gologin2 = require('./routes/gologin2')
 
 /* 인트로 페이지 */
 , intro = require('./routes/intro')
@@ -124,12 +125,19 @@ app.get('/logout', logout.logout);
 
 //아이디 찾기 세션날리기
 app.get('/gologin', gologin.gologin);
-
+//아이디 찾기 
 app.get('/idcheck', idcheck.idcheck);
 app.post('/idcheck', idcheck.idcheck2);
+app.post('/idresult', idcheck.idresult);
+//비밀번호 찾기
 app.get('/pwcheck', pwcheck.pwcheck);
 app.post('/pwcheck', pwcheck.pwcheck2);
-app.post('/newpw', newpw.newpw);
+app.post('/newpw', pwcheck.newpw);
+app.get('/pwresult', pwcheck.pwresult2);
+app.post('/pwresult', pwcheck.pwresult);
+//비밀번호 세션 날리기
+app.get('/gologin2', gologin2.gologin2);
+
 app.get('/idCheckConfirm', regist.idCheckConfirm);
 app.post('/idCheckConfirm', regist.idCheckConfirm2);
 app.post('/idresult', idcheck.idresult);
