@@ -10,7 +10,7 @@
     ></span>공지사항</a> <a
     class="btn icon-btn btn-warning" href="fnq"><span
     ></span>자주묻는 질문</a>
-  <a class="btn icon-btn btn-danger" href="contact"><span
+  <a class="btn icon-btn btn-danger" id="conButton"><span
     ></span>contact
     us</a>
 </div>
@@ -148,4 +148,30 @@ thead
   </table>
  
 </div>
+
+ <!--  로그인시 컨텍트어스 가기 -->
+  <script type="text/javascript">
+			window.onload = function() {
+				var button = document.getElementById('conButton');
+
+				//컨텍트어스	
+				button.onclick = function() {
+					var id = "<%= sessionId%>";
+
+					if (id == "") {
+						swal({
+							title : '잠시만!',
+							text : '먼저 로그인을 해주세요!',
+							type : 'warning'
+						})
+
+					} else {
+						location.href = "contact"
+					}
+
+				}
+				
+
+			};
+		</script>
 <% include footer.ejs %>
