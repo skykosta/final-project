@@ -1,105 +1,95 @@
 <html>
-  <head>
-  <meta charset="UTF-8">
-  <title>ZUP_관리자 페이지</title>
+<head>
+<meta charset="UTF-8">
+<title>ZUP_관리자 페이지</title>
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
-    
-      
-    
-    
-    <script type='text/javascript'>
-     google.charts.load('current', {'packages': ['geochart']});
-     google.charts.setOnLoadCallback(drawMarkersMap);
-
-	
-		
-		
-      function drawMarkersMap() {
-      var data = google.visualization.arrayToDataTable([
-        ['Country',   '총 회수량'],
-        ['도봉구',  150000],
-        ['강북구',  150000],
-        ['노원구',  150000],
-        ['은평구',  150000],
-        ['성북구',  150000],
-        ['종로구',  150000],
-        ['동대문구',  150000],
-        ['중랑구',  150000],
-        ['서대문구',  150000],
-        ['중구',  150000],
-        ['성동구',  150000],
-        ['광진구',  150000],
-        ['용산구',  150000],
-        ['마포구',  150000],
-        ['강서구',  150000],
-        ['양천구',  150000],
-        ['구로구',  150000],
-        ['영등포구',  150000],
-        ['금천구',  150000],
-        ['관악구',  150000],
-        ['동작구',  150000],
-        ['서초구',  150000],
-        ['강남구',  150000],
-        ['송파구',  150000],
-        ['강동구',  150000]
-      ]);
+<script type='text/javascript'
+  src='https://www.gstatic.com/charts/loader.js'></script>
 
 
-	
-      var options = {
-      	
-        sizeAxis: { minValue: 0, maxValue: 100000 },
-        region: 'KR', // Western Europe,
-        country: '춘천시',
-        displayMode: 'markers',
-        colorAxis: {colors: ['#4ef442', '#f44242']} // orange to blue
-      };
-		
-      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-      
-   	  };
-    </script>
-    
-    
-    <style>
-  thead{
-     background-color: #333;
-    color: #66ef46;
-	}
- 
-    </style>
-    
-    
-  </head>
-  
-  
-  
-  
-  
-  <body>
+
+
+<script type='text/javascript'>
+	google.charts.load('current', {
+		'packages' : [ 'geochart' ]
+	});
+	google.charts.setOnLoadCallback(drawMarkersMap);
+
+	function drawMarkersMap() {
+		var data = google.visualization.arrayToDataTable([
+				[ 'Country', '총 회수량' ], [ '도봉구', <%=count1%> ],
+				[ '강북구', <%=count2%> ], [ '노원구', <%=count3%> ],
+				[ '은평구', <%=count4%> ], [ '성북구', <%=count5%> ],
+				[ '종로구', <%=count6%> ], [ '동대문구', <%=count7%> ],
+				[ '중랑구', <%=count8%> ], [ '서대문구', <%=count9%> ],
+				[ '중구', <%=count10%> ], [ '성동구', <%=count11%> ],
+				[ '광진구', <%=count12%> ], [ '용산구', <%=count13%> ],
+				[ '마포구', <%=count14%> ], [ '강서구', <%=count15%> ],
+				[ '양천구', <%=count16%> ], [ '구로구', <%=count17%> ],
+				[ '영등포구', <%=count18%> ], [ '금천구', <%=count19%> ],
+				[ '관악구', <%=count20%> ], [ '동작구', <%=count21%> ],
+				[ '서초구', <%=count22%> ], [ '강남구', <%=count23%> ],
+				[ '송파구', <%=count24%> ], [ '강동구', <%=count25%> ] ]);
+
+		var options = {
+			magnifyingGlass : {
+				zoomFactor : 5.0
+			},
+			sizeAxis : {
+				minValue : 0,
+				maxValue : 100000
+			},
+			region : 'KR', // Western Europe,
+			displayMode : 'markers',
+			colorAxis : {
+				colors : [ '#4ef442', '#f44242' ]
+			}
+		// orange to blue
+		};
+
+		var chart = new google.visualization.GeoChart(document
+				.getElementById('chart_div'));
+		chart.draw(data, options);
+
+	};
+</script>
+
+
+<style>
+thead {
+	background-color: #333;
+	color: #66ef46;
+}
+</style>
+
+
+</head>
+
+
+
+
+
+<body>
   <% include header.ejs %>
-  <div style="margin-top:130px;">
-</div>
-  
+  <div style="margin-top: 130px;"></div>
+
   <div class="container" style="text-align: center; margin-bottom: 50px">
-    <a class="btn icon-btn btn-success" href="order"><span ></span>접수관리</a>
-    <a class="btn icon-btn btn-info" href="orderresult"><span ></span>회수관리</a>
-    <a class="btn icon-btn btn-warning" href="user"><span ></span>회원관리</a>
-    <a class="btn icon-btn btn-danger" href="total"><span ></span>회수현황</a>
+    <a class="btn icon-btn btn-success" href="order"><span></span>접수관리</a>
+    <a class="btn icon-btn btn-info" href="orderresult"><span></span>회수관리</a>
+    <a class="btn icon-btn btn-warning" href="user"><span></span>회원관리</a>
+    <a class="btn icon-btn btn-danger" href="total"><span></span>회수현황</a>
   </div>
   <div id="content" class="container">
-  <h1>지역별 회수 현황</h1>
+    <h1>지역별 회수 현황</h1>
     <div id="chart_div" style="height: 400px;" class="container"></div>
-    
-    
- <table class="table table-hover">
+
+
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>No.</th>
@@ -109,34 +99,167 @@
         </tr>
       </thead>
       <tbody>
-      <tr>
-      	<td>1</td>
-      	<td>강남구</td>
-      	<td>1000000</td>
-      	<td>150000</td>
-      </tr>
-            <tr>
-      	<td>1</td>
-      	<td>강남구</td>
-      	<td>1000000</td>
-      	<td>150000</td>
-      </tr>
-            <tr>
-      	<td>1</td>
-      	<td>강남구</td>
-      	<td>1000000</td>
-      	<td>150000</td>
-      </tr>
+        <tr>
+          <td>1</td>
+          <td>도봉구</td>
+          <td>1000000</td>
+          <td><%=count1%></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>강북구</td>
+          <td>1000000</td>
+          <td><%=count2%></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>노원구</td>
+          <td>1000000</td>
+          <td><%=count3%></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>은평구</td>
+          <td>1000000</td>
+          <td><%=count4%></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>성북구</td>
+          <td>1000000</td>
+          <td><%=count5%></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>종로구</td>
+          <td>1000000</td>
+          <td><%=count6%></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>동대문구</td>
+          <td>1000000</td>
+          <td><%=count7%></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>중랑구</td>
+          <td>1000000</td>
+          <td><%=count8%></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>서대문구</td>
+          <td>1000000</td>
+          <td><%=count9%></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>중구</td>
+          <td>1000000</td>
+          <td><%=count10%></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>성동구</td>
+          <td>1000000</td>
+          <td><%=count11%></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>광진구</td>
+          <td>1000000</td>
+          <td><%=count12%></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>용산구</td>
+          <td>1000000</td>
+          <td><%=count13%></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>마포구</td>
+          <td>1000000</td>
+          <td><%=count14%></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>강서구</td>
+          <td>1000000</td>
+          <td><%=count15%></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>양천구</td>
+          <td>1000000</td>
+          <td><%=count16%></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>구로구</td>
+          <td>1000000</td>
+          <td><%=count17%></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>영등포구</td>
+          <td>1000000</td>
+          <td><%=count18%></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>금천구</td>
+          <td>1000000</td>
+          <td><%=count19%></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>관악구</td>
+          <td>1000000</td>
+          <td><%=count20%></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>동작구</td>
+          <td>1000000</td>
+          <td><%=count21%></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>서초구</td>
+          <td>1000000</td>
+          <td><%=count22%></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td>강남구</td>
+          <td>1000000</td>
+          <td><%=count23%></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>송파구</td>
+          <td>1000000</td>
+          <td><%=count24%></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>강동구</td>
+          <td>1000000</td>
+          <td><%=count25%></td>
+        </tr>
       </tbody>
-      </table>
-    </div>
-    
-	
-	<% include footer.ejs %>
+    </table>
+  </div>
 
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI"></script>
-       
-  </body>
+  <% include footer.ejs %>
+
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI"></script>
+
+</body>
 </html>
 

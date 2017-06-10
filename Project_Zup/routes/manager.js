@@ -351,10 +351,97 @@ exports.user = function(req, res){
 */
 	
 exports.total = function(req, res){
+	
 	var sessionUserId = req.session.user_id;
-		res.render("total",{
-			sessionId: sessionUserId
-	});
+	client.query("select u.user_address from user u, bottle_list bl" ,function(error, results) {
+		var count1 = 0;
+		var count2 = 0;
+		var count3 = 0;
+		var count4 = 0;
+		var count5 = 0;
+		var count6 = 0;
+		var count7 = 0;
+		var count8 = 0;
+		var count9 = 0;
+		var count10 = 0;
+		var count11 = 0;
+		var count12 = 0;
+		var count13 = 0;
+		var count14 = 0;
+		var count15 = 0;
+		var count16 = 0;
+		var count17 = 0;
+		var count18 = 0;
+		var count19 = 0;
+		var count20 = 0;
+		var count21 = 0;
+		var count22 = 0;
+		var count23 = 0;
+		var count24 = 0;
+		var count25 = 0;
+		//console.log(results.length);
+		for (var i = 0; i < results.length; i++) {
+			var address = results[i].user_address;
+			var token = address.split(" ");
+			for (var j = 0; j < token.length; j++) {
+				switch (token[j]) {
+				case "도봉구" : count1++;
+				case "강북구" : count2++;
+				case "노원구" : count3++;
+				case "은평구" : count4++;
+				case "성북구" : count5++;
+				case "종로구" : count6++;
+				case "동대문구" : count7++;
+				case "중랑구" : count8++;
+				case "서대문구" : count9++;
+				case "중구" : count10++;
+				case "성동구" : count11++;
+				case "광진구" : count12++;
+				case "용산구" : count13++;
+				case "마포구" : count14++;
+				case "강서구" : count15++;
+				case "양천구" : count16++;
+				case "구로구" : count17++;
+				case "영등포구" : count18++;
+				case "금천구" : count19++;
+				case "관악구" : count20++;
+				case "동작구" : count21++;
+				case "서초구" : count22++;
+				case "강남구" : count23++;
+				case "송파구" : count24++;
+				case "강동구" : count25++;
+				}
+			}
+		}
+		res.render('total', {
+			count1: count1,
+			count2: count2,
+			count3: count3,
+			count4: count4,
+			count5: count5,
+			count6: count6,
+			count7: count7,
+			count8: count8,
+			count9: count9,
+			count10: count10,
+			count11: count11,
+			count12: count12,
+			count13: count13,
+			count14: count14,
+			count15: count15,
+			count16: count16,
+			count17: count17,
+			count18: count18,
+			count19: count19,
+			count20: count20,
+			count21: count21,
+			count22: count22,
+			count23: count23,
+			count24: count24,
+			count25: count25,
+		    sessionId: sessionUserId
+			});
+		});
 };
 
 
