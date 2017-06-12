@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var request = require("request");
 var firebase = require("firebase");
+var nodemailer = require('nodemailer');
 
 var client = mysql.createConnection({
 	host: '192.168.0.67',
@@ -96,6 +97,46 @@ exports.send = function(req, res){
       client.query("select user_num from user where user_id = ?", [user_id], function(error, results){
     	  
     	  var user_num = results[0].user_num;
+    	
+    	  //메일
+          client.query('select user_email from user where user_id=?', [user_id], function(err, result){
+    			//res.render('index', {data: result});
+    			console.log('메일을 보내자');
+    			console.log(result);
+    			var email = result[0].user_email;
+    			console.log("보내는 이메일 :"+email);
+    			
+          //인증번호 보내기
+    				var transporter = nodemailer.createTransport({
+    					  service: 'gmail',
+    					  auth: {
+    					    user: 'zupkosta@gmail.com',
+    					    pass: 'zup12345'
+    					  }
+    					});
+    				
+    				var mailOptions = {
+    						  from: email,
+    						  to: 'zupkosta@gmail.com',
+    						  subject: user_id +'님으로부터 접수신청이 되었습니다' ,
+    						  text: 
+    							  '접수 고객명 :' + name+ '\n'+
+    							  '접수 고객 전화번호 :' + tel + '\n'+
+    							  '접수 고객 주소 :' + mapAddress+','+detailAddress
+    						  		
+    						  		
+    						  		
+    						};
+    				
+    				transporter.sendMail(mailOptions, function(error, info){
+    					  if (error) {
+    					    console.log(error);
+    					  } else {
+    					    console.log('Email sent: ' + info.response);
+    					  }
+    					});
+    			
+    		});
     	  
     	  client.query("insert into userlog(user_num, logtype, status) values(?,'대기', '회수예정')",
                   [user_num]);
