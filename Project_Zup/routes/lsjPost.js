@@ -13,7 +13,7 @@ var client = mysql.createConnection({
 exports.lsj1 = function(req, res){
 	
 	var user_num;
-	var user_id = "rhkrtjdrb";
+	var user_id;
 	var user_pw;
 	var user_name;
 	var user_phonenum;
@@ -58,7 +58,7 @@ exports.lsj1 = function(req, res){
        client.query("select * from user", function(error, results){
     	  
 //    	  console.log(results[0].user_name)
-//    	  console.log(results[0].user_phonenum)
+//    	  console.log(results[0].user_phonenum)    	  
 //    	  console.log(results);
 //    	  console.log(results[0].user_name);
 //    	  console.log(results[0].user_phonenum);
@@ -83,10 +83,9 @@ exports.lsj1 = function(req, res){
 					'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
 				},
 				body : JSON.stringify({
-					"data" : {					
-					     
-						"order" : results
-						
+					"data" : {		
+						        
+						      "order" : { results }
 						/*
 						"name" : name,
 					    "tel" : tel,
@@ -94,6 +93,7 @@ exports.lsj1 = function(req, res){
 						"address" : address
 					    */
 					},
+					
 					"to" : deviceId
 				})
 			}, function(error, response, body) {

@@ -58,7 +58,7 @@
                         </ul>
                         <div class="panel-footer">
                             <input type="TEXT" class="form-control" id="withdrawal_amount" name="withdrawal_amount" placeholder="환전 금액 입력"> <br>
-                            <div id="display" style="padding-bottom: 20px;"></div>
+                            <div id="display" style="padding-bottom: 20px;padding-left: 20px; color: RED"></div>
                             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#withdrawal_money" style="margin-left:15px;" id="moneychangeBTN">현금 환전</button>
                         </div>
 
@@ -86,7 +86,7 @@
           </div>
           </div>
           <div class="modal-footer" style="margin-top: 120px;">
-           <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+           <button type="button" class="btn btn-default withdrawalBTN">확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
           </div>
          </div>
@@ -248,7 +248,7 @@
             </div>
          </div>
          <div class="modal-footer" style="margin-top: 150px;">
-           <button type="button" class="btn btn-default Unregist">확인</button>
+           <button type="button" class="btn btn-default Unregist" id="dropBTN">확인</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
          </div>
        </div>
@@ -338,16 +338,34 @@
 $('a.btn.btn-default').hover(function(e) {
 $('a.btn.dropdown-toggle').trigger(e.type);
 })
-
-var user_pw1 = $('#user_pw1').val();
-
+				/* 비밀번호 입력 했는지 체크 후 탈퇴 */
 				$('.Unregist').on('click', function(){
-					var user = $('#user_pw1').val();
-					$('#user_pw1').val('');
-					$('#user_pw2').val('');
-					$('#dropMember').modal('hide');
-					location.href = "/drop/"+user;
+					if($("#user_pw1").val() === "" || $("#user_pw2").val() === ""){
+				     	alert("비밀번호를 입력해주세요.");
+				     	return false;
+				  }else{
+			  	   	var user = $('#user_pw1').val();
+							$('#user_pw1').val('');
+							$('#user_pw2').val('');
+							$('#dropMember').modal('hide');
+			      	location.href = "/drop/"+user;
+			  	}
 				});
+
+				/* 적립금 환전 버튼 클릭 */
+				$('.withdrawalBTN').on('click', function(){
+					var withdrawalmoney = <%=user[0].zupmoney%> - $('#withdrawal_amount').val();
+					$('#withdrawal_money').modal('hide');
+					location.href = "/withdrawal/"+ withdrawalmoney;
+				});
+
+				/* 입력한 적립금 표시 */
+				$('#moneychangeBTN').on('click', function() {
+		            var change_zupmoney = $('#withdrawal_amount').val();
+		            $('#money').html(change_zupmoney);
+		          
+		    });
+				
         </script>
         
                 
@@ -364,24 +382,13 @@ var user_pw1 = $('#user_pw1').val();
           $( "#notification" ).addClass(color);
           def=color;
           $( "#notification" ).fadeIn( "slow" );
-          //alert('hi');
           $(".win8-notif-button").click(function()
           {
-          //alert('hi');
           $(".notification").fadeOut("slow");
           });
         
         }
         
-  $(function() {
-          
-          $('#moneychangeBTN').on('click', function() {
-            var change_zupmoney = $('#withdrawal_amount').val();
-            $('#money').html(change_zupmoney);
-          
-          });
-          
-        });
   
   //은행 표시 하기
   $('#inputBank').val('<%=user[0].user_bankname%>');
@@ -402,25 +409,33 @@ var user_pw1 = $('#user_pw1').val();
           }
     
     });
+   
     
   });
-            //실시간 이벤트 처리
+      //실시간 이벤트 처리
       var withdrawal_amount = document.getElementById("withdrawal_amount");
       withdrawal_amount.onkeyup = function() {
         valid_withdrawal_amount(withdrawal_amount);
       }
 
-      // 계좌 번호 유효성 검사
+      // ZUPMONEY 유효성 검사
        function valid_withdrawal_amount(withdrawal_amount) {
-                // 계좌번호 정규표현식 숫자만 입력 가능
+         // ZUPMONEY 정규표현식 숫자만 입력 가능
         re = /^[0-9]*$/;
 
         if (!re.test(withdrawal_amount.value)) {
           $("#display").html("숫자만 입력해주세요.");
           return false;
         } else {
-          $("#display").html("출금가능합니다.");
-          return true;
+        	if (withdrawal_amount.value > <%=user[0].zupmoney %>){
+        		$("#display").html("금액 초과 : (");
+        		$("#moneychangeBTN").prop("disabled", true);
+        		return false;
+        	}else{
+        		$("#display").html("출금 가능 :D");
+        		$("#moneychangeBTN").prop("disabled", false);
+        		 return true;
+        	}
         }
       } 
       
@@ -430,7 +445,7 @@ var user_pw1 = $('#user_pw1').val();
 			valid_passwdCheck(pw, pwCheck);
 		}
    
-		// 비밀번호가 동일한지 검사
+		// 비밀번호 동일한지 검사
 		function valid_passwdCheck(pw, pwCheck) {
 
 			if (pw.value != pwCheck.value) {

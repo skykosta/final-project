@@ -33,6 +33,72 @@
 <script src="/stylesheets/js/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
 <style>
+
+
+/*롯데마트행복체적용Css*/
+
+
+
+
+
+@font-face {
+font-name: 'Monospace';
+  font-family: 'LotteMartHappy';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');
+}
+
+.lottemarthappy * {
+ font-family: 'LotteMartHappy', sans-serif;
+}
+
+.normal {
+ font-style: normal;
+}
+
+.w250 {
+ font-weight: 250;
+}
+
+.w300 {
+ font-weight: 300;
+}
+
+.w350 {
+ font-weight: 350;
+}
+
+.w400 {
+ font-weight: 400;
+}
+
+.w500 {
+ font-weight: 500;
+}
+
+.w700 {
+ font-weight: 700;
+}
+
+.w800 {
+ font-weight: 800;
+}
+
+.w900 {
+ font-weight: 900;
+}
+
+li span {
+ line-height: 1.8;
+ font-size: 1.3em;
+}
+/*(위)롯데마트체 css끝*/
+
+
+
+
+
 .big-btn{
 padding: 10px 0px 11px 0px;
 width: 215px;
@@ -103,6 +169,8 @@ line-height: 25px;
 
 
 <body id="page-top" class="index">
+<div class="lottemarthappy">
+
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container">
@@ -135,8 +203,10 @@ line-height: 25px;
     </div>
     <!-- /.container-fluid -->
   </nav>
+  </div>
   <!-- Header -->
   <header>
+  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -162,6 +232,7 @@ line-height: 25px;
       </div>
       
     </div>
+    </div>
    
   </header>
   
@@ -181,6 +252,7 @@ line-height: 25px;
   </nav>
   <!-- Header -->
   <header>
+  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -205,7 +277,7 @@ line-height: 25px;
   </div>
       </div>
     </div>
-    
+    </div>
   </header>
   <%}else if(sessionId != null && sessionId != 'admin'){%>
   <li><a><%=sessionId%>님 로그인중...</a></li>
@@ -221,6 +293,7 @@ line-height: 25px;
   </nav>
   <!-- Header -->
   <header>
+  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -245,12 +318,14 @@ line-height: 25px;
   </div>
       </div>
     </div>
-    
+    </div>
   </header>
   <%};%>
 
   <!-- Services Section -->
+  
   <section id="introduce" style="margin-top:-100px;">
+  <div class="lottemarthappy">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading">회사소개</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet
@@ -296,11 +371,13 @@ line-height: 25px;
         </div>
       </div>
     </div>
+    </div>
   </section>
 
 
   <!-- Team Section -->
  <section id="team" class="bg-light-gray">
+ <div class="lottemarthappy">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -329,6 +406,7 @@ line-height: 25px;
         </div>
       </div>
     </div>
+    </div>
   </section>
 
 
@@ -336,6 +414,7 @@ line-height: 25px;
 
   <!-- About Section -->
  <section id="about">
+ <div class="lottemarthappy">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -424,10 +503,12 @@ line-height: 25px;
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- Portfolio Grid Section -->
   <section id="portfolio" class="bg-light-gray">
+  <div class="lottemarthappy">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -524,8 +605,12 @@ line-height: 25px;
         </div>
       </div>
     </div>
+    </div>
   </section>
 
+
+
+<div class="lottemarthappy">
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -767,8 +852,11 @@ line-height: 25px;
       </div>
     </div>
   </div>
+  </div>
+  </body>
 
   <!--  로그인시 마이페이지 가기 -->
+  
   <script type="text/javascript">
 				var button = document.getElementById('myButton');
 				var button2 = document.getElementById('orderButton');
