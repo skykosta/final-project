@@ -15,7 +15,6 @@ var express = require('express')
 /*마이페이지*/
 , mypage = require('./routes/mypage')
 
-, http = require('http')
 
 /* google Map 때문에 필요한 https 모듈 */
 , https = require('https')

@@ -257,20 +257,7 @@
 <br>
 <br>
 
-  <script type="text/javascript">
 
-$(document).ready(function () {
-    $('.collapse.in').prev('.panel-heading').addClass('active');
-    $('#accordion, #bs-collapse')
-        .on('show.bs.collapse', function (a) {
-            $(a.target).prev('.panel-heading').addClass('active');
-        });
-        .on('hide.bs.collapse', function (a) {
-            $(a.target).prev('.panel-heading').removeClass('active');
-        });
-});
-
-</script>
 
 <!--  로그인시 컨텍트어스 가기 -->
   <script type="text/javascript">
@@ -302,6 +289,5 @@ $(document).ready(function () {
   <script src="stylesheets/js/jquery.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="stylesheets/js/bootstrap.min.js"></script>
-  <script src="stylesheets/js/wow.min.js"></script>
   <% include footer.ejs %>
 </body>
