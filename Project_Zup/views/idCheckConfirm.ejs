@@ -108,24 +108,21 @@
 <body>
   <div class="container">
     <div align="center">
-      <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+      <img src="/img/zuplogo.png">
     </div>
     <br/>
-      <form id="login-form" action="" method="">
+      <form id="login-form" action="idCheckConfirm" method="post">
           <div id="div-login-msg">
             <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
             
             <span id="text-login-msg">원하시는 아이디를 적으세요.</span>
           </div>
-          <input id="login_username" name="login_username" class="form-control"
+          <input id="login_username" name="id" class="form-control"
             type="text" placeholder="Username" required> <br>
+             <hr/>
           <div class="text-center">
-            <span class="btn btn-md btn-primary" id="idCheckBtn">중복검사</span>
+            <button type="submit" class="btn btn-md btn-primary" id="idCheckBtn">중복검사</button>
           </div>
-          <hr/>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">ID
-              사용하기</button>
-      
     </form>
   </div>
 
@@ -135,42 +132,6 @@
   <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="http://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js"
     type="text/javascript"></script>
-
-  <!-- 중복 확인 -->
-  <script type="text/javascript">
-			$(function() {
-				$("#idCheckBtn").on('click', function() {
-					sendServer();
-					
-					
-				});
-			
-			
-			function sendServer(){
-				var id = $("#login_username").val();
-				if(id!= null){
-				ajax({
-					type : "post",
-					url : "/idCheckConfirm",
-					param : "id = " + id,
-					callback : receiveMassage
-				});
-				
-				}
-			}
-			function receiveMassage(request){
-				displayMessage(request.responseText);
-				
-			}
-
-			function displayMessage(message){
-				var display = document.getElementById("display");
-				
-				display.innerHTML = message;
-			}
-			
-			});
-		</script>
 
 </body>
 

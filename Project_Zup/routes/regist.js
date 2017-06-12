@@ -35,19 +35,28 @@ exports.idCheckConfirm = function(req, res){
 };
 
 exports.idCheckConfirm2 = function(req, res){
-	var id = req.param.id;
+	var body = req.body;
 	
-	  client.query('select user_id from user where user_id = ?',[id],
-			   function(error, results){
-		  if(results){
-			  res.rander('idCheckConfirm', {
-					data: "입력"
-			  });
-		  }else{
-			  res.rander('idCheckConfirm', {
-					data: "꺼져"
-			  });
-		  }
+	  client.query('select user_id from user where user_id = ?',[body.id],
+			   function(error, result){
+		  console.log(result);
+		  var cnt = result[0].cnt;
+		  console.log(cnt);
+		  if(cnt === 1){
+				console.log(req.session.user_id);
+				console.log('아이디 중복');
+				//res.send('<!-- Sweetalert --><script src="/stylesheets/js/sweetalert2.min.js"></script><link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css"><script type="text/javascript">swal({title : "비밀번호 미입력!",text : "비밀번호를 입력해주세요!",type :"warning"});location.href="/"</script>');
+				
+				res.send('<script type="text/javascript">alert("로그인 실패.."); window.close();</script>');
+				//res.render('index');
+			}else{
+				//res.json({result:'fail'});
+				console.log('아이디 중복아님');
+				res.send('<script type="text/javascript">alert("로그인 실패.."); return false;</script>');
+				//res.render('login');
+			
+			}
+		  
 		  
 		  
 	  });
