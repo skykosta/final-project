@@ -23,151 +23,145 @@
 <!-- Sweetalert -->
 <script src="/stylesheets/js/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <style>
 
 /* 
 /*롯데마트행복체적용Css*/
-
 @font-face {
-font-name: 'Monospace';
-  font-family: 'LotteMartHappy';
-  font-style: normal;
-  font-weight: 700;
-  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');
+	font-name: 'Monospace';
+	font-family: 'LotteMartHappy';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2')
+		format('woff2'),
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff')
+		format('woff');
 }
 
 .lottemarthappy * {
- font-family: 'LotteMartHappy', sans-serif;
+	font-family: 'LotteMartHappy', sans-serif;
 }
 
 .normal {
- font-style: normal;
+	font-style: normal;
 }
 
 .w250 {
- font-weight: 250;
+	font-weight: 250;
 }
 
 .w300 {
- font-weight: 300;
+	font-weight: 300;
 }
 
 .w350 {
- font-weight: 350;
+	font-weight: 350;
 }
 
 .w400 {
- font-weight: 400;
+	font-weight: 400;
 }
 
 .w500 {
- font-weight: 500;
+	font-weight: 500;
 }
 
 .w700 {
- font-weight: 700;
+	font-weight: 700;
 }
 
 .w800 {
- font-weight: 800;
+	font-weight: 800;
 }
 
 .w900 {
- font-weight: 900;
+	font-weight: 900;
 }
 
 li span {
- line-height: 1.8;
- font-size: 1.3em;
+	line-height: 1.8;
+	font-size: 1.3em;
 }
 /*(위)롯데마트체 css끝*/
+* /
 
 
- */
-
-
-.big-btn{
-padding: 10px 0px 11px 0px;
-width: 215px;
-margin-top:5px;
+.big-btn {
+	padding: 10px 0px 11px 0px;
+	width: 215px;
+	margin-top: 5px;
 }
 
-.big-btn i{
-font-size: 65px;
-margin-right: 0px !important;
-}
-.big-btn strong{
-font-size: 25px;
-text-shadow: 1px 2px 0px #34659B;
-color: #fff;
-line-height: 24px;
-}
-.big-btn .btn-text{
-margin-top:6px;
+.big-btn i {
+	font-size: 65px;
+	margin-right: 0px !important;
 }
 
-.big-btn small{font-size: 75%;}
-
-.android-btn{
-
-width: 240px;
-padding: 13px 17px 13px 0px;
-background-color: #000;
-border-color: #000;
-
-}
-.android-btn:hover{
-background-color: #272727;
+.big-btn strong {
+	font-size: 25px;
+	text-shadow: 1px 2px 0px #34659B;
+	color: #fff;
+	line-height: 24px;
 }
 
-.android-btn i{
-font-size: 55px;
+.big-btn .btn-text {
+	margin-top: 6px;
 }
 
-.android-btn .btn-text{
-margin-top: 0px;
+.big-btn small {
+	font-size: 75%;
 }
 
-.android-btn strong{
-font-size: 25px;
-text-shadow: none;
-color: #fff;
-line-height: 24px;
+.android-btn {
+	width: 240px;
+	padding: 13px 17px 13px 0px;
+	background-color: #000;
+	border-color: #000;
 }
 
-.windows-btn{
-background-color:#008A00;
-width: 235px;
-padding: 13px 5px 13px 10px;
-border-color: #055805;
+.android-btn:hover {
+	background-color: #272727;
 }
 
-.windows-btn:hover{
-background-color: #008A00;
-}
-.windows-btn .btn-text{
-text-shadow: none;
-font-size: 26px;
-line-height: 25px;
+.android-btn i {
+	font-size: 55px;
 }
 
+.android-btn .btn-text {
+	margin-top: 0px;
+}
+
+.android-btn strong {
+	font-size: 25px;
+	text-shadow: none;
+	color: #fff;
+	line-height: 24px;
+}
+
+.windows-btn {
+	background-color: #008A00;
+	width: 235px;
+	padding: 13px 5px 13px 10px;
+	border-color: #055805;
+}
+
+.windows-btn:hover {
+	background-color: #008A00;
+}
+
+.windows-btn .btn-text {
+	text-shadow: none;
+	font-size: 26px;
+	line-height: 25px;
+}
 </style>
 </head>
 
 
 <body id="page-top" class="index">
-
-<!-- 
-<ul class="lottemarthappy">
- <li>normal 400: <span id="p1" class="normal w400"></span></li>
- <li>normal 700: <span id="p2" class="normal w700"></span></li>
-</ul>
-
-
- -->
-
-
-<div class="lottemarthappy">
 
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -188,7 +182,7 @@ line-height: 25px;
 
           <!-- 로그인시 페이지 변화 -->
 
-          <li><%if(sessionId == null){%></li>
+          <%if(sessionId == null){%>
           <li><a class="page-scroll" href="#introduce">회사소개</a></li>
           <li><a href="login">로그인</a></li>
           <li><a href="agree">회원가입</a></li>
@@ -201,10 +195,8 @@ line-height: 25px;
     </div>
     <!-- /.container-fluid -->
   </nav>
-  </div>
   <!-- Header -->
   <header>
-  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -213,27 +205,24 @@ line-height: 25px;
         </div>
         <a id="orderButton" class="page-scroll btn btn-xl"
           style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-           <div class="col-md-offset-11" style="margin-top:-50px;">
-    <a class="btn btn-lg btn-info big-btn" href="#" style="width:238px"> <i
-      class="glyphicon glyphicon-phone pull-left"></i>
-    <div class="btn-text">
-        <small>Available on the</small><br>
-        <strong>App Store</strong>
-      </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-      width="80px" class="pull-left"
-      src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-    <div class="btn-text">
-        <small>Available on</small><br>
-        <strong>Google Play</strong>
-      </div></a>
-  </div>
+        <div class="col-md-offset-11" style="margin-top: -50px;">
+          <a class="btn btn-lg btn-info big-btn" href="#" style="width: 238px"> <i
+            class="glyphicon glyphicon-phone pull-left"></i>
+            <div class="btn-text">
+              <small>Available on the</small><br> <strong>App Store</strong>
+            </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
+            width="80px" class="pull-left"
+            src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+            <div class="btn-text">
+              <small>Available on</small><br> <strong>Google Play</strong>
+            </div></a>
+        </div>
       </div>
-      
+
     </div>
-    </div>
-   
+
   </header>
-  
+
   <% }else if(sessionId == 'admin'){ %>
   <li><a> <%=sessionId%>님 로그인 </a></li>
   <li><a class="page-scroll" href="#introduce">회사소개</a></li>
@@ -250,7 +239,6 @@ line-height: 25px;
   </nav>
   <!-- Header -->
   <header>
-  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -259,29 +247,26 @@ line-height: 25px;
         </div>
         <a href="/receipt" class="page-scroll btn btn-xl"
           style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-            <div class="col-md-offset-11" style="margin-top:-50px;">
-    <a class="btn btn-lg btn-info big-btn" href="#" style="width:238px"> <i
-      class="glyphicon glyphicon-phone pull-left"></i>
-    <div class="btn-text">
-        <small>Available on the</small><br>
-        <strong>App Store</strong>
-      </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-      width="80px" class="pull-left"
-      src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-    <div class="btn-text">
-        <small>Available on</small><br>
-        <strong>Google Play</strong>
-      </div></a>
-  </div>
+        <div class="col-md-offset-11" style="margin-top: -50px;">
+          <a class="btn btn-lg btn-info big-btn" href="#" style="width: 238px"> <i
+            class="glyphicon glyphicon-phone pull-left"></i>
+            <div class="btn-text">
+              <small>Available on the</small><br> <strong>App Store</strong>
+            </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
+            width="80px" class="pull-left"
+            src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+            <div class="btn-text">
+              <small>Available on</small><br> <strong>Google Play</strong>
+            </div></a>
+        </div>
       </div>
-    </div>
     </div>
   </header>
   <%}else if(sessionId != null && sessionId != 'admin'){%>
   <li><a><%=sessionId%>님 로그인중...</a></li>
   <li><a href="mypage">마이페이지</a></li>
   <li><a class="page-scroll" href="#introduce">회사소개</a></li>
-   <li><a href="notice">고객센터</a></li>
+  <li><a href="notice">고객센터</a></li>
   <li><a href="logout">로그아웃</a></li>
   </ul>
   </div>
@@ -291,7 +276,6 @@ line-height: 25px;
   </nav>
   <!-- Header -->
   <header>
-  <div class="lottemarthappy">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome To ZUP!</div>
@@ -300,82 +284,74 @@ line-height: 25px;
         </div>
         <a href="/receipt" class="page-scroll btn btn-xl"
           style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-            <div class="col-md-offset-11" style="margin-top:-50px;">
-    <a class="btn btn-lg btn-info big-btn " href="#" style="width:238px"> <i
-      class="glyphicon glyphicon-phone pull-left"></i>
-    <div class="btn-text">
-        <small>Available on the</small><br>
-        <strong>App Store</strong>
-      </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-      width="80px" class="pull-left"
-      src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-    <div class="btn-text">
-        <small>Available on</small><br>
-        <strong>Google Play</strong>
-      </div></a>
-  </div>
+        <div class="col-md-offset-11" style="margin-top: -50px;">
+          <a class="btn btn-lg btn-info big-btn " href="#" style="width: 238px"> <i
+            class="glyphicon glyphicon-phone pull-left"></i>
+            <div class="btn-text">
+              <small>Available on the</small><br> <strong>App Store</strong>
+            </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
+            width="80px" class="pull-left"
+            src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+            <div class="btn-text">
+              <small>Available on</small><br> <strong>Google Play</strong>
+            </div></a>
+        </div>
       </div>
-    </div>
     </div>
   </header>
   <%};%>
 
   <!-- Services Section -->
-  
-  <section id="introduce" style="margin-top:-100px;">
-  <div class="lottemarthappy">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">회사소개</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet
-            consectetur.</h3>
-        
-      <video width="700" height="500" controls="controls"
-            class="video-js vjs-default-skin" data-setup="{}" autoplay="autoplay"
-            muted="muted" loop="loop">
 
-            <source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
-          </video>
-        </div>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x"> <i
-            class="fa fa-circle fa-stack-2x text-primary"></i> <i
-            class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-          </span>
-           <h4 class="service-heading">사회적 역할로서의 ZUP</h4>
-          <p class="text-muted">'재사용률을 높여 아름다운 세상을 만들어요! <br> ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스 입니다. 
-          
-         </p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x"> <i
-            class="fa fa-circle fa-stack-2x text-primary"></i> <i
-            class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">ZUP 2017년 기부 목표</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Minima maxime quam architecto quo inventore harum ex magni, dicta
-            impedit.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x"> <i
-            class="fa fa-circle fa-stack-2x text-primary"></i> <i
-            class="fa fa-lock fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">ZUP 기부 내역</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Minima maxime quam architecto quo inventore harum ex magni, dicta
-            impedit.</p>
-        </div>
-      </div>
+  <section id="introduce" style="margin-top: -100px;">
+    <div class="col-lg-12 text-center">
+      <h2 class="section-heading">회사소개</h2>
+      <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet
+        consectetur.</h3>
+
+      <video width="700" height="500" controls="controls"
+        class="video-js vjs-default-skin" data-setup="{}" autoplay="autoplay"
+        muted="muted" loop="loop">
+
+        <source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+      </video>
     </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x"> <i
+          class="fa fa-circle fa-stack-2x text-primary"></i> <i
+          class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">사회적 역할로서의 ZUP</h4>
+        <p class="text-muted">
+          '재사용률을 높여 아름다운 세상을 만들어요! <br> ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스 입니다.
+
+        </p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x"> <i
+          class="fa fa-circle fa-stack-2x text-primary"></i> <i
+          class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">ZUP 2017년 기부 목표</h4>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x"> <i
+          class="fa fa-circle fa-stack-2x text-primary"></i> <i
+          class="fa fa-lock fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">ZUP 기부 내역</h4>
+        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing
+          elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      </div>
     </div>
   </section>
 
 
   <!-- Team Section -->
- <section id="team" class="bg-light-gray">
- <div class="lottemarthappy">
+  <section id="team" class="bg-light-gray">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -397,13 +373,11 @@ line-height: 25px;
       </div>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: -4em;">
-          <p class="large text-muted">ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스입니다. 
-          궁극적으로 ZUP이 추구하는 것은, 공병의 순환률을 높임으로서 개개인은 공병반환에 따라 소정의 용돈벌이를 할 수 있도록 하고, 
-          기업의 입장에서는 공병재사용율을 높이는 등 환경보호적 측면과 사회경제적 측면 모두에서 
-          긍정적 효과를 이끌어내는데 앞장서는 기업이 되는 것입니다.</p>
+          <p class="large text-muted">ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스입니다. 궁극적으로
+            ZUP이 추구하는 것은, 공병의 순환률을 높임으로서 개개인은 공병반환에 따라 소정의 용돈벌이를 할 수 있도록 하고, 기업의 입장에서는
+            공병재사용율을 높이는 등 환경보호적 측면과 사회경제적 측면 모두에서 긍정적 효과를 이끌어내는데 앞장서는 기업이 되는 것입니다.</p>
         </div>
       </div>
-    </div>
     </div>
   </section>
 
@@ -411,8 +385,7 @@ line-height: 25px;
 
 
   <!-- About Section -->
- <section id="about">
- <div class="lottemarthappy">
+  <section id="about">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -425,9 +398,10 @@ line-height: 25px;
         <div class="col-lg-12">
           <ul class="timeline">
             <li>
-               <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/vol4.png" style="width: 150px; height: 150px; 
-                margin-left: 3px; margin-top: 3px;" alt="">
+              <div class="timeline-image">
+                <img class="img-circle img-responsive" src="img/about/vol4.png"
+                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+                  alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -436,17 +410,17 @@ line-height: 25px;
                 </div>
                 <div class="timeline-body">
                   <p class="text-muted">
-                    2017년 ZUP은 20만 공병 수거를 예상하고 있습니다 <br>
-                              17년도 기부 목표량은 총 수거량의 10%로 약 2만병을 기부목표로 잡고 있습니다. 
-                              2만병의 현금환산액은 약 5천만원으로, ZUP은 해당 금액을 사회에 필요한 곳에 
+                    2017년 ZUP은 20만 공병 수거를 예상하고 있습니다 <br> 17년도 기부 목표량은 총 수거량의 10%로 약
+                    2만병을 기부목표로 잡고 있습니다. 2만병의 현금환산액은 약 5천만원으로, ZUP은 해당 금액을 사회에 필요한 곳에
                   </p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/old.png" style="width: 150px; height: 150px; 
-                margin-left: 3px; margin-top: 3px;" alt="">
+                <img class="img-circle img-responsive" src="img/about/old.png"
+                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+                  alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -454,15 +428,15 @@ line-height: 25px;
                   <h4 class="subheading">An Agency is Born</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다 </p>
+                  <p class="text-muted">2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
                 </div>
               </div>
             </li>
             <li>
               <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/tree.png" 
-                style="width: 150px; height: 150px; 
-                margin-left: 3px; margin-top: 3px;"alt="">
+                <img class="img-circle img-responsive" src="img/about/tree.png"
+                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+                  alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -470,15 +444,18 @@ line-height: 25px;
                   <h4 class="subheading">Transition to Full Service</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">ZUP은 국내 환경재단과 협약을 맺고 매년 200그루의 나무를 기부해왔습니다. 올해는 300그루의 나무를 <br>기부할 수 있도록 노력하겠습니다</p>
+                  <p class="text-muted">
+                    ZUP은 국내 환경재단과 협약을 맺고 매년 200그루의 나무를 기부해왔습니다. 올해는 300그루의 나무를 <br>기부할
+                    수 있도록 노력하겠습니다
+                  </p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                 <img class="img-circle img-responsive" src="img/about/alchol.png" 
-                style="width: 150px; height: 150px; 
-                margin-left: 3px; margin-top: 3px;"alt="">
+                <img class="img-circle img-responsive" src="img/about/alchol.png"
+                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+                  alt="">
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
@@ -486,7 +463,7 @@ line-height: 25px;
                   <h4 class="subheading">Phase Two Expansion</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted"> 알콜증독자에게 경각심을 일으키는 예방전단지를 제작하여 무료배포 하겠습니다. </p>
+                  <p class="text-muted">알콜증독자에게 경각심을 일으키는 예방전단지를 제작하여 무료배포 하겠습니다.</p>
                 </div>
               </div>
             </li>
@@ -501,12 +478,10 @@ line-height: 25px;
         </div>
       </div>
     </div>
-    </div>
   </section>
 
   <!-- Portfolio Grid Section -->
   <section id="portfolio" class="bg-light-gray">
-  <div class="lottemarthappy">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -603,12 +578,10 @@ line-height: 25px;
         </div>
       </div>
     </div>
-    </div>
   </section>
 
 
 
-<div class="lottemarthappy">
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -626,11 +599,12 @@ line-height: 25px;
                 <h2>2016년 6월 9일 기부</h2>
                 <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
                 <img class="img-responsive img-centered"
-                  src="/stylesheets/img/main/vol15.jpg"  style="height: 500px; width: 1000px;">
+                  src="/stylesheets/img/main/vol15.jpg"
+                  style="height: 500px; width: 1000px;">
                 <p>2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
                 <p>
-                  <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-                    href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+                  <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요
+                  <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
                 </p>
                 <ul class="list-inline">
                   <li>Date: July 2016</li>
@@ -850,52 +824,44 @@ line-height: 25px;
       </div>
     </div>
   </div>
-  </div>
-  </body>
-
-  <!--  로그인시 마이페이지 가기 -->
-  
-  <script type="text/javascript">
-				var button = document.getElementById('myButton');
-				var button2 = document.getElementById('orderButton');
-
-				//마이페이지	
-				button.onclick = function() {
-					var id = "<%= sessionId%>";
-
-					if (id == "") {
-						swal({
-							title : '잠시만!',
-							text : '먼저 로그인을 해주세요!',
-							type : 'warning'
-						})
-
-					} else {
-						location.href = "mypage"
-					}
-
-				}
-				//접수하기
-				button2.onclick = function() {
-					console.log("들어와111111111111");
-					var id = "<%= sessionId%>";
-
-					if (id == "") {
-
-						swal({
-							title : '잠깐!',
-							text : '로그인 후 접수하실 수 있습니다.!',
-							type : 'warning'
-						})
-
-					} else {
-						console.log("들어와");
-						self.location.href = "/receipt";
-					}
-
-				}
-
-		</script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<!--  로그인시 마이페이지 가기 -->
+<script type="text/javascript">
+window.onload = function() {
+	var button = document.getElementById('myButton');
+	var button2 = document.getElementById('orderButton');
+	//마이페이지	
+	button.onclick = function() {
+		var id = "<%= sessionId%>";
+		if (id == "") {
+			swal({
+				title : '잠시만!',
+				text : '먼저 로그인을 해주세요!',
+				type : 'warning'
+				
+			})
+		} else {
+			location.href = "mypage"
+		}
+	}
+	//접수하기
+	button2.onclick = function() {
+		console.log("들어와111111111111");
+		var id = "<%= sessionId%>";
+		if (id == "") {
+			swal({
+				title : '잠깐!',
+				text : '로그인 후 접수하실 수 있습니다.!',
+				type : 'warning'
+			})
+		} else {
+			console.log("들어와");
+			self.location.href = "/receipt";
+		}
+	}
+};
+</script>
 
 
-  <% include footer.ejs %>
+<% include footer.ejs %>
