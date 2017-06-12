@@ -334,7 +334,7 @@ header .intro-text .intro-heading {
 	{
 	font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial,
 		sans-serif;
-	font-style: italic
+	/* font-style: italic */
 }
 
 section {
