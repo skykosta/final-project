@@ -38,7 +38,6 @@ var express = require('express')
 , regresult = require('./routes/regresult')
 , agree = require('./routes/agree')
 , gologin = require('./routes/gologin')
-, gologin2 = require('./routes/gologin2')
 
 /* 인트로 페이지 */
 , intro = require('./routes/intro')
@@ -135,7 +134,7 @@ app.post('/newpw', pwcheck.newpw);
 app.get('/pwresult', pwcheck.pwresult2);
 app.post('/pwresult', pwcheck.pwresult);
 //비밀번호 세션 날리기
-app.get('/gologin2', gologin2.gologin2);
+app.get('/gologin2', gologin.gologin2);
 
 app.get('/idCheckConfirm', regist.idCheckConfirm);
 app.post('/idCheckConfirm', regist.idCheckConfirm2);
