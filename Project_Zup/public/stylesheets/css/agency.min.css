@@ -774,7 +774,8 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 .portfolio-modal .modal-dialog {
 	margin: 0;
 	height: 100%;
-	width: auto
+	width: 800px;
+	margin : auto;
 }
 
 .portfolio-modal .modal-content {
