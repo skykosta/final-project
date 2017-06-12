@@ -22,8 +22,6 @@ var express = require('express')
 
 /* 접수하기 페이지 */
 , receipt = require('./routes/receipt')
-, receipt2 = require('./routes/receipt2')
-, receipt3 = require('./routes/receipt3')
 , lsjGet = require('./routes/lsjGet')
 , lsjPost = require('./routes/lsjPost')
 
@@ -163,8 +161,8 @@ app.get('/orderresult', manager.orderresult);
 
 /*접수 하기 페이지*/
 app.get('/receipt', receipt.receipt);
-app.get('/receipt2', receipt2.receipt2);
-app.post('/receipt2', receipt2.send);
+app.get('/receipt2', receipt.receipt2);
+app.post('/receipt2', receipt.send);
 
 /* 안드로이드 통신 테스트 페이지 */
 app.post("/lsjPOST", lsjPost.lsj1);

@@ -25,6 +25,12 @@
    margin: auto;
 }
 </style>
+
+<!-- jQuery -->
+<script src="/stylesheets/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/stylesheets/js/bootstrap.min.js"></script>
  
 </head>
   <body style="margin-top:130px;">
@@ -36,10 +42,11 @@
   <form method="post">
 <div class="container col-md-offset-1" >
 
-   <div style="background-color: rgb(175, 207, 167); width: 80%; height:100%;">
+   <div style="background-color: rgb(175, 207, 167); width: 80%; height:100%;" >
       <br><br>
            <h2 class="section-heading" style="font-size: 40px; color: white;">필수 정보 입력사항</h2>
-           <h2 class="section-subheading text-muted" style="font-size: 30px; color: grey;">회수를 위한 정확한 위치를 지도에서 선택하여 주세요</h2>   
+      <br><br>     
+           <span id="user_location" class="section-subheading text-muted" style="font-size: 20px; color: grey;"></span>   
 	
       <br><br>
    <table class="table table-bordered" style="width: 80%; height: 80%; background-color: white; margin: auto;">
@@ -86,63 +93,74 @@
 
   </div>     
 
-                <br><br><br><br>
+      <br><br><br><br>
              <div>
                 <input type="hidden" id="lat" name="lat" style="width: 100%;">
                 <input type="hidden" id="lng" name="lng" style="width: 100%;">
                 <input type="hidden" id="address2" name="address2" value="<%= address %>" style="width: 100%;">
              </div>     
-  </form> 
+  </form>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-footer">
+          <div style="text-align : left;">
+          <h2 class="section-subheading text-muted" style="font-size: 15px; color: grey;">
+             &lt; 안내사항 &gt;
+          </h2>
+             <br>
+             접수 시 기존의 주소에서 변경을 원하시면 지도에서 새로운 주소를 선택하여 주세요.
+             <br><br>
+             또는 정확한 건물의 위치를 줍맨에게 알려주고 싶으실 경우에도 선택 가능합니다.
+             <br><br>
+             기존의 주소는 마지막으로 접수하신 내역의 주소로 저장됩니다.
+          </div>
+          <button type="button" class="btn btn-success" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+   
 </div>
+<script>
 
+$("#myModal").modal();
+
+</script>
  
 
 <script>
+//맵 관련
 var map;
 var markers = [];
+
+//주소관련
+//var address2 = <%= address %>;
 var token = document.getElementById("address2").value.split("*");
+//var token = address2.split("*");
 var address = token[0];
+
+$("#mapAddress").val(address);
+
 //var address = "대한민국 서울특별시 금천구 가산디지털1로 151";
 var address2;
-   
+
 //구글맵 api 콜백 함수
 function initMap() {
-
-   //위치따오는 기능 실행!!!
-   getLocation();
    
-   //주소로 좌표값 알아 내기
-    new google.maps.Geocoder().geocode({address : address}, function(results, status){
-    
-    		if (status == google.maps.GeocoderStatus.OK) {    		
-    		
-    		    address2 = results[0].geometry.location;  
- 	            addMarker(address2);
- 	            $("#detailAddress").val(token[1]);
-            }
-    });   
-   
- //사용자의 위치 따오기
- function getLocation() {
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function showPosition(position){      
-          
-          var xxxx = position.coords.latitude;
-          var yyyy = position.coords.longitude;
-          
-          //따온 위치로 맵생성!!!
-          createMap(xxxx, yyyy);     
-         
-          });
-      }else{
-          alert("지도의 위치를 가져올수 없습니다...");
-      }     
-  }//getLocation()
-  
+   createMap();
   //지도생성
-  function createMap(xxxx, yyyy){      
-
-     var location = {lat: xxxx, lng: yyyy};
+  function createMap(){      
+ 
+     var location = {lat: 37.566655674609, lng: 126.9784166066529};
 
      //지도 세팅
       map = new google.maps.Map(document.getElementById('map'), {
@@ -157,10 +175,10 @@ function initMap() {
      	  if(markers.length > 0){
               deleteMarkers();
           }
-
+    	  
           getAddress(event.latLng);
           
-        });//addListener()
+       });//addListener()
       
       //위도,경도로 실 주소 따오기
       function getAddress(latLng) {
@@ -205,14 +223,35 @@ function initMap() {
 
              });//geocoder.geocode            
        }//getAddress()      
-     }//createMap()  
-}//function initMap()
+       
+        //지도가 다 생성된 다음에 첫번째 마커 찍기 호출
+        firstMaker();
+//      getLocation();
 
-   //맵에 마커 찍어주면서 배열에 넣어주기.
+	    function firstMaker(){
+	    console.log("function firstMaker() 호출됨");
+    	
+	    	//주소로 좌표값 알아 내기
+	    	new google.maps.Geocoder().geocode({address : address}, function(results, status){
+
+	    			if (status == google.maps.GeocoderStatus.OK) {    		
+    		
+	    			    address2 = results[0].geometry.location;  
+	    		            addMarker(address2);
+	    		            $("#detailAddress").val(token[1]);    	            
+	    	             }
+	    	         });
+	    }//firstMaker()
+                   
+  
+//맵에 마커 찍어주면서 배열에 넣어주기.
    function addMarker(latLng) {
 	  
         var lat = latLng.lat();
         var lng = latLng.lng();
+//        console.log(lat);
+//        console.log(lng);
+          console.log("addMarker() 호출됨");
         
         //마커 세팅
         var marker = new google.maps.Marker({
@@ -236,8 +275,6 @@ function initMap() {
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-        
-        //console.log("맵에 마커가 찍혔숩니다...");
         
         //마커 배열에 넣기
         markers.push(marker);
@@ -264,17 +301,67 @@ function initMap() {
         clearMarkers();
         markers = [];
         //console.log("deleteMarkers() 작동");
-    }//deleteMarkers()
+    }//deleteMarkers()      
+  
+
+    //사용자의 위치 따오기
+	window.onload = function(){
+		console.log("온로드 실행됨 ");
+	    getLocation();
+	}      
+      
+	function getLocation() {
+    	  
+    	  console.log("getLocation() 호출됨");
+    	  
+	      if (navigator.geolocation) {
+	          
+	    	  navigator.geolocation.getCurrentPosition(function showPosition(position){      
+          
+	          var xxxx = position.coords.latitude;
+	          var yyyy = position.coords.longitude;
+          
+	          //따온 위치로 맵생성!!!
+//	          createMap(xxxx, yyyy);
+
+	           var add = {lat: xxxx, lng: yyyy};
+	           var user_location = "";
+//		       console.log(add);
+	           map.setCenter(add);
+	           
+
+	           new google.maps.Geocoder().geocode({
+	           
+	        	   latLng : add
+	        	   
+	           }, function(results, status) {  
+	        	   	        	   
+	        	   if (status == google.maps.GeocoderStatus.OK) {
+	        	   
+		        	   var result = results[0].formatted_address.replace(/^日本, /, '');
+		        	   console.log(result);
+		        	   $("#user_location").html("현재 접속위치 : " + result);
+	        	   
+	        	   }
+	           
+	           });
+	           
+	    	  });  
+	          
+	      }else{
+	          alert("지도의 위치를 가져올수 없습니다...");
+ 	      }     
+	  }//getLocation()  
+		  
+  }//createMap()
+
+}//function initMap()
+
+
       
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRLghKISjTtl9u_aDoa4e2C1H0D7us9hI&callback=initMap"></script>  
-   
-<!-- jQuery -->
-<script src="/stylesheets/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/stylesheets/js/bootstrap.min.js"></script>
    
 <% include footer.ejs %>
    
