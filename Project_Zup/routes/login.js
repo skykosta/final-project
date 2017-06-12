@@ -31,7 +31,15 @@ exports.login2 = function(req, res){
 	console.log(password);
 	
 	//쿼리문
-	client.query('select count(*) cnt from user where user_id=? and user_pw=?', [login,password], function(err, result){
+	 
+	
+		client.query('select ismember from user where user_id=?', [login], function(err, result){
+			var ismember = result[0].ismember;
+			console.log(ismember);
+			console.log(result);
+			client.query('select count(*) cnt from user where user_id=? and user_pw=?', [login,password], function(err, result){
+				
+			
 		//res.render('index', {data: result});
 		console.log('결과값');
 		console.log(result);
@@ -40,7 +48,7 @@ exports.login2 = function(req, res){
 		
 		console.log(cnt);
 		
-		if(cnt === 1){
+		if(cnt === 1 && ismember === 'Y'){
 			req.session.user_id = login;
 			console.log(req.session.user_id);
 			console.log('정상 로그인');
@@ -51,11 +59,13 @@ exports.login2 = function(req, res){
 		}else{
 			//res.json({result:'fail'});
 			console.log('로그인 실패');
-			res.send('<script type="text/javascript">alert("로그인 실패..");location.href="login"</script>');
+			res.send('<script type="text/javascript">alert("아이디나 비밀번호를 다시 확인해 주십시오.");location.href="login"</script>');
 			//res.render('login');
 		
 		}
 		
 	});
 	
-};	
+	
+});
+};
