@@ -38,23 +38,17 @@ exports.idCheckConfirm2 = function(req, res){
 	var body = req.body;
 	
 	  client.query('select user_id from user where user_id = ?',[body.id],
-			   function(error, result){
-		  console.log(result);
-		  var cnt = result[0].cnt;
-		  console.log(cnt);
-		  if(cnt === 1){
-				console.log(req.session.user_id);
+			   function(error, results){
+		  console.log(results);
+		  if(results[0]!=null){
 				console.log('아이디 중복');
 				//res.send('<!-- Sweetalert --><script src="/stylesheets/js/sweetalert2.min.js"></script><link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css"><script type="text/javascript">swal({title : "비밀번호 미입력!",text : "비밀번호를 입력해주세요!",type :"warning"});location.href="/"</script>');
 				
-				res.send('<script type="text/javascript">alert("로그인 실패.."); window.close();</script>');
-				//res.render('index');
+				res.send('<script type="text/javascript">alert("이미 가입된 아이디입니다."); location.href="/idCheckConfirm"</script>');
 			}else{
-				//res.json({result:'fail'});
 				console.log('아이디 중복아님');
-				res.send('<script type="text/javascript">alert("로그인 실패.."); return false;</script>');
-				//res.render('login');
-			
+				res.send('<script type="text/javascript">alert("사용가능한 아이디입니다."); window.opener.document.getElementById("inputId").value = "'+body.id+'";  self.close();</script>');
+				
 			}
 		  
 		  
