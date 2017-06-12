@@ -113,7 +113,7 @@ app.get('/mypage', mypage.mypage);
 app.post('/mypage', mypage.mypage_change);
 app.get('/drop/:user', mypage.drop);
 app.get('/delete/:userlog_num', mypage.delete);
-app.get('/orderresult', manager.orderresult);
+app.get('/withdrawal/:withdrawalmoney', mypage.withdrawal);
 
 /* 인트로 화면 */
 app.get('/intro',intro.intro);
