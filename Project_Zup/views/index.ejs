@@ -9,100 +9,26 @@
 <meta name="author" content="">
 
 <title>ZUP - 빈병수거접수</title>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="/favicon-16x16.png">
 <!-- Bootstrap Core CSS -->
 <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
-  type="text/css">
+<link href="/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
 
 <!-- Theme CSS -->
 <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
 
 <!-- Sweetalert -->
 <script src="/stylesheets/js/sweetalert2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css">
+<link rel="stylesheet" type="text/css"
+	href="/stylesheets/css/sweetalert2.min.css">
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script
+	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <style>
-<<<<<<< HEAD
-
-
-.big-btn{
-padding: 10px 0px 11px 0px;
-width: 215px;
-margin-top:5px;
-=======
-=======
-.big-btn {
-	padding: 10px 0px 11px 0px;
-	width: 215px;
-	margin-top: 5px;
-}
->>>>>>> branch 'master' of https://github.com/skykosta/final-project.git
-/* 
-/*롯데마트행복체적용Css*/
-@font-face {
-	font-name: 'Monospace';
-	font-family: 'LotteMartHappy';
-	font-style: normal;
-	font-weight: 700;
-	src:
-		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2')
-		format('woff2'),
-		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff')
-		format('woff');
-}
-
-.lottemarthappy * {
-	font-family: 'LotteMartHappy', sans-serif;
-}
-
-.normal {
-	font-style: normal;
-}
-
-.w250 {
-	font-weight: 250;
-}
-
-.w300 {
-	font-weight: 300;
-}
-
-.w350 {
-	font-weight: 350;
-}
-
-.w400 {
-	font-weight: 400;
-}
-
-.w500 {
-	font-weight: 500;
-}
-
-.w700 {
-	font-weight: 700;
-}
-
-.w800 {
-	font-weight: 800;
-}
-
-.w900 {
-	font-weight: 900;
-}
-
-li span {
-	line-height: 1.8;
-	font-size: 1.3em;
-}
-/*(위)롯데마트체 css끝*/
-* /
-
-
 .big-btn {
 	padding: 10px 0px 11px 0px;
 	width: 215px;
@@ -176,726 +102,604 @@ li span {
 
 <body id="page-top" class="index">
 
-  <div class="lottemarthappy">
+	<!-- Navigation -->
+	<nav id="mainNav"
+		class="navbar navbar-default navbar-custom navbar-fixed-top">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="/"
+					style="font-size: 70px;"> Z U P </a>
+			</div>
 
-<<<<<<< HEAD
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top"></a></li>
 
-<div class="lottemarthappy">
+					<!-- 로그인시 페이지 변화 -->
 
-  <!-- Navigation -->
-  <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand page-scroll" href="/" style="font-size: 70px;"> Z U P </a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="hidden"><a href="#page-top"></a></li>
-
-          <!-- 로그인시 페이지 변화 -->
-
-          <%if(sessionId == null){%>
-          <li><a class="page-scroll" href="#introduce">회사소개</a></li>
-          <li><a href="login">로그인</a></li>
-          <li><a href="agree">회원가입</a></li>
-          <li><a href="#" id="myButton">마이페이지</a></li>
-          <li><a href="notice">고객센터</a></li>
-          <li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="intro-text">
-        <div class="intro-lead-in">Welcome To ZUP!</div>
-        <div class="intro-heading">
-          <span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-=======
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-          </button>
-          <a class="navbar-brand page-scroll" href="/" style="font-size: 70px;"> Z U P
-          </a>
->>>>>>> branch 'master' of https://github.com/skykosta/final-project.git
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="hidden"><a href="#page-top"></a></li>
-
-            <!-- 로그인시 페이지 변화 -->
-
-            <%if(sessionId == null){%>
-            <li><a class="page-scroll" href="#introduce">회사소개</a></li>
-            <li><a href="login">로그인</a></li>
-            <li><a href="agree">회원가입</a></li>
-            <li><a href="#" id="myButton">마이페이지</a></li>
-            <li><a href="notice">고객센터</a></li>
-            <li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">Welcome To ZUP!</div>
-          <div class="intro-heading">
-            <span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-          </div>
-          <a id="orderButton" class="page-scroll btn btn-xl"
-            style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-          <div class="col-md-offset-11" style="margin-top: -50px;">
-            <a class="btn btn-lg btn-info big-btn" href="#" style="width: 238px"> <i
-              class="glyphicon glyphicon-phone pull-left"></i>
-              <div class="btn-text">
-                <small>Available on the</small><br> <strong>App Store</strong>
-              </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-              width="80px" class="pull-left"
-              src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-              <div class="btn-text">
-                <small>Available on</small><br> <strong>Google Play</strong>
-              </div></a>
-          </div>
-        </div>
-
-      </div>
-
-    </header>
-
-    <% }else if(sessionId == 'admin'){ %>
-    <li><a> <%=sessionId%>님 로그인 </a></li>
-    <li><a class="page-scroll" href="#introduce">회사소개</a></li>
-    <li><a href="user">관리자페이지</a></li>
-    <li><a href="notice">고객센터</a></li>
-    <li><a href="logout">로그아웃</a></li>
+					<%if(sessionId == null){%>
+					<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+					<li><a href="login">로그인</a></li>
+					<li><a href="agree">회원가입</a></li>
+					<li><a href="#" id="myButton">마이페이지</a></li>
+					<li><a href="notice">고객센터</a></li>
+					<li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
 
 
-    </ul>
-  </div>
-  <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-  </nav>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="intro-text">
-        <div class="intro-lead-in">Welcome To ZUP!</div>
-        <div class="intro-heading">
-          <span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-        </div>
-        <a href="/receipt" class="page-scroll btn btn-xl"
-          style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-        <div class="col-md-offset-11" style="margin-top: -50px;">
-          <a class="btn btn-lg btn-info big-btn" href="#" style="width: 238px"> <i
-            class="glyphicon glyphicon-phone pull-left"></i>
-            <div class="btn-text">
-              <small>Available on the</small><br> <strong>App Store</strong>
-            </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-            width="80px" class="pull-left"
-            src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-            <div class="btn-text">
-              <small>Available on</small><br> <strong>Google Play</strong>
-            </div></a>
-        </div>
-      </div>
-    </div>
-  </header>
-  <%}else if(sessionId != null && sessionId != 'admin'){%>
-  <li><a><%=sessionId%>님 로그인중...</a></li>
-  <li><a href="mypage">마이페이지</a></li>
-  <li><a class="page-scroll" href="#introduce">회사소개</a></li>
-  <li><a href="notice">고객센터</a></li>
-  <li><a href="logout">로그아웃</a></li>
-  </ul>
-  </div>
-  <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-  </nav>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="intro-text">
-        <div class="intro-lead-in">Welcome To ZUP!</div>
-        <div class="intro-heading">
-          <span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-        </div>
-        <a href="/receipt" class="page-scroll btn btn-xl"
-          style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-        <div class="col-md-offset-11" style="margin-top: -50px;">
-          <a class="btn btn-lg btn-info big-btn " href="#" style="width: 238px"> <i
-            class="glyphicon glyphicon-phone pull-left"></i>
-            <div class="btn-text">
-              <small>Available on the</small><br> <strong>App Store</strong>
-            </div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#"> <img
-            width="80px" class="pull-left"
-            src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-            <div class="btn-text">
-              <small>Available on</small><br> <strong>Google Play</strong>
-            </div></a>
-        </div>
-      </div>
-    </div>
-  </header>
-  <%};%>
+	<header>
+		<div class="container">
+			<div class="intro-text">
+				<div class="intro-lead-in">Welcome To ZUP!</div>
+				<div class="intro-heading">
+					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+				</div>
+				<a href="/receipt" class="page-scroll btn btn-xl"
+					style="width: 400px; height: 70px;">공병접수 바로 가기</a>
+				<div class="col-md-offset-11" style="margin-top: -50px;">
+					<a class="btn btn-lg btn-info big-btn " href="#"
+						style="width: 238px"> <i
+						class="glyphicon glyphicon-phone pull-left"></i>
+						<div class="btn-text">
+							<small>Available on the</small><br> <strong>App
+								Store</strong>
+						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
+						<img width="80px" class="pull-left"
+						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+						<div class="btn-text">
+							<small>Available on</small><br> <strong>Google Play</strong>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<%};%>
 
-  <!-- Services Section -->
-<<<<<<< HEAD
-  
-  <section id="introduce" style="margin-top: -1em;;">
-=======
+	<!-- Services Section -->
 
+	<section id="introduce" style="margin-top: -1em;">
 
-  <section id="introduce" style="margin-top: -100px;">
->>>>>>> branch 'master' of https://github.com/skykosta/final-project.git
-    <div class="col-lg-12 text-center">
-      <h2 class="section-heading">회사소개</h2>
-      <h3 class="section-subheading text-muted">Introduction to the Introduction of the ZUP Company.</h3>
+		<div class="col-lg-12 text-center">
+			<h2 class="section-heading">회사소개</h2>
+			<h3 class="section-subheading text-muted">Introduction to the
+				Introduction of the ZUP Company.</h3>
 
-<div style="margin-top: -3em; margin-bottom: 3em;">
-      <video width="700" height="500" controls="controls"
-        class="video-js vjs-default-skin" data-setup="{}" autoplay="autoplay"
-        muted="muted" loop="loop">
+			<div style="margin-top: -3em; margin-bottom: 3em;">
+				<video width="700" height="500" controls="controls"
+					class="video-js vjs-default-skin" data-setup="{}"
+					autoplay="autoplay" muted="muted" loop="loop">
 
-        <source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
-      </video>
-    </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-4">
-        <span class="fa-stack fa-4x"> <i
-          class="fa fa-circle fa-stack-2x text-primary"></i> 
-          
-          <i
-          class="	fa fa-child fa-stack-1x fa-inverse"></i>
-          
-        </span>
-        <h4 class="service-heading">사회적 역할로서의 ZUP</h4>
-        <p class="text-muted">
-          '재사용률을 높여 아름다운 세상을 만들어요! <br> ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스 입니다.
+					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+				</video>
+			</div>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-4">
+				<span class="fa-stack fa-4x"> <i
+					class="fa fa-circle fa-stack-2x text-primary"></i> <i
+					class="	fa fa-child fa-stack-1x fa-inverse"></i>
 
-        </p>
-      </div>
-      <div class="col-md-4">
-        <span class="fa-stack fa-4x"> <i
-          class="fa fa-circle fa-stack-2x text-primary"></i>  <i
-          class="fa fa-line-chart fa-stack-1x fa-inverse"></i>
-          
-        </span>
-        <h4 class="service-heading">ZUP 2017년 기부 목표</h4>
-        <p class="text-muted">ZUP은 매년 목표수집량의 10%를 기부금으로 잡고 기업활동을 펼치고 있습니다.
-        <br> 올해 ZUP은 약 2천병의 공병을 기부하고자 목표하고 있습니다. </p>
-      </div>
-      <div class="col-md-4">
-        <span class="fa-stack fa-4x"> <i
-          class="fa fa-circle fa-stack-2x text-primary"></i> <i
-          class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="service-heading">ZUP 기부 내역</h4>
-<<<<<<< HEAD
-        <p class="text-muted">2016년부터 시작 된 ZUP의 기부 발자취를 살펴보실 수 있습니다. 
-        <br>ZUP은 매년 기부 금액을 투명하게 공개하고 있습니다</p>
-=======
-        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
->>>>>>> branch 'master' of https://github.com/skykosta/final-project.git
-      </div>
-    </div>
-  </section>
+				</span>
+				<h4 class="service-heading">사회적 역할로서의 ZUP</h4>
+				<p class="text-muted">
+					'재사용률을 높여 아름다운 세상을 만들어요! <br> ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자
+					개발된 서비스 입니다.
+
+				</p>
+			</div>
+			<div class="col-md-4">
+				<span class="fa-stack fa-4x"> <i
+					class="fa fa-circle fa-stack-2x text-primary"></i> <i
+					class="fa fa-line-chart fa-stack-1x fa-inverse"></i>
+
+				</span>
+				<h4 class="service-heading">ZUP 2017년 기부 목표</h4>
+				<p class="text-muted">
+					ZUP은 매년 목표수집량의 10%를 기부금으로 잡고 기업활동을 펼치고 있습니다. <br> 올해 ZUP은 약
+					2천병의 공병을 기부하고자 목표하고 있습니다.
+				</p>
+			</div>
+			<div class="col-md-4">
+				<span class="fa-stack fa-4x"> <i
+					class="fa fa-circle fa-stack-2x text-primary"></i> <i
+					class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
+				</span>
+				<h4 class="service-heading">ZUP 기부 내역</h4>
+				<p class="text-muted">
+					2016년부터 시작 된 ZUP의 기부 발자취를 살펴보실 수 있습니다. <br>ZUP은 매년 기부 금액을 투명하게
+					공개하고 있습니다
+				</p>
+
+			</div>
+		</div>
+	</section>
 
 
-  <!-- Team Section -->
-  <section id="team" class="bg-light-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">사회적 역할로서의 ZUP</h2>
-          <h3 class="section-subheading text-muted">빈병 재사용은 환경을 아끼는 길입니다.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div style="margin-top: -2em; margin-left: 17em;">
-          <video width="700" height="500" controls="controls"
-            class="video-js vjs-default-skin" data-setup="{}" autoplay="autoplay"
-            muted="muted" loop="loop">
+	<!-- Team Section -->
+	<section id="team" class="bg-light-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">사회적 역할로서의 ZUP</h2>
+					<h3 class="section-subheading text-muted">빈병 재사용은 환경을 아끼는
+						길입니다.</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div style="margin-top: -2em; margin-left: 17em;">
+					<video width="700" height="500" controls="controls"
+						class="video-js vjs-default-skin" data-setup="{}"
+						autoplay="autoplay" muted="muted" loop="loop">
 
-            <source src="/stylesheets/img/main/video.mp4" type="video/mp4" />
-          </video>
-        </div>
+						<source src="/stylesheets/img/main/video.mp4" type="video/mp4" />
+					</video>
+				</div>
 
-        <br> <br> <br>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top: -4em;">
-          <p class="large text-muted">ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된 서비스입니다. 궁극적으로
-            ZUP이 추구하는 것은, 공병의 순환률을 높임으로서 개개인은 공병반환에 따라 소정의 용돈벌이를 할 수 있도록 하고, 기업의 입장에서는
-            공병재사용율을 높이는 등 환경보호적 측면과 사회경제적 측면 모두에서 긍정적 효과를 이끌어내는데 앞장서는 기업이 되는 것입니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+				<br> <br> <br>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center"
+					style="margin-top: -4em;">
+					<p class="large text-muted">ZUP은 공병 분리수거에 따르는 번거로움을 해소하고자 개발된
+						서비스입니다. 궁극적으로 ZUP이 추구하는 것은, 공병의 순환률을 높임으로서 개개인은 공병반환에 따라 소정의 용돈벌이를
+						할 수 있도록 하고, 기업의 입장에서는 공병재사용율을 높이는 등 환경보호적 측면과 사회경제적 측면 모두에서 긍정적
+						효과를 이끌어내는데 앞장서는 기업이 되는 것입니다.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">ZUP 착한 목표</h2>
-          <h3 class="section-subheading text-muted">Good goal of the year 2017 ZUP.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="timeline">
-            <li>
-              <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/vol4.png"
-                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
-                  alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>착한 목표 1</h4>
-                  <h4 class="subheading">Our Humble Beginnings</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    2017년 ZUP은 20만 공병 수거를 예상하고 있습니다 <br> 17년도 기부 목표량은 총 수거량의 10%로 약
-                    2만병을 기부목표로 잡고 있습니다. 2만병의 현금환산액은 약 5천만원으로, ZUP은 해당 금액을 사회에 필요한 곳에
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/old.png"
-                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
-                  alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>착한 목표 2</h4>
-                  <h4 class="subheading">Donations to senior citizens living alone.</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/tree.png"
-                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
-                  alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>착한 목표 3</h4>
-                  <h4 class="subheading">Environmental Foundation Agreement</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">
-                    ZUP은 국내 환경재단과 협약을 맺고 매년 200그루의 나무를 기부해왔습니다. 올해는 300그루의 나무를 <br>기부할
-                    수 있도록 노력하겠습니다
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="img-circle img-responsive" src="img/about/alchol.png"
-                  style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
-                  alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>착한 목표 4</h4>
-                  <h4 class="subheading">Free distribution of Alcoholics Anonymous</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">알콜증독자에게 경각심을 일으키는 예방전단지를 제작하여 무료배포 하겠습니다.</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <h4>
-                  지금 바로 <br>ZUP과 함께 <br>기부하세요!
-                </h4>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+	<!-- About Section -->
+	<section id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">ZUP 착한 목표</h2>
+					<h3 class="section-subheading text-muted">Good goal of the
+						year 2017 ZUP.</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="timeline">
+						<li>
+							<div class="timeline-image">
+								<img class="img-circle img-responsive" src="img/about/vol4.png"
+									style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+									alt="">
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4>착한 목표 1</h4>
+									<h4 class="subheading">Our Humble Beginnings</h4>
+								</div>
+								<div class="timeline-body">
+									<p class="text-muted">
+										2017년 ZUP은 20만 공병 수거를 예상하고 있습니다 <br> 17년도 기부 목표량은 총 수거량의
+										10%로 약 2만병을 기부목표로 잡고 있습니다. 2만병의 현금환산액은 약 5천만원으로, ZUP은 해당 금액을
+										사회에 필요한 곳에
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted">
+							<div class="timeline-image">
+								<img class="img-circle img-responsive" src="img/about/old.png"
+									style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+									alt="">
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4>착한 목표 2</h4>
+									<h4 class="subheading">Donations to senior citizens living
+										alone.</h4>
+								</div>
+								<div class="timeline-body">
+									<p class="text-muted">2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해
+										기부하고자 합니다</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="timeline-image">
+								<img class="img-circle img-responsive" src="img/about/tree.png"
+									style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+									alt="">
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4>착한 목표 3</h4>
+									<h4 class="subheading">Environmental Foundation Agreement</h4>
+								</div>
+								<div class="timeline-body">
+									<p class="text-muted">
+										ZUP은 국내 환경재단과 협약을 맺고 매년 200그루의 나무를 기부해왔습니다. 올해는 300그루의 나무를 <br>기부할
+										수 있도록 노력하겠습니다
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted">
+							<div class="timeline-image">
+								<img class="img-circle img-responsive"
+									src="img/about/alchol.png"
+									style="width: 150px; height: 150px; margin-left: 3px; margin-top: 3px;"
+									alt="">
+							</div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4>착한 목표 4</h4>
+									<h4 class="subheading">Free distribution of Alcoholics
+										Anonymous</h4>
+								</div>
+								<div class="timeline-body">
+									<p class="text-muted">알콜증독자에게 경각심을 일으키는 예방전단지를 제작하여 무료배포
+										하겠습니다.</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-inverted">
+							<div class="timeline-image">
+								<h4>
+									지금 바로 <br>ZUP과 함께 <br>기부하세요!
+								</h4>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  <!-- Portfolio Grid Section -->
-  <section id="portfolio" class="bg-light-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">ZUP 기부내역</h2>
-          <h3 class="section-subheading text-muted">Contribution details of the
-            previous generation.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <img src="/stylesheets/img/main/vol16.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>저소득층 노후주택 개보수지원사업</h4>
-            <p class="text-muted">400,000,000원</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <img src="/stylesheets/img/main/vol11.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>저소득층 아동 지원기금</h4>
-            <p class="text-muted">10,000,000원</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <img src="/stylesheets/img/main/vol12.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>사랑의 쌀</h4>
-            <p class="text-muted">400kg 후원</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <img src="/stylesheets/img/main/vol13.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>저소득층 연탄기부</h4>
-            <p class="text-muted">10,000,000원</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <img src="/stylesheets/img/main/vol14.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>사랑의 나눔 바자회</h4>
-            <p class="text-muted">의류용품 200종 후원</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
-              </div>
-            </div> <!-- <img src="/img/portfolio/dreams.png" class="img-responsive" alt=""> -->
-            <img src="/stylesheets/img/main/vol15.jpg" class="img-responsive" alt=""
-            style="width: 400; height: 289px;">
-          </a>
-          <div class="portfolio-caption">
-            <h4>교복지원금 기탁</h4>
-            <p class="text-muted">200,000,000원</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<!-- Portfolio Grid Section -->
+	<section id="portfolio" class="bg-light-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">ZUP 기부내역</h2>
+					<h3 class="section-subheading text-muted">Contribution details
+						of the previous generation.</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal1" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <img src="/stylesheets/img/main/vol16.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>저소득층 노후주택 개보수지원사업</h4>
+						<p class="text-muted">400,000,000원</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal2" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <img src="/stylesheets/img/main/vol11.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>저소득층 아동 지원기금</h4>
+						<p class="text-muted">10,000,000원</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal3" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <img src="/stylesheets/img/main/vol12.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>사랑의 쌀</h4>
+						<p class="text-muted">400kg 후원</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal4" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <img src="/stylesheets/img/main/vol13.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>저소득층 연탄기부</h4>
+						<p class="text-muted">10,000,000원</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal5" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <img src="/stylesheets/img/main/vol14.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>사랑의 나눔 바자회</h4>
+						<p class="text-muted">의류용품 200종 후원</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 portfolio-item">
+					<a href="#portfolioModal6" class="portfolio-link"
+						data-toggle="modal">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+						</div> <!-- <img src="/img/portfolio/dreams.png" class="img-responsive" alt=""> -->
+						<img src="/stylesheets/img/main/vol15.jpg" class="img-responsive"
+						alt="" style="width: 400; height: 289px;">
+					</a>
+					<div class="portfolio-caption">
+						<h4>교복지원금 기탁</h4>
+						<p class="text-muted">200,000,000원</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-<<<<<<< HEAD
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-                <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-                <img class="img-responsive img-centered"
-                  src="/stylesheets/img/main/vol16.jpg"  style="height: 300px; width: 500px;">
-                <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-                  src="/stylesheets/img/main/vol15.jpg"
-                  style="height: 500px; width: 1000px;">
-                <p>2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
-                <p>
-                  <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요
-                  <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                </p>
-                <ul class="list-inline">
-                  <li>금액: 2천만원</li>
-                  <li>출처: HUG</li>
-                  <li>후원: ZUP</li>
-                </ul>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                  <i class="fa fa-times"></i> 닫기
-                </button>
-              </div>
-            </div>
-          </div>
-=======
-        <div class="modal-body">
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol16.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          src="/stylesheets/img/main/vol15.jpg" style="height: 500px; width: 1000px;">
-          <p>2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
->>>>>>> branch 'master' of https://github.com/skykosta/final-project.git
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="portfolio-modal modal fade" id="portfolioModal1"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol16.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					src="/stylesheets/img/main/vol15.jpg" style="height: 500px; width:
+					1000px;">
+					<p>2017년 기부 예정금액의 30%를 저소득층 독거노인을 위해 기부하고자 합니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
 
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <h2>Project Heading</h2>
-          <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol11.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+	</div>
 
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol12.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol13.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- Portfolio Modal 2 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal2"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<h2>Project Heading</h2>
+					<p class="item-intro text-muted">Lorem ipsum dolor sit amet
+						consectetur.</p>
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol11.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol14.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- Portfolio Modal 3 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal3"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol12.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Portfolio Modal 4 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal4"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol13.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="modal-body">
-          <!-- Project Details Go Here -->
-          <h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
-          <p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
-          <img class="img-responsive img-centered" src="/stylesheets/img/main/vol15.jpg"
-            style="height: 300px; width: 500px;">
-          <p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
-          <p>
-            <strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로 가입하세요 <a
-              href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-          </p>
-          <ul class="list-inline">
-            <li>금액: 2천만원</li>
-            <li>출처: HUG</li>
-            <li>후원: ZUP</li>
-          </ul>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> 닫기
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- Portfolio Modal 5 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal5"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol14.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Portfolio Modal 6 -->
+	<div class="portfolio-modal modal fade" id="portfolioModal6"
+		tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Project Details Go Here -->
+					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
+					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
+					<img class="img-responsive img-centered"
+						src="/stylesheets/img/main/vol15.jpg"
+						style="height: 300px; width: 500px;">
+					<p>2016년 12월 21일 달성한 기부금액의 30%를 저소득층 노후 주택보수 공사를 위해 기부하였습니다</p>
+					<p>
+						<strong>지금 바로 함께 하시겠습니까?</strong><br>용돈도 벌고 기부도 하는 ZUP! 지금 바로
+						가입하세요 <a
+							href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+					</p>
+					<ul class="list-inline">
+						<li>금액: 2천만원</li>
+						<li>출처: HUG</li>
+						<li>후원: ZUP</li>
+					</ul>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">
+						<i class="fa fa-times"></i> 닫기
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <!--  로그인시 마이페이지 가기 -->
 <script type="text/javascript">
 	window.onload = function() {
