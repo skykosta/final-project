@@ -94,6 +94,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.post('/',  login.login2);
 app.get('/chat', chatserver.chat);
 
 app.get('/test', function(request, response) {
@@ -140,7 +141,7 @@ app.get('/gologin2', gologin.gologin2);
 app.get('/idCheckConfirm', regist.idCheckConfirm);
 app.post('/idCheckConfirm', regist.idCheckConfirm2);
 app.post('/idresult', idcheck.idresult);
-app.post('/pwresult', pwcheck.pwresult);
+//app.post('/pwresult', pwcheck.pwresult);
 //약관 동의
 app.get('/agree', agree.agree);
 app.post('/agree', agree.agree2);

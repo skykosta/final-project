@@ -1,4 +1,3 @@
-
 /*
  * GET users listing.
  */
@@ -26,7 +25,7 @@ exports.mypage = function(req, res){
 	var User_address_detail;
 	
 	client.query('select user_address from user where user_id=?',[req.session.user_id], function(err, user_address){
-		user_address = user_address[0].user_address;
+		var user_address = user_address[0].user_address;
 		console.log(user_address);
 		User_address= user_address.split("*");
 		User_address_base = User_address[0];
@@ -34,8 +33,14 @@ exports.mypage = function(req, res){
 	});
 	
 	
+	console.log("======마이페이지 로그인한 아이디 ========");
+	console.log(req.session.user_id);
 	  client.query('select * from user where user_id=?',[req.session.user_id], function(error0, user){
 		  client.query('select * from userlog where user_num=(select user_num from user where user_id=?)',[req.session.user_id], function(error1, log){
+			  console.log("======User========");
+			  console.log(user);
+			  console.log("======Log========");
+			  console.log(log);
 			  if(error0){
 				  console.log('쿼리 문장에 오류 있숨');
 			  }else{
@@ -55,6 +60,9 @@ exports.mypage = function(req, res){
 exports.mypage_change = function(req, res){
 	 var body = req.body;
 	 
+	 
+	 console.log("========바디========");
+	 console.log(body);
 	 client.query('update user set user_pw=?, user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
 			  [body.inputPassword, body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
 		 
@@ -64,15 +72,22 @@ exports.mypage_change = function(req, res){
 	};
 	
 	exports.delete = function (req, res){
+		console.log('===================================');
 		client.query('delete from userlog where userlog_num = ?', [req.params.userlog_num], function(){
 			res.redirect('/mypage');
 		});
 		
 	};
 		
-exports.drop = function(req, res){
+	exports.drop = function(req, res){
+		 console.log("========회원 탈퇴 바디========");
+		 console.log("========회원 탈퇴 비밀번호========");
+		
 		 var user_id = req.session.user_id;
 		 var user_pw = req.params.user;
+		 console.log("========회원 탈퇴 요청 정보========");
+		 console.log(user_id);
+		 console.log(req.params.user);
 		 
 		 client.query('select count(*) cnt from user where user_id=? and user_pw=?', [user_id, user_pw], function(err, result){
 				//res.render('index', {data: result});
@@ -86,32 +101,24 @@ exports.drop = function(req, res){
 				if(cnt === 1){
 					client.query('update user set ismember = "N" where user_id=? and user_pw=?', [user_id, user_pw]);
 					console.log(req.session.user_id);
-					console.log('탈퇴 완료 :D');
-					req.session.destroy(function(err){
-						  
-						  res.send('<script type="text/javascript">location.href="/"</script>');
-					  });
+					console.log('탈퇴 완료');
 				}else{
-					console.log('비밀번호를 다시 확인해주세요.');
+					console.log('탈퇴 실패');
 				}
 				
 			});
 		 
 		 res.redirect('/');
 		 
-};
+	};
+	
 
-exports.withdrawal = function(req, res){
-		 var user_id = req.session.user_id;
-		 var zupmoney = req.params.withdrawalmoney;
-		 
-		 client.query('update user set zupmoney=? where user_id=?', [zupmoney, user_id]);
-		 
-		 res.redirect('/mypage');
-		 
-};
-	
-	
-	
-	
-	
+	exports.withdrawal = function(req, res){
+	       var user_id = req.session.user_id;
+	       var zupmoney = req.params.withdrawalmoney;
+	       
+	       client.query('update user set zupmoney=? where user_id=?', [zupmoney, user_id]);
+	       
+	       res.redirect('/mypage');
+	       
+	};

@@ -115,6 +115,7 @@
 				</button>
 				<a class="navbar-brand page-scroll" href="/"
 					style="font-size: 70px;"> Z U P </a>
+
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -127,11 +128,12 @@
 
 					<%if(sessionId == null){%>
 					<li><a class="page-scroll" href="#introduce">회사소개</a></li>
-					<li><a href="login">로그인</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal">로그인</a></li>
+
 					<li><a href="agree">회원가입</a></li>
 					<li><a href="#" id="myButton">마이페이지</a></li>
 					<li><a href="notice">고객센터</a></li>
-					<li>
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -139,8 +141,137 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- Header -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog"
+		style="margin-top: 9em;">
+		<div class="modal-dialog">
+			<div class="modal-header" style="margin-top: -2em ;">
+				
+				<!-- <img src="/img/logo2.png"> -->
+			</div>
+			<!-- Modal content-->
+			<div class="modal-content" style="height: 350px; margin-top: -5em;">
 
 
+				<div class="modal-body"
+					style="background-image: url('/img/back12.jpg'); background-size: 100% 100%;">
+					<button type="button" class="close" data-dismiss="modal" style="padding-top: 30px;">&times;</button>
+					<form class="form-signin" method="post"
+						onsubmit="return loginFormSubmit(this);" style="margin-top: 7em;">
+
+						<img src="/img/log2.png"
+							style="height: 6em; width: 16em; margin-top: -3em; margin-bottom: 5em; margin-left: 13em;">
+
+						<label for="inputId" class="sr-only">ID</label> <input type="id"
+							name="inputId" id="inputId" class="form-control" placeholder="ID">
+						<br> <label for="inputPassword" class="sr-only">Password</label>
+						<input type="password" id="inputPassword" name="inputPassword"
+							class="form-control" placeholder="Password"> <br>
+						<!--  <div class="checkbox">
+						<label> <input type="checkbox" value="remember-me">
+							Remember me
+						</label>
+					</div>-->
+						<button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+						<hr />
+						<div style="text-align: center;">
+							<p>
+								<a href="/">홈</a> |<a href="idcheck">아이디찾기</a> | <a
+									href="pwcheck">비밀번호 찾기</a> | <a href="agree">회원가입</a> | <a
+									href="notice">고객센터</a>
+							</p>
+						</div>
+					</form>
+				</div>
+				<!-- 	<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div> -->
+			</div>
+			<!-- 	</nav> -->
+
+		</div>
+	</div>
+
+	<header>
+		<div class="container">
+			<div class="intro-text">
+				<div class="intro-lead-in">Welcome To ZUP!</div>
+				<div class="intro-heading">
+					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+				</div>
+				 <a id="orderButton" class="page-scroll btn btn-xl"
+          style="width: 400px; height: 70px;">공병접수 바로 가기</a>
+				<div class="col-md-offset-11" style="margin-top: -50px;">
+					<a class="btn btn-lg btn-info big-btn " href="#"
+						style="width: 238px"> <i
+						class="glyphicon glyphicon-phone pull-left"></i>
+						<div class="btn-text">
+							<small>Available on the</small><br> <strong>App
+								Store</strong>
+						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
+						<img width="80px" class="pull-left"
+						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+						<div class="btn-text">
+							<small>Available on</small><br> <strong>Google Play</strong>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<% }else if(sessionId == 'admin'){ %>
+	<li><a> <%=sessionId%>님 로그인 </a></li>
+	<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+	<li><a href="user">관리자페이지</a></li>
+	<li><a href="notice">고객센터</a></li>
+	<li><a href="logout">로그아웃</a></li>
+	</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
+	<header>
+		<div class="container">
+			<div class="intro-text">
+				<div class="intro-lead-in">Welcome To ZUP!</div>
+				<div class="intro-heading">
+					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
+				</div>
+				<a href="/receipt" class="page-scroll btn btn-xl"
+					style="width: 400px; height: 70px;">공병접수 바로 가기</a>
+				<div class="col-md-offset-11" style="margin-top: -50px;">
+					<a class="btn btn-lg btn-info big-btn" href="#"
+						style="width: 238px"> <i
+						class="glyphicon glyphicon-phone pull-left"></i>
+						<div class="btn-text">
+							<small>Available on the</small><br> <strong>App
+								Store</strong>
+						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
+						<img width="80px" class="pull-left"
+						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
+						<div class="btn-text">
+							<small>Available on</small><br> <strong>Google Play</strong>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<%}else if(sessionId != null && sessionId != 'admin'){%>
+	<li><a><%=sessionId%>님 로그인중...</a></li>
+	<li><a href="mypage">마이페이지</a></li>
+	<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+	<li><a href="notice">고객센터</a></li>
+	<li><a href="logout">로그아웃</a></li>
+	</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
 	<header>
 		<div class="container">
 			<div class="intro-text">
@@ -736,6 +867,30 @@
 		}
 	};
 </script>
+<!-- 로그인 유효성 검사 -->
+<script type="text/javascript">
+	function loginFormSubmit(form) {
 
+		if ($("#inputId").val() === "") {
+			swal({
+				title : '아이디 미입력!',
+				text : '아이디를 입력해주세요!',
+				type : 'warning',
+			});
+			$("#inputId").focus();
+			return false;
+		}
+
+		if ($("#inputPassword").val() === "") {
+			swal({
+				title : '비밀번호 미입력!',
+				text : '비밀번호를 입력해주세요!',
+				type : 'warning',
+			})
+			$("#inputPassword").focus();
+			return false;
+		}
+	}
+</script>
 
 <% include footer.ejs %>

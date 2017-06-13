@@ -186,7 +186,7 @@ a.active, a:active, a:focus, a:hover {
 }
 
 .navbar-custom {
-	background-color: #222;
+	background-color: #054229;
 	border-color: transparent
 }
 
@@ -434,7 +434,7 @@ section h3.section-subheading {
 }
 
 footer span.copyright, footer ul.quicklinks {
-		background-color: #fff;
+		/* background-color: #fff; */
 	font-name: 'Monospace';
   font-family: 'LotteMartHappy';
   font-style: normal;
