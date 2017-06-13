@@ -379,6 +379,8 @@ exports.total = function(req, res){
 		var count23 = 0;
 		var count24 = 0;
 		var count25 = 0;
+		
+		var totalCount = [];
 		//console.log(results.length);
 		for (var i = 0; i < results.length; i++) {
 			var address = results[i].user_address;
@@ -413,7 +415,12 @@ exports.total = function(req, res){
 				}
 			}
 		}
-		res.render('total', {
+		
+		for(var i = 0; i < 25; i++){
+			totalCount.push(count + i);
+		}
+		
+		res.render('maptest', {
 			count1: count1,
 			count2: count2,
 			count3: count3,

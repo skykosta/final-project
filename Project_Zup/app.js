@@ -21,8 +21,9 @@ var express = require('express')
 
 /* 접수하기 페이지 */
 , receipt = require('./routes/receipt')
-, lsjGet = require('./routes/lsjGet')
-, lsjPost = require('./routes/lsjPost')
+
+/* 안드로이드 통신 기능 전용 */
+, androidService = require('./routes/androidService')
 
 , path = require('path')
 , socketio = require('socket.io')
@@ -163,8 +164,9 @@ app.get('/receipt2', receipt.receipt2);
 app.post('/receipt2', receipt.send);
 
 /* 안드로이드 통신 테스트 페이지 */
-app.post("/lsjPOST", lsjPost.lsj1);
-app.get("/lsjGET", lsjGet.lsj2);
+app.post("/mlogin", androidService.mlogin);
+app.post("/mreceipt", androidService.mreceipt);
+app.post("/mresult", androidService.mresult);
 
 
 /*고객센터 페이지 총5개*/
