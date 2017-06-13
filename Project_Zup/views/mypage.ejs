@@ -1,495 +1,447 @@
 <% include header.ejs %>
 <!-- body 시작 -->
+      
+      
+      <div class="container" style="margin-top:130px">
+      
+        <div class="col-md-12"> 
+            
+          <div class="panel panel-default panel-fade">
+          
+            <div class="panel-heading">
+             
+              <span class="panel-title">
+              
+                <div class="pull-left">
+                
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#point" data-toggle="tab"><i class="glyphicon glyphicon-print"></i> 회수내역 및 적립금 관리</a></li>
+                  <li><a href="#modify" data-toggle="tab"><i class="glyphicon glyphicon-send"></i> 나의 정보수정</a></li>
+                </ul>
+                  
+                </div>
+
+                <div class="clearfix"></div>
+
+              </span>
+              
+            </div>
+
+            <div class="panel-body">
+                        
+                                
+              <div class="tab-content">
+              
+    
+               <div class="tab-pane fade in active" id="point">
+                 <FORM ACTION="" METHOD="post">
+                  <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
+                  
+         <!-- 사이드 메뉴 -->      
+          <div class="col-md-2 sidebar">
+           <div class="row">
+            <div class="absolute-wrapper"> </div>
+             <div class="side-menu">
+              <div class="side-menu-container">
+               
+               <!-- 프로필 -->
+               <div class="col-md-12">
+                  <div class="panel panel-danger panel-pricing">
+                  
+                     <div class="panel-heading">
+                            <h3 style="text-align:center"><%= user[0].user_name %>님</h3>
+                     </div>
+                        <ul class="list-group text-center">
+                            <li class="list-group-item"><i class="fa fa-check"></i> 현재 적립금 <br /><strong> $<%= user[0].zupmoney %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 은행명 <br /> <strong><%= user[0].user_bankname %></strong></li>
+                            <li class="list-group-item"><i class="fa fa-check"></i> 계좌번호 <br /> <strong><%= user[0].user_banknum %></strong></li>
+                        </ul>
+                        <div class="panel-footer">
+                            <input type="TEXT" class="form-control" id="withdrawal_amount" name="withdrawal_amount" placeholder="환전 금액 입력"> <br>
+                            <div id="display" style="padding-bottom: 20px;"></div>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#withdrawal_money" style="margin-left:15px;" id="moneychangeBTN">현금 환전</button>
+                        </div>
 
 
-<div class="container" style="margin-top: 80px">
+                        
+                        
+       <!-- Modal -->
+       <div id="withdrawal_money" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-  <div class="col-md-12">
-
-    <div class="panel panel-default panel-fade">
-
-      <div class="panel-heading">
-
-        <span class="panel-title">
-
-          <div class="pull-left">
-
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#point" data-toggle="tab"><i
-                  class="glyphicon glyphicon-print"></i> 회수내역 및 적립금 관리</a></li>
-              <li><a href="#modify" data-toggle="tab"><i
-                  class="glyphicon glyphicon-send"></i> 나의 정보수정</a></li>
-            </ul>
-
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">×</button>
+             <h4 class="modal-title">적립금 환전</h4>
+            </div>
+            
+          <div class="modal-body">
+          <div class="form-group col-md-8">
+              <label for="withdrawal_money">현금으로 환전할 금액 : <span id='money'></span>원</label> <br/>
+              <label for="user_bank">은행명 : <%= user[0].user_bankname %></label> <br/>
+              <label for="user_bankNum">계좌번호 : <%= user[0].user_banknum %></label> <br/><br/><br/>
+              
+              <p>출금하시겠습니까???</p>
           </div>
+          </div>
+          <div class="modal-footer" style="margin-top: 120px;">
+           <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+          </div>
+         </div>
 
-          <div class="clearfix"></div>
-
-        </span>
-
+       </div>
       </div>
-
-      <div class="panel-body">
-
-
-        <div class="tab-content">
-
-
-          <div class="tab-pane fade in active" id="point">
-            <FORM ACTION="" METHOD="post">
-              <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
-
-              <!-- 사이드 메뉴 -->
-              <div class="col-md-2 sidebar">
-                <div class="row">
-                  <div class="absolute-wrapper"></div>
-                  <div class="side-menu">
-                    <div class="side-menu-container">
-
-                      <!-- 프로필 -->
-                      <div class="col-md-12">
-                        <div class="panel panel-danger panel-pricing">
-
-                          <div class="panel-heading">
-                            <h3 style="text-align: center"><%= user[0].user_name %>님</h3>
-                          </div>
-                          <ul class="list-group text-center">
-                            <li class="list-group-item"><i class="fa fa-check"></i>
-                              현재 적립금 <br /> <strong> $<%= user[0].zupmoney %></strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i>
-                              은행명 <br /> <strong><%= user[0].user_bankname %></strong></li>
-                            <li class="list-group-item"><i class="fa fa-check"></i>
-                              계좌번호 <br /> <strong><%= user[0].user_banknum %></strong></li>
-                          </ul>
-                          <div class="panel-footer">
-                            <input type="TEXT" class="form-control" id="withdrawal_amount"
-                              name="withdrawal_amount" placeholder="환전 금액 입력"> <br>
-                            <div id="display"
-                              style="padding-bottom: 20px; padding-left: 20px; color: RED"></div>
-                            <button type="button" class="btn btn-default"
-                              data-toggle="modal" data-target="#withdrawal_money"
-                              style="margin-left: 15px;" id="moneychangeBTN">현금
-                              환전</button>
-                          </div>
-
-
-
-
-                          <!-- Modal -->
-                          <div id="withdrawal_money" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-
-                              <!-- Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">×</button>
-                                  <h4 class="modal-title">적립금 환전</h4>
-                                </div>
-
-                                <div class="modal-body">
-                                  <div class="form-group col-md-8">
-                                    <label for="withdrawal_money">현금으로 환전할 금액 : <span
-                                      id='money'></span>원
-                                    </label> <br /> <label for="user_bank">은행명 : <%=
-                                      user[0].user_bankname %></label> <br /> <label
-                                      for="user_bankNum">계좌번호 : <%=
-                                      user[0].user_banknum %></label> <br /> <br /> <br />
-
-                                    <p>출금하시겠습니까???</p>
-                                  </div>
-                                </div>
-                                <div class="modal-footer" style="margin-top: 120px;">
-                                  <button type="button"
-                                    class="btn btn-default withdrawalBTN">확인</button>
-                                  <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">취소</button>
-                                </div>
-                              </div>
-
-                            </div>
-                          </div>
-                          <!-- /Modal -->
-                        </div>
-                      </div>
-                      <!-- /프로필 -->
+      <!-- /Modal -->  
                     </div>
-                  </div>
                 </div>
-              </div>
-              <!-- /사이드 메뉴 -->
-
-
-              <!-- 회수 내역 및 적립금 테이블 생성 -->
-              <div class="col-md-10">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <div class="pull-right">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-filter"
-                          data-target="all">ALL</button>
-                        <button type="button" class="btn btn-success btn-filter"
-                          data-target="사용">사용</button>
-                        <button type="button" class="btn btn-warning btn-filter"
-                          data-target="적립">적립</button>
-                        <button type="button" class="btn btn-danger btn-filter"
-                          data-target="대기">대기</button>
-
-                      </div>
-                      <br /> <br />
-                    </div>
-                    <div class="table-container">
-                      <table class="table table-filter">
-                        <tbody>
-                          <% log.forEach(function(item, index){%>
-                          <tr data-status="<%=log[index].logtype%>">
-                            <td>
-                              <div class="ckbox">
-                                <input type="checkbox" id="checkbox1"> <label
-                                  for="checkbox1"></label>
-                              </div>
-                            </td>
-                            <td><a href="javascript:;" class="star"> <i
-                                class="glyphicon glyphicon-star"></i>
-                            </a></td>
-                            <td>
-                              <div class="media">
-                                <div class="media-body">
-
-                                  <span class="media-meta pull-right"><button
-                                      type="button" class="btn btn-default"
-                                      id="deletepointBTN"
-                                      onclick="location.href = '/delete/<%=log[index].userlog_num %>' ">내역삭제</button></span>
-                                  <h4 class="title">
-                                    <%=log[index].logtype%> <span class="pull-right use"><%=
-                                      moment(log[index].logdata).format('YYYY-MM-DD
-                                      hh:mm:ss')%>&nbsp;&nbsp;</span>
-                                  </h4>
-                                  <p class="summary"><%= log[index].status %> : <%
-                                    if(log[index].content != '회수예정'){%> <%=
-                                    log[index].content %> <%} else {%> <%=
-                                    log[index].content%> <%}%></p>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <%});%>
-
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /회수 내역 및 적립금 테이블 생성 -->
-            </FORM>
-          </div>
-
-
-          <!-- 나의 정보수정 -->
-          <div class="tab-pane fade" id="modify">
-            <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
-            <article class="container">
-
-              <div class="col-md-6 col-md-offset-3">
-                <form role="form" METHOD="post">
-                  <input type="hidden" name="user_num" value="2">
-                  <div class="form-group col-md-12">
-                    <label for="user_pw1">비밀번호</label> <input type="password"
-                      class="form-control" id="inputPassword" name="inputPassword"
-                      value='<%= user[0].user_pw %>'>
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="user_pw2">비밀번호 확인</label> <input type="password"
-                      class="form-control" id="inputPassword2" name="inputPassword2"
-                      value="<%= user[0].user_pw %>">
-                    <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="user_email">이메일</label> <input type="email"
-                      class="form-control" id="inputEmail" name="inputEmail"
-                      value="<%= user[0].user_email %>">
-                  </div>
-                  <!-- 우편번호 값 받는 히든 창 -->
-                  <input type="hidden" id="postcode" name="zip_code" placeholder="우편번호">
-
-                  <div class="form-group col-md-8">
-                    <label for="user_address">주소</label> <input type="text"
-                      class="form-control" id="address_base" name="address_base"
-                      value="<%= User_address_base %>">
-                  </div>
-                  <div class="form-group col-md-4" style="padding-top: 25px;">
-                    <button type="button" class="btn btn-default"
-                      onclick="sample6_execDaumPostcode()">주소찾기</button>
-                  </div>
-                  <div class="form-group col-md-12">
-                    <input type="text" class="form-control" id="address_detail"
-                      name="address_detail" value="<%= User_address_detail %>">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="user_phoneNum">핸드폰 번호</label> <input type="text"
-                      class="form-control" id="inputNumber" name="inputNumber"
-                      value='<%= user[0].user_phonenum %>'>
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="user_bank">은행명</label> <select
-                      class="form-control col-md-12" id="inputBank" name="inputBank">
-                      <option value='신한은행'>신한은행</option>
-                      <option value='국민은행'>국민은행</option>
-                      <option value='하나은행'>하나은행</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="user_bankNum">계좌번호</label> <input type="text"
-                      class="form-control" id="inputAccount" name="inputAccount"
-                      value="<%= user[0].user_banknum %>">
-                  </div>
-
-                  <div class="form-group text-center col-md-12">
-                    <button type="submit" class="btn btn-default">
-                      수정완료<i class="fa fa-check spaceLeft"></i>
-                    </button>
-                    <button type="button" class="btn btn-default">
-                      수정취소<i class="fa fa-times spaceLeft"></i>
-                    </button>
-                    <button type="button" class="btn btn-default" data-toggle="modal"
-                      data-target="#dropMember">
-                      회원탈퇴<i class="fa fa-times spaceLeft"></i>
-                    </button>
-                  </div>
-                </form>
-                <!-- Modal -->
-                <div id="dropMember" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">×</button>
-                        <h4 class="modal-title">회원 탈퇴</h4>
-                      </div>
-                      <div class="modal-body">
-                        <p>정말로 탈퇴하시겠습니까?</p>
-
-                        <div class="form-group col-md-8">
-                          <label for="user_pw1">비밀번호</label> <input type="password"
-                            class="form-control" id="user_pw1" name="user_pw1"
-                            placeholder="숫자, 문자포함 6~12자리">
-                          <div id="passwd_display" style="color: RED"></div>
-                        </div>
-                        <div class="form-group col-md-8">
-                          <label for="user_pw2">비밀번호 확인</label> <input type="password"
-                            class="form-control" id="user_pw2" name="user_pw2"
-                            placeholder="비밀번호를 한번 더 입력해주세요.">
-                          <div id="passwdCheck_display" style="color: RED"></div>
-                        </div>
-                      </div>
-                      <div class="modal-footer" style="margin-top: 150px;">
-                        <button type="button" class="btn btn-default Unregist"
-                          id="dropBTN">확인</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <!-- /Modal -->
-
-                <hr>
-              </div>
-            </article>
-          </div>
-          <!-- /나의 정보수정 -->
-
-        </div>
-
+          <!-- /프로필 -->
       </div>
-
+     </div>
     </div>
-
+   </div>
+<!-- /사이드 메뉴 -->
+                  
+                  
+<!-- 회수 내역 및 적립금 테이블 생성 -->
+  <div class="col-md-10">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="pull-right">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-filter" data-target="all">ALL</button>
+                <button type="button" class="btn btn-success btn-filter" data-target="사용">사용</button>
+                <button type="button" class="btn btn-warning btn-filter" data-target="적립">적립</button>
+                <button type="button" class="btn btn-danger btn-filter" data-target="대기">대기</button>
+                
+              </div> <br /><br />
+            </div>
+            <div class="table-container">
+              <table class="table table-filter">
+                <tbody>
+                  <% log.forEach(function(item, index){%>
+                  <tr data-status="<%=log[index].logtype%>">
+                    <td>
+                      <div class="ckbox">
+                        <input type="checkbox" id="checkbox1">
+                        <label for="checkbox1"></label>
+                      </div>
+                    </td>
+                    <td>
+                    <a href="javascript:;" class="star">
+                        <i class="glyphicon glyphicon-star"></i>
+                      </a>
+                    </td> 
+                    <td>
+                      <div class="media">
+                        <div class="media-body">
+                        
+                          <span class="media-meta pull-right"><button type="button" class="btn btn-default" id="deletepointBTN" onclick = "location.href = '/delete/<%=log[index].userlog_num %>' ">내역삭제</button></span>
+                          <h4 class="title">
+                            <%=log[index].logtype%>
+                            <span class="pull-right use"><%= moment(log[index].logdata).format('YYYY-MM-DD hh:mm:ss')%>&nbsp;&nbsp;</span>
+                          </h4>
+                          <p class="summary"><%= log[index].status %> : 
+                          <% if(log[index].content != '회수예정'){%>
+                          <%= log[index].content %>
+                          <%} else {%>
+                          <%= log[index].content%>
+                          <%}%>
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <%});%>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
   </div>
+<!-- /회수 내역 및 적립금 테이블 생성 -->  
+                </FORM>
+                </div>
+                
+                
+        <!-- 나의 정보수정 -->      
+        <div class="tab-pane fade" id="modify">
+                  <INPUT TYPE="hidden" NAME="FormName" VALUE="PrintLetters">
+                  <article class="container">
 
-</div>
+        <div class="col-md-6 col-md-offset-3">
+          <form role="form" METHOD="post">
+            <input type="hidden" name="user_num" value="2">
+            <div class="form-group col-md-12">
+              <label for="user_pw1">비밀번호</label>
+              <input type="password" class="form-control" id="inputPassword" name="inputPassword" value='<%= user[0].user_pw %>'>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="user_pw2">비밀번호 확인</label>
+              <input type="password" class="form-control" id="inputPassword2"  name="inputPassword2" value="<%= user[0].user_pw %>">
+              <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="user_email">이메일</label>
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail" value="<%= user[0].user_email %>">
+            </div>
+            <!-- 우편번호 값 받는 히든 창 -->
+          <input type="hidden" id="postcode" name="zip_code" placeholder="우편번호">
+        
+            <div class="form-group col-md-8">
+              <label for="user_address">주소</label>
+              <input type="text" class="form-control" id="address_base" name="address_base" value="<%= User_address_base %>">
+            </div>
+            <div class="form-group col-md-4" style="padding-top: 25px;">
+             <button type="button" class="btn btn-default" onclick="sample6_execDaumPostcode()">주소찾기</button>
+            </div>  
+            <div class="form-group col-md-12">
+              <input type="text" class="form-control" id="address_detail" name="address_detail" value="<%= User_address_detail %>">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="user_phoneNum">핸드폰 번호</label>
+              <input type="text" class="form-control" id="inputNumber" name="inputNumber" value='<%= user[0].user_phonenum %>'>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="user_bank">은행명</label>
+              <select class="form-control col-md-12" id="inputBank" name="inputBank">
+                                <option value='신한은행'>신한은행</option>
+                                <option value='국민은행'>국민은행</option>
+                                <option value='하나은행'>하나은행</option>
+                            </select>
+            </div>
+            <div class="form-group col-md-12">
+              <label for="user_bankNum">계좌번호</label>
+              <input type="text" class="form-control" id="inputAccount" name="inputAccount" value="<%= user[0].user_banknum %>">
+            </div>
+         
+            <div class="form-group text-center col-md-12">
+              <button type="submit" class="btn btn-default">수정완료<i class="fa fa-check spaceLeft"></i></button>
+              <button type="button" class="btn btn-default">수정취소<i class="fa fa-times spaceLeft"></i></button>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#dropMember">회원탈퇴<i class="fa fa-times spaceLeft"></i></button>
+            </div>
+             </form>
+      <!-- Modal -->
+      <div id="dropMember" class="modal fade" role="dialog">
+       <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">×</button>
+           <h4 class="modal-title">회원 탈퇴</h4>
+          </div>
+          <div class="modal-body">
+           <p>정말로 탈퇴하시겠습니까?</p>
+        
+            <div class="form-group col-md-8">
+              <label for="user_pw1">비밀번호</label>
+              <input type="password" class="form-control" id="user_pw1" name="user_pw1" placeholder="숫자, 문자포함 6~12자리">
+              <div id="passwd_display" style="color: RED"></div>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="user_pw2">비밀번호 확인</label>
+              <input type="password" class="form-control" id="user_pw2" name="user_pw2" placeholder="비밀번호를 한번 더 입력해주세요.">
+              <div id="passwdCheck_display" style="color: RED"></div>
+            </div>
+         </div>
+         <div class="modal-footer" style="margin-top: 150px;">
+           <button type="button" class="btn btn-default Unregist">확인</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+         </div>
+       </div>
+
+     </div>
+    </div> 
+    <!-- /Modal --> 
+       
+          <hr>
+        </div>
+      </article>
+                </div>
+    <!-- /나의 정보수정 --> 
+    
+              </div>
+              
+            </div>
+
+          </div>
+            
+        </div>
+            
+      </div>
+      
+
+      
+      
+        <!--#INCLUDE VIRTUAL="FooterInclude.asp"--> 
+        
+        <script src="https://code.jquery.com/jquery-1.9.1.js" ></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
+        <script src="/stylesheets/js/mypage.js"></script>
+        
+        <!--주소찾기 다음 API  -->
+        <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+        
+        <script>
+      	function sample6_execDaumPostcode() {
+        new daum.Postcode(
+            {
+              oncomplete : function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                  fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                  fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if (data.userSelectedType === 'R') {
+                  //법정동명이 있을 경우 추가한다.
+                  if (data.bname !== '') {
+                    extraAddr += data.bname;
+                  }
+                  // 건물명이 있을 경우 추가한다.
+                  if (data.buildingName !== '') {
+                    extraAddr += (extraAddr !== '' ? ', '
+                        + data.buildingName
+                        : data.buildingName);
+                  }
+                  // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                  fullAddr += (extraAddr !== '' ? ' ('
+                      + extraAddr + ')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('address_base').value = fullAddr;
+
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById('address_detail')
+                    .focus();
+              }
+            }).open();
+      }
+    </script>
+        <script>
+$('a.btn.btn-default').hover(function(e) {
+$('a.btn.dropdown-toggle').trigger(e.type);
+})
+
+var user_pw1 = $('#user_pw1').val();
+
+				$('.Unregist').on('click', function(){
+					var user = $('#user_pw1').val();
+					$('#user_pw1').val('');
+					$('#user_pw2').val('');
+					$('#dropMember').modal('hide');
+					location.href = "/drop/"+user;
+				});
+        </script>
+        
+                
+        <script type="text/javascript">
+        $(".display-fade").delay(25).animate({"opacity": "1"}, 800);
+        $(".table-fade").delay(25).animate({"opacity": "1"}, 800);
+        </script>
+        
+        <script type="text/javascript">
+        var def="black";
+        function showNotification(color)
+        {
+          $( "#notification" ).removeClass(def);
+          $( "#notification" ).addClass(color);
+          def=color;
+          $( "#notification" ).fadeIn( "slow" );
+          //alert('hi');
+          $(".win8-notif-button").click(function()
+          {
+          //alert('hi');
+          $(".notification").fadeOut("slow");
+          });
+        
+        }
+        
+  $(function() {
+          
+          $('#moneychangeBTN').on('click', function() {
+            var change_zupmoney = $('#withdrawal_amount').val();
+            $('#money').html(change_zupmoney);
+          
+          });
+          
+        });
+  
+  //은행 표시 하기
+  $('#inputBank').val('<%=user[0].user_bankname%>');
+  
+        </script>
+        
+        
+        <!-- 유효성 검사 -->
+  <script type="text/javascript">
 
 
+  $(function() {
+    
+    $('#moneychangeBTN').on('click', function() {
+       if($("#withdrawal_amount").val() === ""){
+            alert("금액을 입력해주세요.");
+            return false;
+          }
+    
+    });
+    
+  });
+            //실시간 이벤트 처리
+      var withdrawal_amount = document.getElementById("withdrawal_amount");
+      withdrawal_amount.onkeyup = function() {
+        valid_withdrawal_amount(withdrawal_amount);
+      }
 
+      // 계좌 번호 유효성 검사
+       function valid_withdrawal_amount(withdrawal_amount) {
+                // 계좌번호 정규표현식 숫자만 입력 가능
+        re = /^[0-9]*$/;
 
-<!--#INCLUDE VIRTUAL="FooterInclude.asp"-->
-
-<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.easytabs/3.2.0/jquery.easytabs.min.js"></script>
-<script src="/stylesheets/js/mypage.js"></script>
-
-<!--주소찾기 다음 API  -->
-<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
-
-<script>
-	function sample6_execDaumPostcode() {
-		new daum.Postcode(
-				{
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-						var fullAddr = ''; // 최종 주소 변수
-						var extraAddr = ''; // 조합형 주소 변수
-
-						// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-							fullAddr = data.roadAddress;
-
-						} else { // 사용자가 지번 주소를 선택했을 경우(J)
-							fullAddr = data.jibunAddress;
-						}
-
-						// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-						if (data.userSelectedType === 'R') {
-							//법정동명이 있을 경우 추가한다.
-							if (data.bname !== '') {
-								extraAddr += data.bname;
-							}
-							// 건물명이 있을 경우 추가한다.
-							if (data.buildingName !== '') {
-								extraAddr += (extraAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-							// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-							fullAddr += (extraAddr !== '' ? ' (' + extraAddr
-									+ ')' : '');
-						}
-
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
-						document.getElementById('address_base').value = fullAddr;
-
-						// 커서를 상세주소 필드로 이동한다.
-						document.getElementById('address_detail').focus();
-					}
-				}).open();
-	}
-</script>
-<script>
-	$('a.btn.btn-default').hover(function(e) {
-		$('a.btn.dropdown-toggle').trigger(e.type);
-	})
-	/* 비밀번호 입력 했는지 체크 후 탈퇴 */
-	$('.Unregist').on('click', function() {
-		if ($("#user_pw1").val() === "" || $("#user_pw2").val() === "") {
-			alert("비밀번호를 입력해주세요.");
-			return false;
-		} else {
-			var user = $('#user_pw1').val();
-			$('#user_pw1').val('');
-			$('#user_pw2').val('');
-			$('#dropMember').modal('hide');
-			location.href = "/drop/" + user;
+        if (!re.test(withdrawal_amount.value)) {
+          $("#display").html("숫자만 입력해주세요.");
+          return false;
+        } else {
+          $("#display").html("출금가능합니다.");
+          return true;
+        }
+      } 
+      
+    var pw = document.getElementById("user_pw1");
+		var pwCheck = document.getElementById("user_pw2");
+		pwCheck.onkeyup = function() {
+			valid_passwdCheck(pw, pwCheck);
 		}
-	});
+   
+		// 비밀번호가 동일한지 검사
+		function valid_passwdCheck(pw, pwCheck) {
 
-	/* 적립금 환전 버튼 클릭 */
-	$('.withdrawalBTN').on(
-			'click',
-			function() {
-				var withdrawalmoney = <%=user[0].zupmoney%>
-						- $('#withdrawal_amount').val();
-				$('#withdrawal_money').modal('hide');
-				location.href = "/withdrawal/" + withdrawalmoney;
-			});
-
-	/* 입력한 적립금 표시 */
-	$('#moneychangeBTN').on('click', function() {
-		var change_zupmoney = $('#withdrawal_amount').val();
-		$('#money').html(change_zupmoney);
-
-	});
-</script>
-
-
-<script type="text/javascript">
-	$(".display-fade").delay(25).animate({
-		"opacity" : "1"
-	}, 800);
-	$(".table-fade").delay(25).animate({
-		"opacity" : "1"
-	}, 800);
-</script>
-
-<script type="text/javascript">
-	var def = "black";
-	function showNotification(color) {
-		$("#notification").removeClass(def);
-		$("#notification").addClass(color);
-		def = color;
-		$("#notification").fadeIn("slow");
-		$(".win8-notif-button").click(function() {
-			$(".notification").fadeOut("slow");
-		});
-
-	}
-
-	//은행 표시 하기
-	$('#inputBank').val('<%=user[0].user_bankname%>');
-</script>
-
-
-<!-- 유효성 검사 -->
-<script type="text/javascript">
-	$(function() {
-
-		$('#moneychangeBTN').on('click', function() {
-			if ($("#withdrawal_amount").val() === "") {
-				alert("금액을 입력해주세요.");
-				return false;
-			}
-
-		});
-
-	});
-	//실시간 이벤트 처리
-	var withdrawal_amount = document.getElementById("withdrawal_amount");
-	withdrawal_amount.onkeyup = function() {
-		valid_withdrawal_amount(withdrawal_amount);
-	}
-
-	// ZUPMONEY 유효성 검사
-	function valid_withdrawal_amount(withdrawal_amount) {
-		// ZUPMONEY 정규표현식 숫자만 입력 가능
-		re = /^[0-9]*$/;
-
-		if (!re.test(withdrawal_amount.value)) {
-			$("#display").html("숫자만 입력해주세요.");
-			return false;
-		} else {
-			if (withdrawal_amount.value > <%=user[0].zupmoney %>) {
-				$("#display").html("금액 초과 : (");
-				$("#moneychangeBTN").prop("disabled", true);
+			if (pw.value != pwCheck.value) {
+				$("#passwdCheck_display").html("Password가 서로 다릅니다.");
 				return false;
 			} else {
-				$("#display").html("출금 가능 :D");
-				$("#moneychangeBTN").prop("disabled", false);
+				$("#passwdCheck_display").html("Password가 동일합니다..");
 				return true;
 			}
-		}
-	}
-
-	var pw = document.getElementById("user_pw1");
-	var pwCheck = document.getElementById("user_pw2");
-	pwCheck.onkeyup = function() {
-		valid_passwdCheck(pw, pwCheck);
-	}
-
-	// 비밀번호 동일한지 검사
-	function valid_passwdCheck(pw, pwCheck) {
-
-		if (pw.value != pwCheck.value) {
-			$("#passwdCheck_display").html("Password가 서로 다릅니다.");
-			return false;
-		} else {
-			$("#passwdCheck_display").html("Password가 동일합니다..");
-			return true;
-		}
-	}
+		}   
+      
 </script>
-
+        
 <% include footer.ejs %>
