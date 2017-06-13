@@ -10,20 +10,30 @@ thead {
 	width: 100%;
 }
 </style>
-<div style="margin-top: 130px;">
+<div style="margin-top: 30px;">
   <div class="container" style="text-align: center; margin-bottom: 50px">
     <%if(userid=="admin"){%>
     <button type="button" class="btn icon-btn btn-success" data-toggle="modal"
       data-target="#noticeadd">
       <span></span>공지사항등록
+      
     </button>
+    
     <%}%> <a class="btn icon-btn btn-info" href="notice"><span></span>공지사항</a> <a
       class="btn icon-btn btn-warning" href="fnq"><span></span>자주묻는 질문</a> <a
       class="btn icon-btn btn-danger" id="conButton"><span></span>contact us</a>
   </div>
 
-  <div class="container">
-    <h1>공지사항</h1>
+<div style="background-color: rgb(175, 207, 167); width: 90em; height:78em; margin: auto">
+  <div class="container" style="margin-top: 2em;">
+    <br>
+    <br>
+    <br>
+    <h1 style="margin-left: 14em; color: white;">공지사항</h1>
+    <h3 class="section-subheading text-muted" style="color: grey; margin-left: 10em">공지사항을 확인하시면 ZUP을 더 편리하게 이용하실 수 있습니다:-)</h3>
+   
+    <br>
+    <br>
     <!-- Article Add Modal -->
     <div class="modal fade" id="noticeadd" role="dialog">
       <div class="modal-dialog">
@@ -146,6 +156,7 @@ thead {
     </table>
 
   </div>
+  </div>
 </div>
 
 <!--  로그인시 컨텍트어스 가기 -->
@@ -172,4 +183,11 @@ thead {
 
 	};
 </script>
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
 <% include footer.ejs %>
