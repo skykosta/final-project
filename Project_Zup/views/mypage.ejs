@@ -431,11 +431,15 @@ $('a.btn.dropdown-toggle').trigger(e.type);
         		$("#display").html("금액 초과 : (");
         		$("#moneychangeBTN").prop("disabled", true);
         		return false;
+        	}else if(withdrawal_amount.value == ""){
+        		$("#display").html("");
         	}else{
         		$("#display").html("출금 가능 :D");
         		$("#moneychangeBTN").prop("disabled", false);
         		 return true;
         	}
+        	
+        	
         }
       } 
       
