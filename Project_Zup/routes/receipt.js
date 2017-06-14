@@ -20,7 +20,6 @@ exports.receipt = function(req, res){
 };
 
 //2페이지
-//get 방식
 exports.receipt2 = function(req, res){
   console.log("접수하기 2페이지 get방식 요청");
   
@@ -42,7 +41,7 @@ exports.receipt2 = function(req, res){
   }
 };
 
-//3페이지
+//3페이지 보여주기
 //post 방식
 /* 접수하기 페이지 안드로이드와 통신 */
 exports.send = function(req, res){
@@ -62,52 +61,52 @@ exports.send = function(req, res){
 	  var user_id = req.session.user_id;
 	  
 	  //디바이스 키값, 위도 경도 세팅
-	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
+	  var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
 //	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
 	
 	  //직원 정보
 	  var employee_num = 2; // 잦됨
-    
-      //안드로이드와 통신하기.
-      sendMessageToUser(deviceId, lat, lng);
-
-      function sendMessageToUser(deviceId, lat, lng) {
-    	  
-  		request({
-  			url : 'https://fcm.googleapis.com/fcm/send',
-  			method : 'POST',
-  			headers : {
-  				'Content-Type' : 'application/json',
-  				'Authorization' : 'key=AIzaSyBcGM6s4SQtDGLWQlb9Lab60HUF8kGcZP4'
-  			},
-  			body : JSON.stringify({
-  				"data" : { "rorder" :
-  				                   {					
-  						   "user_name" : name,
-  						   "user_phonenum" : tel,
-  						   "lat" : lat,
-  						   "lng" : lng,
-  						   "user_address" : address
-  				                   }
-  			  },
-  				"to" : deviceId
-  			})
-  		}, function(error, response, body) {
-  			if (error) {
-  				console.error(error, response, body);
-  			} else if (response.statusCode >= 400) {
-  				console.error('HTTP Error: ' + response.statusCode + ' - '
-  						+ response.statusMessage + '\n' + body);
-  			} else {
-  				console.log('전송 성공!')
-  			}
-  		});
-  	}//sendMessageToUser()
-      
-      
+             
       client.query("select user_num from user where user_id = ?", [user_id], function(error, results){
     	  
-    	  var user_num = results[0].user_num;
+    	  var user_num = results[0].user_num;    	  
+    	  
+          //안드로이드와 통신하기.
+          sendMessageToUser(deviceId, lat, lng);
+
+          function sendMessageToUser(deviceId, lat, lng) {
+        	  
+      		request({
+      			url : 'https://fcm.googleapis.com/fcm/send',
+      			method : 'POST',
+      			headers : {
+      				'Content-Type' : 'application/json',
+         		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
+      			},
+      			body : JSON.stringify({
+      				"data" : { "rorder" :
+      				                   {					
+      						   "user_num" : user_num,
+      					       "user_name" : name,
+      						   "user_phonenum" : tel,
+      						   "lat" : lat,
+      						   "lng" : lng,
+      						   "user_address" : address
+      				                   }
+      			  },
+      				"to" : deviceId
+      			})
+      		}, function(error, response, body) {
+      			if (error) {
+      				console.error(error, response, body);
+      			} else if (response.statusCode >= 400) {
+      				console.error('HTTP Error: ' + response.statusCode + ' - '
+      						+ response.statusMessage + '\n' + body);
+      			} else {
+      				console.log('전송 성공!')
+      			}
+      		});
+      	}//sendMessageToUser()   	 
     	
     	  //메일
           client.query('select user_email from user where user_id=?', [user_id], function(err, result){
@@ -147,12 +146,9 @@ exports.send = function(req, res){
     	  
     	  client.query("insert into userlog(user_num, logtype, status) values(?,'대기', '회수예정')",
                   [user_num]);
-      
-    	  client.query("insert into orderlist(user_num, employee_num)values(?, ?)",
-    			  [user_num, employee_num]);	  
 	  
-    	  client.query("update user set user_address = ? where user_num = ? AND user_id = ?",
-		          [address, user_num, user_id],
+    	  client.query("update user set user_address = ?, lat = ?, lng = ? where user_num = ? AND user_id = ?",
+		          [address, lat, lng, user_num, user_id],
 		       
 		          function(){
     		  		res.render("receipt3", {

@@ -39,12 +39,13 @@ exports.pwcheck2 = function(req, res){
 			console.log('오! 인증번호 보내줌!');
 			req.session.user_id = id;
 			console.log("세션저장"+req.session.user_id);
-//인증번호 보내기
+console.log(email);
+			//인증번호 보내기
 			var transporter = nodemailer.createTransport({
 				  service: 'gmail',
 				  auth: {
 				    user: 'zupkosta@gmail.com',
-				    pass: 'zup12345!'
+				    pass: 'zup12345'
 				  }
 				});
 			
