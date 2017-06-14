@@ -10,7 +10,7 @@ var moment = require("moment");
 
 // 데이터 베이스와 연결
 var client = mysql.createConnection({
-	host: '192.168.0.59',
+	host: '192.168.0.67',
 	user: 'root',
 	password: 'root',
 	database: 'zup'

@@ -4,7 +4,7 @@ var firebase = require("firebase");
 var nodemailer = require('nodemailer');
 
 var client = mysql.createConnection({
-	host: '192.168.0.59',
+	host: '192.168.0.67',
 	user: 'root',
 	password: 'root',
 	database: 'zup'

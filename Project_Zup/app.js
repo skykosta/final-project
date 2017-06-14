@@ -78,7 +78,7 @@ app.use(session({
 }));
 
 // all environments
-app.set('port', process.env.PORT || 443);
+app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.favicon());

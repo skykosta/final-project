@@ -6,7 +6,7 @@ var mysql = require('mysql');
 
 
 var client = mysql.createConnection({
-	host: '192.168.0.59',
+	host: '192.168.0.67',
 	user: 'root',
 	password: 'root',
 	database: 'zup'
