@@ -3,7 +3,7 @@ var request = require("request");
 var firebase = require("firebase");
 
 var client = mysql.createConnection({
-	host: '192.168.0.67',
+	host: '192.168.0.59',
 	user: 'root',
 	password: 'root',
 	database: 'zup'
