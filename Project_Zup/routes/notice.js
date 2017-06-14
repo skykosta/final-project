@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 var client = mysql.createConnection({
-	host: '192.168.0.67',
+	host: '127.0.0.1',
 	user: "root",
 	password: "root",
 	database: "zup"

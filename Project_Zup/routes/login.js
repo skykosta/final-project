@@ -7,7 +7,7 @@ var fs = require('fs');
 var ejs = require('ejs');
 
 var client = mysql.createConnection({
-	host: '192.168.0.67',
+	host: '127.0.0.1',
 	user: 'root',
 	password: 'root',
 	database: 'zup'
@@ -33,10 +33,10 @@ exports.login2 = function(req, res){
 	//쿼리문
 	 
 	
-		client.query('select ismember from user where user_id=?', [login], function(err, result){
-			var ismember = result[0].ismember;
+		client.query('select ismember from user where user_id=?', [login], function(err, results){
+			var ismember = results[0].ismember;
 			console.log(ismember);
-			console.log(result);
+			console.log(results);
 			client.query('select count(*) cnt from user where user_id=? and user_pw=?', [login,password], function(err, result){
 				
 			
