@@ -13,7 +13,8 @@
     "request": "*",
    "firebase": "*",
    "moment": "*",
-   "nodemailer":"*"
+   "nodemailer":"*",
+   "crypto": "*"
   },
   
   "engines": {

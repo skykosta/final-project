@@ -1,10 +1,12 @@
 
 /*
- * GET users login.
+ * users login.
  */
 var mysql = require('mysql');
 var fs = require('fs');
 var ejs = require('ejs');
+var crypto = require('crypto');
+
 
 var client = mysql.createConnection({
 	host: '192.168.0.67',
@@ -23,8 +25,9 @@ exports.login2 = function(req, res){
 	
 	//쿠키생성
 	var login = req.body.inputId;
+	//var password = req.body.inputPassword;
 	var password = req.body.inputPassword;
-	
+	var hashpass = crypto.createHash("sha512").update(password).digest("base64");
 	//출력
 	console.log(req.body);
 	console.log(login);
@@ -37,7 +40,7 @@ exports.login2 = function(req, res){
 			var ismember = results[0].ismember;
 			console.log(ismember);
 			console.log(results);
-			client.query('select count(*) cnt from user where user_id=? and user_pw=?', [login,password], function(err, result){
+			client.query('select count(*) cnt from user where user_id=? and user_pw=?', [login,hashpass], function(err, result){
 				
 			
 		//res.render('index', {data: result});
