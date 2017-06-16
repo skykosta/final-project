@@ -25,7 +25,6 @@ exports.login2 = function(req, res){
 	
 	//쿠키생성
 	var login = req.body.inputId;
-	//var password = req.body.inputPassword;
 	var password = req.body.inputPassword;
 	var hashpass = crypto.createHash("sha512").update(password).digest("base64");
 	//출력
@@ -55,15 +54,11 @@ exports.login2 = function(req, res){
 			req.session.user_id = login;
 			console.log(req.session.user_id);
 			console.log('정상 로그인');
-			//res.send('<!-- Sweetalert --><script src="/stylesheets/js/sweetalert2.min.js"></script><link rel="stylesheet" type="text/css" href="/stylesheets/css/sweetalert2.min.css"><script type="text/javascript">swal({title : "비밀번호 미입력!",text : "비밀번호를 입력해주세요!",type :"warning"});location.href="/"</script>');
 			
 			res.send('<script type="text/javascript">location.href="/"</script>');
-			//res.render('index');
 		}else{
-			//res.json({result:'fail'});
 			console.log('로그인 실패');
 			res.send('<script type="text/javascript">alert("아이디나 비밀번호를 다시 확인해 주십시오.");location.href="login"</script>');
-			//res.render('login');
 		
 		}
 		
