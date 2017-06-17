@@ -14,7 +14,8 @@
    "firebase": "*",
    "moment": "*",
    "nodemailer":"*",
-   "crypto": "*"
+   "crypto": "*",
+   "async" : "*"
   },
   
   "engines": {

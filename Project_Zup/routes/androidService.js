@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var request = require("request");
 var firebase = require("firebase");
+var async = require("async");
 
 var client = mysql.createConnection({
 	host: '192.168.0.67',
@@ -8,6 +9,20 @@ var client = mysql.createConnection({
 	password: 'root',
 	database: 'zup'
 });
+
+
+//금일 회수 내역 리스트 넘겨 주기
+exports.mreceipt = function(req, res){
+	
+	
+	
+	
+	
+	
+}
+
+
+
 
 //직원이 접수하기 승낙시
 exports.mreceipt = function(req, res){
@@ -73,22 +88,24 @@ exports.mresult = function(req, res){
 	var order_num = req.body.order_num;
 	var user_num = req.body.user_num;
 	var bottleArray = JSON.parse(req.body.bottleArray);
+	var zupmoney = 0;
 
+	//소주병은 100원 맥주병은 130원
 
-
+ /*
     for (var i = 0; i < bottleArray.length; i++) {
     	
     	console.log("bottle_amount :" + bottleArray[i].bottle_amount);
     	console.log("bottle_num :" + bottleArray[i].bottle_num);
 	}
+	
+	client.query("update user set zupmoney = ? where user_num = ?",
+	             [zupmoney, user_num]);
+*/
 
-	
-	//회수완료시 orderlist, userlog,  
-	
-	/*
-	  client.query("insert into userlog(user_num, logtype, status) values(?,'대기', '회수예정')",
-                   [user_num]);
-	*/
+    client.query(" update userlog set status = '회수완료', logtype = '완료', content = 5500" +
+                 " where status = '회수예정' and logtype = '대기' and user_num = ? ", 
+                 [user_num]);
     
 	client.query("delete from orderlist where user_num = ? and employee_num = ?",
 		         [user_num, employee_num]);
@@ -137,20 +154,6 @@ exports.mresult = function(req, res){
 //직원 앱 로그인시 오더 리스트 넘겨주기.
 exports.mlogin = function(req, res){
 	
-	var user_num;
-	var user_id;
-	var user_pw;
-	var user_name;
-	var user_phonenum;
-	var user_address;
-	var user_bankname;
-	var user_banknum;
-	var user_zupmoney;
-	var regdate;
-	var dropdate;
-	var ismember;
-	var data;
-	
 	console.log("mlogin 호출됨.");
 //	console.log(req.body.id);
 //	console.log(req.body.password);
@@ -158,117 +161,129 @@ exports.mlogin = function(req, res){
 	
 	//디바이스 키값, 위도 경도 세팅
 //	var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
+	
+	var employee_id = req.body.employee_id;
+	var employee_pw = req.body.employee_pw;
 	var deviceId = req.body.token;
 
-	   client.query("select employee_num from employee where device_key = ?",
-                    [deviceId], function(error, results){
-		   
-		   var employee_num = results[0].employee_num;
-		   
-		   sendMessageToUser(deviceId, employee_num);
-		   
-		   function sendMessageToUser(deviceId, remployee_num) {
-		    	
-		    	console.log("employee_num :" + employee_num);
-
-				request({
-					url : 'https://fcm.googleapis.com/fcm/send',
-					method : 'POST',
-					headers : {
-						'Content-Type' : 'application/json',
-		  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
-					},
-					body : JSON.stringify({	
-						
-						"data" : {		
-							        
-							      "login" : employee_num						   
-						}, 
-						
-						"to" : deviceId
-					})
-				}, function(error, response, body) {
-					if (error) {
-						console.error(error, response, body);
-					} else if (response.statusCode >= 400) {
-						console.error('HTTP Error: ' + response.statusCode + ' - '
-								+ response.statusMessage + '\n' + body);
-					} else {
-						console.log('orderlist 데이터 JSON 메세지 전송 성공!');
-					}
-				});
-			}//sendMessageToUser()
-		   
-		   
-	   });//client.query
 	
-	
-       client.query(
-    	   
+	async.series([
+		          function(callback){
+		        	  
+		        		client.query(
+		        		    	   
+		        		           "select o.order_num," +
+		        		                  "o.orderdate,"+ 
+		        		        	      "u.user_num,"+ 
+		        		        	      "u.user_id,"+
+		        		        	      "u.user_name,"+
+		        		        	      "u.user_phonenum,"+
+		        		        	      "u.user_address,"+
+		        		        	      "u.lat,"+
+		        		        	      "u.lng" +
+		        		           " from orderlist o join user u"+
+		        		           		 " on o.user_num = u.user_num"+
+		        		           " where employee_num = ( select employee_num"+
+		        		                                  " from employee"+
+		        		                                  " where device_key = ?)" 
+		        		   	   
+		        		       ,[deviceId], function(error, results){
+		        		    		   
+		        		    	for (var i = 0; i < results.length; i++) {
+		        					var result = results[i]
 
-           "select o.order_num," +
-                  "o.orderdate,"+ 
-        	      "u.user_num,"+ 
-        	      "u.user_id,"+
-        	      "u.user_name,"+
-        	      "u.user_phonenum,"+
-        	      "u.user_address,"+
-        	      "u.lat,"+
-        	      "u.lng" +
-           " from orderlist o join user u"+
-           		 " on o.user_num = u.user_num"+
-           " where employee_num = ( select employee_num"+
-                                 " from employee"+
-                                 " where device_key = ?)" 
-   
-    	   
-       ,[deviceId], function(error, results){
-    		   
-//        console.log(results);
-//         console.log(results.length);
-//       console.log(results[0]);
+		        					sendMessageToUser(deviceId, result);
+		        					
+		        					}
 
- 
-    	for (var i = 0; i < results.length; i++) {
-			var result = results[i]
+		        			    function sendMessageToUser(deviceId, result) {
+		        			    	
+		        					request({
+		        						url : 'https://fcm.googleapis.com/fcm/send',
+		        						method : 'POST',
+		        						headers : {
+		        							'Content-Type' : 'application/json',
+		        			  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
+		        						},
+		        						body : JSON.stringify({	
+		        							
+		        							"data" : {		
+		        								      "order" : result
+		        									},
+		        							
+		        							"to" : deviceId
+		        						})
+		        					}, function(error, response, body) {
+		        						if (error) {
+		        							console.error(error, response, body);
+		        						} else if (response.statusCode >= 400) {
+		        							console.error('HTTP Error: ' + response.statusCode + ' - '
+		        									+ response.statusMessage + '\n' + body);
+		        						} else {
+		        							console.log('orderlist 데이터 JSON 메세지 전송 성공!');
+		        						}
+		        					});
+		        				}//sendMessageToUser()
+		        		    });//client.query 		        	  
+		        	  
+		        		setTimeout(function(){
+				        	  
+		        			callback(null, 1);
+		        			
+		        		}, 3000); 
+		        		
 
-			sendMessageToUser(deviceId, result);
+		          },//function(callback)
+		         
+		         function(callback){
+        		
+		       	   client.query("select employee_num from employee where device_key = ?",
+		                      [deviceId], function(error, results){
+		       	   
+		       	   var employee_num = results[0].employee_num;
+		       	   
+		       	   sendMessageToUser(deviceId, employee_num);
+		       	   
+		       	   function sendMessageToUser(deviceId, remployee_num) {
+		       	    	
+		       	    	console.log("employee_num :" + employee_num);
+
+		       			request({
+		       				url : 'https://fcm.googleapis.com/fcm/send',
+		       				method : 'POST',
+		       				headers : {
+		       					'Content-Type' : 'application/json',
+		       	  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
+		       				},
+		       				body : JSON.stringify({	
+		       					
+		       					"data" : {		
+		       						        
+		       						      "login" : employee_num						   
+		       					}, 
+		       					
+		       					"to" : deviceId
+		       				})
+		       			}, function(error, response, body) {
+		       				if (error) {
+		       					console.error(error, response, body);
+		       				} else if (response.statusCode >= 400) {
+		       					console.error('HTTP Error: ' + response.statusCode + ' - '
+		       							+ response.statusMessage + '\n' + body);
+		       				} else {
+		       					console.log('직원번호 데이터 JSON 메세지 전송 성공!');
+		       				}
+		       			});
+		       		}//sendMessageToUser()
+		       	   
+		       	   
+		         });//client.query			          
+		          
+		             callback(null, 2);
+		          }//function(callback)
 			
-			}
-
-	    function sendMessageToUser(deviceId, result) {
-	    	
-			request({
-				url : 'https://fcm.googleapis.com/fcm/send',
-				method : 'POST',
-				headers : {
-					'Content-Type' : 'application/json',
-	  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
-				},
-				body : JSON.stringify({	
-					
-					"data" : {		
-						        
-						      "order" : result
-						   
-					},
-					
-					"to" : deviceId
-				})
-			}, function(error, response, body) {
-				if (error) {
-					console.error(error, response, body);
-				} else if (response.statusCode >= 400) {
-					console.error('HTTP Error: ' + response.statusCode + ' - '
-							+ response.statusMessage + '\n' + body);
-				} else {
-					console.log('orderlist 데이터 JSON 메세지 전송 성공!');
-				}
-			});
-		}//sendMessageToUser()
-		  
-       });//client.query 
-	   
+	             ]);
+		
 		res.render("lsj", {message: "이승진 몽춍이 ㅗ"});
 		  
 
