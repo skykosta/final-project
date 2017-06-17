@@ -105,10 +105,11 @@ exports.mypage_change = function(req, res){
 					
 					console.log(req.session.user_id);
 					console.log('탈퇴 완료');
+					//res.send('<script type="text/javascript">alert("동일 아이디는 2개월동안 사용 불가합니다.");location.href="logout";</script>');
 					res.redirect('logout');
 				}else{
 					console.log('탈퇴 실패');
-					res.send('<script type="text/javascript">alert("비밀번호를 다시 확인해 주십시오.");location.href="/"</script>');
+					res.send('<script type="text/javascript">alert("비밀번호를 다시 확인해 주십시오.");location.href="/";</script>');
 				}
 				
 			});
