@@ -636,7 +636,6 @@ z-index: 1000;
 					<%if(sessionId == null){%>
 					<li><a class="page-scroll" href="#introduce">회사소개</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal">로그인</a></li>
-
 					<li><a href="agree">회원가입</a></li>
 					<li><a href="#" id="myButton">마이페이지</a></li>
 					<li><a href="notice">고객센터</a></li>
@@ -658,7 +657,7 @@ z-index: 1000;
 			<!-- Modal content-->
 			<div class="modal-content" style="height: 350px; margin-top: -5em;">
 				<div class="modal-body"
-					style="background-image: url('/img/pink.png'); background-size: 100% 100%;">
+					style="background-image: url('/img/gray.JPG'); background-size: 100% 100%;">
 					<button type="button" class="close" data-dismiss="modal"
 						style="padding-top: 30px;">&times;</button>
 					<form class="form-signin" method="post"
@@ -732,12 +731,181 @@ z-index: 1000;
 		</a>
 
 		<!-- <버튼> -->
-		<div id=b3 style="margin-top: -4.8em; margin-left: -35.1em;">
+		<br>
+		<div id=b3 style="margin-top: -6.3em; margin-left: -24em;">
 			<div class="container">
 				<div class="row">
-
 					<div class="block">
+						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
 
+
+		<div id="c">
+			<a href="#"><img src="/img/appstore.png"
+				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
+			<a href="#"><img
+				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
+
+		</div>
+
+		<div id="A2">
+			<img src="/img/monitor.png"
+				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
+
+			<div
+				style="margin-top: -34.8em; margin-bottom: 4em; margin-left: 9.8em; z-index: -10">
+
+				<video width="572" height="450" controls="controls"
+					class="video-js vjs-default-skin" data-setup="{}"
+					autoplay="autoplay" muted="muted" loop="loop">
+
+					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+		</div>
+
+		<div id="A3">
+
+			<img src="/img/menu.png"
+				style="width: 20%; height: 65px; margin-left: 82.5em; margin-top: -80.5em;">
+			<img src="/img/menu2.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -75em;">
+			<img src="/img/menu4.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -70.9em;">
+			<img src="/img/menu3.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -66.8em;">
+		</div>
+		<div id="A4">
+			<h5 style="margin-left: 85em; margin-top: 10em; color: white;">
+				Company<br>Information
+			</h5>
+			<p style="margin-left: 85em; margin-top: 2.5em; color: grey;">ZUP
+				사회적역할</p>
+			<p style="margin-left: 85em; margin-top: 1.8em; color: white;">회사기부목표</p>
+			<p style="margin-left: 85em; margin-top: 2em; color: white;">회사기부내역</p>
+		</div>
+
+
+		<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+			<div style="margin-top: -12.5em;">
+				<div class="block">
+
+					<i class="hoverbtn3 effect-6">기업소개보기</i>
+				</div>
+				<div class="block" style="color: rgb(248, 252, 157)">
+
+					<i class="hoverbtn4 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn5 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn6 effect-6">자세히</i>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="A5">
+			<img src="/img/flower.png" style="height: 2em; margin-right: -0.5px;">
+			<br> <img src="/img/goal2.png"
+				style="height: 2em; margin-right: 9px; margin-top: 1.5em;"> <br>
+			<img src="/img/list.png"
+				style="height: 2em; margin-right: 8px; margin-top: 2em;">
+		</div>
+
+
+
+<br><br><br><br>
+		<div id="A5a">
+			<img src="/img/yellow.png" style="height: 250px; width: 310px;">
+		</div>
+
+		<div id="A5b">
+			<img src="/img/phone.png"
+				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
+			<img src="/img/zupM.png"
+				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
+				</div>
+		<div id="A5c">
+			<p style="margin-left: 65em; margin-top: -19.5em; font-size: 18px; color: black;">
+				ZUP_MAN_SERVICE </p>
+			<p style="margin-left: 81em; margin-top: 1.5em; font-size: 16px; color: black;">
+				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
+			</p>
+			</div>
+
+
+
+	</section>
+	
+	</header>
+	
+	
+	
+	
+	        <% }else if(sessionId == 'admin'){ %>
+			<li><a> <%=sessionId%>님 로그인 </a></li>
+			<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+			<li><a href="user">관리자페이지</a></li>
+			<li><a href="notice">고객센터</a></li>
+			<li><a href="logout">로그아웃</a></li>
+		</ul>
+	</div>
+</div>
+	<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
+	<header>
+	
+	<!-- Services Section -->
+
+	<section id="introduce"
+		style="background-image: url('/img/gray.jpg'); background-size: 100% 100%">
+
+
+		<div id="a" style="margin-top: -2em;">
+
+			<img src="/img/memo2.png" style="width: 9em; height: 8em;"> <img
+				src="/img/memo.png" style="width: 8em; height: 8em;">
+
+		</div>
+
+		<div id="a2">
+			<img src="/img/write.png" style="width: 5em; height: 5em;"> <img
+				src="/img/write2.png"
+				style="width: 4em; height: 4em; margin-left: 4.5em;">
+		</div>
+
+
+		<div id="b">
+
+			<img src="/img/tex.png" style="height: 400px; width: 300px;">
+			<!-- <img src="/img/bottle2.png"
+				style="height: 150px; margin-left: -15em;"> <img
+				src="/img/bottle3.png" style="height: 150px;"> -->
+		</div>
+
+		<a href="/receipt" style="">
+			<div id="b2">
+				<img src="/img/menu5.png" style="width: 270px; height: 70px; margin-top: 1.5em;">
+
+			</div>
+		</a>
+
+		<!-- <버튼> -->
+		<br>
+		<div id=b3 style="margin-top: -6.3em; margin-left: -24em;">
+			<div class="container">
+				<div class="row">
+					<div class="block">
 						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
 					</div>
 				</div>
@@ -752,7 +920,7 @@ z-index: 1000;
 
 		<div id="c">
 			<a href="#"><img src="/img/appstore.png"
-				style="width: 10.5em; height: 3em; margin-right: -10em;"></a> 
+				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
 			<a href="#"><img
 				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
 
@@ -839,28 +1007,12 @@ z-index: 1000;
 				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
 			<img src="/img/zupM.png"
 				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
-				<div id="A5c">
-			<p style="margin-left: 55em; margin-top: -19.5em; font-size: 18px;">
-				ZUP_MAN_SERVICE</p>
-			<p style="margin-left: 15.5em; margin-top: 1.5em; font-size: 16px;">
+		<div id="A5c">
+			<p style="margin-left: 55em; margin-top: -19.5em; font-size: 18px; color: black;">
+				ZUP_MAN_SERVICE </p>
+			<p style="margin-left: 72.5em; margin-top: 1.5em; font-size: 16px; color: black;">
 				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
 			</p>
-			</div>
-			<img src="/img/menu9.png"
-				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
-
-
-			<!-- <회원가입버튼> -->
-			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
-
-				<div class="block">
-
-					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
-				</div>
-			</div>
-
-		</div>
-
 
 
 		<div id="A6">
@@ -877,23 +1029,21 @@ z-index: 1000;
 	
 	</header>
 	
-	
-	
-	
-	        <% }else if(sessionId == 'admin'){ %>
-			<li><a> <%=sessionId%>님 로그인 </a></li>
+	<%}else if(sessionId!= null && sessionId != 'admin'){%>
+			<li><a><%=sessionId%>님 로그인중...</a></li>
+			<li><a href="mypage">마이페이지</a></li>
 			<li><a class="page-scroll" href="#introduce">회사소개</a></li>
-			<li><a href="user">관리자페이지</a></li>
 			<li><a href="notice">고객센터</a></li>
 			<li><a href="logout">로그아웃</a></li>
 		</ul>
 	</div>
-</div>
+<!-- /.navbar-collapse -->
+	</div>
 	<!-- /.container-fluid -->
 	</nav>
 	<!-- Header -->
-	<header>
-	
+	 <header>
+		
 	<!-- Services Section -->
 
 	<section id="introduce"
@@ -930,12 +1080,11 @@ z-index: 1000;
 		</a>
 
 		<!-- <버튼> -->
-		<div id=b3 style="margin-top: -4.8em; margin-left: -24.1em;">
+		<br>
+		<div id=b3 style="margin-top: -6.3em; margin-left: -24em;">
 			<div class="container">
 				<div class="row">
-
 					<div class="block">
-
 						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
 					</div>
 				</div>
@@ -961,7 +1110,7 @@ z-index: 1000;
 				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
 
 			<div
-				style="margin-top: -34.8em; margin-bottom: 3em; margin-left: 11.5em; z-index: -10">
+				style="margin-top: -34.8em; margin-bottom: 4em; margin-left: 9.8em; z-index: -10">
 
 				<video width="572" height="450" controls="controls"
 					class="video-js vjs-default-skin" data-setup="{}"
@@ -1037,221 +1186,14 @@ z-index: 1000;
 				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
 			<img src="/img/zupM.png"
 				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
-			<p style="margin-left: 53em; margin-top: -19.5em; font-size: 18px;">
-				ZUP_MAN_SERVICE</p>
-			<p style="margin-left: 64.5em; margin-top: 1.5em; font-size: 16px;">
+		<div id="A5c">
+			<p style="margin-left: 55em; margin-top: -19.5em; font-size: 18px; color: black;">
+				ZUP_MAN_SERVICE </p>
+			<p style="margin-left: 72.5em; margin-top: 1.5em; font-size: 16px; color: black;">
 				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
 			</p>
-			<img src="/img/menu9.png"
-				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
 
-
-			<!-- <회원가입버튼> -->
-			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
-
-				<div class="block">
-
-					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
-				</div>
-			</div>
-
-		</div>
-
-
-
-		<div id="A6">
-			<a href="#"><img src="/img/twitter.png"
-				style="height: 4em; margin-right: -0.5px;"></a> 
-			<a href="#">	<img
-				src="/img/facebook.png" style="height: 3em; margin-right: 9px;"></a>
-			<a href="#"><img src="/img/instar.png" style="height: 3em; margin-right: 8px;"></a>
-			<a href="#"><img src="/img/gogle.png" style="height: 3em; margin-right: 8px;"></a>
-			<a href="#"><img src="/img/share.png" style="height: 3em; margin-right: 2px;"></a>
-		</div>
-
-	</section>
-	
-	</header>
-	
-	<%}else if(sessionId!= null && sessionId != 'admin'){%>
-			<li><a><%=sessionId%>님 로그인중...</a></li>
-			<li><a href="mypage">마이페이지</a></li>
-			<li><a class="page-scroll" href="#introduce">회사소개</a></li>
-			<li><a href="notice">고객센터</a></li>
-			<li><a href="logout">로그아웃</a></li>
-		</ul>
-	</div>
-<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-	</nav>
-	<!-- Header -->
-	 <header>
-		
-		<!-- Services Section -->
-
-	<section id="introduce"
-		style="background-image: url('/img/gray.jpg'); background-size: 100% 100%">
-
-
-		<div id="a" style="margin-top: -2em;">
-
-			<img src="/img/memo2.png" style="width: 9em; height: 8em;"> <img
-				src="/img/memo.png" style="width: 8em; height: 8em;">
-
-		</div>
-
-		<div id="a2">
-			<img src="/img/write.png" style="width: 5em; height: 5em;"> <img
-				src="/img/write2.png"
-				style="width: 4em; height: 4em; margin-left: 4.5em;">
-		</div>
-
-
-		<div id="b">
-
-			<img src="/img/tex.png" style="height: 400px; width: 300px;">
-			<!-- <img src="/img/bottle2.png"
-				style="height: 150px; margin-left: -15em;"> <img
-				src="/img/bottle3.png" style="height: 150px;"> -->
-		</div>
-
-		<a href="/receipt" style="">
-			<div id="b2">
-				<img src="/img/menu5.png" style="width: 270px; height: 70px; margin-top: 1.5em;">
-
-			</div>
-		</a>
-
-		<!-- <버튼> -->
-		<div id=b3 style="margin-top: -4.8em; margin-left: -24.1em;">
-			<div class="container">
-				<div class="row">
-
-					<div class="block">
-
-						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-
-
-
-
-		<div id="c">
-			<a href="#"><img src="/img/appstore.png"
-				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
-			<a href="#"><img
-				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
-
-		</div>
-
-		<div id="A2">
-			<img src="/img/monitor.png"
-				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
-
-			<div
-				style="margin-top: -34.8em; margin-bottom: 3em; margin-left: 11.5em; z-index: -10">
-
-				<video width="572" height="450" controls="controls"
-					class="video-js vjs-default-skin" data-setup="{}"
-					autoplay="autoplay" muted="muted" loop="loop">
-
-					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
-				</video>
-			</div>
-
-		</div>
-
-		<div id="A3">
-
-			<img src="/img/menu.png"
-				style="width: 20%; height: 65px; margin-left: 82.5em; margin-top: -80.5em;">
-			<img src="/img/menu2.png"
-				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -75em;">
-			<img src="/img/menu4.png"
-				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -70.9em;">
-			<img src="/img/menu3.png"
-				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -66.8em;">
-		</div>
-		<div id="A4">
-			<h5 style="margin-left: 85em; margin-top: 10em; color: white;">
-				Company<br>Information
-			</h5>
-			<p style="margin-left: 85em; margin-top: 2.5em; color: grey;">ZUP
-				사회적역할</p>
-			<p style="margin-left: 85em; margin-top: 1.8em; color: white;">회사기부목표</p>
-			<p style="margin-left: 85em; margin-top: 2em; color: white;">회사기부내역</p>
-		</div>
-
-
-
-		<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
-
-			<div style="margin-top: -12.5em;">
-				<div class="block">
-
-					<i class="hoverbtn3 effect-6">기업소개보기</i>
-				</div>
-				<div class="block" style="color: rgb(248, 252, 157)">
-
-					<i class="hoverbtn4 effect-6">자세히</i>
-				</div>
-				<div class="block">
-
-					<i class="hoverbtn5 effect-6">자세히</i>
-				</div>
-				<div class="block">
-
-					<i class="hoverbtn6 effect-6">자세히</i>
-				</div>
-			</div>
-		</div>
-
-
-		<div id="A5">
-			<img src="/img/flower.png" style="height: 2em; margin-right: -0.5px;">
-			<br> <img src="/img/goal2.png"
-				style="height: 2em; margin-right: 9px; margin-top: 1.5em;"> <br>
-			<img src="/img/list.png"
-				style="height: 2em; margin-right: 8px; margin-top: 2em;">
-		</div>
-
-
-		<div id="A5a">
-			<img src="/img/yellow.png" style="height: 250px; width: 310px;">
-		</div>
-
-		<div id="A5b">
-			<img src="/img/phone.png"
-				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
-			<img src="/img/zupM.png"
-				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
-			<p style="margin-left: 53em; margin-top: -19.5em; font-size: 18px;">
-				ZUP_MAN_SERVICE</p>
-			<p style="margin-left: 64.5em; margin-top: 1.5em; font-size: 16px;">
-				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
-			</p>
-			<img src="/img/menu9.png"
-				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
-
-
-			<!-- <회원가입버튼> -->
-			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
-
-				<div class="block">
-
-					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
-				</div>
-			</div>
-
-		</div>
-
-
+<br><br><br><br>
 
 		<div id="A6">
 			<a href="#"><img src="/img/twitter.png"

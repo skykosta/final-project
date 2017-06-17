@@ -7,6 +7,7 @@ var mysql = require('mysql');
 var fs = require('fs');
 var ejs = require('ejs');
 var moment = require("moment");
+var crypto = require('crypto');
 
 // 데이터 베이스와 연결
 var client = mysql.createConnection({
@@ -85,11 +86,12 @@ exports.mypage_change = function(req, res){
 		
 		 var user_id = req.session.user_id;
 		 var user_pw = req.params.user;
+		 var hashpass = crypto.createHash("sha512").update(user_pw).digest("base64");
 		 console.log("========회원 탈퇴 요청 정보========");
 		 console.log(user_id);
 		 console.log(req.params.user);
 		 
-		 client.query('select count(*) cnt from user where user_id=? and user_pw=?', [user_id, user_pw], function(err, result){
+		 client.query('select count(*) cnt from user where user_id=? and user_pw=?', [user_id, hashpass], function(err, result){
 				//res.render('index', {data: result});
 				console.log('탈퇴 결과값');
 				console.log(result);
@@ -99,16 +101,19 @@ exports.mypage_change = function(req, res){
 				console.log(cnt);
 				
 				if(cnt === 1){
-					client.query('update user set ismember = "N" where user_id=? and user_pw=?', [user_id, user_pw]);
+					client.query('update user set ismember = "N" where user_id=? and user_pw=?', [user_id, hashpass]);
+					
 					console.log(req.session.user_id);
 					console.log('탈퇴 완료');
+					res.redirect('logout');
 				}else{
 					console.log('탈퇴 실패');
+					res.send('<script type="text/javascript">alert("비밀번호를 다시 확인해 주십시오.");location.href="/"</script>');
 				}
 				
 			});
 		 
-		 res.redirect('/');
+		 
 		 
 	};
 	
