@@ -79,34 +79,58 @@ exports.mresult = function(req, res){
 	
 	console.log("mresult 호출됨.");
 	
-//	console.log("user_num : " + req.body.user_num);
-//	console.log("order_num : " + req.body.order_num);
-//	console.log("bottleArray : " + req.body.bottleArray);
-//	console.log("employee_num : " + req.body.employee_num);
-	
 	var employee_num = req.body.employee_num;
 	var order_num = req.body.order_num;
 	var user_num = req.body.user_num;
 	var bottleArray = JSON.parse(req.body.bottleArray);
 	var zupmoney = 0;
-
+    var soju = 100;
+    var beer = 130;
 	//소주병은 100원 맥주병은 130원
 
  /*
+  
+ 
+    
+    1	진로	참이슬
+	2	롯데	처음처럼
+	3	무학	좋은데이
+	4	보해양조	잎새주
+	5	진로	하이트
+	6	진로	Max
+	7	진로	DryFinish
+	8	오비맥주	Cass
+	
+	[{"":""},
+     {"":""}]
+		
+    
     for (var i = 0; i < bottleArray.length; i++) {
     	
     	console.log("bottle_amount :" + bottleArray[i].bottle_amount);
     	console.log("bottle_num :" + bottleArray[i].bottle_num);
 	}
 	
+	
+	소주 몃병, 맥주 몃병 user_num, employee_num, bottle_num,
+	
+
+	//보틀 리스트 소주몃병,맥주몃병,해당 user_num, employee_num, bottle_price, bottle_amount
+	
+	
+	//고객 줍머니 적립
 	client.query("update user set zupmoney = ? where user_num = ?",
 	             [zupmoney, user_num]);
 */
+     
+    //console.log(bottleArray);
 
+	//유저 내역 회수완료로 업데이트
     client.query(" update userlog set status = '회수완료', logtype = '완료', content = 5500" +
                  " where status = '회수예정' and logtype = '대기' and user_num = ? ", 
                  [user_num]);
     
+    //오더리스트 지우기
 	client.query("delete from orderlist where user_num = ? and employee_num = ?",
 		         [user_num, employee_num]);
 
@@ -117,9 +141,7 @@ exports.mresult = function(req, res){
 	
     function sendMessageToUser(deviceId) {
     	
-    	
-
-		request({
+     request({
 			url : 'https://fcm.googleapis.com/fcm/send',
 			method : 'POST',
 			headers : {
@@ -155,12 +177,6 @@ exports.mresult = function(req, res){
 exports.mlogin = function(req, res){
 	
 	console.log("mlogin 호출됨.");
-//	console.log(req.body.id);
-//	console.log(req.body.password);
-//	console.log(req.body.token);
-	
-	//디바이스 키값, 위도 경도 세팅
-//	var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
 	
 	var employee_id = req.body.employee_id;
 	var employee_pw = req.body.employee_pw;
