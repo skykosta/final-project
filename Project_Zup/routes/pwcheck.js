@@ -3,6 +3,7 @@ var nodemailer = require('nodemailer');
 var randomNum = null;
 var id = null;
 var mysql = require('mysql');
+var crypto = require('crypto');
 
 
 var client = mysql.createConnection({
@@ -124,7 +125,10 @@ console.log(email);
 				var body =  req.body;
 				var userId = req.session.user_id;
 				
-				client.query('UPDATE user SET user_pw=? where user_id=?',[body.newPassword,userId], function(){
+				var password = body.newPassword;
+				var hashpass = crypto.createHash("sha512").update(password).digest("base64");
+				
+				client.query('UPDATE user SET user_pw=? where user_id=?',[hashpass,userId], function(){
 					  res.redirect('pwresult');
 				  });
 				
