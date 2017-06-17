@@ -11,12 +11,9 @@
 <title>ZUP - 빈병수거접수</title>
 <link rel="icon" type="image/png" sizes="16x16"
 	href="/favicon-16x16.png">
+
 <!-- Bootstrap Core CSS -->
 <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link href="/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
 
 <!-- Theme CSS -->
 <link href="/stylesheets/css/agency.min.css" rel="stylesheet">
@@ -28,7 +25,501 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	
+<!--  i 클래스 -->	
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	
+
 <style>
+#dododododo {
+	display: none;
+}
+
+#dododododo hover {
+	display: inline;
+}
+
+#introduce {
+	height: 60em;
+}
+
+#a {
+	margin-top: 12em;
+	margin-left: 4em;
+}
+
+#a2 {
+	margin-top: -6.5em;
+	margin-left: 5.5em;
+}
+
+#b {
+	margin-top: 5em;
+	margin-left: 2em;
+	opacity: 0.7;
+}
+
+#b2 {
+	margin-left: 3em;
+	margin-top: -8em;
+	opacity: 0.78;
+	z-index: 1000;
+}
+
+/* 접수하기 버튼 */
+.hoverbtn {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 51px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 55px;
+	width: 259.5px;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+	color: #fff;
+}
+
+.hoverbtn:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn.effect-6 {
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+
+/* 회원가입버튼 */
+.hoverbtn2 {
+	display: inline-block;
+	font-size: 8px;
+	font-weight: 400;
+	line-height: 26.5px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 28px;
+	width: 113px;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 10000;
+	color: #fff;
+}
+
+.hoverbtn2:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn2:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn2.effect-6 {
+	box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn2.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn2.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn2.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+
+/* 4개버튼효과 */
+.hoverbtn3 {
+	display: inline-block;
+	font-size: 8px;
+	font-weight: 400;
+	line-height: 26.5px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 56px;
+	width: 29em;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 10000;
+	color: rgb(176, 211, 230);
+	margin-bottom: 1em;
+	margin-left: 19.5em;
+}
+
+.hoverbtn3:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn3:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn3.effect-6 {
+	/* box-shadow: 0 0 0 4px rgba(255, 255, 255, 1); */
+	box-shadow: 0 0 0 px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn3.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn3.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn3.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+	display: none;
+}
+
+/* --------------- */
+.hoverbtn4 {
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 20;
+	line-height: 26.5px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 36px;
+	width: 19em;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 10000;
+	/*  color: rgb(248,252,157); */
+	margin-bottom: 1.1em;
+	margin-left: 13.5em;
+}
+
+.hoverbtn4:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn4:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn4.effect-6 {
+	/*     box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+ */
+	box-shadow: 0 0 0 0px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn4.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn4.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn4.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+
+/* -------------------------- */
+.hoverbtn5 {
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 20;
+	line-height: 26.5px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 36px;
+	width: 19em;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 10000;
+	color: rgb(254, 198, 165);
+	margin-bottom: 1.1em;
+	margin-left: 13.5em;
+}
+
+.hoverbtn5:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn5:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn5.effect-6 {
+	/*     box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+ */
+	box-shadow: 0 0 0 0px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn5.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn5.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn5.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+
+/* --------------------- */
+.hoverbtn6 {
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 20;
+	line-height: 26.5px;
+	cursor: pointer;
+	/*   margin: 20px; */
+	/*   width: 100%; */
+	font-family: "lotteMartHappy";
+	height: 36px;
+	width: 19em;
+	text-align: center;
+	position: relative;
+	text-decoration: none;
+	z-index: 10000;
+	color: rgb(170, 137, 190);
+	margin-bottom: 0em;
+	margin-left: 13.5em;
+}
+
+.hoverbtn6:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.hoverbtn6:before {
+	speak: none;
+	font-size: 48px;
+	line-height: 90px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+/* Effect 6 */
+.hoverbtn6.effect-6 {
+	/*     box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+ */
+	box-shadow: 0 0 0 0px rgba(255, 255, 255, 1);
+	-webkit-transition: background 0.2s, color 0.2s;
+	-moz-transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s;
+}
+
+.hoverbtn6.effect-6:hover {
+	background: rgba(255, 255, 255, 1);
+	color: #64bb5d;
+}
+
+.hoverbtn6.effect-6:hover i {
+	color: #64bb5d;
+}
+
+.hoverbtn6.effect-6:hover:before {
+	-webkit-animation: spinAround 2s linear infinite;
+	-moz-animation: spinAround 2s linear infinite;
+	animation: spinAround 2s linear infinite;
+}
+
+#c {
+	margin-left: 2em;
+	margin-top: 5em;
+}
+
+#A1 {
+	margin-top: 7em;
+	margin-left: 4.5em;
+	position: relative;
+}
+
+#A2 {
+	margin-top: -47.5em;
+	margin-left: 300px;
+	position: relative;
+	!
+	important;
+}
+
+#A3 {
+	z-index: 4;
+	margin-top: 9.5em;
+	margin-left: 6em;
+}
+
+#A4 {
+	margin-top: -57em;
+	z-index: 5;
+	margin-left: 5em;
+}
+
+#A5 {
+	margin-left: 106em;
+	margin-top: -10.2em;
+	opacity: 0.7;
+}
+
+#A5a {
+	margin-left: 88.5em;
+	margin-top: 3em;
+	opacity: 0.5;
+}
+
+#A5b {
+	margin-left: 25em;
+	margin-top: 5.5em;
+	opacity: 0.8;
+}
+
+#A6 {
+	margin-left: 90em;
+	margin-top: -2em;
+}
+
 .big-btn {
 	padding: 10px 0px 11px 0px;
 	width: 215px;
@@ -98,6 +589,7 @@
 	line-height: 25px;
 }
 </style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -141,21 +633,19 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- Header -->
+
+
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog"
 		style="margin-top: 9em;">
 		<div class="modal-dialog">
-			<div class="modal-header" style="margin-top: -2em ;">
-				
-				<!-- <img src="/img/logo2.png"> -->
-			</div>
+			<div class="modal-header" style="margin-top: -2em;"></div>
 			<!-- Modal content-->
 			<div class="modal-content" style="height: 350px; margin-top: -5em;">
-
-
 				<div class="modal-body"
-					style="background-image: url('/img/back12.jpg'); background-size: 100% 100%;">
-					<button type="button" class="close" data-dismiss="modal" style="padding-top: 30px;">&times;</button>
+					style="background-image: url('/img/pink.png'); background-size: 100% 100%;">
+					<button type="button" class="close" data-dismiss="modal"
+						style="padding-top: 30px;">&times;</button>
 					<form class="form-signin" method="post"
 						onsubmit="return loginFormSubmit(this);" style="margin-top: 7em;">
 
@@ -183,128 +673,586 @@
 						</div>
 					</form>
 				</div>
-				<!-- 	<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div> -->
 			</div>
 			<!-- 	</nav> -->
 
 		</div>
 	</div>
-
+	
 	<header>
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To ZUP!</div>
-				<div class="intro-heading">
-					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-				</div>
-				 <a id="orderButton" class="page-scroll btn btn-xl"
-          style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-				<div class="col-md-offset-11" style="margin-top: -50px;">
-					<a class="btn btn-lg btn-info big-btn " href="#"
-						style="width: 238px"> <i
-						class="glyphicon glyphicon-phone pull-left"></i>
-						<div class="btn-text">
-							<small>Available on the</small><br> <strong>App
-								Store</strong>
-						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
-						<img width="80px" class="pull-left"
-						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-						<div class="btn-text">
-							<small>Available on</small><br> <strong>Google Play</strong>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<% }else if(sessionId == 'admin'){ %>
-	<li><a> <%=sessionId%>님 로그인 </a></li>
-	<li><a class="page-scroll" href="#introduce">회사소개</a></li>
-	<li><a href="user">관리자페이지</a></li>
-	<li><a href="notice">고객센터</a></li>
-	<li><a href="logout">로그아웃</a></li>
-	</ul>
-	</div>
-	<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-	</nav>
-	<!-- Header -->
-	<header>
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To ZUP!</div>
-				<div class="intro-heading">
-					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-				</div>
-				<a href="/receipt" class="page-scroll btn btn-xl"
-					style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-				<div class="col-md-offset-11" style="margin-top: -50px;">
-					<a class="btn btn-lg btn-info big-btn" href="#"
-						style="width: 238px"> <i
-						class="glyphicon glyphicon-phone pull-left"></i>
-						<div class="btn-text">
-							<small>Available on the</small><br> <strong>App
-								Store</strong>
-						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
-						<img width="80px" class="pull-left"
-						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-						<div class="btn-text">
-							<small>Available on</small><br> <strong>Google Play</strong>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<%}else if(sessionId != null && sessionId != 'admin'){%>
-	<li><a><%=sessionId%>님 로그인중...</a></li>
-	<li><a href="mypage">마이페이지</a></li>
-	<li><a class="page-scroll" href="#introduce">회사소개</a></li>
-	<li><a href="notice">고객센터</a></li>
-	<li><a href="logout">로그아웃</a></li>
-	</ul>
-	</div>
-	<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-	</nav>
-	<!-- Header -->
-	<header>
-		<div class="container">
-			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To ZUP!</div>
-				<div class="intro-heading">
-					<span style="font-size: 55px;">재사용률을 높여 아름다운 세상을 만들어요!</span>
-				</div>
-				<a href="/receipt" class="page-scroll btn btn-xl"
-					style="width: 400px; height: 70px;">공병접수 바로 가기</a>
-				<div class="col-md-offset-11" style="margin-top: -50px;">
-					<a class="btn btn-lg btn-info big-btn " href="#"
-						style="width: 238px"> <i
-						class="glyphicon glyphicon-phone pull-left"></i>
-						<div class="btn-text">
-							<small>Available on the</small><br> <strong>App
-								Store</strong>
-						</div></a> <a class="btn btn-lg btn-success big-btn android-btn" href="#">
-						<img width="80px" class="pull-left"
-						src="http://www.userlogos.org/files/logos/jumpordie/google_play_04.png">
-						<div class="btn-text">
-							<small>Available on</small><br> <strong>Google Play</strong>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</header>
-	<%};%>
-
+	
 	<!-- Services Section -->
 
-	<section id="introduce" style="margin-top: -1em;">
+	<section id="introduce"
+		style="background-image: url('/img/gray.jpg'); background-size: 100% 100%">
 
+
+		<div id="a" style="margin-top: -2em;">
+
+			<img src="/img/memo2.png" style="width: 9em; height: 8em;"> <img
+				src="/img/memo.png" style="width: 8em; height: 8em;">
+
+		</div>
+
+		<div id="a2">
+			<img src="/img/write.png" style="width: 5em; height: 5em;"> <img
+				src="/img/write2.png"
+				style="width: 4em; height: 4em; margin-left: 4.5em;">
+		</div>
+
+
+		<div id="b">
+
+			<img src="/img/tex.png" style="height: 400px; width: 300px;">
+			<!-- <img src="/img/bottle2.png"
+				style="height: 150px; margin-left: -15em;"> <img
+				src="/img/bottle3.png" style="height: 150px;"> -->
+		</div>
+
+		<a href="/receipt" style="">
+			<div id="b2">
+				<img src="/img/menu5.png" style="width: 270px; height: 70px; margin-top: 1.5em;">
+
+			</div>
+		</a>
+
+		<!-- <버튼> -->
+		<div id=b3 style="margin-top: -4.8em; margin-left: -24.1em;">
+			<div class="container">
+				<div class="row">
+
+					<div class="block">
+
+						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div id="c">
+			<a href="#"><img src="/img/appstore.png"
+				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
+			<a href="#"><img
+				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
+
+		</div>
+
+		<div id="A2">
+			<img src="/img/monitor.png"
+				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
+
+			<div
+				style="margin-top: -34.8em; margin-bottom: 3em; margin-left: 11.5em; z-index: -10">
+
+				<video width="572" height="450" controls="controls"
+					class="video-js vjs-default-skin" data-setup="{}"
+					autoplay="autoplay" muted="muted" loop="loop">
+
+					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+		</div>
+
+		<div id="A3">
+
+			<img src="/img/menu.png"
+				style="width: 20%; height: 65px; margin-left: 82.5em; margin-top: -80.5em;">
+			<img src="/img/menu2.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -75em;">
+			<img src="/img/menu4.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -70.9em;">
+			<img src="/img/menu3.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -66.8em;">
+		</div>
+		<div id="A4">
+			<h5 style="margin-left: 85em; margin-top: 10em; color: white;">
+				Company<br>Information
+			</h5>
+			<p style="margin-left: 85em; margin-top: 2.5em; color: grey;">ZUP
+				사회적역할</p>
+			<p style="margin-left: 85em; margin-top: 1.8em; color: white;">회사기부목표</p>
+			<p style="margin-left: 85em; margin-top: 2em; color: white;">회사기부내역</p>
+		</div>
+
+
+
+		<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+			<div style="margin-top: -12.5em;">
+				<div class="block">
+
+					<i class="hoverbtn3 effect-6">기업소개보기</i>
+				</div>
+				<div class="block" style="color: rgb(248, 252, 157)">
+
+					<i class="hoverbtn4 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn5 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn6 effect-6">자세히</i>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="A5">
+			<img src="/img/flower.png" style="height: 2em; margin-right: -0.5px;">
+			<br> <img src="/img/goal2.png"
+				style="height: 2em; margin-right: 9px; margin-top: 1.5em;"> <br>
+			<img src="/img/list.png"
+				style="height: 2em; margin-right: 8px; margin-top: 2em;">
+		</div>
+
+
+		<div id="A5a">
+			<img src="/img/yellow.png" style="height: 250px; width: 310px;">
+		</div>
+
+		<div id="A5b">
+			<img src="/img/phone.png"
+				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
+			<img src="/img/zupM.png"
+				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
+			<p style="margin-left: 53em; margin-top: -19.5em; font-size: 18px;">
+				ZUP_MAN_SERVICE</p>
+			<p style="margin-left: 64.5em; margin-top: 1.5em; font-size: 16px;">
+				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
+			</p>
+			<img src="/img/menu9.png"
+				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
+
+
+			<!-- <회원가입버튼> -->
+			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+				<div class="block">
+
+					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div id="A6">
+			<a href="#"><img src="/img/twitter.png"
+				style="height: 4em; margin-right: -0.5px;"></a> 
+			<a href="#">	<img
+				src="/img/facebook.png" style="height: 3em; margin-right: 9px;"></a>
+			<a href="#"><img src="/img/instar.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/gogle.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/share.png" style="height: 3em; margin-right: 2px;"></a>
+		</div>
+
+	</section>
+	
+	</header>
+	
+	
+	
+	
+	        <% }else if(sessionId == 'admin'){ %>
+			<li><a> <%=sessionId%>님 로그인 </a></li>
+			<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+			<li><a href="user">관리자페이지</a></li>
+			<li><a href="notice">고객센터</a></li>
+			<li><a href="logout">로그아웃</a></li>
+		</ul>
+	</div>
+</div>
+	<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
+	<header>
+	
+	<!-- Services Section -->
+
+	<section id="introduce"
+		style="background-image: url('/img/gray.jpg'); background-size: 100% 100%">
+
+
+		<div id="a" style="margin-top: -2em;">
+
+			<img src="/img/memo2.png" style="width: 9em; height: 8em;"> <img
+				src="/img/memo.png" style="width: 8em; height: 8em;">
+
+		</div>
+
+		<div id="a2">
+			<img src="/img/write.png" style="width: 5em; height: 5em;"> <img
+				src="/img/write2.png"
+				style="width: 4em; height: 4em; margin-left: 4.5em;">
+		</div>
+
+
+		<div id="b">
+
+			<img src="/img/tex.png" style="height: 400px; width: 300px;">
+			<!-- <img src="/img/bottle2.png"
+				style="height: 150px; margin-left: -15em;"> <img
+				src="/img/bottle3.png" style="height: 150px;"> -->
+		</div>
+
+		<a href="/receipt" style="">
+			<div id="b2">
+				<img src="/img/menu5.png" style="width: 270px; height: 70px; margin-top: 1.5em;">
+
+			</div>
+		</a>
+
+		<!-- <버튼> -->
+		<div id=b3 style="margin-top: -4.8em; margin-left: -24.1em;">
+			<div class="container">
+				<div class="row">
+
+					<div class="block">
+
+						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div id="c">
+			<a href="#"><img src="/img/appstore.png"
+				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
+			<a href="#"><img
+				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
+
+		</div>
+
+		<div id="A2">
+			<img src="/img/monitor.png"
+				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
+
+			<div
+				style="margin-top: -34.8em; margin-bottom: 3em; margin-left: 11.5em; z-index: -10">
+
+				<video width="572" height="450" controls="controls"
+					class="video-js vjs-default-skin" data-setup="{}"
+					autoplay="autoplay" muted="muted" loop="loop">
+
+					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+		</div>
+
+		<div id="A3">
+
+			<img src="/img/menu.png"
+				style="width: 20%; height: 65px; margin-left: 82.5em; margin-top: -80.5em;">
+			<img src="/img/menu2.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -75em;">
+			<img src="/img/menu4.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -70.9em;">
+			<img src="/img/menu3.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -66.8em;">
+		</div>
+		<div id="A4">
+			<h5 style="margin-left: 85em; margin-top: 10em; color: white;">
+				Company<br>Information
+			</h5>
+			<p style="margin-left: 85em; margin-top: 2.5em; color: grey;">ZUP
+				사회적역할</p>
+			<p style="margin-left: 85em; margin-top: 1.8em; color: white;">회사기부목표</p>
+			<p style="margin-left: 85em; margin-top: 2em; color: white;">회사기부내역</p>
+		</div>
+
+
+
+		<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+			<div style="margin-top: -12.5em;">
+				<div class="block">
+
+					<i class="hoverbtn3 effect-6">기업소개보기</i>
+				</div>
+				<div class="block" style="color: rgb(248, 252, 157)">
+
+					<i class="hoverbtn4 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn5 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn6 effect-6">자세히</i>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="A5">
+			<img src="/img/flower.png" style="height: 2em; margin-right: -0.5px;">
+			<br> <img src="/img/goal2.png"
+				style="height: 2em; margin-right: 9px; margin-top: 1.5em;"> <br>
+			<img src="/img/list.png"
+				style="height: 2em; margin-right: 8px; margin-top: 2em;">
+		</div>
+
+
+		<div id="A5a">
+			<img src="/img/yellow.png" style="height: 250px; width: 310px;">
+		</div>
+
+		<div id="A5b">
+			<img src="/img/phone.png"
+				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
+			<img src="/img/zupM.png"
+				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
+			<p style="margin-left: 53em; margin-top: -19.5em; font-size: 18px;">
+				ZUP_MAN_SERVICE</p>
+			<p style="margin-left: 64.5em; margin-top: 1.5em; font-size: 16px;">
+				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
+			</p>
+			<img src="/img/menu9.png"
+				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
+
+
+			<!-- <회원가입버튼> -->
+			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+				<div class="block">
+
+					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div id="A6">
+			<a href="#"><img src="/img/twitter.png"
+				style="height: 4em; margin-right: -0.5px;"></a> 
+			<a href="#">	<img
+				src="/img/facebook.png" style="height: 3em; margin-right: 9px;"></a>
+			<a href="#"><img src="/img/instar.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/gogle.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/share.png" style="height: 3em; margin-right: 2px;"></a>
+		</div>
+
+	</section>
+	
+	</header>
+	
+	<%}else if(sessionId!= null && sessionId != 'admin'){%>
+			<li><a><%=sessionId%>님 로그인중...</a></li>
+			<li><a href="mypage">마이페이지</a></li>
+			<li><a class="page-scroll" href="#introduce">회사소개</a></li>
+			<li><a href="notice">고객센터</a></li>
+			<li><a href="logout">로그아웃</a></li>
+		</ul>
+	</div>
+<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+	</nav>
+	<!-- Header -->
+	 <header>
+		
+		<!-- Services Section -->
+
+	<section id="introduce"
+		style="background-image: url('/img/gray.jpg'); background-size: 100% 100%">
+
+
+		<div id="a" style="margin-top: -2em;">
+
+			<img src="/img/memo2.png" style="width: 9em; height: 8em;"> <img
+				src="/img/memo.png" style="width: 8em; height: 8em;">
+
+		</div>
+
+		<div id="a2">
+			<img src="/img/write.png" style="width: 5em; height: 5em;"> <img
+				src="/img/write2.png"
+				style="width: 4em; height: 4em; margin-left: 4.5em;">
+		</div>
+
+
+		<div id="b">
+
+			<img src="/img/tex.png" style="height: 400px; width: 300px;">
+			<!-- <img src="/img/bottle2.png"
+				style="height: 150px; margin-left: -15em;"> <img
+				src="/img/bottle3.png" style="height: 150px;"> -->
+		</div>
+
+		<a href="/receipt" style="">
+			<div id="b2">
+				<img src="/img/menu5.png" style="width: 270px; height: 70px; margin-top: 1.5em;">
+
+			</div>
+		</a>
+
+		<!-- <버튼> -->
+		<div id=b3 style="margin-top: -4.8em; margin-left: -24.1em;">
+			<div class="container">
+				<div class="row">
+
+					<div class="block">
+
+						<a href="/receipt"><i class="hoverbtn effect-6">공병 접수 바로가기</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div id="c">
+			<a href="#"><img src="/img/appstore.png"
+				style="width: 10.5em; height: 3em; margin-right: 1em;"></a> 
+			<a href="#"><img
+				src="/img/google.png" style="width: 10.5em; height: 3em;"></a>
+
+		</div>
+
+		<div id="A2">
+			<img src="/img/monitor.png"
+				style="margin-left: 10em; margin-top: 8em; width: 44em; height: 31.5em; z-index: -10;">
+
+			<div
+				style="margin-top: -34.8em; margin-bottom: 3em; margin-left: 11.5em; z-index: -10">
+
+				<video width="572" height="450" controls="controls"
+					class="video-js vjs-default-skin" data-setup="{}"
+					autoplay="autoplay" muted="muted" loop="loop">
+
+					<source src="/stylesheets/img/main/ZUPMovie.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+		</div>
+
+		<div id="A3">
+
+			<img src="/img/menu.png"
+				style="width: 20%; height: 65px; margin-left: 82.5em; margin-top: -80.5em;">
+			<img src="/img/menu2.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -75em;">
+			<img src="/img/menu4.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -70.9em;">
+			<img src="/img/menu3.png"
+				style="width: 20%; height: 50px; margin-left: 82.5em; margin-top: -66.8em;">
+		</div>
+		<div id="A4">
+			<h5 style="margin-left: 85em; margin-top: 10em; color: white;">
+				Company<br>Information
+			</h5>
+			<p style="margin-left: 85em; margin-top: 2.5em; color: grey;">ZUP
+				사회적역할</p>
+			<p style="margin-left: 85em; margin-top: 1.8em; color: white;">회사기부목표</p>
+			<p style="margin-left: 85em; margin-top: 2em; color: white;">회사기부내역</p>
+		</div>
+
+
+
+		<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+			<div style="margin-top: -12.5em;">
+				<div class="block">
+
+					<i class="hoverbtn3 effect-6">기업소개보기</i>
+				</div>
+				<div class="block" style="color: rgb(248, 252, 157)">
+
+					<i class="hoverbtn4 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn5 effect-6">자세히</i>
+				</div>
+				<div class="block">
+
+					<i class="hoverbtn6 effect-6">자세히</i>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="A5">
+			<img src="/img/flower.png" style="height: 2em; margin-right: -0.5px;">
+			<br> <img src="/img/goal2.png"
+				style="height: 2em; margin-right: 9px; margin-top: 1.5em;"> <br>
+			<img src="/img/list.png"
+				style="height: 2em; margin-right: 8px; margin-top: 2em;">
+		</div>
+
+
+		<div id="A5a">
+			<img src="/img/yellow.png" style="height: 250px; width: 310px;">
+		</div>
+
+		<div id="A5b">
+			<img src="/img/phone.png"
+				style="width: 100px; height: 150px; margin-left: 65.5em; margin-top: -27.5em;">
+			<img src="/img/zupM.png"
+				style="width: 90px; height: 118px; margin-left: 65.9em; margin-top: -30em;">
+			<p style="margin-left: 53em; margin-top: -19.5em; font-size: 18px;">
+				ZUP_MAN_SERVICE</p>
+			<p style="margin-left: 64.5em; margin-top: 1.5em; font-size: 16px;">
+				줍맨은 <br>당신이 있는 곳 <br> 어디에나 있습니다
+			</p>
+			<img src="/img/menu9.png"
+				style="width: 119px; height: 32px; margin-left: 74.5em; margin-top: 1.5em;">
+
+
+			<!-- <회원가입버튼> -->
+			<div class="row" style="margin-left: 74.7em; margin-top: -2em;">
+
+				<div class="block">
+
+					<i class="hoverbtn2 effect-6">회원가입 하러가기</i>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<div id="A6">
+			<a href="#"><img src="/img/twitter.png"
+				style="height: 4em; margin-right: -0.5px;"></a> 
+			<a href="#">	<img
+				src="/img/facebook.png" style="height: 3em; margin-right: 9px;"></a>
+			<a href="#"><img src="/img/instar.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/gogle.png" style="height: 3em; margin-right: 8px;"></a>
+			<a href="#"><img src="/img/share.png" style="height: 3em; margin-right: 2px;"></a>
+		</div>
+
+	</section>
+		
+	</header>
+	<%};%> 
+
+	
+	<section>
 		<div class="col-lg-12 text-center">
 			<h2 class="section-heading">회사소개</h2>
 			<h3 class="section-subheading text-muted">Introduction to the
@@ -322,8 +1270,8 @@
 		<div class="row text-center">
 			<div class="col-md-4">
 				<span class="fa-stack fa-4x"> <i
-					class="fa fa-circle fa-stack-2x text-primary"></i> <i
-					class="	fa fa-child fa-stack-1x fa-inverse"></i>
+					class="fa fa-circle fa-stack-2x text-primary"></i> 
+					<i class="	fa fa-child fa-stack-1x fa-inverse"></i>
 
 				</span>
 				<h4 class="service-heading">사회적 역할로서의 ZUP</h4>
@@ -334,9 +1282,9 @@
 				</p>
 			</div>
 			<div class="col-md-4">
-				<span class="fa-stack fa-4x"> <i
-					class="fa fa-circle fa-stack-2x text-primary"></i> <i
-					class="fa fa-line-chart fa-stack-1x fa-inverse"></i>
+				<span class="fa-stack fa-4x"> 
+				<i class="fa fa-circle fa-stack-2x text-primary"></i> 
+				<i class="fa fa-line-chart fa-stack-1x fa-inverse"></i>
 
 				</span>
 				<h4 class="service-heading">ZUP 2017년 기부 목표</h4>
@@ -362,7 +1310,7 @@
 
 
 	<!-- Team Section -->
-	<section id="team" class="bg-light-gray">
+	<section class="bg-light-gray">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -593,8 +1541,7 @@
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
-						</div> <!-- <img src="/img/portfolio/dreams.png" class="img-responsive" alt=""> -->
-						<img src="/stylesheets/img/main/vol15.jpg" class="img-responsive"
+						</div> <img src="/stylesheets/img/main/vol15.jpg" class="img-responsive"
 						alt="" style="width: 400; height: 289px;">
 					</a>
 					<div class="portfolio-caption">
@@ -618,7 +1565,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -661,7 +1608,7 @@
 					<h2>Project Heading</h2>
 					<p class="item-intro text-muted">Lorem ipsum dolor sit amet
 						consectetur.</p>
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -697,7 +1644,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -721,7 +1668,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Portfolio Modal 4 -->
+	<!-- 	Portfolio Modal 4 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal4"
 		tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -732,7 +1679,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -757,7 +1704,7 @@
 		</div>
 	</div>
 
-	<!-- Portfolio Modal 5 -->
+	<!-- 	Portfolio Modal 5 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal5"
 		tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -768,7 +1715,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -793,7 +1740,7 @@
 		</div>
 	</div>
 
-	<!-- Portfolio Modal 6 -->
+	<!-- 	Portfolio Modal 6 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal6"
 		tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -804,7 +1751,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<!-- Project Details Go Here -->
+					Project Details Go Here
 					<h2 style="margin-top: -1em;">2016년 6월 9일 기부</h2>
 					<p class="item-intro text-muted">아름다운 회사 ZUP의 첫번째 기부 발자취</p>
 					<img class="img-responsive img-centered"
@@ -828,9 +1775,17 @@
 			</div>
 		</div>
 	</div>
+	
+	
+
+<% include footer.ejs %>
+
+
+
+
 </body>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+	
+	
 <!--  로그인시 마이페이지 가기 -->
 <script type="text/javascript">
 	window.onload = function() {
@@ -893,4 +1848,3 @@
 	}
 </script>
 
-<% include footer.ejs %>
