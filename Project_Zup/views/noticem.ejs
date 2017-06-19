@@ -7,6 +7,7 @@
   td{
   height: 80px;
   vertical-align: inherit;
+  font-size: x-small;
   }
   th{
   background-color: forestgreen;
@@ -37,8 +38,8 @@
           <div class="row">
           <td style="vertical-align: middle;"><%= item.article_num%></td>
           <td style="vertical-align: middle;"><a href="#" style="color: #111;"><%= item.article_title%></a></td>
-          <td style="vertical-align: middle; font-size: small;"><%= item.article_writer%></td>
-          <td style="vertical-align: middle; font-size: small;"><%= moment(item.articledate).format('YYYY-MM-DD hh:mm:ss')%></td>
+          <td style="vertical-align: middle;"><%= item.article_writer%></td>
+          <td style="vertical-align: middle;"><%= moment(item.articledate).format('YYYY-MM-DD hh:mm:ss')%></td>
           <td style="vertical-align: middle;"><%= item.article_viewpoint%></td>
           </div>
           <!-- Article Modal -->
