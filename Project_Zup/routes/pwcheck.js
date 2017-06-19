@@ -86,7 +86,7 @@ console.log(email);
 		}else{
 			//res.json({result:'fail'});
 			console.log('틀림 인증번호 안보내줌');
-			res.send('<script type="text/javascript">alert("이름과 이메일을 다시 확인해주세요");location.href="pwcheck"</script>');
+			res.send('<script type="text/javascript">alert("아이디와 이메일을 다시 확인해주세요");location.href="pwcheck"</script>');
 			//res.render('login');
 		
 		}
