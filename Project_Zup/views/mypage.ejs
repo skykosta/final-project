@@ -142,7 +142,7 @@
                             <%=log[index].logtype%>
                             <span class="pull-right use"><%= moment(log[index].logdata).format('YYYY-MM-DD hh:mm:ss')%>&nbsp;&nbsp;</span>
                           </h4>
-                          <p class="summary"><%= log[index].status %> : 
+                          <p class="summary"><%= log[index].status %>  
                           <% if(log[index].content != '회수예정'){%>
                           <%= log[index].content %>
                           <%} else {%>

@@ -111,8 +111,17 @@ exports.mypage_change = function(req, res){
 	       var user_id = req.session.user_id;
 	       var zupmoney = req.params.withdrawalmoney;
 	       
-	       client.query('update user set zupmoney=? where user_id=?', [zupmoney, user_id]);
 	       
-	       res.redirect('/mypage');
-	       
+	    
+	    client.query("select user_num from user where user_id=? ", [user_id],function(err, result) {
+	    	var user_num = result[0].user_num
+	    	client.query("select zupmoney from user where user_id=? ", [user_id],function(err, result) {
+	    		var user_zupmoney = result[0].zupmoney
+	    		var zupmoneyString = "-"+(user_zupmoney-zupmoney)+"원"
+	    		client.query('update user set zupmoney=? where user_id=?', [zupmoney, user_id]);
+			   	   client.query("insert into userlog(user_num, logtype, status)" +
+						" values(?,'사용', ?) ",[user_num, zupmoneyString]);			
+			       res.redirect('/mypage');
+	    	})
+	    });
 	};
