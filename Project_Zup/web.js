@@ -182,6 +182,8 @@ app.get('/noticedelete', notice.delete);//게시판 조회수처리
 app.get('/fnq', notice.fnq);//자주묻는질문
 app.get('/contact', notice.contact);//Contact us
 app.post('/contact', notice.contact2);//메일발송 관련
+app.get('/mnotice', notice.noticem);//모바일 게시판
+app.get('/countm', notice.countm);//모바일 게시판
 
 
 /**헤더*/

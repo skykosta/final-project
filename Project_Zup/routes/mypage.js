@@ -54,13 +54,24 @@ exports.mypage = function(req, res){
 exports.mypage_change = function(req, res){
 	 var body = req.body;
 	 var user_pw = body.inputPassword;
-	 var hashpass = crypto.createHash("sha512").update(user_pw).digest("base64");
+	 var hashpass = "";
+	 
+	 if (user_pw.length>0) {
+		 hashpass = crypto.createHash("sha512").update(user_pw).digest("base64");
+		 client.query('update user set user_pw=?, user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
+				  [hashpass, body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
+			 
+			 res.redirect('/mypage');
+		  });
+	} else {
+		client.query('update user set user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
+				  [body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
+			 
+			 res.redirect('/mypage');
+		  });
+	}
 	
-	 client.query('update user set user_pw=?, user_phonenum=?, user_address=?, user_email=?, user_bankname=?, user_banknum=? where user_id = ?',
-			  [hashpass, body.inputNumber, body.address_base+"*"+body.address_detail, body.inputEmail, body.inputBank, body.inputAccount, req.session.user_id ], function(){
-		 
-		 res.redirect('/mypage');
-	  });
+	 
 
 	};
 	

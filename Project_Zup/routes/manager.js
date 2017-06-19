@@ -416,11 +416,9 @@ exports.total = function(req, res){
 			}
 		}
 		
-		for(var i = 0; i < 25; i++){
-			totalCount.push(count + i);
-		}
+
 		
-		res.render('maptest', {
+		res.render('total', {
 			count1: count1,
 			count2: count2,
 			count3: count3,
@@ -446,7 +444,7 @@ exports.total = function(req, res){
 			count23: count23,
 			count24: count24,
 			count25: count25,
-		    sessionId: sessionUserId
+			sessionId: sessionUserId
 			});
 		});
 };
