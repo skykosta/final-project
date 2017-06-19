@@ -176,6 +176,50 @@ exports.notice = function(req, res){
      }
 };
 
+exports.noticem = function(req, res){
+	var sessionUserId = req.session.user_id;
+	pageCount = (Math.ceil(countresult/pageSize));
+	client.query("select count(article_num) counts from article", function(error, countresults) {
+		countresult = countresults[0].counts;
+		});
+		if (typeof req.query.page !== 'undefined') {
+            currentPage = +req.query.page;
+        }
+    if (typeof req.query.searchType == "undefined") {
+    	if(typeof req.query.page == 'undefined'){
+			currentPage = 1;
+		}
+	client.query("select *" +
+			" from article "+
+			" where article_num > 0 and board_num = 1" +
+			" order by article_num desc, articledate desc" +
+			" limit ?,?",[(currentPage*20)-20,pageSize], function(error, results) {
+				res.render('noticem', {
+				data: results,
+				pageSize: pageSize,
+			    pageCount: pageCount,
+			    currentPage: currentPage,
+			    searchValue: "",
+			    searchType: "",
+			    userid: req.session.user_id,
+			    moment,
+			    sessionId: sessionUserId
+				});
+			});
+    	}
+    if (typeof req.query.searchType !== 'undefined') {
+    	if(typeof req.query.page == 'undefined'){
+			currentPage = 1
+		}
+     }
+};
+
+exports.countm = function(req, res){
+	client.query("update article set article_viewpoint = article_viewpoint+1 where article_num=?", [req.query.article_num],function(err, result) {
+			res.redirect('noticem');
+	});
+}
+
 
 
 
