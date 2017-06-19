@@ -138,13 +138,15 @@ exports.mresult = function(req, res){
 	
 	console.log("mresult 호출됨.");
 	
-//	var employee_num = req.body.employee_num;
-//	var order_num = req.body.order_num;
-//	var user_num = req.body.user_num;
-//	var bottleArray = JSON.parse(req.body.bottleArray);
+	var employee_num = req.body.employee_num;
+	var order_num = req.body.order_num;
+	var user_num = req.body.user_num;
+	var bottleArray = JSON.parse(req.body.bottleArray);
+	var deviceId = req.body.token;
+    var zupmoney = 0;
     var soju = 100;
     var beer = 130;
-    var price = 0;
+
     /*
     var bottleArray2 = 	[
     	                 {"bottle_num":"1", "bottle_amount":"8"},
@@ -153,67 +155,58 @@ exports.mresult = function(req, res){
                          {"bottle_num":"3", "bottle_amount":"3"}
                         ];
     */
-                        
-    
-//    console.log(bottleArray2.length);
-    
-    for (var i = 0; i < bottleArray2.length; i++) {
+                           
+    for (var i = 0; i < bottleArray.length; i++) {
     	
-    	var bottle_num = bottleArray2[i].bottle_num;
-    	var bottle_amount = bottleArray2[i].bottle_amount;
+    	var bottle_num = bottleArray[i].bottle_num;
+    	var bottle_amount = bottleArray[i].bottle_amount;
+        var bottle_price = 0;
     	
     	switch(bottle_num){
     	  
     	   case "1": case "2": case "3": case "4": 
-    		     price += bottle_amount * soju;
+    		     bottle_price = bottle_amount * soju;
+    		     bottle_list(bottle_price);
+    		     zupmoney += bottle_price
     		     break;
     	   
     	   case "5": case "6": case "7" : case "8":
-    	       	 price += bottle_amount * beer;
+    		     bottle_price = bottle_amount * beer;
+    		     bottle_list(bottle_price);
+    	       	 zupmoney += bottle_price;
     	       	 break;
-    	}   	
-	}
-    console.log(price);
-
- /*
+    	}
+    	
+    	function bottle_list(price){
+    		
+    		//보틀 리스트 삽입
+    		client.query("insert into bottle_list(employee_num," +
+    											"user_num," +
+    											"bottle_num," +
+    											"bottle_amount," +
+    											"bottle_price)"+
+					     " values  ( ?,"+
+					  			   " ?,"+
+					  			   " ?,"+
+					  			   " ?,"+
+					  			   " ?)",
+					 [employee_num, user_num, bottle_num, bottle_amount, price]);
+        };
+    	
+ 	}//for()
     
-    1	진로	참이슬
-	2	롯데	처음처럼
-	3	무학	좋은데이
-	4	보해양조 잎새주
-	5	진로	하이트
-	6	진로	Max
-	7	진로	DryFinish
-	8	오비맥주 Cass
-	
-	
-	
-	소주 몃병, 맥주 몃병 user_num, employee_num, bottle_num,
-	
-
-	//보틀 리스트 소주몃병,맥주몃병,해당 user_num, employee_num, bottle_price, bottle_amount
-	
-	
 	//고객 줍머니 적립
 	client.query("update user set zupmoney = ? where user_num = ?",
 	             [zupmoney, user_num]);
-*/
-     
-    //console.log(bottleArray);
-    
-    /*
 
 	//유저 내역 회수완료로 업데이트
-    client.query(" update userlog set status = '회수완료', logtype = '완료', content = 5500" +
+    client.query(" update userlog set status = '회수완료', logtype = '완료', content = ?" +
                  " where status = '회수예정' and logtype = '대기' and user_num = ? ", 
-                 [user_num]);
+                 [zupmoney, user_num]);
     
     //오더리스트 지우기
 	client.query("delete from orderlist where user_num = ? and employee_num = ?",
 		         [user_num, employee_num]);
-
-    
-	var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
 
 	sendMessageToUser(deviceId);
 	
@@ -247,8 +240,6 @@ exports.mresult = function(req, res){
 			}
 		});
 	}//sendMessageToUser()
-	
-   */
 
 }//mresult
 
