@@ -191,7 +191,7 @@ exports.noticem = function(req, res){
 		}
 	client.query("select *" +
 			" from article "+
-			" where article_num > 0 and board_num = 1" +
+			" where article_num > 0 and board_num = 2" +
 			" order by article_num desc, articledate desc" +
 			" limit ?,?",[(currentPage*20)-20,pageSize], function(error, results) {
 				res.render('noticem', {
