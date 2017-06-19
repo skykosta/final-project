@@ -1,0 +1,109 @@
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="/stylesheets/css/agency.min.css" rel="stylesheet">
+<head>
+<style>
+  td{
+  height: 80px;
+  vertical-align: inherit;
+  }
+  th{
+  background-color: forestgreen;
+  }
+  .modal-content{
+  background-color: antiquewhite;
+  }
+</style>
+</head>
+<table class="table table-hover">
+      <thead>
+        <tr>
+          <th>NO.</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(function(item, index){%>
+        <tr data-toggle="modal" data-target="#myModal<%= index%>" data-backdrop="static"
+          data-keyboard="false">
+          <td style="vertical-align: middle;"><%= item.article_num%></td>
+          <td style="vertical-align: middle;"><a href="#" style="color: #111;"><%= item.article_title%></a></td>
+          <td style="vertical-align: middle;"><%= item.article_writer%></td>
+          <td style="vertical-align: middle;"><%= moment(item.articledate).format('YYYY-MM-DD hh:mm:ss')%></td>
+          <td style="vertical-align: middle;"><%= item.article_viewpoint%></td>
+
+          <!-- Article Modal -->
+          <div class="modal fade" id="myModal<%= index%>" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Article Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"
+                    onclick="location.href='countm?article_num=<%=item.article_num%>'">&times;</button>
+                  <h4 class="modal-title"><%=item.article_title %></h4>
+                </div>
+                <form method="post">
+                  <div class="modal-body">
+                    <pre class="modal-title"><%=item.article_content %></pre>
+                    <input type="hidden" name="article_num" value="<%=item.article_num%>">
+                  </div>
+                </form>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal"
+                    onclick="location.href='countm?article_num=<%=item.article_num%>'">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tr>
+        <% });%>
+
+        <tr style="margin: 0 auto">
+          <td colspan="12" style="text-align: center;"><% if (searchType ==""){%> <%
+            if (pageCount > 1) { %>
+            <ul class="pagination">
+              <% if (currentPage > 1) { %>
+              <li><a href="/mnotice?page=1">&laquo;</a></li> <% } %> <% var i = 1; if
+              (currentPage > 5) { i = +currentPage - 4; } %> <% if (i !== 1) { %>
+              <li class="disabled"><a href="#">...</a></li> <% } %> <% for (i;
+              i<=pageCount; i++) { %> <% if (currentPage == i) { %>
+              <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
+              <% } else { %>
+              <li><a href="/mnotice?page=<%= i %>"><%= i %></a></li> <% } %> <% if (i ==
+              (+currentPage + 4)) { %>
+              <li class="disabled"><a href="#">...</a></li> <% break; } %> <% } %> <% if
+              (currentPage != pageCount) { %>
+              <li><a href="/mnotice?page=<%= pageCount %>">&raquo;</a></li> <% } %>
+            </ul> <% } %> <%}%> <% if (searchType !=""){ %> <% if (pageCount > 1) { %>
+            <ul class="pagination">
+              <% if (currentPage > 1) { %>
+              <li><a
+                href="/mnotice?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+              <% } %> <% var i = 1; if (currentPage > 5) { i = +currentPage - 4; } %> <%
+              if (i !== 1) { %>
+              <li class="disabled"><a href="#">...</a></li> <% } %> <% for (i;
+              i<=pageCount; i++) { %> <% if (currentPage == i) { %>
+              <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
+              <% } else { %>
+              <li><a
+                href="/mnotice?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%=
+                  i %></a></li> <% } %> <% if (i == (+currentPage + 4)) { %>
+              <li class="disabled"><a href="#">...</a></li> <% break; } %> <% } %> <% if
+              (currentPage != pageCount) { %>
+              <li><a
+                href="/mnotice?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+              <% } %>
+            </ul> <% } %> <%}%>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>

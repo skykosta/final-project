@@ -443,8 +443,7 @@ exports.total = function(req, res){
 			count22: count22,
 			count23: count23,
 			count24: count24,
-			count25: count25,
-		    sessionId: sessionUserId
+			count25: count25
 			});
 		});
 };
