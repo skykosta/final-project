@@ -47,7 +47,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"
-                    onclick="location.href='noticecount?article_num=<%=item.article_num%>'">&times;</button>
+                    onclick="location.href='countm?article_num=<%=item.article_num%>'">&times;</button>
                   <h4 class="modal-title"><%=item.article_title %></h4>
                 </div>
                 <form method="post">
@@ -71,22 +71,22 @@
             if (pageCount > 1) { %>
             <ul class="pagination">
               <% if (currentPage > 1) { %>
-              <li><a href="/notice?page=1">&laquo;</a></li> <% } %> <% var i = 1; if
+              <li><a href="/mnotice?page=1">&laquo;</a></li> <% } %> <% var i = 1; if
               (currentPage > 5) { i = +currentPage - 4; } %> <% if (i !== 1) { %>
               <li class="disabled"><a href="#">...</a></li> <% } %> <% for (i;
               i<=pageCount; i++) { %> <% if (currentPage == i) { %>
               <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
               <% } else { %>
-              <li><a href="/notice?page=<%= i %>"><%= i %></a></li> <% } %> <% if (i ==
+              <li><a href="/mnotice?page=<%= i %>"><%= i %></a></li> <% } %> <% if (i ==
               (+currentPage + 4)) { %>
               <li class="disabled"><a href="#">...</a></li> <% break; } %> <% } %> <% if
               (currentPage != pageCount) { %>
-              <li><a href="/notice?page=<%= pageCount %>">&raquo;</a></li> <% } %>
+              <li><a href="/mnotice?page=<%= pageCount %>">&raquo;</a></li> <% } %>
             </ul> <% } %> <%}%> <% if (searchType !=""){ %> <% if (pageCount > 1) { %>
             <ul class="pagination">
               <% if (currentPage > 1) { %>
               <li><a
-                href="/notice?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
+                href="/mnotice?page=1&searchType=<%=searchType%>&value=<%=searchValue%>">&laquo;</a></li>
               <% } %> <% var i = 1; if (currentPage > 5) { i = +currentPage - 4; } %> <%
               if (i !== 1) { %>
               <li class="disabled"><a href="#">...</a></li> <% } %> <% for (i;
@@ -94,12 +94,12 @@
               <li class="active"><span><%= i %> <span class="sr-only">(current)</span></span></li>
               <% } else { %>
               <li><a
-                href="/notice?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%=
+                href="/mnotice?page=<%= i %>&searchType=<%=searchType%>&value=<%=searchValue%>"><%=
                   i %></a></li> <% } %> <% if (i == (+currentPage + 4)) { %>
               <li class="disabled"><a href="#">...</a></li> <% break; } %> <% } %> <% if
               (currentPage != pageCount) { %>
               <li><a
-                href="/notice?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
+                href="/mnotice?page=<%= pageCount %>&searchType=<%=searchType%>&value=<%=searchValue%>">&raquo;</a></li>
               <% } %>
             </ul> <% } %> <%}%>
           </td>
