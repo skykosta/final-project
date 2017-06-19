@@ -1,10 +1,7 @@
-<link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="/stylesheets/css/agency.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
 <style>
   td{
@@ -20,15 +17,17 @@
   }
 </style>
 </head>
-<table class="table table-hover">
+<body>
+<div class="container-fluid">
+<table class="table table-hover ui-responsive">
       <thead>
         <tr>
           <div class="row">
           <th class="col-xs-1">NO.</th>
-          <th class="col-xs-5">제목</th>
-          <th class="col-xs-1">작성자</th>
-          <th class="col-xs-2">작성일</th>
-          <th class="col-xs-1">조회수</th>
+          <th class="col-xs-4">제목</th>
+          <th class="col-xs-2">작성자</th>
+          <th class="col-xs-3">작성일</th>
+          <th class="col-xs-2">조회수</th>
           </div>
         </tr>
       </thead>
@@ -40,7 +39,7 @@
           <td style="vertical-align: middle;"><%= item.article_num%></td>
           <td style="vertical-align: middle;"><a href="#" style="color: #111;"><%= item.article_title%></a></td>
           <td style="vertical-align: middle;"><%= item.article_writer%></td>
-          <td style="vertical-align: middle;"><%= moment(item.articledate).format('YYYY-MM-DD hh:mm:ss')%></td>
+          <td style="vertical-align: middle; font-size: small;"><%= moment(item.articledate).format('YYYY-MM-DD hh:mm:ss')%></td>
           <td style="vertical-align: middle;"><%= item.article_viewpoint%></td>
           </div>
           <!-- Article Modal -->
@@ -111,3 +110,5 @@
       </tbody>
     </table>
     </div>
+    </div>
+    </body>
