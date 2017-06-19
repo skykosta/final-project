@@ -12,15 +12,74 @@ var client = mysql.createConnection({
 
 
 //금일 회수 내역 리스트 넘겨 주기
-exports.mreceipt = function(req, res){
+exports.mhistory = function(req, res){
 	
-	
-	
-	
-	
+	var employee_num = req.body.employee_num;
+	var deviceId = req.body.token;
+//	var employee_num = 2;
+//	var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";	
+	console.log(employee_num);
+	console.log(deviceId);
+
+	client.query(" select b.employee_num,"+
+                         "b.user_num,"+
+                         "b.bottle_num,"+
+                         "b.bottle_amount,"+
+                         "b.return_status,"+
+                         "b.returndate,"+
+                         "u.user_name,"+
+                         "u.user_phonenum,"+
+                         "u.user_address,"+
+                         "u.lat,"+
+                         "u.lng"+
+                 " from bottle_list b join user u"+ 
+                        " on b.user_num = u.user_num"+
+                 " where employee_num = ? AND DATE_FORMAT(b.returndate, '%Y-%m-%d')"+ 
+                                           "= DATE_FORMAT(sysdate(), '%Y-%m-%d')",
+     [employee_num],
+    function(error, results){
+		
+//    console.log(results);
+
+   	for (var i = 0; i < results.length; i++) {
+		var result = results[i]
+
+		sendMessageToUser(deviceId, result);
+		
+	}
+   	
+   	function sendMessageToUser(deviceId, result) {
+    	
+		request({
+			url : 'https://fcm.googleapis.com/fcm/send',
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
+			},
+			body : JSON.stringify({	
+				
+				"data" : {		
+					      "history" : result
+						},
+				
+				"to" : deviceId
+			})
+		}, function(error, response, body) {
+			if (error) {
+				console.error(error, response, body);
+			} else if (response.statusCode >= 400) {
+				console.error('HTTP Error: ' + response.statusCode + ' - '
+						+ response.statusMessage + '\n' + body);
+			} else {
+				console.log('회수내역 데이터 JSON 메세지 전송 성공!');
+			}
+		});
+	  }//sendMessageToUser()
+
+	});//client.query
 	
 }
-
 
 
 
@@ -83,59 +142,71 @@ exports.mresult = function(req, res){
 	var order_num = req.body.order_num;
 	var user_num = req.body.user_num;
 	var bottleArray = JSON.parse(req.body.bottleArray);
-	var zupmoney = 0;
+	var deviceId = req.body.token;
+    var zupmoney = 0;
     var soju = 100;
     var beer = 130;
-	//소주병은 100원 맥주병은 130원
 
- /*
-  
- 
-    
-    1	진로	참이슬
-	2	롯데	처음처럼
-	3	무학	좋은데이
-	4	보해양조	잎새주
-	5	진로	하이트
-	6	진로	Max
-	7	진로	DryFinish
-	8	오비맥주	Cass
-	
-	[{"":""},
-     {"":""}]
-		
-    
+    /*
+    var bottleArray2 = 	[
+    	                 {"bottle_num":"1", "bottle_amount":"8"},
+                         {"bottle_num":"5", "bottle_amount":"5"},
+                         {"bottle_num":"6", "bottle_amount":"7"},
+                         {"bottle_num":"3", "bottle_amount":"3"}
+                        ];
+    */
+                           
     for (var i = 0; i < bottleArray.length; i++) {
     	
-    	console.log("bottle_amount :" + bottleArray[i].bottle_amount);
-    	console.log("bottle_num :" + bottleArray[i].bottle_num);
-	}
-	
-	
-	소주 몃병, 맥주 몃병 user_num, employee_num, bottle_num,
-	
-
-	//보틀 리스트 소주몃병,맥주몃병,해당 user_num, employee_num, bottle_price, bottle_amount
-	
-	
+    	var bottle_num = bottleArray[i].bottle_num;
+    	var bottle_amount = bottleArray[i].bottle_amount;
+        var bottle_price = 0;
+    	
+    	switch(bottle_num){
+    	  
+    	   case "1": case "2": case "3": case "4": 
+    		     bottle_price = bottle_amount * soju;
+    		     bottle_list(bottle_price);
+    		     zupmoney += bottle_price
+    		     break;
+    	   
+    	   case "5": case "6": case "7" : case "8":
+    		     bottle_price = bottle_amount * beer;
+    		     bottle_list(bottle_price);
+    	       	 zupmoney += bottle_price;
+    	       	 break;
+    	}
+    	
+    	function bottle_list(price){
+    		
+    		//보틀 리스트 삽입
+    		client.query("insert into bottle_list(employee_num," +
+    											"user_num," +
+    											"bottle_num," +
+    											"bottle_amount," +
+    											"bottle_price)"+
+					     " values  ( ?,"+
+					  			   " ?,"+
+					  			   " ?,"+
+					  			   " ?,"+
+					  			   " ?)",
+					 [employee_num, user_num, bottle_num, bottle_amount, price]);
+        };
+    	
+ 	}//for()
+    
 	//고객 줍머니 적립
 	client.query("update user set zupmoney = ? where user_num = ?",
 	             [zupmoney, user_num]);
-*/
-     
-    //console.log(bottleArray);
 
 	//유저 내역 회수완료로 업데이트
-    client.query(" update userlog set status = '회수완료', logtype = '완료', content = 5500" +
+    client.query(" update userlog set status = '회수완료', logtype = '완료', content = ?" +
                  " where status = '회수예정' and logtype = '대기' and user_num = ? ", 
-                 [user_num]);
+                 [zupmoney, user_num]);
     
     //오더리스트 지우기
 	client.query("delete from orderlist where user_num = ? and employee_num = ?",
 		         [user_num, employee_num]);
-
-    
-	var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
 
 	sendMessageToUser(deviceId);
 	
@@ -169,7 +240,7 @@ exports.mresult = function(req, res){
 			}
 		});
 	}//sendMessageToUser()
-	
+
 }//mresult
 
 

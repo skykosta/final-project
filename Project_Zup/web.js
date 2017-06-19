@@ -164,10 +164,11 @@ app.get('/receipt', receipt.receipt);
 app.get('/receipt2', receipt.receipt2);
 app.post('/receipt2', receipt.send);
 
-/* 안드로이드 통신 테스트 페이지 */
+/* 줍맨 모바일과 통신 */
 app.post("/mlogin", androidService.mlogin);
 app.post("/mreceipt", androidService.mreceipt);
 app.post("/mresult", androidService.mresult);
+app.post("/mhistory", androidService.mhistory);
 
 
 /*고객센터 페이지 총5개*/
