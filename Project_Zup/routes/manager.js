@@ -416,11 +416,9 @@ exports.total = function(req, res){
 			}
 		}
 		
-		for(var i = 0; i < 25; i++){
-			totalCount.push(count + i);
-		}
+
 		
-		res.render('maptest', {
+		res.render('total', {
 			count1: count1,
 			count2: count2,
 			count3: count3,
