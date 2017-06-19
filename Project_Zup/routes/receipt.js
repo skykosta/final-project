@@ -60,21 +60,24 @@ exports.send = function(req, res){
 	  //유저 값 세팅
 	  var user_id = req.session.user_id;
 	  
-	  //디바이스 키값, 위도 경도 세팅
-	  var deviceId = "fmSaNS8SGNs:APA91bHHFX_mvKzAeNzbJNCaT0MNwrmAPdEm6Tf1fA6-qjzP5ZfYapDFtLv1RbGpyhQHlmppWzNAxpEdNHB9eG0t22htB_c0DeBiACJQr8dYBx0eBshu4ugb4p3KyNC68bkRPoKSDJ_N";
-//	  var deviceId = "fsXFrBLwN8g:APA91bFwe4Gd-LzFEfWrHcSRh0O9cCp06W7VWYosoKPfbsoc9meBWAiWp30FffqTtJ7aEzowWvTDpQnTF9dtzywLr5ex8sZTu6a_k23IrrrUzRUPu73FpXsVKTNq-Qz5hIJ8lkIuxMnn";
-	
-	  //직원 정보
-	  var employee_num = 2; // 잦됨
-             
-      client.query("select user_num from user where user_id = ?", [user_id], function(error, results){
+	  //일단 접수하면 모든 직원한테 가야함.
+	  //유저 로그에는 하나씩만 들어가고 직원한테만 3번 보내야함
+	  
+	  //디바이스 키값, 위도 경도 세팅            
+      client.query("select user_num from user where user_id = ?", [user_id], function(error, user_results){
     	  
-    	  var user_num = results[0].user_num;    	  
-    	  
-          //안드로이드와 통신하기.
-          sendMessageToUser(deviceId, lat, lng);
+    	  var user_num = user_results[0].user_num;
 
-          function sendMessageToUser(deviceId, lat, lng) {
+    	  client.query("select device_key from employee",function(errer, device_results){
+    		  
+    		  for(var i = 0; i < device_results.length; i++){
+    	          var deviceId = device_results[i].device_key;
+    		      sendMessageToUser(deviceId, lat, lng);
+    		  }
+    	  });//client.query
+    	      	  
+      //안드로이드와 통신하기.
+      function sendMessageToUser(deviceId, lat, lng) {
         	  
       		request({
       			url : 'https://fcm.googleapis.com/fcm/send',
@@ -103,7 +106,7 @@ exports.send = function(req, res){
       				console.error('HTTP Error: ' + response.statusCode + ' - '
       						+ response.statusMessage + '\n' + body);
       			} else {
-      				console.log('전송 성공!')
+      				console.log('실시간 접수 요청 전송 성공!')
       			}
       		});
       	}//sendMessageToUser()   	 
