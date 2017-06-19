@@ -186,7 +186,7 @@ a.active, a:active, a:focus, a:hover {
 }
 
 .navbar-custom {
-	background-color: #054229;
+	background-color: #ffffff;
 	border-color: transparent
 }
 
@@ -203,8 +203,8 @@ a.active, a:active, a:focus, a:hover {
 }
 
 .navbar-custom .nav li a, .navbar-custom .navbar-toggle {
-	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #ffffff;
+	font-family: lotteMartHappy;
+	color: #000;
 	text-transform: uppercase
 }
 
