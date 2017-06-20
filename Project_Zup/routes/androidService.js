@@ -4,7 +4,7 @@ var firebase = require("firebase");
 var async = require("async");
 
 var client = mysql.createConnection({
-	host: '192.168.0.67',
+	host: 'localhost',
 	user: 'root',
 	password: 'root',
 	database: 'zup'
@@ -20,61 +20,7 @@ exports.mhistory = function(req, res){
 	console.log(employee_num);
 	console.log(deviceId);
 
-	client.query(" select b.employee_num,"+
-                         "b.user_num,"+
-                         "b.bottle_num,"+
-                         "b.bottle_amount,"+
-                         "b.return_status,"+
-                         "b.returndate,"+
-                         "u.user_name,"+
-                         "u.user_phonenum,"+
-                         "u.user_address,"+
-                         "u.lat,"+
-                         "u.lng"+
-                 " from bottle_list b join user u"+ 
-                        " on b.user_num = u.user_num"+
-                 " where employee_num = ? AND DATE_FORMAT(b.returndate, '%Y-%m-%d')"+ 
-                                           "= DATE_FORMAT(sysdate(), '%Y-%m-%d')",
-     [employee_num],
-    function(error, results){
 
-   	for (var i = 0; i < results.length; i++) {
-		var result = results[i]
-
-		sendMessageToUser(deviceId, result);
-		
-	}
-   	
-   	function sendMessageToUser(deviceId, result) {
-    	
-		request({
-			url : 'https://fcm.googleapis.com/fcm/send',
-			method : 'POST',
-			headers : {
-				'Content-Type' : 'application/json',
-  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
-			},
-			body : JSON.stringify({	
-				
-				"data" : {		
-					      "history" : result
-						},
-				
-				"to" : deviceId
-			})
-		}, function(error, response, body) {
-			if (error) {
-				console.error(error, response, body);
-			} else if (response.statusCode >= 400) {
-				console.error('HTTP Error: ' + response.statusCode + ' - '
-						+ response.statusMessage + '\n' + body);
-			} else {
-				console.log('회수내역 데이터 JSON 메세지 전송 성공!');
-			}
-		});
-	  }//sendMessageToUser()
-
-	});//client.query
 	
 }//mhistory
 
@@ -132,7 +78,6 @@ exports.mresult = function(req, res){
 	console.log("mresult 호출됨.");
 	
 	var employee_num = req.body.employee_num;
-	var order_num = req.body.order_num;
 	var user_num = req.body.user_num;
 	var bottleArray = JSON.parse(req.body.bottleArray);
 	var deviceId = req.body.token;
@@ -140,14 +85,11 @@ exports.mresult = function(req, res){
     var soju = 100;
     var beer = 130;
 
-    /*
-    var bottleArray2 = 	[
-    	                 {"bottle_num":"1", "bottle_amount":"8"},
-                         {"bottle_num":"5", "bottle_amount":"5"},
-                         {"bottle_num":"6", "bottle_amount":"7"},
-                         {"bottle_num":"3", "bottle_amount":"3"}
-                        ];
-    */
+    
+    console.log(employee_num);
+    console.log(user_num);
+    console.log(bottleArray);
+    console.log(deviceId);
                            
     for (var i = 0; i < bottleArray.length; i++) {
     	
@@ -171,6 +113,8 @@ exports.mresult = function(req, res){
     	}
     	
     	function bottle_list(price){
+    		
+    		console.log("적립될 줍머니 : " + price);
     		
     		//보틀 리스트 삽입
     		client.query("insert into bottle_list(employee_num," +
@@ -250,9 +194,9 @@ exports.mlogin = function(req, res){
 	var employee_pw = req.body.employee_pw;
 	var deviceId = req.body.token;
 	
-	console.log(employee_id);
-	console.log(employee_pw);
-	console.log(deviceId);
+//	console.log(employee_id);
+//	console.log(employee_pw);
+//	console.log(deviceId);
 
 	client.query('select count(*) cnt from employee where employee_id= ? and employee_pw= ?', 
             [employee_id, employee_pw], function(err, result){
@@ -263,7 +207,7 @@ exports.mlogin = function(req, res){
             			
        		         //로그인 시 오더리스트 넘겨주기
        		          function(callback){
-       		        	  
+       		        	    console.log("============로그인 성공===========");
        		        		client.query(
        		        		    	   
        		        		           "select o.order_num," +
@@ -318,13 +262,72 @@ exports.mlogin = function(req, res){
        		        						}
        		        					});
        		        				}//sendMessageToUser()
-       		        		    });//client.query 		        	  
-       		        	  
+       		        		    });//client.query
+       		        		
+       		        		//금일 회수 내역 넘기기
+       		        		client.query(" select b.employee_num,"+
+       	                         "b.user_num,"+
+       	                         "b.bottle_num,"+
+       	                         "b.bottle_amount,"+
+       	                         "b.return_status,"+
+       	                         "b.returndate,"+
+       	                         "u.user_name,"+
+       	                         "u.user_phonenum,"+
+       	                         "u.user_address,"+
+       	                         "u.lat,"+
+       	                         "u.lng"+
+       	                 " from bottle_list b join user u"+ 
+       	                        " on b.user_num = u.user_num"+
+       	                	    " join employee e"+
+       	                        " on b.employee_num = e.employee_num"+       	                        
+       	                 " where device_key = ? AND DATE_FORMAT(b.returndate, '%Y-%m-%d')"+ 
+       	                                           "= DATE_FORMAT(sysdate(), '%Y-%m-%d')",
+       	                   [deviceId],
+       	    function(error, results){
+
+       	   	for (var i = 0; i < results.length; i++) {
+       			var result = results[i]
+
+       			sendMessageToUser(deviceId, result);
+       			
+       		}
+       	   	
+       	   	function sendMessageToUser(deviceId, result) {
+       	    	
+       			request({
+       				url : 'https://fcm.googleapis.com/fcm/send',
+       				method : 'POST',
+       				headers : {
+       					'Content-Type' : 'application/json',
+       	  	  		    'Authorization' : 'key=AIzaSyBSbZnXnWynFcza_5hg5T3KlXIKgpwE3lg'
+       				},
+       				body : JSON.stringify({	
+       					
+       					"data" : {		
+       						      "history" : result
+       							},
+       					
+       					"to" : deviceId
+       				})
+       			}, function(error, response, body) {
+       				if (error) {
+       					console.error(error, response, body);
+       				} else if (response.statusCode >= 400) {
+       					console.error('HTTP Error: ' + response.statusCode + ' - '
+       							+ response.statusMessage + '\n' + body);
+       				} else {
+       					console.log('회수내역 데이터 JSON 메세지 전송 성공!');
+       				}
+       			});
+       		  }//sendMessageToUser()
+
+       		});//client.query       		        		
+       		        		
        		        		setTimeout(function(){
        				        	  
        		        			callback(null, 1);
        		        			
-       		        		}, 3000); 
+       		        		}, 2000); 
                       },//function(callback)
        		         
        		         function(callback){

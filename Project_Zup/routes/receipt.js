@@ -42,7 +42,7 @@ exports.receipt2 = function(req, res){
 };
 
 //3페이지 보여주기
-//post 방식
+//post 방식 실시간 접수 데이터 보내주기
 /* 접수하기 페이지 안드로이드와 통신 */
 exports.send = function(req, res){
 	  
